@@ -4,8 +4,90 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Split</title>
+<style>
+  :root { --bg:#0b0f14; --panel:#121820; --panel2:#18202a; --line:#2a3644; --text:#e8eef5; --muted:#93a3b5; --gold:#d4a017; --ok:#3dd68c; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Segoe UI",system-ui,sans-serif; background:#0b0f14; color:#e8eef5; line-height:1.45; }
+  header { padding:28px 24px 16px; border-bottom:1px solid var(--line); text-align:center; }
+  .wrap { max-width:900px; margin:0 auto; padding:8px 18px 56px; }
+  h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
+  .sub { color:var(--muted); font-size:16px; max-width:640px; margin:0 auto; }
+  .league { background:var(--panel); border:1px solid var(--line); border-radius:14px; margin:14px 0; overflow:hidden; }
+  .league > summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; padding:16px 18px; font-size:20px; font-weight:800; }
+  .league > summary::-webkit-details-marker { display:none; }
+  .league > summary::after { content:"+"; color:var(--gold); font-size:22px; }
+  .league[open] > summary::after { content:"–"; }
+  .inner { padding:0 18px 16px; border-top:1px solid var(--line); }
+  .inner details { background:var(--panel2); border:1px solid var(--line); border-radius:10px; margin:12px 0 0; }
+  .inner details > summary { list-style:none; cursor:pointer; padding:12px 14px; font-weight:700; color:var(--gold); }
+  .inner details > summary::-webkit-details-marker { display:none; }
+  .weeks { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; padding:0 14px 14px; }
+  .weeks span, .weeks button { display:block; text-align:center; padding:10px 6px; border-radius:8px; border:1px solid var(--line); background:#0e141c; color:var(--muted); font-size:13px; font-weight:700; font-family:inherit; }
+  .weeks button.live { border-color:var(--ok); color:var(--ok); cursor:pointer; width:100%; }
+  .slate { padding:0 14px 14px; }
+  .g { display:flex; align-items:center; gap:10px; background:#0e141c; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; }
+  .g img { width:28px; height:28px; object-fit:contain; }
+  .g b { flex:1; font-size:14px; }
+  .g span { color:var(--muted); font-size:12px; }
+  .day { color:var(--muted); font-size:11px; letter-spacing:.1em; margin:12px 0 4px; font-weight:700; }
+  .g-dive { background:#0e141c; border:1px solid #3dd68c; border-radius:10px; margin:6px 0; }
+  .dive-box { padding:8px 12px 14px; border-top:1px solid var(--line); }
+  .mini { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:8px 0 12px; }
+  .mini div { background:#121820; border:1px solid var(--line); border-radius:10px; padding:10px; }
+  .mini b { display:block; color:var(--muted); font-size:10px; }
+  .mini span { font-size:13px; font-weight:800; }
+  .mini small { display:block; color:var(--muted); font-size:11px; margin-top:4px; }
+  .full-link { color:var(--gold); font-weight:800; text-decoration:none; }
+  .note { color:var(--muted); font-size:13px; padding:0 14px 12px; }
+  @media (max-width:640px){ .weeks,.mini{grid-template-columns:1fr 1fr;} h1{font-size:32px;} }
+</style>
 </head>
 <body>
-<p>Placeholder - see follow-up commit</p>
+<header>
+  <div class="wrap" style="padding-bottom:12px">
+    <h1>THE SPLIT</h1>
+    <div class="sub">Who is on who, what the line did, and which role players actually move a game. NFL, MLB, NBA, NHL.</div>
+  </div>
+</header>
+<div class="wrap">
+  <details class="league" open>
+    <summary>NFL</summary>
+    <div class="inner">
+      <details open>
+        <summary>Deep Dives</summary>
+        <div class="weeks">
+          <button type="button" class="live" id="btn-w1">Week 1</button>
+          <span>Week 2</span><span>Week 3</span><span>Week 4</span><span>Week 5</span><span>Week 6</span>
+          <span>Week 7</span><span>Week 8</span><span>Week 9</span><span>Week 10</span><span>Week 11</span><span>Week 12</span>
+          <span>Week 13</span><span>Week 14</span><span>Week 15</span><span>Week 16</span><span>Week 17</span><span>Week 18</span>
+        </div>
+        <div class="slate" id="slate-w1">
+          <div class="day">WEDNESDAY, SEPT. 9</div>
+          <details class="g-dive" open>
+            <summary class="g" style="list-style:none;cursor:pointer">
+              <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="" />
+              <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="" />
+              <b>SEA vs NE</b>
+              <span>8:20 NBC</span>
+            </summary>
+            <div class="dive-box">
+              <div class="mini">
+                <div><b>SPREAD</b><span>SEA -3 (-118)</span><small>Open: SEA -3.5</small></div>
+                <div><b>TOTAL</b><span>44.5</span><small>Open: 44.5</small></div>
+                <div><b>MONEYLINE</b><span>SEA -162 / NE +136</span><small>Open: -198 / +164</small></div>
+                <div><b>MOVE</b><span>Pats +0.5</span><small>DraftKings</small></div>
+              </div>
+              <p><a class="full-link" href="nfl-week-1-ne-sea.html">FULL BREAKDOWN</a></p>
+            </div>
+          </details>
+        </div>
+        <p class="note">Do not delete these files and re-upload the old placeholder from your computer.</p>
+      </details>
+    </div>
+  </details>
+  <details class="league"><summary>MLB</summary><div class="inner"><p class="note">Coming next.</p></div></details>
+  <details class="league"><summary>NBA</summary><div class="inner"><p class="note">Coming next.</p></div></details>
+  <details class="league"><summary>NHL</summary><div class="inner"><p class="note">Coming next.</p></div></details>
+</div>
 </body>
 </html>

@@ -1,37 +1,28 @@
-# THE SPLIT — upload rules
+# THE SPLIT — breakdown standard
+Locked 2026-09-09. Do not revert chrome. Apply this structure to every NFL dive.
 
-Applies to every breakdown from here forward.
-Approved look locked 2026-09-09. Do not revert.
+## Home chrome (frozen)
+- Open to NFL / MLB / NBA / NHL only.
+- DEEP DIVES and RESULTS gold and smaller.
+- Green only on the selected week button.
+- Dive games: white names, gold FULL BREAKDOWN beside them, four squares always visible. No game dropdown. No green game box.
 
-## Frozen chrome
-- Home: THE SPLIT title, one-line summary, NFL / MLB / NBA / NHL as large white headings.
-- DEEP DIVES and RESULTS: gold #d4a017, smaller than NFL (about 15px). Matching + dropdown buttons.
-- Week buttons: only the selected week is green. Week 1 is not permanently lit.
-- Game rows: logos + network.
-- Dive page: one HOME / RESULTS bar. No iframe. No stacked headers.
-- Results: $100-unit ledger, closing DraftKings juice.
-- Do not redesign unless asked. Do not invent new nav.
+## Lines
+- Always DraftKings current + open.
+- Do not print the word DraftKings on the four tiles.
+- Public DK board is the source every time.
 
-## Allowed on an update
-- New game data only.
-- New file `nfl-week-X-away-home.html` copied from the last finished dive.
-- Add that game to the week list and results.html.
-- Fix a factual error.
-
-## File names
-- Home live file currently `index (1).html` until we flatten names. Do not restyle it back to white subheads.
-- Dives: `nfl-week-X-away-home.html`.
-- Results: `results.html`.
-- Never ship a stub over a finished page.
-
-## Every NFL dive, in order
-1. One header: HOME and RESULTS.
-2. Brand / week / logos / full names / time, stadium, network.
-3. DK tiles: SPREAD, TOTAL, MONEYLINE, MOVE — current + open.
-4. TEAM BREAKDOWN with HC, OC, DC and (calls plays).
-5. INACTIVES with depth and 1-10 impact.
-6. SCRIPT with score band.
-7. WR VS CB with notes.
-8. DK SALARIES.
-9. LINEUP ENTRY REVIEW.
-10. BEST BET last, $100, honest DK close.
+## Dive sections, in order
+1. One HOME / RESULTS header.
+2. Brand, week, logos, full names, time / venue / network.
+3. Four tiles: SPREAD, TOTAL, MONEYLINE, MOVE.
+4. TEAM BREAKDOWN
+   - Staff as bullets, plus what that staff means in THIS game.
+   - KEY PLAYERS
+   - IN THE NEWS (that week only)
+5. INACTIVES — one block per team. Columns: player, pos, depth (starter / backup), 2025 snap % until 2026 data exists, injury, status, effect on game, impact 1-10.
+6. SCRIPT — two subsections, not extra dropdowns: AWAY/HOME WINS IF. Winning score first (LAR 30 — SF 24). Detailed, current.
+7. WR VS CB — detailed notes, coaching-tendency edges.
+8. DK SALARIES — every Showdown option, high salary first. CPT = 1.5x.
+9. LINEUP ENTRY REVIEW — full grades and why.
+10. BEST BET — why, evidence, $100 on the closing DK number.

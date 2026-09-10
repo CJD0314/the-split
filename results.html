@@ -12,7 +12,7 @@ a{color:var(--gold);text-decoration:none;font-weight:700}
 .tile b{display:block;color:var(--muted);font-size:11px}
 .tile span{font-weight:800;font-size:18px}
 table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{text-align:left;padding:10px 6px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
 .ok{color:var(--ok);font-weight:800}.bad{color:#ff6b6b;font-weight:800}.push{color:var(--gold);font-weight:800}
 h3{color:var(--gold);letter-spacing:.08em;font-size:14px}
 @media(max-width:700px){.sum{grid-template-columns:1fr 1fr}}
@@ -39,46 +39,59 @@ h3{color:var(--gold);letter-spacing:.08em;font-size:14px}
 </table>
 
 <h2>WEEK 1 -- NE AT SEA REVIEW</h2>
-<p>Final: Seahawks 13, Patriots 10. Margin exactly 3. Total 23. Drew Lock replaced Sam Darnold and threw the 45-yard JSN touchdown. Maye: 1 TD, 3 INT. First score of 2026 was Eli Raridon from 2 yards.</p>
+<p>Final: Seahawks 13, Patriots 10. DK Showdown contest 193391030. 1,111 entries. Winner 93.62 (CPT JSN). Our locked SE scored 68.53.</p>
+<p>Stored: <a href="results/week-1-ne-sea-player-points.csv">player points CSV</a></p>
+
+<h3>PLAYER POINTS</h3>
+<p class="note" style="color:#93a3b5">FLEX scoring. CPT is 1.5x. Own is flex share in this contest.</p>
+<table>
+<tr><th>Player</th><th>FLEX</th><th>CPT</th><th>Own</th></tr>
+<tr><td>Jaxon Smith-Njigba</td><td>29.2</td><td>43.8</td><td>59.05%</td></tr>
+<tr><td>Rhamondre Stevenson</td><td>14.5</td><td>21.75</td><td>51.31%</td></tr>
+<tr><td>Seahawks DST</td><td>13.0</td><td>19.5</td><td>15.57%</td></tr>
+<tr><td>Drake Maye</td><td>12.82</td><td>19.23</td><td>63.37%</td></tr>
+<tr><td>Mack Hollins</td><td>9.1</td><td>13.65</td><td>3.96%</td></tr>
+<tr><td>Jadarian Price</td><td>7.8</td><td>11.7</td><td>32.76%</td></tr>
+<tr><td>Eli Raridon</td><td>7.2</td><td>10.8</td><td>2.34%</td></tr>
+<tr><td>Jason Myers</td><td>7.0</td><td>10.5</td><td>27.54%</td></tr>
+<tr><td>DeMario Douglas</td><td>7.0</td><td>10.5</td><td>15.03%</td></tr>
+<tr><td>Patriots DST</td><td>6.0</td><td>9.0</td><td>10.98%</td></tr>
+<tr><td>Andy Borregales</td><td>6.0</td><td>9.0</td><td>10.08%</td></tr>
+<tr><td>Hunter Henry</td><td>5.6</td><td>8.4</td><td>26.64%</td></tr>
+<tr><td>A.J. Brown</td><td>5.6</td><td>8.4</td><td>37.89%</td></tr>
+<tr><td>Cooper Kupp</td><td>5.5</td><td>8.25</td><td>10.53%</td></tr>
+<tr><td>Brady Russell</td><td>4.0</td><td>6.0</td><td>0.09%</td></tr>
+<tr><td>AJ Barner</td><td>3.3</td><td>4.95</td><td>16.65%</td></tr>
+<tr><td>Lan Larison</td><td>2.9</td><td>4.35</td><td>0.63%</td></tr>
+<tr><td>George Holani</td><td>2.9</td><td>4.35</td><td>22.59%</td></tr>
+<tr><td>Rashid Shaheed</td><td>1.4</td><td>2.1</td><td>14.67%</td></tr>
+<tr><td>Corey Kiner</td><td>1.1</td><td>1.65</td><td>2.52%</td></tr>
+<tr><td>Sam Darnold</td><td>0.52</td><td>0.78</td><td>41.22%</td></tr>
+<tr><td>Romeo Doubs</td><td>0.0</td><td>0.0</td><td>22.41%</td></tr>
+</table>
 
 <h3>WHAT WE GOT RIGHT</h3>
 <ul>
-<li>One-score game. We said this was not February's 29-13. Correct.</li>
-<li>Patriots +3 was the right side of a 3-point result. Push, not a loss.</li>
-<li>Under 44.5 was obvious in hindsight (23 points). Our script said Fleury's first call sheet and a rookie back would keep the total down. The number never left 44.5 for a reason.</li>
-<li>JSN was the Seattle offense. 45-yard TD from Lock. Horton inactive did concentrate targets.</li>
-<li>Emmanwori and Okada inactive mattered. Seattle's offense stalled for three quarters.</li>
-<li>Henry / TE usage: Raridon scored the Patriots' only touchdown. We had Henry as the pressure valve and flagged the thin safety room. The TE room was the exploit. We just had the wrong tight end on the scoring play.</li>
-<li>Kupp sit was correct.</li>
+<li>One-score game. +3 pushed.</li>
+<li>JSN was the slate (29.2 flex / 43.8 CPT). Winner captained him.</li>
+<li>Kupp sit (5.5) was correct relative to JSN / Hollins / Raridon.</li>
+<li>Darnold (0.52) was dead after the injury. We were right not to CPT him.</li>
 </ul>
-
 <h3>WHAT WE GOT WRONG</h3>
 <ul>
-<li>We built the Seattle offense around Darnold staying in the game. He did not. Lock finished and won it. No backup-QB branch on the script.</li>
-<li>Maye CPT thesis assumed the thin Seattle secondary would let him throw clean enough. Three interceptions. The Super Bowl pressure problem showed up as turnovers, not just sacks.</li>
-<li>A.J. Brown was the WR1 we wanted. Ankle issue. Volume and health both missed.</li>
-<li>We were light on Jason Myers / field-goal script. Seattle scored 13 and 10 of those were Myers plus one explosive JSN shot. Kickers decided the covering number.</li>
-<li>Price as the lead-back separator was only half right. He led Seattle in rush yards (52) but the winning play was not a rookie-back touch. It was Lock to JSN.</li>
-<li>Lineup death case said "Campbell gets wrecked or Price is a committee." Actual death case: Maye picks plus a backup QB bomb. We named the wrong failure mode.</li>
+<li>Maye CPT (19.23) in a 12.82 flex game. Field owned him 63% flex. Multiplier on a 3-INT night lost.</li>
+<li>Brown 5.6 at 38% own. Ankle. Same score as Henry with much more salary.</li>
+<li>Doubs 0.00 at 22% own. We treated him as the exploit vs the thin safety room. He was not.</li>
+<li>Hollins 9.1 at 4% own. Raridon 7.2 at 2%. Those were the non-stars. We named Henry and Kiner instead.</li>
+<li>Seahawks DST 13 at 16% own. Field-goal / takeaway script we underweighted.</li>
 </ul>
-
-<h3>WHAT WE MISSED</h3>
-<ul>
-<li>Darnold injury contingency. Lock was on the roster. He needed a paragraph.</li>
-<li>Raridon as the non-star. We listed Henry. The first TD of the season went to the other tight end.</li>
-<li>How ugly a 23-point opener can look when both starting safeties are out and the home quarterback leaves. We still implied 20-24, not 10-13.</li>
-<li>Julian Love as a takeaway player. Two interceptions for Seattle's safety room even without Emmanwori / Okada.</li>
-</ul>
-
 <h3>GET BETTER MOVING FORWARD</h3>
 <ul>
-<li>Every dive needs a backup-QB branch. If the starter is even a little banged up, write the Lock / Jones / Garoppolo path before kickoff.</li>
-<li>Non-stars get a named scoring path, not just a FLEX tag. Raridon should have been in WR vs CB / TE notes with Henry.</li>
-<li>When both safeties are out, do not automatically upgrade the opposing quarterback to captain. Upgrade the short-area pass catchers and accept that the quarterback can still lose the game with picks.</li>
-<li>Field-goal games need the kicker in the script, not only in the salary table. Myers 30 and 26 were the covering points.</li>
-<li>Best-bet sizing stays: minus juice = bet to win $100. Plus juice = bet $100. The NE ticket was booked old-style ($100 to win $98). Push either way.</li>
-<li>RESULTS writes the same night. Do not wait for a Sunday package. The lesson dies if it sits.</li>
-<li>Do not change the SF-LAR template. Every new dive copies that page.</li>
+<li>Backup QB branch before lock.</li>
+<li>Non-stars need a named path. Hollins and Raridon outscored Brown and Doubs.</li>
+<li>Missing safeties do not auto-captain the other QB. Maye was the most owned player and a losing CPT.</li>
+<li>DST and kickers belong in a 13-10 script.</li>
+<li>Store every DK export in /results. Ten-day window.</li>
 </ul>
 </div>
 </body></html>

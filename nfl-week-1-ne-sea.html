@@ -1,222 +1,285 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Split — New England Patriots at Seattle Seahawks</title>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Split -- Patriots at Seahawks</title>
+<link rel="stylesheet" href="align.css" />
 <style>
-  :root { --bg:#0b0f14; --panel:#121820; --panel2:#18202a; --line:#2a3644; --text:#e8eef5; --muted:#93a3b5; --gold:#d4a017; --ok:#3dd68c; }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family:"Segoe UI",system-ui,sans-serif; background:#0b0f14; color:#e8eef5; line-height:1.45; }
-  .wrap { max-width:1080px; margin:0 auto; padding:18px 18px 56px; }
-  .topnav { display:flex; justify-content:center; gap:22px; flex-wrap:wrap; padding:12px 16px; border-bottom:1px solid var(--line); background:#0b0f14; }
-  .topnav a { color:var(--gold); text-decoration:none; font-weight:800; font-size:13px; letter-spacing:.08em; }
-  header { text-align:center; padding:20px 16px 8px; }
-  .brand { font-size:34px; font-weight:800; letter-spacing:.12em; margin:0; }
-  .brand a { color:inherit; text-decoration:none; }
-  .week { font-size:16px; letter-spacing:.16em; color:var(--gold); margin:8px 0 16px; font-weight:700; }
-  .logos { display:flex; justify-content:center; align-items:center; gap:28px; margin:8px 0 10px; }
-  .logos img { width:88px; height:88px; object-fit:contain; }
-  h1 { font-size:26px; margin:8px 0 6px; font-weight:800; }
-  .meta { color:var(--muted); font-size:14px; }
-  .market { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0; }
-  .tile { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; }
-  .tile b { display:block; color:var(--muted); font-size:11px; letter-spacing:.1em; }
-  .tile span { font-size:18px; font-weight:800; }
-  .tile small { display:block; color:var(--muted); margin-top:6px; font-size:12px; }
-  .src { color:var(--gold); font-size:11px; letter-spacing:.08em; }
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  details.block { background:var(--panel); border:1px solid var(--line); border-radius:14px; margin:12px 0; }
-  details.block > summary { list-style:none; cursor:pointer; padding:16px 18px; font-size:16px; font-weight:800; letter-spacing:.08em; }
-  details.block > summary::-webkit-details-marker { display:none; }
-  details.block > summary::after { content:" +"; color:var(--gold); float:right; }
-  details.block[open] > summary::after { content:" –"; }
-  .body { padding:0 18px 18px; border-top:1px solid var(--line); }
-  h3 { color:var(--gold); font-size:14px; letter-spacing:.06em; }
-  ul { margin:6px 0 0; padding-left:18px; }
-  li { margin:6px 0; }
-  table { width:100%; border-collapse:collapse; font-size:14px; }
-  th,td { text-align:left; padding:8px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
-  th { color:var(--muted); font-size:11px; letter-spacing:.08em; }
-  .note { color:var(--muted); font-size:13px; }
-  .callout { background:var(--panel2); border-left:3px solid var(--gold); padding:12px 14px; margin:10px 0; }
-  .team-head { display:flex; align-items:center; gap:12px; }
-  .team-head img { width:52px; height:52px; object-fit:contain; }
-  @media (max-width:800px){ .market,.grid2{grid-template-columns:1fr 1fr;} .brand{font-size:26px;} h1{font-size:20px;} }
-  @media (max-width:520px){ .market,.grid2{grid-template-columns:1fr;} }
-</style>
-</head>
+:root{--bg:#0b0f14;--panel:#121820;--panel2:#18202a;--line:#2a3644;--text:#e8eef5;--muted:#93a3b5;--gold:#d4a017}
+*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",system-ui,sans-serif;background:#0b0f14;color:#e8eef5;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 18px 64px}
+.topnav{display:flex;justify-content:center;gap:22px;padding:12px;border-bottom:1px solid var(--line)}
+.topnav a{color:var(--gold);text-decoration:none;font-weight:800;font-size:13px;letter-spacing:.08em}
+header{text-align:center;padding:20px 16px 8px}.brand{font-size:34px;font-weight:800;letter-spacing:.12em}
+.week{color:var(--gold);letter-spacing:.16em;font-weight:700;margin:8px 0 16px}
+.logos{display:flex;justify-content:center;gap:28px}.logos img{width:88px;height:88px;object-fit:contain}
+h1{font-size:24px;font-weight:800}.meta{color:var(--muted);font-size:14px}
+.market{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+.tile b{display:block;color:var(--muted);font-size:11px;letter-spacing:.1em;margin-bottom:8px}
+.tile span{display:block;font-size:16px;font-weight:800;color:#e8eef5;line-height:1.35;margin:6px 0}
+details.block{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:12px 0}
+details.block>summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:800;letter-spacing:.08em}
+details.block>summary::after{content:" +";color:var(--gold);float:right}details.block[open]>summary::after{content:" -"}
+.body{padding:4px 18px 18px;border-top:1px solid var(--line)}
+h3{color:var(--gold);font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
+.team-head{display:flex;align-items:center;gap:10px;margin:10px 0}.team-head img{width:48px;height:48px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
+.note{color:var(--muted);font-size:13px}.callout{background:var(--panel2);border-left:3px solid var(--gold);padding:12px 14px;margin:10px 0}
+.ok{color:#3dd68c;font-weight:800}.bad{color:#ff6b6b;font-weight:800}.push{color:var(--gold);font-weight:800}
+@media(max-width:800px){.market{grid-template-columns:1fr}}
+</style></head>
 <body>
-<div class="topnav">
-  <a href="index.html">HOME</a>
-  <a href="results.html">RESULTS</a>
-</div>
+<div class="topnav"><a href="index.html">HOME</a><a href="results.html">RESULTS</a></div>
 <header>
-  <div class="brand">THE SPLIT</div>
-  <div class="week">NFL WEEK 1</div>
-  <div class="logos">
-    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="New England Patriots" />
-    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="Seattle Seahawks" />
-  </div>
-  <h1>NEW ENGLAND PATRIOTS VS SEATTLE SEAHAWKS</h1>
-  <div class="meta">Wednesday, Sept. 9, 2026 · 8:20 p.m. ET · Lumen Field · NBC / Peacock</div>
+<div class="brand">THE SPLIT</div>
+<div class="week">NFL WEEK 1</div>
+<div class="logos"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="Patriots" /><img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="Seahawks" /></div>
+<h1>NEW ENGLAND PATRIOTS VS SEATTLE SEAHAWKS</h1>
+<div class="meta">Wednesday, Sept. 9, 2026 | 8:20 p.m. ET | Lumen Field | NBC / Peacock</div>
 </header>
 <div class="wrap">
-  <div class="market">
-    <div class="tile"><b>SPREAD</b><span>SEA -3 (-118)</span><small>Open: SEA -3.5<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>TOTAL</b><span>44.5 (o-105 / u-115)</span><small>Open: 44.5<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>MONEYLINE</b><span>SEA -162 / NE +136</span><small>Open: SEA -198 / NE +164<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>MOVE</b><span>Pats +0.5</span><small>Opened -3.5, now -3<br><span class="src">DRAFTKINGS</span></small></div>
-  </div>
-  <details class="block" open>
-    <summary>TEAM BREAKDOWN</summary>
-    <div class="body grid2">
-      <div>
-        <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="" /><div><b>NEW ENGLAND PATRIOTS</b><div class="note">Road underdog · implied ~20–21</div></div></div>
-        <h3>STAFF</h3>
-        <ul>
-          <li><b>HC Mike Vrabel</b> — physical identity, fourth-down aggression, wants early-down answers so Maye is not in obvious passing downs.</li>
-          <li><b>OC Josh McDaniels (calls plays)</b> — 11 personnel, tempo after chunk plays, isolation after motion, TE as the pressure valve.</li>
-          <li><b>DC Zak Kuhr (calls plays)</b> — took over calling last year; higher man/blitz rates in the playoff run. Wants a bigger front with Barmore active.</li>
-        </ul>
-        <h3>IDENTITY TONIGHT</h3>
-        <ul>
-          <li>Second year of the same offense for Drake Maye. Super Bowl tape: 6 sacks and a pick-six. Pocket cleanliness is the game.</li>
-          <li>Want Brown, Doubs, Douglas, Henry, Rhamondre on the field.</li>
-          <li>Coverage graded No. 1 last year. Gonzalez is the CB1 on JSN.</li>
-        </ul>
-        <h3>OFFENSE</h3>
-        <ul>
-          <li><b>QB:</b> Drake Maye.</li>
-          <li><b>RB:</b> Rhamondre Stevenson featured. Henderson inactive. Corey Kiner is RB2. Lan Larison elevated.</li>
-          <li><b>WR/TE:</b> A.J. Brown vs Witherspoon. Doubs outside. Douglas slot. Henry vs Love / Finley / Thomas.</li>
-          <li><b>OL:</b> Ben Brown inactive. Jared Wilson starts at center. LT Will Campbell must clean up Super Bowl pressure.</li>
-        </ul>
-        <h3>DEFENSE</h3>
-        <ul>
-          <li>Gonzalez travels with JSN. Barmore active lets Kuhr get bigger on the edge.</li>
-          <li>Pressure rate was strong last year; sack total was not. Need takeaways more than a 4-sack night.</li>
-        </ul>
-      </div>
-      <div>
-        <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="" /><div><b>SEATTLE SEAHAWKS</b><div class="note">Home favorite · defending champs · implied ~24</div></div></div>
-        <h3>STAFF</h3>
-        <ul>
-          <li><b>HC Mike Macdonald (calls plays on defense)</b> — light boxes that still stop the run, dime usage, matchup-specific pressure. Missing Emmanwori costs him the nickel chess piece.</li>
-          <li><b>OC Brian Fleury (calls plays)</b> — first game as a primary NFL play-caller. Shanahan/Kubiak flavor: play-action shots, 12 personnel to settle a rookie back.</li>
-          <li><b>DC Aden Durde</b> — third season as Seattle DC. Runs day-to-day Darkside install. Macdonald still calls the defense; Durde is the coordinator of record.</li>
-        </ul>
-        <h3>IDENTITY TONIGHT</h3>
-        <ul>
-          <li>Defense allowed 17.2 PPG last year. Secondary is the weak joint.</li>
-          <li>Walker is in Kansas City. Charbonnet on IR/PUP. Price is the first-round lead back.</li>
-        </ul>
-        <h3>OFFENSE</h3>
-        <ul>
-          <li><b>QB:</b> Sam Darnold.</li>
-          <li><b>RB:</b> Jadarian Price. Holani / Emanuel Wilson / elevated Velus Jones in the mix.</li>
-          <li><b>WR/TE:</b> JSN is the offense. Horton inactive leaves four active WRs. Shaheed stretches. Kupp is the sit/low-ceiling piece.</li>
-        </ul>
-        <h3>DEFENSE</h3>
-        <ul>
-          <li>Witherspoon on Brown. More Spoon in the slot because Emmanwori is inactive.</li>
-          <li>Julian Love is the only original healthy safety. Finley signed. Thomas elevated. Knight gets extra run.</li>
-        </ul>
-      </div>
-    </div>
-  </details>
-  <details class="block">
-    <summary>INACTIVES</summary>
-    <div class="body">
-      <p class="note">Source: NFL.com kickoff inactives. Impact 1–10 on that side of the ball tonight.</p>
-      <table>
-        <tr><th>Player</th><th>Team</th><th>Depth</th><th>Impact</th><th>Why</th></tr>
-        <tr><td>Nick Emmanwori</td><td>SEA</td><td>Starting hybrid S / nickel</td><td>9</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Ty Okada</td><td>SEA</td><td>Projected starting safety</td><td>8</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>TreVeyon Henderson</td><td>NE</td><td>RB2</td><td>7</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Ben Brown</td><td>NE</td><td>C/G</td><td>6</td><td>Did not travel. Jared Wilson starts.</td></tr>
-        <tr><td>Tory Horton</td><td>SEA</td><td>WR3/4</td><td>5</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Walter Rouse</td><td>NE</td><td>Swing OT</td><td>3</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Efton Chism III</td><td>NE</td><td>Reserve WR</td><td>2</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Erick Hunter</td><td>NE</td><td>Reserve OLB</td><td>2</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Karon Prunty</td><td>NE</td><td>Reserve CB</td><td>2</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Beau Stephens</td><td>SEA</td><td>Reserve G</td><td>2</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Mike Morris</td><td>SEA</td><td>Reserve DE</td><td>2</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Nick Kallerup</td><td>SEA</td><td>Reserve TE</td><td>2</td><td>Official NFL.com inactive.</td></tr>
-        <tr><td>Behren Morton / Jalen Milroe</td><td>Both</td><td>Emergency third QB</td><td>1</td><td>Official NFL.com.</td></tr>
-      </table>
-    </div>
-  </details>
-  <details class="block" open>
-    <summary>SCRIPT</summary>
-    <div class="body">
-      <div class="callout">Most likely band: <b>Seahawks 23–27, Patriots 17–24</b>. One-score game. Not February’s 29–13.</div>
-      <ul>
-        <li>Seattle still has the better defense and the home crowd. The number moved from DK -3.5 to -3 because both Seattle safeties came off the sheet.</li>
-        <li>McDaniels should live in 11 personnel and attack Love / Finley / Thomas with Henry, Douglas, and Doubs after Brown occupies Witherspoon.</li>
-        <li>Fleury’s first call sheet as OC, plus Price as the lead back, is why the total never left 44.5.</li>
-        <li>Will Campbell vs Seattle’s edge is the hidden game. Repeat Super Bowl pressure and Maye’s ceiling dies even with the safeties out.</li>
-        <li>Horton inactive concentrates Seattle targets. JSN volume is safer. Kupp is still a sit.</li>
-      </ul>
-    </div>
-  </details>
-  <details class="block" open>
-    <summary>WR VS CB</summary>
-    <div class="body">
-      <table>
-        <tr><th>Receiver</th><th>Cover</th><th>Notes</th></tr>
-        <tr><td>Jaxon Smith-Njigba</td><td>Christian Gonzalez</td><td>Headline pair. Gonzalez can travel. JSN still wins with motion and slot breaks. Horton inactive pushes more of Seattle’s tree to JSN.</td></tr>
-        <tr><td>A.J. Brown</td><td>Devon Witherspoon</td><td>Physical CB1 on a healthy WR1. Emmanwori inactive so over-the-top help is thinner.</td></tr>
-        <tr><td>Romeo Doubs / DeMario Douglas</td><td>CB2 / nickel</td><td>This is the exploit. Okada inactive. Emmanwori inactive. Woolen already gone.</td></tr>
-        <tr><td>Hunter Henry</td><td>Love / Finley / Thomas / LBs</td><td>McDaniels’ pressure valve. Thin safety room is why Henry is a FLEX lock.</td></tr>
-        <tr><td>Rashid Shaheed</td><td>NE nickel when Gonzalez is inside on JSN</td><td>Field-stretch dart off play-action. Better than Kupp in this spot.</td></tr>
-        <tr><td>Cooper Kupp</td><td>Zone / nickel</td><td>Sit in most builds. Four-WR room helps snaps a little. Not a core piece.</td></tr>
-      </table>
-    </div>
-  </details>
-  <details class="block">
-    <summary>DK SALARIES</summary>
-    <div class="body">
-      <p class="note">Source: DraftKings Showdown. CPT = 1.5× FLEX.</p>
-      <table>
-        <tr><th>Player</th><th>Pos</th><th>FLEX</th><th>CPT</th></tr>
-        <tr><td>Jaxon Smith-Njigba</td><td>WR</td><td>$10,600</td><td>$15,900</td></tr>
-        <tr><td>Drake Maye</td><td>QB</td><td>$10,000</td><td>$15,000</td></tr>
-        <tr><td>A.J. Brown</td><td>WR</td><td>$9,600</td><td>$14,400</td></tr>
-        <tr><td>Sam Darnold</td><td>QB</td><td>$9,400</td><td>$14,100</td></tr>
-        <tr><td>Rhamondre Stevenson</td><td>RB</td><td>$8,400</td><td>$12,600</td></tr>
-        <tr><td>Jadarian Price</td><td>RB</td><td>$7,200</td><td>$10,800</td></tr>
-        <tr><td>Romeo Doubs</td><td>WR</td><td>$5,200</td><td>$7,800</td></tr>
-        <tr><td>Hunter Henry</td><td>TE</td><td>$4,800</td><td>$7,200</td></tr>
-        <tr><td>George Holani</td><td>RB</td><td>$4,200</td><td>$6,300</td></tr>
-        <tr><td>Corey Kiner</td><td>RB</td><td>$2,400</td><td>$3,600</td></tr>
-      </table>
-    </div>
-  </details>
-  <details class="block" open>
-    <summary>LINEUP ENTRY REVIEW</summary>
-    <div class="body">
-      <div class="callout"><b>LOCKED SE</b> CPT Maye $15,000 · JSN $10,600 · Brown $9,600 · Henry $4,800 · Price $7,200 · Kiner $2,400 = <b>$49,600</b></div>
-      <table>
-        <tr><th>Lens</th><th>Grade</th><th>Note</th></tr>
-        <tr><td>Salary</td><td>A-</td><td>Legal. $400 unused. Kiner is the punt so Henry and Price both fit.</td></tr>
-        <tr><td>Correlation</td><td>A-</td><td>Maye CPT + Brown + Henry is the Patriots pass stack. JSN + Price is the Seattle pair.</td></tr>
-        <tr><td>Script</td><td>A</td><td>Both starting Seattle safeties inactive. Multiplier belongs on Maye, not the TE.</td></tr>
-        <tr><td>Uniqueness</td><td>C+</td><td>Maye CPT + Brown will be popular. Price and Henry are the separators.</td></tr>
-        <tr><td>Floor</td><td>B+</td><td>Maye rushing + Brown + JSN can carry a quiet Henry night.</td></tr>
-        <tr><td>Where it dies</td><td>—</td><td>Campbell gets wrecked, or Price is a true committee and the Seattle TD goes to Holani.</td></tr>
-      </table>
-      <p>Rhamondre variant if you cut JSN: CPT Maye + Brown + Rhamondre + Henry + Doubs + Holani = $47,200.</p>
-      <p>Henry CPT stays a second ticket / GPP. Do not CPT Seattle DST.</p>
-    </div>
-  </details>
-  <details class="block" open>
-    <summary>BEST BET</summary>
-    <div class="body">
-      <div class="callout"><b>PATRIOTS +3 (-102)</b> · DraftKings · $100 to win $98 · LIVE<br>DK moneyline is NE +142 / SEA -170. We are not using +100.</div>
-      <p>One-score script. Both Seattle starting safeties inactive. First-time OC and a rookie lead back. Closing DK number, $100 unit.</p>
-    </div>
-  </details>
+<div class="market">
+<div class="tile"><b>SPREAD</b><span>Current: SEA -3 (-118) / NE +3 (-102)</span><span>Open: SEA -3.5 (-118) / NE +3.5 (-102)</span></div>
+<div class="tile"><b>TOTAL</b><span>Current: 44.5 (o-105 / u-115)</span><span>Open: 44.5 (o-105 / u-115)</span></div>
+<div class="tile"><b>MONEYLINE</b><span>Current: SEA -170 / NE +142</span><span>Open: SEA -198 / NE +164</span></div>
+<div class="tile"><b>MOVE</b><span>Toward NE, -3.5 to -3</span></div>
 </div>
-</body>
-</html>
+
+<details class="block" open><summary>TEAM BREAKDOWN</summary>
+<div class="body">
+<div class="tb-row">
+<div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="" /><div><b>NEW ENGLAND PATRIOTS</b><div class="note">Listed visitor | implied ~21</div></div></div>
+<div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="" /><div><b>SEATTLE SEAHAWKS</b><div class="note">Listed home | implied ~24</div></div></div>
+</div>
+<h3>STAFF</h3>
+<div class="tb-row">
+<ul>
+<li><b>HC Mike Vrabel</b> -- physical identity. Wants early-down answers so Maye is not in obvious passing downs.</li>
+<li><b>OC Josh McDaniels (calls plays - offense)</b> -- 11 personnel (1 RB + 1 TE), motion, TE as the pressure valve.</li>
+<li><b>DC Zak Kuhr (calls plays - defense)</b> -- man / blitz rates from the playoff run. Wants Barmore active.</li>
+</ul>
+<ul>
+<li><b>HC Mike Macdonald (calls plays - defense)</b> -- light boxes that still stop the run. Missing Emmanwori costs the nickel piece.</li>
+<li><b>OC Brian Fleury (calls plays - offense)</b> -- first NFL game as primary caller. Play-action, 12 personnel (1 RB + 2 TEs) to settle a rookie back.</li>
+<li><b>DC Aden Durde</b> -- coordinator of record. Macdonald still calls it.</li>
+</ul>
+</div>
+<h3>WHAT THAT MEANS TONIGHT</h3>
+<div class="tb-row">
+<ul>
+<li>Second year of the same offense for Maye. Super Bowl tape was 6 sacks and a pick-six. Pocket cleanliness is the game.</li>
+<li>Henderson out. Rhamondre is the featured back. Kiner is RB2.</li>
+<li>Gonzalez is the CB1 on JSN.</li>
+</ul>
+<ul>
+<li>Both starting safeties inactive. That is why the number moved from -3.5 to -3.</li>
+<li>Walker is in Kansas City. Price is the first-round lead back.</li>
+<li>Horton inactive concentrates targets on JSN.</li>
+</ul>
+</div>
+<h3>KEY PLAYERS</h3>
+<div class="tb-row">
+<ul>
+<li><b>Drake Maye</b> -- captain only if the thin Seattle secondary lets him throw clean.</li>
+<li><b>A.J. Brown</b> -- WR1 vs Witherspoon.</li>
+<li><b>Rhamondre Stevenson</b> -- featured without Henderson.</li>
+<li><b>Hunter Henry</b> -- pressure valve vs Love / Finley / Thomas.</li>
+<li><b>Eli Raridon</b> -- the non-star TE. Live if Henry is covered.</li>
+<li><b>Christian Gonzalez</b> -- travels with JSN.</li>
+</ul>
+<ul>
+<li><b>Sam Darnold</b> -- starter. Lock is the emergency path.</li>
+<li><b>Jaxon Smith-Njigba</b> -- the offense.</li>
+<li><b>Jadarian Price</b> -- rookie lead back.</li>
+<li><b>Rashid Shaheed</b> -- field stretch. Better than Kupp here.</li>
+<li><b>Cooper Kupp</b> -- sit in most builds.</li>
+<li><b>Devon Witherspoon</b> -- CB1 on Brown.</li>
+</ul>
+</div>
+<h3>IN THE NEWS</h3>
+<div class="tb-row">
+<ul>
+<li>Henderson (ankle) and Ben Brown (knee) out. Jared Wilson starts at center.</li>
+<li>Gonzalez signed a four-year extension this week.</li>
+<li>Super Bowl rematch. Seattle won 29-13 in February.</li>
+</ul>
+<ul>
+<li>Emmanwori, Okada, Horton official inactives.</li>
+<li>Fleury's first game as the primary caller.</li>
+<li>Banner night at Lumen Field.</li>
+</ul>
+</div>
+</div></details>
+
+<details class="block" open><summary>INACTIVES</summary>
+<div class="body">
+<p class="note">Source: official NFL.com kickoff sheet.</p>
+<h3>NEW ENGLAND PATRIOTS -- OFFENSE</h3>
+<table>
+<tr><th>Player</th><th>Pos</th><th>Depth</th><th>Injury</th><th>Status</th><th>Effect on game</th><th>Impact</th></tr>
+<tr><td>TreVeyon Henderson</td><td>RB</td><td>RB2</td><td>Ankle</td><td>OUT</td><td>Rhamondre featured. Kiner is RB2.</td><td>7</td></tr>
+<tr><td>Ben Brown</td><td>C/G</td><td>Starter</td><td>Knee</td><td>OUT</td><td>Jared Wilson starts at center.</td><td>6</td></tr>
+<tr><td>Walter Rouse</td><td>OT</td><td>Swing</td><td>--</td><td>INACTIVE</td><td>Depth only.</td><td>3</td></tr>
+<tr><td>Efton Chism III</td><td>WR</td><td>Reserve</td><td>--</td><td>INACTIVE</td><td>Depth only.</td><td>2</td></tr>
+</table>
+<h3>NEW ENGLAND PATRIOTS -- DEFENSE</h3>
+<table>
+<tr><th>Player</th><th>Pos</th><th>Depth</th><th>Injury</th><th>Status</th><th>Effect on game</th><th>Impact</th></tr>
+<tr><td>Erick Hunter</td><td>OLB</td><td>Reserve</td><td>--</td><td>INACTIVE</td><td>Depth only.</td><td>2</td></tr>
+<tr><td>Karon Prunty</td><td>CB</td><td>Reserve</td><td>--</td><td>INACTIVE</td><td>Depth only.</td><td>2</td></tr>
+</table>
+<h3>SEATTLE SEAHAWKS -- OFFENSE</h3>
+<table>
+<tr><th>Player</th><th>Pos</th><th>Depth</th><th>Injury</th><th>Status</th><th>Effect on game</th><th>Impact</th></tr>
+<tr><td>Tory Horton</td><td>WR</td><td>WR3/4</td><td>--</td><td>INACTIVE</td><td>Concentrates JSN / Shaheed.</td><td>5</td></tr>
+<tr><td>Nick Kallerup</td><td>TE</td><td>Reserve</td><td>--</td><td>INACTIVE</td><td>Depth only.</td><td>2</td></tr>
+<tr><td>Beau Stephens</td><td>G</td><td>Reserve</td><td>--</td><td>INACTIVE</td><td>Depth only.</td><td>2</td></tr>
+</table>
+<h3>SEATTLE SEAHAWKS -- DEFENSE</h3>
+<table>
+<tr><th>Player</th><th>Pos</th><th>Depth</th><th>Injury</th><th>Status</th><th>Effect on game</th><th>Impact</th></tr>
+<tr><td>Nick Emmanwori</td><td>S / nickel</td><td>Starter</td><td>--</td><td>INACTIVE</td><td>Biggest Seattle miss. Nickel chess piece gone.</td><td>9</td></tr>
+<tr><td>Ty Okada</td><td>S</td><td>Starter</td><td>--</td><td>INACTIVE</td><td>Both starting safeties out.</td><td>8</td></tr>
+<tr><td>Mike Morris</td><td>DE</td><td>Reserve</td><td>--</td><td>INACTIVE</td><td>Depth only.</td><td>2</td></tr>
+</table>
+</div></details>
+
+<details class="block" open><summary>SCRIPT</summary>
+<div class="body">
+<h3>SEAHAWKS WIN IF -- SEA 23 | NE 17</h3>
+<ul>
+<li>Home defense plus JSN volume after Horton sits.</li>
+<li>Price stays on schedule so Fleury is not in obvious pass on a first call sheet.</li>
+<li>Witherspoon wins the Brown pairing and Maye has to throw at Love / Finley / Thomas.</li>
+</ul>
+<h3>PATRIOTS WIN IF -- NE 20 | SEA 17</h3>
+<ul>
+<li>The safety vacancies show up. Henry, Doubs, Douglas, Raridon against Love / Finley / Thomas.</li>
+<li>Maye is clean enough after the Super Bowl tape. No six-sack night.</li>
+<li>Gonzalez travels with JSN and Seattle's rookie back cannot finish drives.</li>
+</ul>
+</div></details>
+
+<details class="block" open><summary>WR VS CB</summary>
+<div class="body">
+<p class="note">Primary cover is who lines up over that receiver most snaps. Game effect is what that cover does to the play.</p>
+<h3>PATRIOTS RECEIVERS</h3>
+<table>
+<tr><th>Receiver</th><th>Team</th><th>Primary cover</th><th>Game effect</th><th>Why it matters</th></tr>
+<tr><td>A.J. Brown</td><td>NE</td><td>Devon Witherspoon, SEA CB1</td><td>Less over-the-top help with Emmanwori out</td><td>Physical CB1 on a healthy WR1. If Brown wins, Maye has a captain path.</td></tr>
+<tr><td>Romeo Doubs</td><td>NE</td><td>SEA CB2</td><td>Exploit vs a thin safety room</td><td>Okada and Emmanwori both out. This is the second-level grass.</td></tr>
+<tr><td>DeMario Douglas</td><td>NE</td><td>SEA nickel</td><td>Slot vs a missing hybrid</td><td>McDaniels motion piece. Live if Brown occupies Spoon.</td></tr>
+<tr><td>Hunter Henry</td><td>NE</td><td>Love / Finley / Thomas / LBs</td><td>Pressure valve</td><td>FLEX lock against this safety room.</td></tr>
+<tr><td>Eli Raridon</td><td>NE</td><td>LBs / third safety</td><td>Red-zone / 12 personnel (1 RB + 2 TEs)</td><td>The non-star. Live if Henry is covered.</td></tr>
+</table>
+<h3>SEAHAWKS RECEIVERS</h3>
+<table>
+<tr><th>Receiver</th><th>Team</th><th>Primary cover</th><th>Game effect</th><th>Why it matters</th></tr>
+<tr><td>Jaxon Smith-Njigba</td><td>SEA</td><td>Christian Gonzalez, NE CB1</td><td>Motion / slot breaks vs travel corner</td><td>Headline pair. Horton inactive pushes more of the tree here.</td></tr>
+<tr><td>Rashid Shaheed</td><td>SEA</td><td>NE nickel when Gonzalez is inside</td><td>Play-action shot</td><td>Field-stretch dart. Better than Kupp in this spot.</td></tr>
+<tr><td>Cooper Kupp</td><td>SEA</td><td>Zone / nickel</td><td>Low ceiling</td><td>Sit in most builds.</td></tr>
+</table>
+</div></details>
+
+<details class="block" open><summary>DK SALARIES</summary>
+<div class="body">
+<p class="note">DraftKings Showdown board. High salary first. CPT = 1.5x FLEX.</p>
+<table>
+<tr><th>Player</th><th>Team</th><th>Pos</th><th>FLEX</th><th>CPT</th></tr>
+<tr><td>Jaxon Smith-Njigba</td><td>SEA</td><td>WR</td><td>$10,600</td><td>$15,900</td></tr>
+<tr><td>Drake Maye</td><td>NE</td><td>QB</td><td>$10,000</td><td>$15,000</td></tr>
+<tr><td>A.J. Brown</td><td>NE</td><td>WR</td><td>$9,600</td><td>$14,400</td></tr>
+<tr><td>Sam Darnold</td><td>SEA</td><td>QB</td><td>$9,400</td><td>$14,100</td></tr>
+<tr><td>Rhamondre Stevenson</td><td>NE</td><td>RB</td><td>$8,400</td><td>$12,600</td></tr>
+<tr><td>Jadarian Price</td><td>SEA</td><td>RB</td><td>$7,200</td><td>$10,800</td></tr>
+<tr><td>Romeo Doubs</td><td>NE</td><td>WR</td><td>$6,600</td><td>$9,900</td></tr>
+<tr><td>Rashid Shaheed</td><td>SEA</td><td>WR</td><td>$6,400</td><td>$9,600</td></tr>
+<tr><td>Jason Myers</td><td>SEA</td><td>K</td><td>$5,400</td><td>$8,100</td></tr>
+<tr><td>Cooper Kupp</td><td>SEA</td><td>WR</td><td>$5,200</td><td>$7,800</td></tr>
+<tr><td>Andy Borregales</td><td>NE</td><td>K</td><td>$5,000</td><td>$7,500</td></tr>
+<tr><td>Hunter Henry</td><td>NE</td><td>TE</td><td>$4,800</td><td>$7,200</td></tr>
+<tr><td>AJ Barner</td><td>SEA</td><td>TE</td><td>$4,600</td><td>$6,900</td></tr>
+<tr><td>George Holani</td><td>SEA</td><td>RB</td><td>$4,200</td><td>$6,300</td></tr>
+<tr><td>Seahawks DST</td><td>SEA</td><td>DST</td><td>$3,800</td><td>$5,700</td></tr>
+<tr><td>Patriots DST</td><td>NE</td><td>DST</td><td>$3,200</td><td>$4,800</td></tr>
+<tr><td>DeMario Douglas</td><td>NE</td><td>WR</td><td>$3,000</td><td>$4,500</td></tr>
+<tr><td>Corey Kiner</td><td>NE</td><td>RB</td><td>$2,400</td><td>$3,600</td></tr>
+<tr><td>Drew Lock</td><td>SEA</td><td>QB</td><td>$2,000</td><td>$3,000</td></tr>
+</table>
+</div></details>
+
+<details class="block" open><summary>LINEUP ENTRY REVIEW</summary>
+<div class="body">
+<table>
+<tr><th>Player</th><th>Team</th><th>Pos</th><th>Salary</th></tr>
+<tr><td>Drake Maye (CPT)</td><td>NE</td><td>QB</td><td>$15,000</td></tr>
+<tr><td>Jaxon Smith-Njigba</td><td>SEA</td><td>WR</td><td>$10,600</td></tr>
+<tr><td>A.J. Brown</td><td>NE</td><td>WR</td><td>$9,600</td></tr>
+<tr><td>Jadarian Price</td><td>SEA</td><td>RB</td><td>$7,200</td></tr>
+<tr><td>Hunter Henry</td><td>NE</td><td>TE</td><td>$4,800</td></tr>
+<tr><td>Corey Kiner</td><td>NE</td><td>RB</td><td>$2,400</td></tr>
+</table>
+<table>
+<tr><th>Lens</th><th>Grade</th><th>Why</th></tr>
+<tr><td>Salary</td><td>A-</td><td>Legal at $49,600. $400 unused. Kiner is the punt so Henry and Price both fit.</td></tr>
+<tr><td>Correlation</td><td>A-</td><td>Maye CPT + Brown + Henry is the Patriots pass stack. JSN + Price is the Seattle pair. One from each team, both scripts.</td></tr>
+<tr><td>Script</td><td>A</td><td>Both starting Seattle safeties inactive. Multiplier belongs on Maye, not the TE, if the pocket is clean.</td></tr>
+<tr><td>Uniqueness</td><td>C+</td><td>Maye CPT + Brown will be popular. Price and Henry are the separators.</td></tr>
+<tr><td>Where it dies</td><td>--</td><td>Campbell gets wrecked, Maye turns it over, or the Seattle score is Lock to JSN and not Price.</td></tr>
+</table>
+</div></details>
+
+<details class="block" open><summary>BEST BET</summary>
+<div class="body">
+<div class="callout">
+<div style="font-size:22px;font-weight:800">PATRIOTS +3 (-102)</div>
+<div style="margin-top:6px">$100 to win $98 (booked)</div>
+</div>
+<p>One-score script. Both Seattle starting safeties inactive. First-time OC and a rookie lead back. Closing DK number.</p>
+</div></details>
+
+<details class="block" open><summary>RESULTS</summary>
+<div class="body">
+<div class="callout">
+<div style="font-size:22px;font-weight:800">SEA 13 -- NE 10</div>
+<div class="push" style="margin-top:6px">PATRIOTS +3 -- PUSH -- $0</div>
+</div>
+<p>Drew Lock replaced Sam Darnold. JSN 45-yard TD. Myers 30 and 26. Maye 1 TD, 3 INT. First score of 2026: Eli Raridon from 2 yards. Total: 23.</p>
+<h3>CORRECT</h3>
+<ul>
+<li class="ok">One-score game. Not February's 29-13.</li>
+<li class="ok">+3 was the right number. Seattle won by exactly 3.</li>
+<li class="ok">JSN was the Seattle offense. Horton inactive concentrated targets.</li>
+<li class="ok">Thin safety room mattered. Seattle stalled for three quarters.</li>
+<li class="ok">TE room was the Patriots exploit. We named Henry. Raridon scored.</li>
+<li class="ok">Kupp sit was correct.</li>
+</ul>
+<h3>INCORRECT</h3>
+<ul>
+<li class="bad">No backup-QB branch. Darnold left. Lock won it.</li>
+<li class="bad">Maye CPT assumed a clean enough pocket. Three picks.</li>
+<li class="bad">Brown ankle cut the WR1 path.</li>
+<li class="bad">Myers decided the covering points. Kickers were underweighted in the script.</li>
+<li class="bad">Death case named Campbell / Price committee. Actual death case: Maye turnovers plus Lock to JSN.</li>
+</ul>
+<h3>MISSED</h3>
+<ul>
+<li>Lock needed a paragraph before kickoff.</li>
+<li>Raridon needed a named scoring path next to Henry.</li>
+<li>Julian Love as a takeaway player with both starting safeties out.</li>
+<li>Implied 20-24, not 10-13.</li>
+</ul>
+<h3>GET BETTER MOVING FORWARD</h3>
+<ul>
+<li>Every dive gets a backup-QB branch.</li>
+<li>Non-stars get a named scoring path, not just a FLEX tag.</li>
+<li>Missing safeties do not automatically make the opposing QB a captain.</li>
+<li>Field-goal games put the kicker in the script, not only the salary table.</li>
+<li>Write RESULTS the same night.</li>
+<li>Do not change the SF-LAR template.</li>
+</ul>
+<p><a href="results.html">Open full ledger</a></p>
+</div></details>
+</div>
+</body></html>

@@ -1,0 +1,10 @@
+.subhead > summary {
+  color: #d4a017 !important;
+  font-size: 15px !important;
+  letter-spacing: .08em;
+  padding: 12px 16px !important;
+}
+.subhead > summary::after {
+  color: #d4a017 !important;
+  font-size: 18px !important;
+}

@@ -2,17 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="refresh" content="0;url=index%20(1).html">
 <title>The Split</title>
+<script>location.replace("index%20(1).html");</script>
 </head>
 <body>
-<script>
-fetch("index%20(1).html").then(r => r.text()).then(html => {
-  html = html.replace("</style>", "</style><link rel=\"stylesheet\" href=\"home.css\">");
-  document.open();
-  document.write(html);
-  document.close();
-});
-</script>
+<p><a href="index%20(1).html">Open The Split</a></p>
 </body>
 </html>

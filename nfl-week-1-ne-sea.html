@@ -42,9 +42,9 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <div id="app"><p class="note" style="padding:24px;text-align:center">Loading board...</p></div>
 <script>
 Promise.all([
-  fetch("parts/ne-1.html").then(r=>r.text()),
-  fetch("parts/ne-2.html").then(r=>r.text()),
-  fetch("parts/ne-3.html").then(r=>r.text())
+  fetch("parts/ne-1.html?v=8").then(r=>r.text()),
+  fetch("parts/ne-2.html?v=8").then(r=>r.text()),
+  fetch("parts/ne-3.html?v=8").then(r=>r.text())
 ]).then(parts=>{ document.getElementById("app").innerHTML = parts.join(""); });
 </script>
 </body></html>

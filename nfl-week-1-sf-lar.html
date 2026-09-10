@@ -41,8 +41,8 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <div class="wrap" id="app"><p class="note" style="text-align:center;padding:24px">Loading board...</p></div>
 <script>
 Promise.all([
-  fetch("parts/sf-1.html?v=10").then(r=>r.text()),
-  fetch("parts/sf-2.html?v=10").then(r=>r.text())
+  fetch("parts/sf-1.html?v=11").then(r=>r.text()),
+  fetch("parts/sf-2.html?v=11").then(r=>r.text())
 ]).then(parts=>{ document.getElementById("app").innerHTML = parts.join(""); });
 </script>
 </body></html>

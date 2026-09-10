@@ -15,7 +15,7 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 .subhead > summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; padding:12px 16px; font-size:15px; font-weight:800; color:var(--gold); letter-spacing:.08em; }
 .league > summary::-webkit-details-marker, .subhead > summary::-webkit-details-marker { display:none; }
 .league > summary::after, .subhead > summary::after { content:"+"; color:var(--gold); font-size:18px; }
-.league[open] > summary::after, .subhead[open] > summary::after { content:"\2013"; }
+.league[open] > summary::after, .subhead[open] > summary::after { content:"-"; }
 .inner { padding:0 14px 16px; border-top:1px solid var(--line); }
 .weeks { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:12px 0; }
 .weeks button { padding:10px 6px; border-radius:8px; border:1px solid var(--line); background:#0e141c; color:var(--muted); font-weight:700; cursor:pointer; font-family:inherit; }
@@ -31,6 +31,10 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 .mini span { font-size:13px; font-weight:800; }
 .full-link { color:var(--gold); font-weight:800; text-decoration:none; font-size:12px; letter-spacing:.04em; white-space:nowrap; }
 .note { color:var(--muted); font-size:13px; }
+.push { color:var(--gold); font-weight:800; }
+table.res { width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; }
+table.res th, table.res td { text-align:left; padding:8px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
+table.res th { color:var(--muted); font-size:11px; letter-spacing:.08em; }
 @media (max-width:640px){ .weeks,.mini{grid-template-columns:1fr 1fr;} h1{font-size:32px;} }
 </style></head>
 <body>
@@ -53,9 +57,12 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 <details class="subhead">
 <summary>RESULTS</summary>
 <div class="inner">
-<p class="note">$100 unit. Closing DraftKings number unless overridden.</p>
-<p><b>NE at SEA</b> -- Patriots +3 (-102) -- SEA 13-10 -- PUSH</p>
-<p><b>SF at LAR</b> -- 49ers +3.5 (-102) -- OPEN</p>
+<p class="note">Betting ledger only. $100 unit. Closing DraftKings number unless overridden. Game reviews live on each full breakdown.</p>
+<table class="res">
+<tr><th>WEEK</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>STAKE</th><th>FINAL</th><th>RESULT</th><th>P/L</th></tr>
+<tr><td>1</td><td>NE at SEA</td><td>Patriots +3</td><td>NE +3 (-102)</td><td>$100 to win $98</td><td>SEA 13-10</td><td class="push">PUSH</td><td>$0</td></tr>
+<tr><td>1</td><td>SF at LAR</td><td>49ers +3.5</td><td>SF +3.5 (-102)</td><td>$102 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
+</table>
 </div>
 </details>
 </div>
@@ -64,5 +71,5 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 <details class="league"><summary>NBA</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 <details class="league"><summary>NHL</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 </div>
-<script src="schedule.js?v=6"></script>
+<script src="schedule.js?v=7"></script>
 </body></html>

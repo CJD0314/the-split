@@ -20,19 +20,17 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 .weeks { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:12px 0; }
 .weeks button { padding:10px 6px; border-radius:8px; border:1px solid var(--line); background:#0e141c; color:var(--muted); font-weight:700; cursor:pointer; font-family:inherit; }
 .weeks button.on { border-color:var(--ok); color:var(--ok); }
-.g { display:flex; align-items:center; gap:10px; background:#0e141c; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; text-decoration:none; color:inherit; }
+.g { display:flex; align-items:center; gap:10px; background:#0e141c; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; color:inherit; }
 .g img { width:28px; height:28px; object-fit:contain; }
-.g b { flex:1; font-size:14px; }
+.g b { flex:1; font-size:14px; color:#e8eef5; }
 .g span { color:var(--muted); font-size:12px; }
 .day { color:var(--muted); font-size:11px; letter-spacing:.1em; margin:12px 0 4px; font-weight:700; }
-.g-dive { border-color:#3dd68c; }
-.dive-box { padding:8px 12px 14px; border-top:1px solid var(--line); }
-.mini { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:8px 0 12px; }
+.dive-box { padding:4px 0 2px; }
+.mini { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:8px 0 0; }
 .mini div { background:#121820; border:1px solid var(--line); border-radius:10px; padding:10px; }
 .mini b { display:block; color:var(--muted); font-size:10px; }
 .mini span { font-size:13px; font-weight:800; }
-.mini small { display:block; color:var(--muted); font-size:11px; margin-top:4px; }
-.full-link { color:var(--gold); font-weight:800; text-decoration:none; }
+.full-link { color:var(--gold); font-weight:800; text-decoration:none; font-size:12px; letter-spacing:.04em; white-space:nowrap; }
 .note { color:var(--muted); font-size:13px; }
 @media (max-width:640px){ .weeks,.mini{grid-template-columns:1fr 1fr;} h1{font-size:32px;} }
 </style></head>
@@ -42,10 +40,10 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 <div class="sub">Who is on who, what the line did, and which role players actually move a game.</div>
 </div></header>
 <div class="wrap">
-<details class="league" open>
+<details class="league">
 <summary>NFL</summary>
 <div class="inner">
-<details class="subhead" open>
+<details class="subhead" id="deep-dives">
 <summary>DEEP DIVES</summary>
 <div class="inner">
 <div class="weeks" id="week-btns"></div>
@@ -68,5 +66,5 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 <details class="league"><summary>NBA</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 <details class="league"><summary>NHL</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 </div>
-<script src="schedule.js?v=3"></script>
+<script src="schedule.js?v=4"></script>
 </body></html>

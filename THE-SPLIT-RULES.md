@@ -1,40 +1,37 @@
 # THE SPLIT — upload rules
 
-Applies to every breakdown from here forward, not just NE vs SEA.
+Applies to every breakdown from here forward.
+Approved look locked 2026-09-09. Do not revert.
 
-## Frozen chrome — do not redesign unless asked
-- Home page structure stays: THE SPLIT title, one-line summary, NFL / MLB / NBA / NHL buttons, Deep Dives and Results as matching dropdown buttons, week buttons, game rows with logos + network.
-- Dive page structure stays the NE-SEA layout: one HOME / RESULTS bar, brand, week, logos, full names, four DK tiles, then the same dropdown sections in the same order.
-- Results page stays a $100-unit ledger.
-- Do not add iframes, sticky stacked headers, extra landing pages, or experimental nav.
-- Do not turn `index.html` into a redirect.
-- Do not invent a new visual system mid-week.
+## Frozen chrome
+- Home: THE SPLIT title, one-line summary, NFL / MLB / NBA / NHL as large white headings.
+- DEEP DIVES and RESULTS: gold #d4a017, smaller than NFL (about 15px). Matching + dropdown buttons.
+- Week buttons: only the selected week is green. Week 1 is not permanently lit.
+- Game rows: logos + network.
+- Dive page: one HOME / RESULTS bar. No iframe. No stacked headers.
+- Results: $100-unit ledger, closing DraftKings juice.
+- Do not redesign unless asked. Do not invent new nav.
 
-## What is allowed to change on an update
-- New game data only: lines, inactives, script, matchups, salaries, lineup, best bet.
-- Add a new `nfl-week-X-away-home.html` copied from the last finished dive.
-- Add that game to the existing week list and to `results.html`.
-- Fix a factual error (wrong juice, missing DC, inactive declared).
+## Allowed on an update
+- New game data only.
+- New file `nfl-week-X-away-home.html` copied from the last finished dive.
+- Add that game to the week list and results.html.
+- Fix a factual error.
 
 ## File names
-- Home: `index.html` only.
-- NFL dive: `nfl-week-X-away-home.html` (away first).
+- Home live file currently `index (1).html` until we flatten names. Do not restyle it back to white subheads.
+- Dives: `nfl-week-X-away-home.html`.
 - Results: `results.html`.
-- If a computer download creates `file (1).html`, copy onto the real name and delete the `(1)` file. Never leave `(1)` as the live page.
+- Never ship a stub over a finished page.
 
-## Every NFL dive must include, in this order
+## Every NFL dive, in order
 1. One header: HOME and RESULTS.
-2. THE SPLIT / NFL WEEK N / both logos / full team names / time, stadium, network.
-3. Four DK tiles: SPREAD, TOTAL, MONEYLINE, MOVE — current + opening. DraftKings only.
-4. TEAM BREAKDOWN: HC, OC, DC for both teams. Write (calls plays) when true. Never omit a coordinator.
-5. INACTIVES: depth chart, 1-10 impact, NFL.com source.
-6. SCRIPT: score band plus why.
-7. WR VS CB: who covers who plus notes, including non-stars.
-8. DK SALARIES: FLEX and CPT.
-9. LINEUP ENTRY REVIEW: players with team, pos, salary, then grades.
-10. BEST BET last: closing DK number, $100 unit, honest juice.
-
-## Every commit
-- Touch only the files that need new game data.
-- One HTML file per dive. No wrapper.
-- After push, open the live URL and confirm the long version is up.
+2. Brand / week / logos / full names / time, stadium, network.
+3. DK tiles: SPREAD, TOTAL, MONEYLINE, MOVE — current + open.
+4. TEAM BREAKDOWN with HC, OC, DC and (calls plays).
+5. INACTIVES with depth and 1-10 impact.
+6. SCRIPT with score band.
+7. WR VS CB with notes.
+8. DK SALARIES.
+9. LINEUP ENTRY REVIEW.
+10. BEST BET last, $100, honest DK close.

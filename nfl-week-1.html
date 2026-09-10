@@ -4,11 +4,88 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Split — NFL Week 1</title>
+<style>
+  :root {
+    --bg: #0b0f14; --panel: #121820; --line: #2a3644;
+    --text: #e8eef5; --muted: #93a3b5; --gold: #d4a017; --ok: #3dd68c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: radial-gradient(1000px 500px at 0% 0%, #1a2a18 0%, transparent 50%), var(--bg);
+    color: var(--text);
+    line-height: 1.45;
+  }
+  header { padding: 22px 24px 10px; border-bottom: 1px solid var(--line); }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 8px 18px 48px; }
+  .kicker { color: var(--gold); letter-spacing: .14em; font-size: 11px; font-weight: 700; }
+  .kicker a { color: inherit; text-decoration: none; }
+  h1 { margin: 8px 0 4px; font-size: 28px; }
+  .sub { color: var(--muted); font-size: 14px; }
+  h2 { font-size: 13px; letter-spacing: .12em; color: var(--muted); margin: 22px 0 10px; }
+  .game {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 12px 14px; margin: 8px 0;
+    text-decoration: none; color: inherit;
+  }
+  a.game:hover { border-color: var(--gold); }
+  .game.soon { opacity: .72; }
+  .game img { width: 36px; height: 36px; object-fit: contain; }
+  .match { flex: 1; font-weight: 800; }
+  .meta { color: var(--muted); font-size: 13px; font-weight: 600; text-align: right; }
+  .live { color: var(--ok); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+</style>
 </head>
 <body>
-<p><a href="index.html">THE SPLIT</a></p>
-<h1>Week 1</h1>
-<p><a href="nfl-week-1-ne-sea.html">SEA vs NE — FULL BREAKDOWN</a></p>
-<p>Upload the three HTML files from this repo to Netlify in one folder.</p>
+<header>
+  <div class="wrap" style="padding-bottom:8px">
+    <div class="kicker"><a href="index.html">THE SPLIT</a> · NFL</div>
+    <h1>Week 1</h1>
+    <div class="sub">Sept. 9–14, 2026 · 16 games. Click a live board to open the dive.</div>
+  </div>
+</header>
+<div class="wrap">
+
+  <h2>Wednesday, Sept. 9</h2>
+  <a class="game" href="nfl-week-1-ne-sea.html">
+    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="NE" />
+    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="SEA" />
+    <div class="match">SEA vs NE<br><span class="live">OPEN DEEP DIVE</span></div>
+    <div class="meta">8:20 p.m. ET<br>NBC</div>
+  </a>
+
+  <h2>Thursday, Sept. 10</h2>
+  <div class="game soon">
+    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="SF" />
+    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" alt="LAR" />
+    <div class="match">49ers vs Rams<br><span class="sub">Melbourne · dive coming</span></div>
+    <div class="meta">8:35 p.m. ET<br>Netflix</div>
+  </div>
+
+  <h2>Sunday, Sept. 13 · 1:00 p.m. ET</h2>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt=""><div class="match">Falcons at Steelers</div><div class="meta">FOX</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/bal.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" alt=""><div class="match">Ravens at Colts</div><div class="meta">CBS</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" alt=""><div class="match">Bills at Texans</div><div class="meta">CBS</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/chi.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/car.png" alt=""><div class="match">Bears at Panthers</div><div class="meta">FOX</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" alt=""><div class="match">Browns at Jaguars</div><div class="meta">CBS</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/no.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/det.png" alt=""><div class="match">Saints at Lions</div><div class="meta">FOX</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" alt=""><div class="match">Jets at Titans</div><div class="meta">CBS</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/cin.png" alt=""><div class="match">Buccaneers at Bengals</div><div class="meta">FOX</div></div>
+
+  <h2>Sunday, Sept. 13 · 4:25 p.m. ET</h2>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ari.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" alt=""><div class="match">Cardinals at Chargers</div><div class="meta">CBS</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" alt=""><div class="match">Packers at Vikings</div><div class="meta">CBS</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" alt=""><div class="match">Dolphins at Raiders</div><div class="meta">FOX</div></div>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" alt=""><div class="match">Commanders at Eagles</div><div class="meta">FOX</div></div>
+
+  <h2>Sunday Night</h2>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" alt=""><div class="match">Cowboys at Giants</div><div class="meta">8:20 p.m. ET<br>NBC</div></div>
+
+  <h2>Monday, Sept. 14</h2>
+  <div class="game soon"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/den.png" alt=""><img src="https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" alt=""><div class="match">Broncos at Chiefs</div><div class="meta">8:15 p.m. ET<br>ABC / ESPN</div></div>
+
+</div>
 </body>
 </html>

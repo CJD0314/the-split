@@ -7,22 +7,21 @@
 :root{--bg:#0b0f14;--panel:#121820;--panel2:#18202a;--line:#2a3644;--text:#e8eef5;--muted:#93a3b5;--gold:#d4a017}
 *{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",system-ui,sans-serif;background:#0b0f14;color:#e8eef5;line-height:1.5}
 .wrap{max-width:1100px;margin:0 auto;padding:18px 18px 64px}
-.topnav{display:flex;justify-content:center;gap:22px;padding:12px;border-bottom:1px solid var(--line)}
+.topnav{display:flex;justify-content:center;padding:12px;border-bottom:1px solid var(--line)}
 .topnav a{color:var(--gold);text-decoration:none;font-weight:800;font-size:13px;letter-spacing:.08em}
 header{text-align:center;padding:20px 16px 8px}.brand{font-size:34px;font-weight:800;letter-spacing:.12em}
 .week{color:var(--gold);letter-spacing:.16em;font-weight:700;margin:8px 0 16px}
 .logos{display:flex;justify-content:center;gap:28px}.logos img{width:88px;height:88px;object-fit:contain}
-h1{font-size:24px;font-weight:800}.meta{color:var(--muted);font-size:14px}
+h1{font-size:22px;font-weight:800}.meta{color:var(--muted);font-size:14px}
 .market{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
 .tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
 .tile b{display:block;color:var(--muted);font-size:11px;letter-spacing:.1em;margin-bottom:8px}
-.tile span{display:block;font-size:16px;font-weight:800;color:#e8eef5;line-height:1.35;margin:6px 0}
+.tile span{display:block;font-size:15px;font-weight:800;line-height:1.35;margin:6px 0}
 details.block{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:12px 0}
 details.block>summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:800;letter-spacing:.08em}
 details.block>summary::after{content:" +";color:var(--gold);float:right}details.block[open]>summary::after{content:" -"}
 .body{padding:4px 18px 18px;border-top:1px solid var(--line)}
-h3{color:var(--gold);font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
-.team-head{display:flex;align-items:center;gap:10px;margin:10px 0}.team-head img{width:48px;height:48px}
+h3{color:var(--gold);font-size:13px;letter-spacing:.08em}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
 .note{color:var(--muted);font-size:13px}.callout{background:var(--panel2);border-left:3px solid var(--gold);padding:12px 14px;margin:10px 0}
@@ -44,5 +43,51 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <div class="tile"><b>MONEYLINE</b><span>Current: LAR -198 / SF +164</span><span>Open: LAR -198 / SF +164</span></div>
 <div class="tile"><b>MOVE</b><span>No real move</span></div>
 </div>
-<p class="note">Use hard refresh. Full sections follow the locked template.</p>
-</div></body></html>
+<details class="block" open><summary>TEAM BREAKDOWN</summary>
+<div class="body">
+<h3>SAN FRANCISCO</h3>
+<ul>
+<li><b>HC Kyle Shanahan (calls plays - offense)</b> -- outside zone, 21/12 (2 RBs + 1 TE / 1 RB + 2 TEs).</li>
+<li><b>OC Klay Kubiak</b> -- does not take the headset.</li>
+<li><b>DC Raheem Morris (calls plays - defense)</b> -- first year calling this defense.</li>
+<li>On the ground in Melbourne since Friday. Donald-out thesis lives with CMC.</li>
+</ul>
+<h3>LOS ANGELES</h3>
+<ul>
+<li><b>HC Sean McVay (calls plays - offense)</b> -- 11 personnel (1 RB + 1 TE).</li>
+<li><b>OC Nate Scheelhaase</b> -- McVay still calls it.</li>
+<li><b>DC Chris Shula (calls plays - defense)</b> -- Donald OUT, did not travel.</li>
+<li>Tuesday night departure. Skipped Wednesday practice.</li>
+</ul>
+</div></details>
+<details class="block" open><summary>INACTIVES</summary>
+<div class="body">
+<p class="note">Official NFL.com sheet not posted yet. Wednesday night status.</p>
+<table>
+<tr><th>Player</th><th>Team</th><th>Status</th><th>Impact</th></tr>
+<tr><td>Aaron Donald</td><td>LAR</td><td>OUT</td><td>8</td></tr>
+<tr><td>Ricky Pearsall</td><td>SF</td><td>OUT (year)</td><td>6</td></tr>
+<tr><td>Alfred Collins</td><td>SF</td><td>OUT (year)</td><td>7</td></tr>
+<tr><td>George Kittle</td><td>SF</td><td>QUESTIONABLE</td><td>7</td></tr>
+<tr><td>Nick Bosa</td><td>SF</td><td>EXPECTED / leash</td><td>4</td></tr>
+<tr><td>Renardo Green</td><td>SF</td><td>QUESTIONABLE</td><td>6</td></tr>
+<tr><td>Jaylen Watson</td><td>LAR</td><td>QUESTIONABLE</td><td>5</td></tr>
+</table>
+</div></details>
+<details class="block" open><summary>SCRIPT</summary>
+<div class="body">
+<h3>RAMS WIN IF -- LAR 30 | SF 24</h3>
+<ul><li>Stafford looks like himself after the flight.</li><li>Nacua beats the Green plan.</li></ul>
+<h3>49ERS WIN IF -- SF 27 | LAR 23</h3>
+<ul><li>Friday arrival shows up in Q1.</li><li>CMC runs at the Donald-less interior.</li></ul>
+</div></details>
+<details class="block" open><summary>BEST BET</summary>
+<div class="body">
+<div class="callout">
+<div style="font-size:22px;font-weight:800">49ERS +3.5 (-102)</div>
+<div style="margin-top:6px">$102 to win $100</div>
+</div>
+<p>Melbourne, not SoFi. Donald out. Number has not moved.</p>
+</div></details>
+</div>
+</body></html>

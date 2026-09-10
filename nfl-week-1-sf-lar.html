@@ -38,20 +38,11 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <h1>SAN FRANCISCO 49ERS VS LOS ANGELES RAMS</h1>
 <div class="meta">Thursday, Sept. 10, 2026 | 8:35 p.m. ET | Melbourne Cricket Ground | Netflix</div>
 </header>
-<div class="wrap" id="board">
-<div class="market">
-<div class="tile"><b>SPREAD</b><span>Current: LAR -3.5 (-118) / SF +3.5 (-102)</span><span>Open: LAR -3.5 (-118) / SF +3.5 (-102)</span></div>
-<div class="tile"><b>TOTAL</b><span>Current: 48.5 (o-105 / u-115)</span><span>Open: 48.5 (o-105 / u-115)</span></div>
-<div class="tile"><b>MONEYLINE</b><span>Current: LAR -198 / SF +164</span><span>Open: LAR -198 / SF +164</span></div>
-<div class="tile"><b>MOVE</b><span>No real move</span></div>
-</div>
-<p class="note">Updated Thursday: Kittle and Bosa off the injury report and will play. Donald OUT. Garrett will play. Watson has no designation.</p>
-<div id="more"></div>
-</div>
+<div class="wrap" id="app"><p class="note" style="text-align:center;padding:24px">Loading board...</p></div>
 <script>
-fetch("parts/sf-2.html?v=9").then(r=>r.text()).then(t=>{
-  const el=document.getElementById("more");
-  if(el) el.outerHTML=t;
-});
+Promise.all([
+  fetch("parts/sf-1.html?v=9").then(r=>r.text()),
+  fetch("parts/sf-2.html?v=9").then(r=>r.text())
+]).then(parts=>{ document.getElementById("app").innerHTML = parts.join(""); });
 </script>
 </body></html>

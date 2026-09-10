@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Split</title>
+<style>
+:root { --bg:#0b0f14; --panel:#121820; --panel2:#18202a; --line:#2a3644; --text:#e8eef5; --muted:#93a3b5; --gold:#d4a017; --ok:#3dd68c; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:"Segoe UI",system-ui,sans-serif; background:#0b0f14; color:#e8eef5; line-height:1.45; }
+header { padding:28px 24px 16px; border-bottom:1px solid var(--line); text-align:center; }
+.wrap { max-width:920px; margin:0 auto; padding:8px 18px 56px; }
+h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
+.sub { color:var(--muted); font-size:16px; max-width:640px; margin:0 auto; }
+.league, .subhead { background:var(--panel); border:1px solid var(--line); border-radius:14px; margin:14px 0; overflow:hidden; }
+.league > summary, .subhead > summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; padding:16px 18px; font-size:20px; font-weight:800; }
+.league > summary::-webkit-details-marker, .subhead > summary::-webkit-details-marker { display:none; }
+.league > summary::after, .subhead > summary::after { content:"+"; color:var(--gold); font-size:22px; }
+.league[open] > summary::after, .subhead[open] > summary::after { content:"–"; }
+.inner { padding:0 14px 16px; border-top:1px solid var(--line); }
+.weeks { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:12px 0; }
+.weeks button { padding:10px 6px; border-radius:8px; border:1px solid var(--line); background:#0e141c; color:var(--muted); font-weight:700; cursor:pointer; font-family:inherit; }
+.weeks button.on, .weeks button.live { border-color:var(--ok); color:var(--ok); }
+.g { display:flex; align-items:center; gap:10px; background:#0e141c; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; text-decoration:none; color:inherit; }
+.g img { width:28px; height:28px; object-fit:contain; }
+.g b { flex:1; font-size:14px; }
+.g span { color:var(--muted); font-size:12px; }
+.day { color:var(--muted); font-size:11px; letter-spacing:.1em; margin:12px 0 4px; font-weight:700; }
+.g-dive { border-color:#3dd68c; }
+.dive-box { padding:8px 12px 14px; border-top:1px solid var(--line); }
+.mini { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:8px 0 12px; }
+.mini div { background:#121820; border:1px solid var(--line); border-radius:10px; padding:10px; }
+.mini b { display:block; color:var(--muted); font-size:10px; }
+.mini span { font-size:13px; font-weight:800; }
+.mini small { display:block; color:var(--muted); font-size:11px; margin-top:4px; }
+.full-link { color:var(--gold); font-weight:800; text-decoration:none; }
+.note { color:var(--muted); font-size:13px; }
+.dk { height:12px; vertical-align:middle; }
+@media (max-width:640px){ .weeks,.mini{grid-template-columns:1fr 1fr;} h1{font-size:32px;} }
+</style></head>
+<body>
+<header><div class="wrap" style="padding-bottom:12px">
+<h1>THE SPLIT</h1>
+<div class="sub">Who is on who, what the line did, and which role players actually move a game.</div>
+</div></header>
+<div class="wrap">
+<details class="league" open>
+<summary>NFL</summary>
+<div class="inner">
+<details class="subhead" open>
+<summary>DEEP DIVES</summary>
+<div class="inner">
+<div class="weeks" id="week-btns"></div>
+<div id="slate"></div>
+<p class="note">Schedule source: NFL.com / CBS 2026 slate. Flex windows in Weeks 16–18 stay TBD until the league sets them.</p>
+</div>
+</details>
+<details class="subhead">
+<summary>RESULTS</summary>
+<div class="inner">
+<p class="note">$100 unit. Closing DraftKings number unless overridden.</p>
+<p><b>NE at SEA</b> — Patriots +3 (-102) · $100 to win $98 · LIVE</p>
+<p><a class="full-link" href="results.html">OPEN FULL LEDGER</a></p>
+</div>
+</details>
+</div>
+</details>
+<details class="league"><summary>MLB</summary><div class="inner"><p class="note">Coming next.</p></div></details>
+<details class="league"><summary>NBA</summary><div class="inner"><p class="note">Coming next.</p></div></details>
+<details class="league"><summary>NHL</summary><div class="inner"><p class="note">Coming next.</p></div></details>
+</div>
+<script>
+const NAMES = {"ne": "Patriots", "sea": "Seahawks", "sf": "49ers", "lar": "Rams", "chi": "Bears", "car": "Panthers", "tb": "Buccaneers", "cin": "Bengals", "no": "Saints", "det": "Lions", "buf": "Bills", "hou": "Texans", "bal": "Ravens", "ind": "Colts", "cle": "Browns", "jax": "Jaguars", "atl": "Falcons", "pit": "Steelers", "nyj": "Jets", "ten": "Titans", "mia": "Dolphins", "lv": "Raiders", "gb": "Packers", "min": "Vikings", "wsh": "Commanders", "phi": "Eagles", "ari": "Cardinals", "lac": "Chargers", "dal": "Cowboys", "nyg": "Giants", "den": "Broncos", "kc": "Chiefs", "tbd": "TBD"};
+const GAMES = [[1, "WED SEPT 9", "ne", "sea", "8:20", "NBC", "dive"], [1, "THU SEPT 10", "sf", "lar", "8:35", "NFLX", "Melbourne"], [1, "SUN SEPT 13 \u00b7 1:00", "chi", "car", "1:00", "FOX", ""], [1, "SUN SEPT 13 \u00b7 1:00", "tb", "cin", "1:00", "FOX", ""], [1, "SUN SEPT 13 \u00b7 1:00", "no", "det", "1:00", "FOX", ""], [1, "SUN SEPT 13 \u00b7 1:00", "buf", "hou", "1:00", "CBS", ""], [1, "SUN SEPT 13 \u00b7 1:00", "bal", "ind", "1:00", "CBS", ""], [1, "SUN SEPT 13 \u00b7 1:00", "cle", "jax", "1:00", "CBS", ""], [1, "SUN SEPT 13 \u00b7 1:00", "atl", "pit", "1:00", "FOX", ""], [1, "SUN SEPT 13 \u00b7 1:00", "nyj", "ten", "1:00", "CBS", ""], [1, "SUN \u00b7 4:25", "ari", "lac", "4:25", "CBS", ""], [1, "SUN \u00b7 4:25", "mia", "lv", "4:25", "FOX", ""], [1, "SUN \u00b7 4:25", "gb", "min", "4:25", "CBS", ""], [1, "SUN \u00b7 4:25", "wsh", "phi", "4:25", "FOX", ""], [1, "SNF", "dal", "nyg", "8:20", "NBC", ""], [1, "MON SEPT 14", "den", "kc", "8:15", "ABC/ESPN", ""], [2, "THU SEPT 17", "det", "buf", "8:15", "PRIME", ""], [2, "SUN SEPT 20 \u00b7 1:00", "min", "chi", "1:00", "FOX", ""], [2, "SUN SEPT 20 \u00b7 1:00", "phi", "ten", "1:00", "FOX", ""], [2, "SUN SEPT 20 \u00b7 1:00", "gb", "nyj", "1:00", "FOX", ""], [2, "SUN SEPT 20 \u00b7 1:00", "car", "atl", "1:00", "FOX", ""], [2, "SUN SEPT 20 \u00b7 1:00", "no", "bal", "1:00", "CBS", ""], [2, "SUN SEPT 20 \u00b7 1:00", "cin", "hou", "1:00", "CBS", ""], [2, "SUN SEPT 20 \u00b7 1:00", "cle", "tb", "1:00", "CBS", ""], [2, "SUN SEPT 20 \u00b7 1:00", "pit", "ne", "1:00", "CBS", ""], [2, "SUN \u00b7 4:05", "lv", "lac", "4:05", "CBS", ""], [2, "SUN \u00b7 4:05", "jax", "den", "4:05", "CBS", ""], [2, "SUN \u00b7 4:25", "mia", "sf", "4:25", "FOX", ""], [2, "SUN \u00b7 4:25", "sea", "ari", "4:25", "FOX", ""], [2, "SUN \u00b7 4:25", "wsh", "dal", "4:25", "FOX", ""], [2, "SNF", "ind", "kc", "8:20", "NBC", ""], [2, "MON SEPT 21", "nyg", "lar", "8:15", "ABC/ESPN", ""], [3, "THU SEPT 24", "atl", "gb", "8:15", "PRIME", ""], [3, "SUN SEPT 27 \u00b7 1:00", "kc", "mia", "1:00", "CBS", ""], [3, "SUN SEPT 27 \u00b7 1:00", "hou", "ind", "1:00", "CBS", ""], [3, "SUN SEPT 27 \u00b7 1:00", "ten", "nyg", "1:00", "CBS", ""], [3, "SUN SEPT 27 \u00b7 1:00", "ne", "jax", "1:00", "CBS", ""], [3, "SUN SEPT 27 \u00b7 1:00", "cin", "pit", "1:00", "CBS", ""], [3, "SUN SEPT 27 \u00b7 1:00", "car", "cle", "1:00", "FOX", ""], [3, "SUN SEPT 27 \u00b7 1:00", "nyj", "det", "1:00", "FOX", ""], [3, "SUN SEPT 27 \u00b7 1:00", "sea", "wsh", "1:00", "FOX", ""], [3, "SUN SEPT 27 \u00b7 1:00", "lac", "buf", "1:00", "FOX", ""], [3, "SUN \u00b7 4:05", "min", "tb", "4:05", "FOX", ""], [3, "SUN \u00b7 4:05", "ari", "sf", "4:05", "FOX", ""], [3, "SUN \u00b7 4:25", "bal", "dal", "4:25", "CBS", "Rio"], [3, "SUN \u00b7 4:25", "lv", "no", "4:25", "CBS", ""], [3, "SNF", "lar", "den", "8:20", "NBC", ""], [3, "MON SEPT 28", "phi", "chi", "8:15", "ABC/ESPN", ""], [4, "THU OCT 1", "pit", "cle", "8:15", "PRIME", ""], [4, "SUN OCT 4 \u00b7 LONDON", "ind", "wsh", "9:30", "NFLN", "London"], [4, "SUN OCT 4 \u00b7 1:00", "ten", "bal", "1:00", "CBS", ""], [4, "SUN OCT 4 \u00b7 1:00", "ari", "nyg", "1:00", "CBS", ""], [4, "SUN OCT 4 \u00b7 1:00", "jax", "cin", "1:00", "CBS", ""], [4, "SUN OCT 4 \u00b7 1:00", "ne", "buf", "1:00", "CBS", ""], [4, "SUN OCT 4 \u00b7 1:00", "dal", "hou", "1:00", "FOX", ""], [4, "SUN OCT 4 \u00b7 1:00", "lar", "phi", "1:00", "FOX", ""], [4, "SUN OCT 4 \u00b7 1:00", "gb", "tb", "1:00", "FOX", ""], [4, "SUN OCT 4 \u00b7 1:00", "nyj", "chi", "1:00", "FOX", ""], [4, "SUN \u00b7 4:05", "mia", "min", "4:05", "FOX", ""], [4, "SUN \u00b7 4:25", "den", "sf", "4:25", "CBS", ""], [4, "SUN \u00b7 4:25", "lac", "sea", "4:25", "CBS", ""], [4, "SUN \u00b7 4:25", "kc", "lv", "4:25", "CBS", ""], [4, "SNF", "det", "car", "8:20", "NBC", ""], [4, "MON OCT 5", "atl", "no", "8:15", "ABC/ESPN", ""], [5, "THU OCT 8", "tb", "dal", "8:15", "PRIME", ""], [5, "SUN OCT 11 \u00b7 LONDON", "phi", "jax", "9:30", "NFLN", "London"], [5, "SUN OCT 11 \u00b7 1:00", "lv", "ne", "1:00", "CBS", ""], [5, "SUN OCT 11 \u00b7 1:00", "hou", "ten", "1:00", "CBS", ""], [5, "SUN OCT 11 \u00b7 1:00", "cle", "nyj", "1:00", "CBS", ""], [5, "SUN OCT 11 \u00b7 1:00", "ind", "pit", "1:00", "CBS", ""], [5, "SUN OCT 11 \u00b7 1:00", "cin", "mia", "1:00", "FOX", ""], [5, "SUN OCT 11 \u00b7 1:00", "min", "no", "1:00", "FOX", ""], [5, "SUN OCT 11 \u00b7 1:00", "nyg", "wsh", "1:00", "FOX", ""], [5, "SUN \u00b7 4:05", "den", "lac", "4:05", "CBS", ""], [5, "SUN \u00b7 4:25", "chi", "gb", "4:25", "FOX", ""], [5, "SUN \u00b7 4:25", "det", "ari", "4:25", "FOX", ""], [5, "SUN \u00b7 4:25", "sf", "sea", "4:25", "FOX", ""], [5, "SNF", "bal", "atl", "8:20", "NBC", ""], [5, "MON OCT 12", "buf", "lar", "8:15", "ABC/ESPN", ""], [6, "THU OCT 15", "sea", "den", "8:15", "PRIME", ""], [6, "SUN OCT 18 \u00b7 LONDON", "hou", "jax", "9:30", "NFLN", "London"], [6, "SUN OCT 18 \u00b7 1:00", "nyj", "ne", "1:00", "CBS", ""], [6, "SUN OCT 18 \u00b7 1:00", "pit", "tb", "1:00", "CBS", ""], [6, "SUN OCT 18 \u00b7 1:00", "car", "phi", "1:00", "CBS", ""], [6, "SUN OCT 18 \u00b7 1:00", "chi", "atl", "1:00", "FOX", ""], [6, "SUN OCT 18 \u00b7 1:00", "ten", "ind", "1:00", "FOX", ""], [6, "SUN OCT 18 \u00b7 1:00", "no", "nyg", "1:00", "FOX", ""], [6, "SUN OCT 18 \u00b7 1:00", "bal", "cle", "1:00", "FOX", ""], [6, "SUN \u00b7 4:05", "ari", "lar", "4:05", "FOX", ""], [6, "SUN \u00b7 4:25", "lac", "kc", "4:25", "CBS", ""], [6, "SUN \u00b7 4:25", "buf", "lv", "4:25", "CBS", ""], [6, "SNF", "dal", "gb", "8:20", "NBC", ""], [6, "MON OCT 19", "wsh", "sf", "8:15", "ABC/ESPN", ""], [7, "THU OCT 22", "ne", "chi", "8:15", "PRIME", ""], [7, "SUN OCT 25 \u00b7 PARIS", "pit", "no", "9:30", "NFLN", "Paris"], [7, "SUN OCT 25 \u00b7 1:00", "cle", "ten", "1:00", "CBS", ""], [7, "SUN OCT 25 \u00b7 1:00", "mia", "nyj", "1:00", "CBS", ""], [7, "SUN OCT 25 \u00b7 1:00", "ind", "min", "1:00", "CBS", ""], [7, "SUN OCT 25 \u00b7 1:00", "cin", "bal", "1:00", "CBS", ""], [7, "SUN OCT 25 \u00b7 1:00", "nyg", "hou", "1:00", "FOX", ""], [7, "SUN OCT 25 \u00b7 1:00", "tb", "car", "1:00", "FOX", ""], [7, "SUN OCT 25 \u00b7 1:00", "sf", "atl", "1:00", "FOX", ""], [7, "SUN \u00b7 4:05", "den", "ari", "4:05", "CBS", ""], [7, "SUN \u00b7 4:25", "lar", "lv", "4:25", "FOX", ""], [7, "SUN \u00b7 4:25", "gb", "det", "4:25", "FOX", ""], [7, "SNF", "kc", "sea", "8:20", "NBC", ""], [7, "MON OCT 26", "dal", "phi", "8:15", "ABC/ESPN", ""], [8, "THU OCT 29", "car", "gb", "8:15", "PRIME", ""], [8, "SUN NOV 1 \u00b7 1:00", "ten", "cin", "1:00", "CBS", ""], [8, "SUN NOV 1 \u00b7 1:00", "ind", "jax", "1:00", "CBS", ""], [8, "SUN NOV 1 \u00b7 1:00", "cle", "pit", "1:00", "CBS", ""], [8, "SUN NOV 1 \u00b7 1:00", "bal", "buf", "1:00", "CBS", ""], [8, "SUN NOV 1 \u00b7 1:00", "atl", "tb", "1:00", "FOX", ""], [8, "SUN NOV 1 \u00b7 1:00", "min", "det", "1:00", "FOX", ""], [8, "SUN NOV 1 \u00b7 1:00", "ari", "dal", "1:00", "FOX", ""], [8, "SUN NOV 1 \u00b7 1:00", "lv", "nyj", "1:00", "FOX", ""], [8, "SUN \u00b7 4:05", "lac", "lar", "4:05", "FOX", ""], [8, "SUN \u00b7 4:25", "kc", "den", "4:25", "CBS", ""], [8, "SUN \u00b7 4:25", "ne", "mia", "4:25", "CBS", ""], [8, "SNF", "phi", "wsh", "8:20", "NBC", ""], [8, "MON NOV 2", "chi", "sea", "8:15", "ABC/ESPN", ""], [9, "THU NOV 5", "jax", "bal", "8:15", "PRIME", ""], [9, "SUN NOV 8 \u00b7 MADRID", "cin", "atl", "9:30", "NFLN", "Madrid"], [9, "SUN NOV 8 \u00b7 1:00", "nyj", "kc", "1:00", "CBS", ""], [9, "SUN NOV 8 \u00b7 1:00", "cle", "no", "1:00", "CBS", ""], [9, "SUN NOV 8 \u00b7 1:00", "den", "car", "1:00", "CBS", ""], [9, "SUN NOV 8 \u00b7 1:00", "dal", "ind", "1:00", "FOX", ""], [9, "SUN NOV 8 \u00b7 1:00", "det", "mia", "1:00", "FOX", ""], [9, "SUN NOV 8 \u00b7 1:00", "nyg", "phi", "1:00", "FOX", ""], [9, "SUN NOV 8 \u00b7 1:00", "lar", "wsh", "1:00", "FOX", ""], [9, "SUN \u00b7 4:05", "lv", "sf", "4:05", "CBS", ""], [9, "SUN \u00b7 4:05", "hou", "lac", "4:05", "CBS", ""], [9, "SUN \u00b7 4:25", "ari", "sea", "4:25", "FOX", ""], [9, "SUN \u00b7 4:25", "gb", "ne", "4:25", "FOX", ""], [9, "SNF", "tb", "chi", "8:20", "NBC", ""], [9, "MON NOV 9", "buf", "min", "8:15", "ABC/ESPN", ""], [10, "THU NOV 12", "wsh", "nyg", "8:15", "PRIME", ""], [10, "SUN NOV 15 \u00b7 MUNICH", "ne", "det", "9:30", "FOX", "Munich"], [10, "SUN NOV 15 \u00b7 1:00", "buf", "nyj", "1:00", "CBS", ""], [10, "SUN NOV 15 \u00b7 1:00", "mia", "ind", "1:00", "CBS", ""], [10, "SUN NOV 15 \u00b7 1:00", "kc", "atl", "1:00", "CBS", ""], [10, "SUN NOV 15 \u00b7 1:00", "min", "gb", "1:00", "FOX", ""], [10, "SUN NOV 15 \u00b7 1:00", "jax", "ten", "1:00", "FOX", ""], [10, "SUN NOV 15 \u00b7 1:00", "hou", "cle", "1:00", "FOX", ""], [10, "SUN NOV 15 \u00b7 1:00", "car", "no", "1:00", "FOX", ""], [10, "SUN \u00b7 4:05", "lar", "ari", "4:05", "CBS", ""], [10, "SUN \u00b7 4:05", "sea", "lv", "4:05", "CBS", ""], [10, "SUN \u00b7 4:25", "sf", "dal", "4:25", "FOX", ""], [10, "SNF", "pit", "cin", "8:20", "NBC", ""], [10, "MON NOV 16", "lac", "bal", "8:15", "ABC/ESPN", ""], [11, "THU NOV 19", "ind", "hou", "8:15", "PRIME", ""], [11, "SUN NOV 22 \u00b7 1:00", "ari", "kc", "1:00", "CBS", ""], [11, "SUN NOV 22 \u00b7 1:00", "tb", "det", "1:00", "CBS", ""], [11, "SUN NOV 22 \u00b7 1:00", "jax", "nyg", "1:00", "CBS", ""], [11, "SUN NOV 22 \u00b7 1:00", "mia", "buf", "1:00", "FOX", ""], [11, "SUN NOV 22 \u00b7 1:00", "ten", "dal", "1:00", "FOX", ""], [11, "SUN NOV 22 \u00b7 1:00", "bal", "car", "1:00", "FOX", ""], [11, "SUN NOV 22 \u00b7 1:00", "no", "chi", "1:00", "FOX", ""], [11, "SUN \u00b7 4:05", "nyj", "lac", "4:05", "FOX", ""], [11, "SUN \u00b7 4:25", "pit", "phi", "4:25", "CBS", ""], [11, "SUN \u00b7 4:25", "lv", "den", "4:25", "CBS", ""], [11, "SNF", "min", "sf", "8:20", "NBC", "Mexico City"], [11, "MON NOV 23", "cin", "wsh", "8:15", "ABC/ESPN", ""], [12, "WED NOV 25", "gb", "lar", "8:00", "NFLX", "Thanksgiving Eve"], [12, "THU NOV 26", "chi", "det", "1:00", "CBS", "Thanksgiving"], [12, "THU NOV 26", "phi", "dal", "4:30", "FOX", "Thanksgiving"], [12, "THU NOV 26", "kc", "buf", "8:20", "NBC", "Thanksgiving"], [12, "FRI NOV 27", "den", "pit", "3:00", "PRIME", "Black Friday"], [12, "SUN NOV 29 \u00b7 1:00", "bal", "hou", "1:00", "CBS", ""], [12, "SUN NOV 29 \u00b7 1:00", "no", "cin", "1:00", "CBS", ""], [12, "SUN NOV 29 \u00b7 1:00", "nyj", "mia", "1:00", "CBS", ""], [12, "SUN NOV 29 \u00b7 1:00", "atl", "min", "1:00", "FOX", ""], [12, "SUN NOV 29 \u00b7 1:00", "nyg", "ind", "1:00", "FOX", ""], [12, "SUN NOV 29 \u00b7 1:00", "lv", "cle", "1:00", "FOX", ""], [12, "SUN \u00b7 4:05", "ten", "jax", "4:05", "CBS", ""], [12, "SUN \u00b7 4:25", "wsh", "ari", "4:25", "FOX", ""], [12, "SUN \u00b7 4:25", "sea", "sf", "4:25", "FOX", ""], [12, "SNF", "ne", "lac", "8:20", "NBC", ""], [12, "MON NOV 30", "car", "tb", "8:15", "ABC/ESPN", ""], [13, "THU DEC 3", "kc", "lar", "8:15", "PRIME", ""], [13, "SUN DEC 6 \u00b7 1:00", "det", "atl", "1:00", "CBS", ""], [13, "SUN DEC 6 \u00b7 1:00", "lac", "tb", "1:00", "CBS", ""], [13, "SUN DEC 6 \u00b7 1:00", "wsh", "ten", "1:00", "CBS", ""], [13, "SUN DEC 6 \u00b7 1:00", "cin", "cle", "1:00", "CBS", ""], [13, "SUN DEC 6 \u00b7 1:00", "sf", "nyg", "1:00", "FOX", ""], [13, "SUN DEC 6 \u00b7 1:00", "gb", "no", "1:00", "FOX", ""], [13, "SUN DEC 6 \u00b7 1:00", "jax", "chi", "1:00", "FOX", ""], [13, "SUN \u00b7 4:05", "phi", "ari", "4:05", "FOX", ""], [13, "SUN \u00b7 4:05", "mia", "den", "4:05", "FOX", ""], [13, "SUN \u00b7 4:25", "car", "min", "4:25", "CBS", ""], [13, "SUN \u00b7 4:25", "buf", "ne", "4:25", "CBS", ""], [13, "SNF", "hou", "pit", "8:20", "NBC", ""], [13, "MON DEC 7", "dal", "sea", "8:15", "ABC/ESPN", ""], [14, "THU DEC 10", "min", "ne", "8:15", "PRIME", ""], [14, "SUN DEC 13 \u00b7 1:00", "den", "nyj", "1:00", "CBS", ""], [14, "SUN DEC 13 \u00b7 1:00", "atl", "cle", "1:00", "CBS", ""], [14, "SUN DEC 13 \u00b7 1:00", "chi", "mia", "1:00", "CBS", ""], [14, "SUN DEC 13 \u00b7 1:00", "hou", "wsh", "1:00", "CBS", ""], [14, "SUN DEC 13 \u00b7 1:00", "no", "car", "1:00", "CBS", ""], [14, "SUN DEC 13 \u00b7 1:00", "ind", "phi", "1:00", "FOX", ""], [14, "SUN DEC 13 \u00b7 1:00", "tb", "bal", "1:00", "FOX", ""], [14, "SUN DEC 13 \u00b7 1:00", "ten", "det", "1:00", "FOX", ""], [14, "SUN \u00b7 4:05", "lac", "lv", "4:05", "CBS", ""], [14, "SUN \u00b7 4:25", "kc", "cin", "4:25", "FOX", ""], [14, "SUN \u00b7 4:25", "lar", "sf", "4:25", "FOX", ""], [14, "SUN \u00b7 4:25", "nyg", "sea", "4:25", "FOX", ""], [14, "SNF", "buf", "gb", "8:20", "NBC", ""], [14, "MON DEC 14", "pit", "jax", "8:15", "ABC/ESPN", ""], [15, "THU DEC 17", "sf", "lac", "8:15", "PRIME", ""], [15, "SAT DEC 19", "sea", "phi", "5:00", "FOX", ""], [15, "SAT DEC 19", "chi", "buf", "8:20", "CBS", ""], [15, "SUN DEC 20 \u00b7 1:00", "jax", "hou", "1:00", "CBS", ""], [15, "SUN DEC 20 \u00b7 1:00", "bal", "pit", "1:00", "CBS", ""], [15, "SUN DEC 20 \u00b7 1:00", "cle", "nyg", "1:00", "CBS", ""], [15, "SUN DEC 20 \u00b7 1:00", "ind", "ten", "1:00", "CBS", ""], [15, "SUN DEC 20 \u00b7 1:00", "mia", "gb", "1:00", "FOX", ""], [15, "SUN DEC 20 \u00b7 1:00", "no", "tb", "1:00", "FOX", ""], [15, "SUN DEC 20 \u00b7 1:00", "cin", "car", "1:00", "FOX", ""], [15, "SUN DEC 20 \u00b7 1:00", "atl", "wsh", "1:00", "FOX", ""], [15, "SUN \u00b7 4:05", "nyj", "ari", "4:05", "FOX", ""], [15, "SUN \u00b7 4:25", "dal", "lar", "4:25", "CBS", ""], [15, "SUN \u00b7 4:25", "den", "lv", "4:25", "CBS", ""], [15, "SNF", "det", "min", "8:20", "NBC", ""], [15, "MON DEC 21", "ne", "kc", "8:15", "ABC/ESPN", ""], [16, "THU DEC 24", "hou", "phi", "8:15", "PRIME", ""], [16, "FRI DEC 25", "gb", "chi", "1:00", "NFLX", "Christmas"], [16, "FRI DEC 25", "buf", "den", "4:30", "NFLX", "Christmas"], [16, "FRI DEC 25", "lar", "sea", "8:15", "FOX", "Christmas"], [16, "SAT DEC 26", "tbd", "tbd", "4:30", "NFLN", "Flex TBD"], [16, "SAT DEC 26", "tbd", "tbd", "8:00", "NFLN", "Flex TBD"], [16, "SUN DEC 27", "ne", "nyj", "1:00", "CBS", ""], [16, "SUN DEC 27", "cle", "bal", "1:00", "CBS", ""], [16, "SUN DEC 27", "lac", "mia", "1:00", "FOX", ""], [16, "SUN DEC 27", "ari", "lv", "4:05", "FOX", ""], [16, "SUN DEC 27", "sf", "kc", "4:25", "CBS", ""], [16, "SNF", "jax", "dal", "8:20", "NBC", ""], [16, "MON DEC 28", "nyg", "det", "8:15", "ABC/ESPN", ""], [16, "SUN FLEX", "tb", "atl", "TBD", "TBD", "Flex"], [16, "SUN FLEX", "wsh", "min", "TBD", "TBD", "Flex"], [16, "SUN FLEX", "car", "pit", "TBD", "TBD", "Flex"], [16, "SUN FLEX", "cin", "ind", "TBD", "TBD", "Flex"], [17, "THU DEC 31", "bal", "cin", "8:15", "PRIME", ""], [17, "SAT JAN 2", "tbd", "tbd", "4:30", "NBC", "Flex TBD"], [17, "SAT JAN 2", "tbd", "tbd", "8:00", "PEACOCK", "Flex TBD"], [17, "SUN JAN 3 \u00b7 1:00", "buf", "mia", "1:00", "CBS", ""], [17, "SUN JAN 3 \u00b7 1:00", "pit", "ten", "1:00", "CBS", ""], [17, "SUN JAN 3 \u00b7 1:00", "min", "nyj", "1:00", "CBS", ""], [17, "SUN JAN 3 \u00b7 1:00", "no", "atl", "1:00", "FOX", ""], [17, "SUN JAN 3 \u00b7 1:00", "sea", "car", "1:00", "FOX", ""], [17, "SUN JAN 3 \u00b7 1:00", "ind", "cle", "1:00", "FOX", ""], [17, "SUN JAN 3 \u00b7 1:00", "nyg", "dal", "1:00", "FOX", ""], [17, "SUN \u00b7 4:05", "lv", "ari", "4:05", "CBS", ""], [17, "SUN \u00b7 4:25", "det", "chi", "4:25", "FOX", ""], [17, "SNF", "phi", "sf", "8:20", "NBC", ""], [17, "MON JAN 4", "hou", "gb", "8:15", "ABC/ESPN", ""], [17, "SUN FLEX", "lar", "tb", "TBD", "TBD", "Flex"], [17, "SUN FLEX", "den", "ne", "TBD", "TBD", "Flex"], [17, "SUN FLEX", "kc", "lac", "TBD", "TBD", "Flex"], [17, "SUN FLEX", "wsh", "jax", "TBD", "TBD", "Flex"], [18, "SAT JAN 9", "tbd", "tbd", "1:00", "NFLX", "Flex TBD"], [18, "SAT JAN 9", "tbd", "tbd", "4:30", "ESPN/ABC", "Flex TBD"], [18, "SAT JAN 9", "tbd", "tbd", "8:00", "ESPN/ABC", "Flex TBD"], [18, "SUN JAN 10", "nyj", "buf", "TBD", "TBD", "Division"], [18, "SUN JAN 10", "jax", "ind", "TBD", "TBD", "Division"]];
+const LOGO = c => "https://a.espncdn.com/i/teamlogos/nfl/500/" + c + ".png";
+function row(g){
+  const [w,day,a,h,t,n,extra] = g;
+  const live = extra === "dive";
+  const label = (NAMES[a]||a) + " at " + (NAMES[h]||h) + (extra && extra!=="dive" ? " ("+extra+")" : "");
+  if(live){
+    return `<div class="day">${day}</div>
+<details class="g-dive g" open style="display:block;padding:0">
+<summary class="g" style="margin:0;border:0;list-style:none;cursor:pointer">
+<img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>SEA vs NE</b><span>${t} ${n}</span>
+</summary>
+<div class="dive-box">
+<div class="mini">
+<div><b>SPREAD</b><span>SEA -3 (-118)</span><small>NE +3 (-102)</small></div>
+<div><b>TOTAL</b><span>44.5</span><small>Open 44.5</small></div>
+<div><b>MONEYLINE</b><span>SEA -170 / NE +142</span><small><img class="dk" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/DraftKings_logo.svg/200px-DraftKings_logo.svg.png" alt="DK"></small></div>
+<div><b>MOVE</b><span>Toward NE</span><small>Off -4.5 / -3.5</small></div>
+</div>
+<p><a class="full-link" href="nfl-week-1-ne-sea.html">FULL BREAKDOWN</a></p>
+</div></details>`;
+  }
+  const imgs = (a==="tbd") ? "" : `<img src="${LOGO(a)}"><img src="${LOGO(h)}">`;
+  return `<div class="g">${imgs}<b>${label}</b><span>${t} ${n}</span></div>`;
+}
+function show(week){
+  document.querySelectorAll("#week-btns button").forEach((b,i)=>b.classList.toggle("on", i+1===week));
+  const list = GAMES.filter(g=>g[0]===week);
+  let html="", last="";
+  for(const g of list){
+    if(g[1]!==last){ html += `<div class="day">${g[1]}</div>`; last=g[1]; }
+    html += row(g);
+  }
+  document.getElementById("slate").innerHTML = html || "<p class='note'>No games listed.</p>";
+}
+const box = document.getElementById("week-btns");
+for(let i=1;i<=18;i++){
+  const b=document.createElement("button");
+  b.textContent="Week "+i;
+  if(i===1) b.className="live on";
+  b.onclick=()=>show(i);
+  box.appendChild(b);
+}
+show(1);
+</script>
+</body></html>

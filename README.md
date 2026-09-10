@@ -1,10 +1,13 @@
 # The Split
 
-Matchup desk for NFL, MLB, NBA, NHL.
+Site files live in this repo.
 
-## Files
-- index.html — home
-- nfl-week-1.html — Week 1 slate
-- nfl-week-1-ne-sea.html — Patriots at Seahawks full breakdown
+## Pages
+- Home: index.html
+- Week 1 slate: nfl-week-1.html
+- Patriots at Seahawks breakdown: nfl-week-1-ne-sea.html
 
-Drop those three on Netlify in the same folder.
+## Download
+Open a file on GitHub, click Raw, then Save As.
+
+Repo: https://github.com/CJD0314/the-split

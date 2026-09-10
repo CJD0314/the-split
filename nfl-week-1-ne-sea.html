@@ -16,18 +16,19 @@ h1{font-size:24px;font-weight:800}.meta{color:var(--muted);font-size:14px}
 .market{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
 .tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
 .tile b{display:block;color:var(--muted);font-size:11px;letter-spacing:.1em;margin-bottom:8px}
-.tile span{display:block;font-size:16px;font-weight:800;color:#e8eef5;line-height:1.35;margin:6px 0}
+.tile span{display:block;font-size:16px;font-weight:800;line-height:1.35;margin:6px 0}
 details.block{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:12px 0}
 details.block>summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:800;letter-spacing:.08em}
 details.block>summary::after{content:" +";color:var(--gold);float:right}details.block[open]>summary::after{content:" -"}
 .body{padding:4px 18px 18px;border-top:1px solid var(--line)}
-h3{color:var(--gold);font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
-.team-head{display:flex;align-items:center;gap:10px;margin:10px 0}.team-head img{width:48px;height:48px}
+h3{color:var(--gold);font-size:13px;letter-spacing:.08em}
+.team-head{display:flex;align-items:center;gap:10px}.team-head img{width:48px;height:48px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
 .note{color:var(--muted);font-size:13px}.callout{background:var(--panel2);border-left:3px solid var(--gold);padding:12px 14px;margin:10px 0}
 .ok{color:#3dd68c;font-weight:800}.bad{color:#ff6b6b;font-weight:800}.push{color:var(--gold);font-weight:800}
-@media(max-width:800px){.market{grid-template-columns:1fr}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:800px){.market,.grid2{grid-template-columns:1fr}}
 </style></head>
 <body>
 <div class="topnav"><a href="index.html">HOME</a></div>
@@ -38,12 +39,12 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <h1>NEW ENGLAND PATRIOTS VS SEATTLE SEAHAWKS</h1>
 <div class="meta">Wednesday, Sept. 9, 2026 | 8:20 p.m. ET | Lumen Field | NBC / Peacock</div>
 </header>
-<div class="wrap">
-<div class="market">
-<div class="tile"><b>SPREAD</b><span>Current: SEA -3 (-118) / NE +3 (-102)</span><span>Open: SEA -3.5 (-118) / NE +3.5 (-102)</span></div>
-<div class="tile"><b>TOTAL</b><span>Current: 44.5 (o-105 / u-115)</span><span>Open: 44.5 (o-105 / u-115)</span></div>
-<div class="tile"><b>MONEYLINE</b><span>Current: SEA -170 / NE +142</span><span>Open: SEA -198 / NE +164</span></div>
-<div class="tile"><b>MOVE</b><span>Toward NE, -3.5 to -3</span></div>
-</div>
-<p class="note">Full board plus RESULTS and REVIEW are below. Hard refresh if you still see a stub.</p>
-</div></body></html>
+<div id="app"><p class="note" style="padding:24px;text-align:center">Loading board...</p></div>
+<script>
+Promise.all([
+  fetch("parts/ne-1.html").then(r=>r.text()),
+  fetch("parts/ne-2.html").then(r=>r.text()),
+  fetch("parts/ne-3.html").then(r=>r.text())
+]).then(parts=>{ document.getElementById("app").innerHTML = parts.join(""); });
+</script>
+</body></html>

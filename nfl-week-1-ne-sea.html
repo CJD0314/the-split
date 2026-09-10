@@ -22,26 +22,24 @@
   .tile span { font-size:18px; font-weight:800; }
   .tile small { display:block; color:var(--muted); margin-top:6px; font-size:12px; }
   .src { color:var(--gold); font-size:11px; }
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   details.block { background:var(--panel); border:1px solid var(--line); border-radius:14px; margin:12px 0; }
   details.block > summary { list-style:none; cursor:pointer; padding:16px 18px; font-size:16px; font-weight:800; letter-spacing:.08em; }
   details.block > summary::-webkit-details-marker { display:none; }
   details.block > summary::after { content:" +"; color:var(--gold); float:right; }
   details.block[open] > summary::after { content:" –"; }
   .body { padding:0 18px 18px; border-top:1px solid var(--line); }
-  h3 { color:var(--gold); font-size:14px; }
+  .callout { background:var(--panel2); border-left:3px solid var(--gold); padding:12px 14px; margin:10px 0; }
+  a.back { color:var(--gold); text-decoration:none; font-weight:700; font-size:13px; }
   ul { margin:6px 0 0; padding-left:18px; }
   li { margin:6px 0; }
   table { width:100%; border-collapse:collapse; font-size:14px; }
   th,td { text-align:left; padding:8px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
-  th { color:var(--muted); font-size:11px; }
-  .note { color:var(--muted); font-size:13px; }
-  .callout { background:var(--panel2); border-left:3px solid var(--gold); padding:12px 14px; margin:10px 0; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   .team-head { display:flex; align-items:center; gap:12px; }
   .team-head img { width:52px; height:52px; object-fit:contain; }
-  a.back { color:var(--gold); text-decoration:none; font-weight:700; font-size:13px; }
-  @media (max-width:800px){ .market,.grid2{grid-template-columns:1fr 1fr;} .brand{font-size:26px;} h1{font-size:20px;} }
-  @media (max-width:520px){ .market,.grid2{grid-template-columns:1fr;} }
+  .note { color:var(--muted); font-size:13px; }
+  h3 { color:var(--gold); font-size:14px; }
+  @media (max-width:800px){ .market,.grid2{grid-template-columns:1fr 1fr;} }
 </style>
 </head>
 <body>
@@ -54,50 +52,45 @@
   </div>
   <h1>NEW ENGLAND PATRIOTS VS SEATTLE SEAHAWKS</h1>
   <div class="meta">Wednesday, Sept. 9, 2026 · 8:20 p.m. ET · Lumen Field · NBC / Peacock</div>
-  <p><a class="back" href="index.html">← HOME</a></p>
+  <p><a class="back" href="index.html">← HOME</a> · <a class="back" href="results.html">RESULTS</a></p>
 </header>
 <div class="wrap">
   <div class="market">
     <div class="tile"><b>SPREAD</b><span>SEA -3 (-118)</span><small>Open: SEA -3.5<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>TOTAL</b><span>44.5 (o-105 / u-115)</span><small>Open: 44.5<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>MONEYLINE</b><span>SEA -162 / NE +136</span><small>Open: SEA -198 / NE +164<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>MOVE</b><span>Pats +0.5</span><small>Opened -3.5, now -3<br><span class="src">DRAFTKINGS</span></small></div>
+    <div class="tile"><b>TOTAL</b><span>44.5</span><small>Open: 44.5<br><span class="src">DRAFTKINGS</span></small></div>
+    <div class="tile"><b>MONEYLINE</b><span>SEA -162 / NE +136</span><small>Open: -198 / +164<br><span class="src">DRAFTKINGS</span></small></div>
+    <div class="tile"><b>BEST BET</b><span>NE +3</span><small>$100 to win $100<br><span class="src">LIVE</span></small></div>
   </div>
+  <details class="block" open>
+    <summary>BEST BET</summary>
+    <div class="body">
+      <div class="callout"><b>PATRIOTS +3</b> at close · DraftKings SEA -3 (-118) / NE +3 (+100) · <b>$100 to win $100</b> · LIVE</div>
+      <p>This is the house pick for the Results ledger. $100 unit. Closing number unless you change it.</p>
+      <ul>
+        <li>Script is a one-score game (SEA 23–27, NE 17–24). +3 is the number that matches that band.</li>
+        <li>Both Seattle starting safeties are inactive. That is why the board already moved off -3.5. The close still prices Seattle like the healthier team.</li>
+        <li>Fleury’s first call sheet and a rookie lead back cap Seattle’s cover margin more than the moneyline does.</li>
+      </ul>
+    </div>
+  </details>
   <details class="block" open>
     <summary>TEAM BREAKDOWN</summary>
     <div class="body grid2">
       <div>
-        <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="" /><div><b>NEW ENGLAND PATRIOTS</b><div class="note">Road underdog · implied ~20–21</div></div></div>
+        <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="" /><div><b>NEW ENGLAND PATRIOTS</b></div></div>
         <h3>STAFF</h3>
         <ul>
-          <li><b>HC Mike Vrabel</b> — physical identity, fourth-down aggression.</li>
-          <li><b>OC Josh McDaniels (calls plays)</b> — 11 personnel, tempo after chunk plays, TE as the pressure valve.</li>
-          <li><b>DC Zak Kuhr (calls plays)</b> — bigger front with Barmore active.</li>
-        </ul>
-        <h3>OFFENSE</h3>
-        <ul>
-          <li><b>QB:</b> Drake Maye. Pocket cleanliness is the game.</li>
-          <li><b>RB:</b> Rhamondre featured. Henderson inactive. Kiner is RB2.</li>
-          <li><b>WR/TE:</b> Brown vs Witherspoon. Doubs outside. Douglas slot. Henry vs thin safeties.</li>
-          <li><b>OL:</b> Ben Brown inactive. Jared Wilson at center.</li>
+          <li><b>HC Mike Vrabel</b></li>
+          <li><b>OC Josh McDaniels (calls plays)</b></li>
+          <li><b>DC Zak Kuhr (calls plays)</b></li>
         </ul>
       </div>
       <div>
-        <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="" /><div><b>SEATTLE SEAHAWKS</b><div class="note">Home favorite · implied ~24</div></div></div>
+        <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="" /><div><b>SEATTLE SEAHAWKS</b></div></div>
         <h3>STAFF</h3>
         <ul>
-          <li><b>HC Mike Macdonald (calls defense)</b> — Emmanwori inactive costs the nickel chess piece.</li>
-          <li><b>OC Brian Fleury (calls plays)</b> — first game as primary NFL play-caller.</li>
-        </ul>
-        <h3>OFFENSE</h3>
-        <ul>
-          <li><b>QB:</b> Sam Darnold.</li>
-          <li><b>RB:</b> Jadarian Price. Holani / Emanuel Wilson in the mix.</li>
-          <li><b>WR/TE:</b> JSN is the offense. Horton inactive. Shaheed stretches. Kupp is a sit.</li>
-        </ul>
-        <h3>DEFENSE</h3>
-        <ul>
-          <li>Witherspoon on Brown. Love + Finley + Thomas at safety.</li>
+          <li><b>HC Mike Macdonald (calls defense)</b></li>
+          <li><b>OC Brian Fleury (calls plays)</b></li>
         </ul>
       </div>
     </div>
@@ -105,33 +98,25 @@
   <details class="block" open>
     <summary>SCRIPT</summary>
     <div class="body">
-      <div class="callout">Most likely band: <b>Seahawks 23–27, Patriots 17–24</b>. One-score game.</div>
-      <ul>
-        <li>DK moved from -3.5 to -3 after both Seattle safeties came off the sheet.</li>
-        <li>McDaniels should attack Love / Finley / Thomas with Henry, Douglas, and Doubs.</li>
-        <li>If New England stuffs first down, Darnold becomes a dropback passer.</li>
-      </ul>
+      <div class="callout">Most likely band: <b>Seahawks 23–27, Patriots 17–24</b>.</div>
     </div>
   </details>
   <details class="block" open>
     <summary>WR VS CB</summary>
     <div class="body">
       <table>
-        <tr><th>RECEIVER</th><th>COVER</th><th>NOTES</th></tr>
-        <tr><td>Jaxon Smith-Njigba</td><td>Christian Gonzalez</td><td>Headline pair. Horton out concentrates JSN targets.</td></tr>
-        <tr><td>A.J. Brown</td><td>Devon Witherspoon</td><td>No Emmanwori help over the top.</td></tr>
-        <tr><td>Doubs / Douglas</td><td>CB2 / nickel</td><td>Exploit. Both Seattle safeties inactive.</td></tr>
-        <tr><td>Hunter Henry</td><td>Love / Finley / Thomas</td><td>FLEX lock on the single-entry.</td></tr>
-        <tr><td>Rashid Shaheed</td><td>NE nickel</td><td>Field-stretch dart. Better than Kupp.</td></tr>
-        <tr><td>Cooper Kupp</td><td>Zone / nickel</td><td>Sit in most builds.</td></tr>
+        <tr><th>RECEIVER</th><th>COVER</th></tr>
+        <tr><td>JSN</td><td>Gonzalez</td></tr>
+        <tr><td>A.J. Brown</td><td>Witherspoon</td></tr>
+        <tr><td>Doubs / Douglas</td><td>CB2 / nickel</td></tr>
+        <tr><td>Hunter Henry</td><td>Love / Finley / Thomas</td></tr>
       </table>
     </div>
   </details>
   <details class="block" open>
     <summary>LINE ENTRY REVIEW</summary>
     <div class="body">
-      <div class="callout"><b>LOCKED SE</b> CPT Maye $15,000 · JSN $10,600 · Brown $9,600 · Henry $4,800 · Price $7,200 · Kiner $2,400 = <b>$49,600</b></div>
-      <p>Maye CPT + Brown + Henry is the Patriots pass stack. JSN + Price is the Seattle pair.</p>
+      <div class="callout">CPT Maye · JSN · Brown · Henry · Price · Kiner = $49,600</div>
     </div>
   </details>
 </div>

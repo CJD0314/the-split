@@ -5,18 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Split — Patriots at Seahawks</title>
 <style>
-  :root { --bg:#0b0f14; --panel:#121820; --panel2:#18202a; --line:#2a3644; --text:#e8eef5; --muted:#93a3b5; --gold:#d4a017; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family:"Segoe UI",system-ui,sans-serif; background:#0b0f14; color:#e8eef5; }
-  .topnav { display:flex; justify-content:center; gap:22px; flex-wrap:wrap; padding:14px 16px; border-bottom:1px solid var(--line); background:#0b0f14; position:sticky; top:0; z-index:40; }
-  .topnav a { color:var(--gold); text-decoration:none; font-weight:800; letter-spacing:.1em; font-size:13px; }
-  header { text-align:center; padding:20px 16px 8px; }
-  .brand { font-size:32px; font-weight:800; letter-spacing:.12em; }
-  .brand a { color:inherit; text-decoration:none; }
-  .week { color:var(--gold); font-weight:700; letter-spacing:.16em; margin:8px 0; }
-  .logos { display:flex; justify-content:center; gap:28px; }
-  .logos img { width:80px; height:80px; object-fit:contain; }
-  .back { color:var(--gold); font-weight:800; text-decoration:none; }
+:root { --bg:#0b0f14; --panel:#121820; --panel2:#18202a; --line:#2a3644; --text:#e8eef5; --muted:#93a3b5; --gold:#d4a017; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:"Segoe UI",system-ui,sans-serif; background:#0b0f14; color:#e8eef5; line-height:1.45; }
+.topnav { display:flex; justify-content:center; gap:22px; flex-wrap:wrap; padding:14px 16px; border-bottom:1px solid var(--line); background:#0b0f14; position:sticky; top:0; z-index:40; }
+.topnav a { color:var(--gold); text-decoration:none; font-weight:800; letter-spacing:.1em; font-size:13px; }
+.wrap { max-width:1080px; margin:0 auto; padding:18px; }
+header { text-align:center; padding:20px 16px 8px; }
+.brand { font-size:32px; font-weight:800; letter-spacing:.12em; }
+.brand a { color:inherit; text-decoration:none; }
+.week { color:var(--gold); letter-spacing:.16em; font-weight:700; margin:8px 0; }
+.logos { display:flex; justify-content:center; gap:28px; }
+.logos img { width:80px; height:80px; object-fit:contain; }
+.back { color:var(--gold); font-weight:800; text-decoration:none; }
+.market { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0; }
+.tile { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; }
+.tile b { display:block; color:var(--muted); font-size:11px; }
+.tile span { font-size:18px; font-weight:800; }
+.tile small { display:block; color:var(--muted); margin-top:6px; font-size:12px; }
+details.block { background:var(--panel); border:1px solid var(--line); border-radius:14px; margin:12px 0; }
+details.block > summary { list-style:none; cursor:pointer; padding:16px 18px; font-weight:800; letter-spacing:.08em; }
+details.block > summary::after { content:" +"; color:var(--gold); float:right; }
+details.block[open] > summary::after { content:" –"; }
+.body { padding:0 18px 18px; border-top:1px solid var(--line); }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.callout { background:var(--panel2); border-left:3px solid var(--gold); padding:12px 14px; margin:10px 0; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th,td { text-align:left; padding:8px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
+.note { color:var(--muted); font-size:13px; }
+@media (max-width:800px){ .market,.grid2{grid-template-columns:1fr 1fr;} }
 </style>
 </head>
 <body>
@@ -33,11 +50,50 @@
     <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="Seahawks" />
   </div>
   <h1>NEW ENGLAND PATRIOTS VS SEATTLE SEAHAWKS</h1>
+  <p>Wednesday, Sept. 9, 2026 · 8:20 p.m. ET · Lumen Field · NBC / Peacock</p>
   <p><a class="back" href="index.html">← HOME</a> · <a class="back" href="results.html">RESULTS</a></p>
-  <p>If the full notes are below this line, scroll. If you only see this header, open <a class="back" href="nfl-week-1-ne-sea.html">the wrapped board</a>.</p>
 </header>
-<script src="nfl-week-1-ne-sea.html"></script>
-<p style="max-width:1080px;margin:20px auto;padding:0 18px;color:#93a3b5">Full breakdown follows on the wrapped page. Use HOME in the gold bar.</p>
-<p style="text-align:center"><a class="back" href="nfl-week-1-ne-sea.html">OPEN FULL BOARD WITH HEADER</a></p>
+<div class="wrap">
+<div class="market">
+<div class="tile"><b>SPREAD</b><span>SEA -3 (-118)</span><small>Open: SEA -3.5</small></div>
+<div class="tile"><b>TOTAL</b><span>44.5</span><small>Open: 44.5</small></div>
+<div class="tile"><b>MONEYLINE</b><span>SEA -162 / NE +136</span><small>Open: -198 / +164</small></div>
+<div class="tile"><b>BEST BET</b><span>NE +3 (-102)</span><small>$100 to win $98</small></div>
+</div>
+<details class="block" open><summary>TEAM BREAKDOWN</summary>
+<div class="body grid2">
+<div>
+<b>NEW ENGLAND PATRIOTS</b>
+<p>HC Mike Vrabel. OC Josh McDaniels (calls plays). DC Zak Kuhr (calls plays).</p>
+<p>Maye year two. Brown / Doubs / Douglas / Henry / Rhamondre. Gonzalez on JSN.</p>
+</div>
+<div>
+<b>SEATTLE SEAHAWKS</b>
+<p>HC Mike Macdonald (calls defense). OC Brian Fleury (calls plays). DC Aden Durde.</p>
+<p>Price lead back. JSN is the offense. Both starting safeties inactive.</p>
+</div>
+</div></details>
+<details class="block" open><summary>SCRIPT</summary>
+<div class="body"><div class="callout">Most likely band: Seahawks 23–27, Patriots 17–24. One-score game.</div>
+<p>Seattle still favored at home. Number moved off -3.5 because both Seattle safeties are down. McDaniels should attack Love / Finley / Thomas with Henry and the slot. Fleury’s first call sheet plus a rookie back is why the total stayed 44.5.</p>
+</div></details>
+<details class="block" open><summary>WR VS CB</summary>
+<div class="body"><table>
+<tr><th>WR</th><th>CB</th><th>NOTES</th></tr>
+<tr><td>JSN</td><td>Gonzalez</td><td>Headline pair. Volume up with Horton out.</td></tr>
+<tr><td>A.J. Brown</td><td>Witherspoon</td><td>Physical CB1. Less help over the top with Emmanwori out.</td></tr>
+<tr><td>Doubs / Douglas</td><td>CB2 / nickel</td><td>Exploit with both safeties inactive.</td></tr>
+<tr><td>Hunter Henry</td><td>Love / Finley / Thomas</td><td>McDaniels pressure valve. FLEX lock.</td></tr>
+</table></div></details>
+<details class="block" open><summary>LINEUP ENTRY REVIEW</summary>
+<div class="body">
+<div class="callout">LOCKED SE: CPT Maye $15,000 · JSN $10,600 · Brown $9,600 · Henry $4,800 · Price $7,200 · Kiner $2,400 = $49,600</div>
+<p>Maye CPT is the script. Henry and Price are the separators. Do not CPT Seattle DST.</p>
+</div></details>
+<details class="block" open><summary>BEST BET</summary>
+<div class="body"><div class="callout">PATRIOTS +3 (-102) · DraftKings · $100 to win $98 · LIVE</div>
+<p>Closing DK number. Moneyline is NE +142 / SEA -170. Not +100.</p>
+</div></details>
+</div>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en"><head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Split -- 49ers at Rams</title>
+<link rel="stylesheet" href="align.css" />
 <style>
 :root{--bg:#0b0f14;--panel:#121820;--panel2:#18202a;--line:#2a3644;--text:#e8eef5;--muted:#93a3b5;--gold:#d4a017}
 *{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",system-ui,sans-serif;background:#0b0f14;color:#e8eef5;line-height:1.5}
@@ -15,7 +16,6 @@ h1{font-size:24px;font-weight:800}.meta{color:var(--muted);font-size:14px}
 .market{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
 .tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
 .tile b{display:block;color:var(--muted);font-size:11px}.tile span{font-size:18px;font-weight:800}.tile small{display:block;color:var(--muted);margin-top:6px;font-size:12px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 details.block{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:12px 0}
 details.block>summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:800;letter-spacing:.08em}
 details.block>summary::after{content:" +";color:var(--gold);float:right}details.block[open]>summary::after{content:" -"}
@@ -25,7 +25,7 @@ h3{color:var(--gold);font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
 .note{color:var(--muted);font-size:13px}.callout{background:var(--panel2);border-left:3px solid var(--gold);padding:12px 14px;margin:10px 0}
-@media(max-width:800px){.market,.grid2{grid-template-columns:1fr}}
+@media(max-width:800px){.market{grid-template-columns:1fr}}
 </style></head>
 <body>
 <div class="topnav"><a href="index.html">HOME</a><a href="results.html">RESULTS</a></div>
@@ -43,23 +43,41 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <div class="tile"><b>MONEYLINE</b><span>LAR -198 / SF +164</span><small>Open held in this band</small></div>
 <div class="tile"><b>MOVE</b><span>No real move</span><small>Sat at -3.5 / 48.5</small></div>
 </div>
+
 <details class="block" open><summary>TEAM BREAKDOWN</summary>
-<div class="body grid2">
-<div>
+<div class="body">
+<div class="tb-row">
 <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="" /><div><b>SAN FRANCISCO 49ERS</b><div class="note">Listed visitor | implied 22.5 | on the ground since Friday</div></div></div>
+<div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" alt="" /><div><b>LOS ANGELES RAMS</b><div class="note">Listed home | implied 26 | Tuesday night departure</div></div></div>
+</div>
 <h3>STAFF</h3>
+<div class="tb-row">
 <ul>
 <li><b>HC Kyle Shanahan (calls plays)</b> -- outside zone, 21/12 (2 RBs + 1 TE / 1 RB + 2 TEs), play-action. Tenth year vs McVay.</li>
 <li><b>OC Klay Kubiak</b> -- run-game / play-action install. Does not take the headset.</li>
 <li><b>DC Raheem Morris</b> -- first year calling this defense. Wants Bosa as the wrecker and Greenlaw as the closer if active.</li>
 </ul>
+<ul>
+<li><b>HC Sean McVay (calls plays)</b> -- 11 personnel (1 RB + 1 TE), motion to isolate Nacua and Adams.</li>
+<li><b>OC Nate Scheelhaase</b> -- promoted. McVay still calls it.</li>
+<li><b>DC Chris Shula</b> -- third season. Safety core intact. Donald not in Australia.</li>
+</ul>
+</div>
 <h3>WHAT THAT MEANS TONIGHT</h3>
+<div class="tb-row">
 <ul>
 <li>Shanahan will try to stay on schedule. Donald is out, so the interior is where CMC has to work early.</li>
 <li>Morris cannot play this like a finished Saleh unit. Bosa is on a leash. Collins and Okuayinonu are gone.</li>
 <li>Travel is the tell. They have been in Melbourne since Friday. That is why +3.5 is the number.</li>
 </ul>
+<ul>
+<li>McVay will still throw. Travel does not turn this into a 28-carry Kyren game unless the first drive dies.</li>
+<li>Shula defends 21/12 (2 RBs + 1 TE / 1 RB + 2 TEs) without Donald. Extra bodies at the line or CMC checkdowns.</li>
+<li>Tuesday night flight is why a favorite roster is fadeable at -3.5 on a neutral field.</li>
+</ul>
+</div>
 <h3>KEY PLAYERS</h3>
+<div class="tb-row">
 <ul>
 <li><b>Brock Purdy</b> -- captain only if you believe this stays a one-score game.</li>
 <li><b>Christian McCaffrey</b> -- 83% snaps in 2025. The Donald-out thesis lives here.</li>
@@ -69,30 +87,6 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <li><b>Nick Bosa</b> -- expected to play, not expected to play 90%.</li>
 <li><b>George Kittle</b> -- Achilles. Not a full starter until the sheet is clean.</li>
 </ul>
-<h3>IN THE NEWS</h3>
-<ul>
-<li>Shanahan: have to "be smart" with Bosa and Kittle.</li>
-<li>Morris said Bosa will play. Snap count is the real report.</li>
-<li>Collins tore his patellar in Melbourne practice. Out for the year.</li>
-<li>Okuayinonu (foot) did not travel. IR. Pearsall done for 2026.</li>
-<li>49ers in Australia since Friday.</li>
-</ul>
-</div>
-<div>
-<div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" alt="" /><div><b>LOS ANGELES RAMS</b><div class="note">Listed home | implied 26 | Tuesday night departure</div></div></div>
-<h3>STAFF</h3>
-<ul>
-<li><b>HC Sean McVay (calls plays)</b> -- 11 personnel (1 RB + 1 TE), motion to isolate Nacua and Adams.</li>
-<li><b>OC Nate Scheelhaase</b> -- promoted. McVay still calls it.</li>
-<li><b>DC Chris Shula</b> -- third season. Safety core intact. Donald not in Australia.</li>
-</ul>
-<h3>WHAT THAT MEANS TONIGHT</h3>
-<ul>
-<li>McVay will still throw. Travel does not turn this into a 28-carry Kyren game unless the first drive dies.</li>
-<li>Shula defends 21/12 (2 RBs + 1 TE / 1 RB + 2 TEs) without Donald. Extra bodies at the line or CMC checkdowns.</li>
-<li>Tuesday night flight is why a favorite roster is fadeable at -3.5 on a neutral field.</li>
-</ul>
-<h3>KEY PLAYERS</h3>
 <ul>
 <li><b>Matthew Stafford</b> -- the flight is the question, not the arm.</li>
 <li><b>Puka Nacua</b> -- the offense. Live vs Green if Green is limited.</li>
@@ -102,14 +96,25 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <li><b>Myles Garrett</b> -- new edge. The pass-rush plan without Donald.</li>
 <li><b>Jaylen Watson</b> -- toe. Evans grass depends on this tag.</li>
 </ul>
+</div>
 <h3>IN THE NEWS</h3>
+<div class="tb-row">
+<ul>
+<li>Shanahan: have to "be smart" with Bosa and Kittle.</li>
+<li>Morris said Bosa will play. Snap count is the real report.</li>
+<li>Collins tore his patellar in Melbourne practice. Out for the year.</li>
+<li>Okuayinonu (foot) did not travel. IR. Pearsall done for 2026.</li>
+<li>49ers in Australia since Friday.</li>
+</ul>
 <ul>
 <li>McVay: Donald will not travel. Confirmed OUT.</li>
 <li>Shanahan thought Donald would play and was glad to be wrong.</li>
 <li>Rams did not practice Wednesday after the overnight flight.</li>
 <li>Mevis is the kicker. Opening number has not moved off -3.5 / 48.5.</li>
 </ul>
-</div></div></details>
+</div>
+</div></details>
+
 <details class="block" open><summary>INACTIVES</summary>
 <div class="body">
 <p class="note">Official NFL.com sheet not posted yet. Snap % is 2025 because 2026 Week 1 has not been played.</p>
@@ -154,16 +159,16 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <details class="block" open><summary>WR VS CB</summary>
 <div class="body"><table>
 <tr><th>Receiver</th><th>Cover</th><th>Notes</th></tr>
-<tr><td>Puka Nacua</td><td>Renardo Green / SF CB1</td><td>McVay motion package isolates Nacua after the second move. Green is Q (hamstring). If he sits, this is nickel/safety help and target share spikes. McVay will keep throwing him even if the first two are contested.</td></tr>
-<tr><td>Davante Adams</td><td>SF CB2</td><td>Red-zone closer. Between the 20s he holds the safety. Inside the 15 he is the throw. Advantage Adams in condensed red-zone sets.</td></tr>
-<tr><td>Mike Evans</td><td>Jaylen Watson / LAR CB</td><td>Evans wins the jump ball Shanahan did not have last year. Watson is Q (toe). If Watson is less than 100%, this is a real advantage.</td></tr>
-<tr><td>Deebo Samuel Sr.</td><td>Nickel / safety</td><td>Jet, bubble, short motion. Matters because Donald is out -- if the nickel scrapes to CMC, Deebo orbit motion is uncovered. He is not a fade. He is the play that keeps 2nd-and-4.</td></tr>
-<tr><td>De'Zhaun Stribling</td><td>CB2 / nickel</td><td>Non-star. Pearsall is gone. If Kittle is limited the third-WR targets move here. Not a captain.</td></tr>
-<tr><td>George Kittle</td><td>Lake / Curl / LBs</td><td>Only if active. 80% snaps when healthy in 2025. Do not CPT until the sheet is clean.</td></tr>
+<tr><td>Puka Nacua</td><td>Renardo Green / SF CB1</td><td>McVay motion package isolates Nacua after the second move. Green is Q (hamstring). If he sits, this is nickel/safety help and target share spikes.</td></tr>
+<tr><td>Davante Adams</td><td>SF CB2</td><td>Red-zone closer. Between the 20s he holds the safety. Inside the 15 he is the throw.</td></tr>
+<tr><td>Mike Evans</td><td>Jaylen Watson / LAR CB</td><td>Evans wins the jump ball. Watson is Q (toe). If Watson is less than 100%, this is a real advantage.</td></tr>
+<tr><td>Deebo Samuel Sr.</td><td>Nickel / safety</td><td>Jet, bubble, short motion. If the nickel scrapes to CMC, Deebo orbit motion is uncovered. He is the play that keeps 2nd-and-4.</td></tr>
+<tr><td>De'Zhaun Stribling</td><td>CB2 / nickel</td><td>Non-star. Pearsall is gone. If Kittle is limited the third-WR targets move here.</td></tr>
+<tr><td>George Kittle</td><td>Lake / Curl / LBs</td><td>Only if active. Do not CPT until the sheet is clean.</td></tr>
 </table></div></details>
 <details class="block"><summary>DK SALARIES</summary>
 <div class="body">
-<p class="note">Public Showdown board as of Wednesday night, high salary first. CPT = 1.5x. Confirm last tags in the lobby.</p>
+<p class="note">Public Showdown board as of Wednesday night, high salary first. CPT = 1.5x.</p>
 <table>
 <tr><th>Player</th><th>Team</th><th>Pos</th><th>FLEX</th><th>CPT</th></tr>
 <tr><td>Puka Nacua</td><td>LAR</td><td>WR</td><td>$11,200</td><td>$16,800</td></tr>
@@ -199,21 +204,21 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <table>
 <tr><th>Lens</th><th>Grade</th><th>Why</th></tr>
 <tr><td>Salary</td><td>A-</td><td>Legal. $1,300 left.</td></tr>
-<tr><td>Correlation</td><td>B+</td><td>Purdy CPT + CMC cashes if +3.5 is the right side. Nacua is the Rams piece so you do not need a blowout.</td></tr>
-<tr><td>Script</td><td>A-</td><td>Matches travel + Donald-out. Mevis is leverage on 48.5.</td></tr>
-<tr><td>Uniqueness</td><td>B</td><td>Purdy CPT will be popular. Corum + Ferguson are the separators.</td></tr>
-<tr><td>Where it dies</td><td>--</td><td>Kittle is a full-go and you left him off, or Stafford posts a 4-TD night.</td></tr>
+<tr><td>Correlation</td><td>B+</td><td>Purdy CPT + CMC cashes if +3.5 is the right side.</td></tr>
+<tr><td>Script</td><td>A-</td><td>Matches travel + Donald-out.</td></tr>
+<tr><td>Uniqueness</td><td>B</td><td>Corum + Ferguson are the separators.</td></tr>
+<tr><td>Where it dies</td><td>--</td><td>Kittle is a full-go, or Stafford posts a 4-TD night.</td></tr>
 </table>
 </div></details>
 <details class="block" open><summary>BEST BET</summary>
 <div class="body">
 <div class="callout"><b>49ERS +3.5 (-102)</b> | $100 to win $98 | OPEN<br>LAR -3.5 (-118) / SF +3.5 (-102) | ML SF +164 / LAR -198 | Total 48.5</div>
-<p><b>Why this is the bet.</b> The market is pricing a SoFi game. This is Melbourne. San Francisco has been on the ground since Friday. The Rams flew Tuesday night and skipped Wednesday practice. That is the number.</p>
+<p><b>Why this is the bet.</b> The market is pricing a SoFi game. This is Melbourne. San Francisco has been on the ground since Friday. The Rams flew Tuesday night and skipped Wednesday practice.</p>
 <ul>
 <li>DK has not really moved off the opener.</li>
-<li>McVay vs Shanahan is a one-score series. -3.5 asks for a version that almost never shows in Week 1 after a 17-hour flight.</li>
+<li>McVay vs Shanahan is a one-score series.</li>
 <li>Donald is out. Confirmed. Shanahan can stay in 21/12 (2 RBs + 1 TE / 1 RB + 2 TEs).</li>
-<li>$100 unit on the covering number, not on San Francisco winning the talent argument.</li>
+<li>$100 unit on the covering number.</li>
 </ul>
 </div></details>
 </div>

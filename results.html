@@ -1,57 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Split — Results</title>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Split -- Results</title>
 <style>
-  :root { --bg:#0b0f14; --panel:#121820; --line:#2a3644; --text:#e8eef5; --muted:#93a3b5; --gold:#d4a017; }
-  body { margin:0; font-family:"Segoe UI",system-ui,sans-serif; background:#0b0f14; color:#e8eef5; }
-  .wrap { max-width:960px; margin:0 auto; padding:24px 18px 56px; }
-  a { color:var(--gold); text-decoration:none; font-weight:700; }
-  .sum { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0; }
-  .tile { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; }
-  .tile b { display:block; color:var(--muted); font-size:11px; }
-  table { width:100%; border-collapse:collapse; font-size:14px; }
-  th,td { text-align:left; padding:10px 6px; border-bottom:1px solid var(--line); }
-  th { color:var(--muted); font-size:11px; }
-  .live { color:var(--gold); font-weight:800; }
-</style>
-</head>
+:root{--bg:#0b0f14;--panel:#121820;--panel2:#18202a;--line:#2a3644;--text:#e8eef5;--muted:#93a3b5;--gold:#d4a017;--ok:#3dd68c}
+body{margin:0;font-family:"Segoe UI",system-ui,sans-serif;background:#0b0f14;color:#e8eef5;line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 18px 64px}
+a{color:var(--gold);text-decoration:none;font-weight:700}
+.sum{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+.tile b{display:block;color:var(--muted);font-size:11px}
+.tile span{font-weight:800;font-size:18px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 6px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
+.ok{color:var(--ok);font-weight:800}.bad{color:#ff6b6b;font-weight:800}.push{color:var(--gold);font-weight:800}
+h3{color:var(--gold);letter-spacing:.08em;font-size:14px}
+@media(max-width:700px){.sum{grid-template-columns:1fr 1fr}}
+</style></head>
 <body>
 <div class="wrap">
-  <p><a href="index.html">← THE SPLIT</a></p>
-  <h1>RESULTS</h1>
-  <p style="color:#93a3b5">$100 unit. Closing DraftKings number unless overridden.</p>
-  <div class="sum">
-    <div class="tile"><b>RECORD</b>0-0-0</div>
-    <div class="tile"><b>UNITS</b>$0</div>
-    <div class="tile"><b>OPEN</b>2 · $200 risked</div>
-    <div class="tile"><b>BANK</b>$200 live</div>
-  </div>
-  <table>
-    <tr><th>WEEK</th><th>GAME</th><th>BEST BET</th><th>CLOSE (DK)</th><th>STAKE</th><th>TO WIN</th><th>RESULT</th><th>P/L</th></tr>
-    <tr>
-      <td>1</td>
-      <td><a href="nfl-week-1-ne-sea.html">NE at SEA</a></td>
-      <td>Patriots +3</td>
-      <td>SEA -3 (-118) / NE +3 (-102)</td>
-      <td>$100</td>
-      <td>$98</td>
-      <td class="live">LIVE</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td><a href="nfl-week-1-sf-lar.html">SF at LAR (Melbourne)</a></td>
-      <td>49ers +3.5</td>
-      <td>LAR -3.5 (-118) / SF +3.5 (-102)<br>ML SF +164 / LAR -198</td>
-      <td>$100</td>
-      <td>$98</td>
-      <td class="live">OPEN</td>
-      <td>—</td>
-    </tr>
-  </table>
+<p><a href="index.html">HOME</a> | <a href="nfl-week-1-ne-sea.html">NE vs SEA DIVE</a> | <a href="nfl-week-1-sf-lar.html">SF vs LAR DIVE</a></p>
+<h1>RESULTS</h1>
+<p style="color:#93a3b5">$100 unit unless minus juice requires sizing to win $100. Closing DraftKings number unless overridden.</p>
+<div class="sum">
+<div class="tile"><b>RECORD</b><span>0-0-1</span></div>
+<div class="tile"><b>UNITS</b><span>$0</span></div>
+<div class="tile"><b>OPEN</b><span>1</span></div>
+<div class="tile"><b>BANK</b><span>$100 live</span></div>
 </div>
-</body>
-</html>
+<table>
+<tr><th>WEEK</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>TO WIN</th><th>FINAL</th><th>RESULT</th><th>P/L</th></tr>
+<tr>
+<td>1</td><td><a href="nfl-week-1-ne-sea.html">NE at SEA</a></td><td>Patriots +3</td><td>NE +3 (-102)</td><td>$100 risk / $98</td><td>SEA 13-10</td><td class="push">PUSH</td><td>$0</td>
+</tr>
+<tr>
+<td>1</td><td><a href="nfl-week-1-sf-lar.html">SF at LAR</a></td><td>49ers +3.5</td><td>SF +3.5 (-102)</td><td>$102 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td>
+</tr>
+</table>
+
+<h2>WEEK 1 -- NE AT SEA REVIEW</h2>
+<p>Final: Seahawks 13, Patriots 10. Margin exactly 3. Total 23. Drew Lock replaced Sam Darnold and threw the 45-yard JSN touchdown. Maye: 1 TD, 3 INT. First score of 2026 was Eli Raridon from 2 yards.</p>
+
+<h3>WHAT WE GOT RIGHT</h3>
+<ul>
+<li>One-score game. We said this was not February's 29-13. Correct.</li>
+<li>Patriots +3 was the right side of a 3-point result. Push, not a loss.</li>
+<li>Under 44.5 was obvious in hindsight (23 points). Our script said Fleury's first call sheet and a rookie back would keep the total down. The number never left 44.5 for a reason.</li>
+<li>JSN was the Seattle offense. 45-yard TD from Lock. Horton inactive did concentrate targets.</li>
+<li>Emmanwori and Okada inactive mattered. Seattle's offense stalled for three quarters.</li>
+<li>Henry / TE usage: Raridon scored the Patriots' only touchdown. We had Henry as the pressure valve and flagged the thin safety room. The TE room was the exploit. We just had the wrong tight end on the scoring play.</li>
+<li>Kupp sit was correct.</li>
+</ul>
+
+<h3>WHAT WE GOT WRONG</h3>
+<ul>
+<li>We built the Seattle offense around Darnold staying in the game. He did not. Lock finished and won it. No backup-QB branch on the script.</li>
+<li>Maye CPT thesis assumed the thin Seattle secondary would let him throw clean enough. Three interceptions. The Super Bowl pressure problem showed up as turnovers, not just sacks.</li>
+<li>A.J. Brown was the WR1 we wanted. Ankle issue. Volume and health both missed.</li>
+<li>We were light on Jason Myers / field-goal script. Seattle scored 13 and 10 of those were Myers plus one explosive JSN shot. Kickers decided the covering number.</li>
+<li>Price as the lead-back separator was only half right. He led Seattle in rush yards (52) but the winning play was not a rookie-back touch. It was Lock to JSN.</li>
+<li>Lineup death case said "Campbell gets wrecked or Price is a committee." Actual death case: Maye picks plus a backup QB bomb. We named the wrong failure mode.</li>
+</ul>
+
+<h3>WHAT WE MISSED</h3>
+<ul>
+<li>Darnold injury contingency. Lock was on the roster. He needed a paragraph.</li>
+<li>Raridon as the non-star. We listed Henry. The first TD of the season went to the other tight end.</li>
+<li>How ugly a 23-point opener can look when both starting safeties are out and the home quarterback leaves. We still implied 20-24, not 10-13.</li>
+<li>Julian Love as a takeaway player. Two interceptions for Seattle's safety room even without Emmanwori / Okada.</li>
+</ul>
+
+<h3>GET BETTER MOVING FORWARD</h3>
+<ul>
+<li>Every dive needs a backup-QB branch. If the starter is even a little banged up, write the Lock / Jones / Garoppolo path before kickoff.</li>
+<li>Non-stars get a named scoring path, not just a FLEX tag. Raridon should have been in WR vs CB / TE notes with Henry.</li>
+<li>When both safeties are out, do not automatically upgrade the opposing quarterback to captain. Upgrade the short-area pass catchers and accept that the quarterback can still lose the game with picks.</li>
+<li>Field-goal games need the kicker in the script, not only in the salary table. Myers 30 and 26 were the covering points.</li>
+<li>Best-bet sizing stays: minus juice = bet to win $100. Plus juice = bet $100. The NE ticket was booked old-style ($100 to win $98). Push either way.</li>
+<li>RESULTS writes the same night. Do not wait for a Sunday package. The lesson dies if it sits.</li>
+<li>Do not change the SF-LAR template. Every new dive copies that page.</li>
+</ul>
+</div>
+</body></html>

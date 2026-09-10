@@ -8,3 +8,11 @@
   color: #d4a017 !important;
   font-size: 18px !important;
 }
+.weeks button.live {
+  border-color: #2a3644 !important;
+  color: #93a3b5 !important;
+}
+.weeks button.on {
+  border-color: #3dd68c !important;
+  color: #3dd68c !important;
+}

@@ -9,7 +9,8 @@ set("tb-cin", {
 });
 set("no-det", {
   awayStaff:[["HC Kellen Moore (calls plays - offense)","Year 2. Shough is the opener."],["OC","Moore keeps the headset."],["DC","Has to tackle Gibbs in space."]],
-  awayKeys:["<b>Tyler Shough</b> -- Year 2 starter.","<b>Chris Olave</b> -- the Saints tree.","<b>Juwan Johnson</b> -- TE if they live in 12."]
+  awayKeys:["<b>Tyler Shough</b> -- Year 2 starter.","<b>Chris Olave</b> -- the Saints tree.","<b>Travis Etienne Jr.</b> -- Saints back. Not Jacksonville.","<b>Juwan Johnson</b> -- TE if they live in 12."],
+  homeKeys:["<b>Jared Goff</b>","<b>Jahmyr Gibbs</b> -- bell cow. Montgomery is in Houston.","<b>Amon-Ra St. Brown</b>"]
 });
 set("atl-pit", {
   awayKeys:["<b>Tua Tagovailoa</b> -- named the Week 1 starter. Penix still recovering from ACL.","<b>Bijan Robinson</b> -- the slate RB in a 41.5.","<b>Drake London</b> -- if Atlanta throws."],
@@ -29,7 +30,7 @@ set("mia-lv", {
   homeKeys:["<b>Kirk Cousins</b> -- Week 1 starter over Mendoza.","<b>Ashton Jeanty</b> -- ankle, practicing, no designation.","<b>Michael Mayer</b> -- Bowers out after meniscus trim."]
 });
 set("gb-min", {
-  homeKeys:["<b>Kyler Murray</b> -- listed Minnesota starter entering Week 1.","<b>Justin Jefferson</b> -- cash WR.","<b>Jordan Addison</b>"],
+  homeKeys:["<b>Kyler Murray</b> -- listed Minnesota starter entering Week 1.","<b>Justin Jefferson</b> -- cash WR.","<b>Aaron Jones</b> -- Vikings back.","<b>Jordan Addison</b>"],
   dfs:["Jefferson is the cash WR. Love vs Murray is the GPP fork.","Reed / Addison are the unique WRs."]
 });
 set("dal-nyg", {
@@ -43,6 +44,17 @@ set("bal-ind", {
   homeKeys:["<b>Daniel Jones</b> -- Achilles return. Reduced scramble volume.","<b>Jonathan Taylor</b> -- 1pm RB1 of the group.","<b>Josh Downs / Alec Pierce</b>"]
 });
 set("cle-jax", {
-  homeKeys:["<b>Trevor Lawrence</b>","<b>Travis Etienne</b>","<b>Brian Thomas Jr. / Parker Washington</b>"]
+  homeKeys:["<b>Trevor Lawrence</b>","<b>Brian Thomas Jr. / Parker Washington</b> -- Etienne is in New Orleans."]
 });
+if (window.TD1){
+  Object.keys(window.TD1).forEach(k=>{
+    set(k, {
+      tdPlayer: window.TD1[k].player,
+      tdTeam: window.TD1[k].team,
+      tdPrice: window.TD1[k].price,
+      tdStake: window.TD1[k].stake,
+      tdWhy: window.TD1[k].why
+    });
+  });
+}
 })();

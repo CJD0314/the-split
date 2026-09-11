@@ -29,11 +29,11 @@ function renderGame(g){
       <div class="tile"><b>MOVE</b><span>${g.move}</span></div>
     </div>
     <details class="block" open><summary>TEAM BREAKDOWN</summary><div class="body grid2">${side(g.away,g.awayName,g.awayNote,g.awayStaff,g.awayMean,g.awayKeys,g.awayNews)}${side(g.home,g.homeName,g.homeNote,g.homeStaff,g.homeMean,g.homeKeys,g.homeNews)}</div></details>
-    <details class="block" open><summary>INACTIVES</summary><div class="body"><p class="note">${g.inactNote||"Official NFL.com kickoff sheet not posted. Friday/Saturday reports below. Team name once, then offense / defense."}</p>${inact(g.awayName.toUpperCase(),g.awayOff,g.awayDef)}${inact(g.homeName.toUpperCase(),g.homeOff,g.homeDef)}</div></details>
+    <details class="block" open><summary>INACTIVES</summary><div class="body"><p class="note">${g.inactNote||"Official NFL.com kickoff sheet not posted. Saturday practice report plus Friday designations. Team name once, then offense / defense."}</p>${inact(g.awayName.toUpperCase(),g.awayOff,g.awayDef)}${inact(g.homeName.toUpperCase(),g.homeOff,g.homeDef)}</div></details>
     <details class="block" open><summary>SCRIPT</summary><div class="body"><h3>${g.homeName.toUpperCase()} WIN IF -- ${g.homeScore}</h3>${lis(g.homeIf)}<h3>${g.awayName.toUpperCase()} WIN IF -- ${g.awayScore}</h3>${lis(g.awayIf)}</div></details>
     <details class="block" open><summary>WR VS CB</summary><div class="body">${g.wr||"<p class='note'>Coverage assignments lock with the inactive sheet. Early read below.</p>"+lis(g.cover||[])}</div></details>
     <details class="block" open><summary>DFS STANDS OUT</summary><div class="body">${g.lineup?g.lineup:lis(g.dfs)}</div></details>
     <details class="block" open><summary>BEST BET</summary><div class="body"><div class="callout"><div style="font-size:22px;font-weight:800">${g.bet}</div><div style="margin-top:6px">${g.stake}</div></div>${lis(g.why)}</div></details>
-    <details class="block" open><summary>RESULTS</summary><div class="body"><div class="callout"><div style="font-size:22px;font-weight:800">${g.bet}</div><div class="push" style="margin-top:6px">OPEN</div><div style="margin-top:6px">${g.stake}</div></div><p class="note">Review posts after kickoff. Same standard as NE-SEA and SF-LAR.</p></div></details>
+    <p class="note">Postgame review only appears on finished games via the REVIEW button on the home page.</p>
   </div>`;
 }

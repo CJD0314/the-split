@@ -43,8 +43,10 @@ function renderBank(el, s){
     <div><b>RISKED</b><span>$${s.risked}</span></div>`;
 }
 function ticketLine(b){
+  const conf = String(b.confidence || "LEAN").toLowerCase();
   return `<div class="note" style="margin:6px 0">
     <span class="stamp ${String(b.status).toLowerCase()}">${b.status}</span>
+    <span class="stamp ${conf}">${String(b.confidence || "LEAN").toUpperCase()}</span>
     ${b.pick} · ${b.close} · $${b.stake} to win $${b.to_win}${b.final?" · "+b.final:""}${b.result?" · "+b.result:""}
   </div>`;
 }

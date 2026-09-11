@@ -12,10 +12,13 @@ function lastUpdated(){
   try {
     var parts = new Intl.DateTimeFormat("en-US", {timeZone:"America/New_York",weekday:"short",month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",hour12:true}).formatToParts(new Date());
     var get = function(t){ return (parts.find(function(p){ return p.type===t; })||{}).value; };
-    return "LAST UPDATED: " + get("weekday") + " " + get("month") + " " + get("day") + ", " + get("year") + " " + get("hour") + ":" + get("minute") + " " + get("dayPeriod").toLowerCase() + " ET";
+    return "LAST UPDATED: " + get("weekday") + " " + get("month") + " " + get("day") + ", " + get("year") + " " + get("hour") + ":" + get("minute") + " " + String(get("dayPeriod")||"PM").toLowerCase() + " ET";
   } catch(e) {
-    return "LAST UPDATED: Fri Sep 11, 2026 6:59 p.m. ET";
+    return "LAST UPDATED: Fri Sep 11, 2026 7:25 p.m. ET";
   }
+}
+function stampHtml(){
+  return `<div class="updated" style="display:inline-block;margin:14px auto 0;padding:8px 16px;background:#3d2a00;border:1px solid #d4a017;border-radius:999px;color:#ffe08a;font-size:14px;font-weight:800;letter-spacing:.08em">${lastUpdated()}</div>`;
 }
 function renderGame(g){
   document.title="The Split -- "+g.awayName+" at "+g.homeName;
@@ -36,7 +39,7 @@ function renderGame(g){
     <div class="logos"><img src="${logo(g.away)}" alt="" /><img src="${logo(g.home)}" alt="" /></div>
     <h1>${g.awayName.toUpperCase()} VS ${g.homeName.toUpperCase()}</h1>
     <div class="meta">${g.when}</div>
-    <div class="updated">${lastUpdated()}</div>
+    ${stampHtml()}
   </header>
   <div class="wrap">
     <div class="market">

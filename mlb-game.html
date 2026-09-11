@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>The Split -- MLB</title><link rel="stylesheet" href="dive.css"/></head>
+<body><div id="app"></div>
+<script src="mlb-data.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get("id");
+const g = window.MLB && window.MLB[id];
+const L = c => "https://a.espncdn.com/i/teamlogos/mlb/500/"+c+".png";
+if (!g) {
+  document.getElementById("app").innerHTML = '<div class="topnav"><a href="index.html">HOME</a></div><div class="wrap"><p class="note">Board for this game is still being filled. Mets at Yankees is live. Friday slate links that have data: pit-chc, phi-atl, lad-mia, cin-mil, hou-tb.</p></div>';
+} else {
+  document.title = "The Split -- "+g.awayName+" at "+g.homeName;
+  document.getElementById("app").innerHTML = `
+  <div class="topnav"><a href="index.html">HOME</a></div>
+  <header><div class="brand">THE SPLIT</div><div class="week">MLB &nbsp; FRIDAY SEPT 11</div>
+  <div class="logos"><img src="${L(g.away)}"/><img src="${L(g.home)}"/></div>
+  <h1>${g.awayName.toUpperCase()} VS ${g.homeName.toUpperCase()}</h1>
+  <div class="meta">${g.when}</div></header>
+  <div class="wrap">
+  <div class="market">
+    <div class="tile"><b>SPREAD</b><span>Current: ${g.spread}</span><span>Open: ${g.spread}</span></div>
+    <div class="tile"><b>TOTAL</b><span>Current: ${g.total}</span><span>Open: ${g.total}</span></div>
+    <div class="tile"><b>MONEYLINE</b><span>Current: ${g.ml}</span><span>Open: ${g.ml}</span></div>
+    <div class="tile"><b>MOVE</b><span>${g.move}</span></div>
+  </div>
+  <details class="block" open><summary>TEAM BREAKDOWN</summary><div class="body">
+    <div class="tb-row teams">
+      <div class="team-head"><img src="${L(g.away)}"/><div><b>${g.awayName.toUpperCase()}</b><div class="note">${g.awayNote}</div></div></div>
+      <div class="team-head"><img src="${L(g.home)}"/><div><b>${g.homeName.toUpperCase()}</b><div class="note">${g.homeNote}</div></div></div>
+    </div>
+    <div class="tb-row"><h3>STAFF</h3><ul><li><b>Manager ${g.mgr[0]}</b></li></ul><ul><li><b>Manager ${g.mgr[1]}</b></li></ul></div>
+    <div class="tb-row"><h3>STATUS TONIGHT</h3><ul><li>${g.status[0]}</li><li>Starter: ${g.sp[0]}</li></ul><ul><li>${g.status[1]}</li><li>Starter: ${g.sp[1]}</li></ul></div>
+    <div class="tb-row"><h3>KEY PLAYERS</h3><ul><li>Starter ${g.sp[0]}</li></ul><ul><li>Starter ${g.sp[1]}</li></ul></div>
+    <div class="tb-row"><h3>IN THE NEWS</h3><ul><li>September stretch. Lineup card at lock.</li></ul><ul><li>Playoff math in the notes above where it applies.</li></ul></div>
+  </div></details>
+  <details class="block" open><summary>INACTIVES / AVAILABILITY</summary><div class="body"><p class="note">Official card not posted. Use prior-day order vs this handedness until lock.</p>
+  <h3>${g.awayName.toUpperCase()}</h3><p class="note">Starter ${g.sp[0]}. Position scratches post with the lineup.</p>
+  <h3>${g.homeName.toUpperCase()}</h3><p class="note">Starter ${g.sp[1]}. Position scratches post with the lineup.</p></div></details>
+  <details class="block" open><summary>SCRIPT</summary><div class="body"><p class="note">Full win-if scripts expand as the series notes land. Tonight is the starter and the pen, not a bullpen game unless listed.</p></div></details>
+  <details class="block" open><summary>PITCHER VS HITTERS</summary><div class="body"><p class="note">Hitter-vs-pitcher table fills when the lineup card posts. Until then the prior-day order is the working card.</p></div></details>
+  <details class="block" open><summary>BEST BET</summary><div class="body"><div class="callout"><div style="font-size:22px;font-weight:800">${g.bet}</div><div style="margin-top:6px">${g.stake}</div></div><ul>${g.why.map(x=>"<li>"+x+"</li>").join("")}</ul></div></details>
+  <details class="block" open><summary>HR BEST BET</summary><div class="body"><div class="callout"><div style="font-size:22px;font-weight:800">${g.hr}</div></div></div></details>
+  </div>`;
+}
+</script></body></html>

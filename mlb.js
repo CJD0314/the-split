@@ -12,19 +12,19 @@ function href(id){
 }
 const MLB_GAMES = {
 "2026-09-11":[
-["pit","chc","PIT at CHC","2:20","Wrigley","CHC -193 / PIT +160","8","CHC -193 / PIT +160","Held -193",href("pit-chc")],
-["col","det","COL at DET","6:40","Comerica","DET -187 / COL +155","8","DET -187 / COL +155","Held -187",href("col-det")],
-["laa","wsh","LAA at WSH","6:45","Nationals Park","WSH -156 / LAA +132","7.5","WSH -156 / LAA +132","Held -156",href("laa-wsh")],
-["nym","nyy","NYM at NYY","7:05","Yankee Stadium","NYY -137 / NYM +116","8","NYY -137 / NYM +116","Held -137",href("nym-nyy")],
-["bal","tor","BAL at TOR","7:07","Rogers Centre","TOR -138 / BAL +118","8","TOR -138 / BAL +118","Held -138",href("bal-tor")],
-["hou","tb","HOU at TB","7:10","Tropicana","TB -174 / HOU +146","7.5","TB -174 / HOU +146","Held -174",href("hou-tb")],
-["kc","bos","KC at BOS","7:10","Fenway","BOS -206 / KC +172","8.5","BOS -206 / KC +172","Held -206",href("kc-bos")],
-["lad","mia","LAD at MIA","7:10","loanDepot","LAD -208 / MIA +174","7.5","LAD -208 / MIA +174","Held -208",href("lad-mia")],
-["phi","atl","PHI at ATL","7:15","Truist","ATL -187 / PHI +155","7","ATL -187 / PHI +155","Held -187",href("phi-atl")],
-["cin","mil","CIN at MIL","7:45","AmFam / Apple TV","MIL -206 / CIN +172","8","MIL -206 / CIN +172","Held -206",href("cin-mil")],
-["cle","min","CLE at MIN","8:10","Target Field","CLE -118 / MIN +100","7.5","CLE -118 / MIN +100","Held -118",href("cle-min")],
+["pit","chc","PIT at CHC","2:20","Wrigley","CHC -1.5 / PIT +1.5","8","CHC -193 / PIT +159","Total 8.5 to 8",href("pit-chc")],
+["col","det","COL at DET","6:40","Comerica","DET -1.5 / COL +1.5","8","DET -187 / COL +154","DET -178 to -187",href("col-det")],
+["laa","wsh","LAA at WSH","6:45","Nationals Park","WSH -1.5 / LAA +1.5","7.5","WSH -156 / LAA +129","Total 8 to 7.5",href("laa-wsh")],
+["nym","nyy","NYM at NYY","7:05","Yankee Stadium","NYY -1.5 / NYM +1.5","8","NYY -137 / NYM +114","NYM +116 to +114",href("nym-nyy")],
+["bal","tor","BAL at TOR","7:07","Rogers Centre","TOR -1.5 / BAL +1.5","8","TOR -138 / BAL +114","Held -138",href("bal-tor")],
+["hou","tb","HOU at TB","7:10","Tropicana","TB -1.5 / HOU +1.5","7.5","TB -174 / HOU +144","Held -174",href("hou-tb")],
+["kc","bos","KC at BOS","7:10","Fenway","BOS -1.5 / KC +1.5","8.5","BOS -206 / KC +168","BOS -195 to -206",href("kc-bos")],
+["lad","mia","LAD at MIA","7:10","loanDepot","LAD -1.5 / MIA +1.5","7.5","LAD -208 / MIA +174","Held -208",href("lad-mia")],
+["phi","atl","PHI at ATL","7:15","Truist","ATL -1.5 / PHI +1.5","7","ATL -187 / PHI +159","Held -187",href("phi-atl")],
+["cin","mil","CIN at MIL","7:45","AmFam / Apple TV","MIL -1.5 / CIN +1.5","8","MIL -206 / CIN +175","Held -206",href("cin-mil")],
+["cle","min","CLE at MIN","8:10","Target Field","CLE -1.5 / MIN +1.5","7.5","CLE -118 / MIN +100","Held -118",href("cle-min")],
 ["chw","stl","CHW at STL","8:15","Busch","CHW -114 / STL -104","8","CHW -114 / STL -104","Held -114",href("chw-stl")],
-["sea","oak","SEA at ATH","9:40","Sutter Health","SEA -168 / ATH +142","10","SEA -168 / ATH +142","Held -168",href("sea-oak")],
+["sea","oak","SEA at ATH","9:40","Sutter Health","SEA -1.5 / ATH +1.5","10","SEA -168 / ATH +142","Held -168",href("sea-oak")],
 ["tex","ari","TEX at ARI","9:40","Chase Field","ARI -118 / TEX +100","8.5","ARI -118 / TEX +100","Held -118",href("tex-ari")],
 ["sd","sf","SD at SF","10:15","Oracle / Apple TV","SD -149 / SF +126","8","SD -149 / SF +126","Held -149",href("sd-sf")]
 ]

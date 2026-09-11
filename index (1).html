@@ -40,11 +40,6 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 .push { color:var(--gold); font-weight:800; }
 .ok { color:var(--ok); font-weight:800; }
 .loss { color:#ff6b6b; font-weight:800; }
-.row{background:#0e141c;border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0;text-align:left}
-.row a{color:var(--gold);font-weight:800;text-decoration:none}
-.stamp{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em}
-.stamp.open{background:#3d2a00;color:#d4a017}
-.stamp.locked{background:#0d2a1c;color:#3dd68c}
 table.res { width:100%; border-collapse:collapse; font-size:12px; margin-top:8px; }
 table.res th, table.res td { text-align:left; padding:7px 5px; border-bottom:1px solid var(--line); vertical-align:top; }
 table.res th { color:var(--muted); font-size:11px; letter-spacing:.08em; }
@@ -61,10 +56,6 @@ h3.track { color:var(--gold); font-size:13px; letter-spacing:.08em; margin:18px 
 <p class="note" id="home-types"></p>
 </div></header>
 <div class="wrap">
-<details class="league" open>
-<summary>OPEN BOOK</summary>
-<div class="inner" id="home-opens"><p class="note">Loading ledger...</p></div>
-</details>
 <details class="league">
 <summary>NFL</summary>
 <div class="inner">
@@ -74,7 +65,7 @@ h3.track { color:var(--gold); font-size:13px; letter-spacing:.08em; margin:18px 
 <div class="inner"><p class="note">Classic DraftKings slate. Week button opens its own page.</p><div class="weeks" id="dfs-week-btns"></div></div></details>
 <details class="subhead"><summary>BET TRACKER</summary>
 <div class="inner">
-<p class="note">Full ledger including settled. Live tickets also sit in OPEN BOOK above.</p>
+<p class="note">Full NFL ledger. Open tickets stay here until they grade.</p>
 <h3 class="track">SIDE / TOTAL / MONEYLINE</h3>
 <table class="res">
 <tr><th>WEEK</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>STAKE</th><th>FINAL</th><th>RESULT</th><th>P/L</th></tr>
@@ -106,7 +97,7 @@ h3.track { color:var(--gold); font-size:13px; letter-spacing:.08em; margin:18px 
 <div class="inner"><p class="note">AP Top 25 games only. No DFS. Weeks 1-10 live.</p><div class="weeks" id="cfb-week-btns"></div><div id="cfb-slate"></div></div></details>
 <details class="subhead"><summary>BET TRACKER</summary>
 <div class="inner">
-<p class="note">Full CFB ledger. Live tickets also sit in OPEN BOOK above.</p>
+<p class="note">Full CFB ledger.</p>
 <table class="res">
 <tr><th>DATE</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>STAKE</th><th>RESULT</th><th>P/L</th></tr>
 <tr><td>9/10</td><td>FAMU at MIA</td><td>Miami -59.5</td><td>MIA -59.5</td><td>$100 to win $100</td><td class="ok">WIN 77-7</td><td>+$100</td></tr>
@@ -131,7 +122,7 @@ h3.track { color:var(--gold); font-size:13px; letter-spacing:.08em; margin:18px 
 <details class="subhead">
 <summary>BET TRACKER</summary>
 <div class="inner">
-<p class="note">Full MLB ledger. Live tickets also sit in OPEN BOOK above.</p>
+<p class="note">Full MLB ledger.</p>
 <h3 class="track">SIDE / TOTAL / MONEYLINE</h3>
 <table class="res">
 <tr><th>DATE</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>STAKE</th><th>RESULT</th><th>P/L</th></tr>
@@ -159,7 +150,7 @@ h3.track { color:var(--gold); font-size:13px; letter-spacing:.08em; margin:18px 
 <script src="schedule.js?v=15"></script>
 <script src="cfb.js?v=2"></script>
 <script src="mlb.js?v=3"></script>
-<script src="tracker.js?v=3"></script>
+<script src="tracker.js?v=6"></script>
 <script>
 renderHomeBank();
 (function(){

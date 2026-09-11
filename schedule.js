@@ -21,8 +21,8 @@ for (let w = 2; w <= 18; w++) GAMES.push([w, "WEEK " + w, "tbd", "tbd", "", "", 
 const LOGO = c => "https://a.espncdn.com/i/teamlogos/nfl/500/" + c + ".png";
 const CURRENT_WEEK = 1;
 const TILES = {
-"dive-ne":["nfl-week-1-ne-sea.html","SEA vs NE","SEA -3 / NE +3","44.5","SEA -170 / NE +142","Toward NE"],
-"dive-sf":["nfl-week-1-sf-lar.html","SF vs LAR","LAR -3.5 / SF +3.5","48.5","LAR -198 / SF +164","Cashed +3.5"],
+"dive-ne":["nfl-week-1-ne-sea.html","SEA vs NE","SEA -3 / NE +3","44.5","SEA -170 / NE +142","Toward NE","nfl-week-1-ne-sea-review.html"],
+"dive-sf":["nfl-week-1-sf-lar.html","SF vs LAR","LAR -3.5 / SF +3.5","48.5","LAR -198 / SF +164","Cashed +3.5","nfl-week-1-sf-lar-review.html"],
 "chi-car":["nfl-week-1-chi-car.html","CHI at CAR","CHI -3 / CAR +3","46.5","CHI -162 / CAR +136","CHI road favorite"],
 "tb-cin":["nfl-week-1-tb-cin.html","TB at CIN","CIN -3.5 / TB +3.5","50.5","CIN -198 / TB +164","Chase knee"],
 "no-det":["nfl-week-1-no-det.html","NO at DET","DET -7 / NO +7","49.5","DET -310 / NO +250","Home favorite"],
@@ -38,11 +38,13 @@ const TILES = {
 "dal-nyg":["nfl-week-1-dal-nyg.html","DAL at NYG","DAL -3 / NYG +3","48.5","DAL -162 / NYG +136","SNF"],
 "den-kc":["nfl-week-1-den-kc.html","DEN at KC","KC -2.5 / DEN +2.5","43.5","KC -150 / DEN +124","Mahomes return"]
 };
-function card(href,title,spread,total,ml,move,a,h,t,n){
+function card(href,title,spread,total,ml,move,a,h,t,n,review){
+  const rev = review ? `<a class="full-link" href="${review}">REVIEW</a>` : "";
   return `<div class="g" style="flex-wrap:wrap">
     <img src="${LOGO(a)}"><img src="${LOGO(h)}">
     <b>${title}</b>
     <a class="full-link" href="${href}">FULL BREAKDOWN</a>
+    ${rev}
     <span>${t} ${n}</span>
     <div class="dive-box" style="width:100%">
       <div class="mini">
@@ -58,7 +60,7 @@ function row(g){
   const [w,day,a,h,t,n,extra] = g;
   if (TILES[extra]) {
     const x = TILES[extra];
-    return card(x[0], x[1], x[2], x[3], x[4], x[5], a, h, t, n);
+    return card(x[0], x[1], x[2], x[3], x[4], x[5], a, h, t, n, x[6]);
   }
   const imgs = (a === "tbd") ? "" : `<img src="${LOGO(a)}"><img src="${LOGO(h)}">`;
   return `<div class="g">${imgs}<b>${(NAMES[a]||a)+" at "+(NAMES[h]||h)}</b><span>${t} ${n}</span></div>`;

@@ -1,18 +1,18 @@
 {
   "unit": 100,
-  "updated": "2026-09-11T19:19:00-04:00",
+  "updated": "2026-09-11T19:38:00-04:00",
   "today": "2026-09-11",
   "tagline": "The card. The number. The miss.",
   "confidence_key": "BET = fire a unit. LEAN = half unit or skip if tight. FADE = posted because every game needs a number; would not fire real money.",
   "loops": {
     "NFL": ["NE/SEA: one-score and +3 were right. Backup safeties did not equal 250 passing yards.","SF/LAR: 49ers +3.5 cashed. We still under-weighted how dead a short-week favorite can look."],
     "CFB": ["Miami/FAMU: -59.5 cashed. Do not treat that as a license to lay 35+ every Friday."],
-    "MLB": []
+    "MLB": ["PIT/CHC: plus-money dog and PCA HR both died in a 12-2. Do not fade a healthy Imanaga home favorite just because the dog is +159."]
   },
   "fades": {
     "NFL": ["Do not assume a backup safety group means 250 passing yards.","Do not captain a short-week road favorite just because the name is bigger."],
     "CFB": ["Do not lay juice through a Top-25 team on a short week until availability is posted.","Do not treat a 50-point FCS win as a repeatable side.","Do not treat a live 40-point FCS number as anything but a bench bet."],
-    "MLB": ["Do not live in a 23rd-ranked pen if the starter is out before the fifth.","Do not force a HR on a .118 team book."]
+    "MLB": ["Do not live in a 23rd-ranked pen if the starter is out before the fifth.","Do not force a HR on a .118 team book.","Do not buy a plus-money dog at Wrigley against Imanaga when the bats are already loud."]
   },
   "bets": [
     {"id":"nfl-w1-ne-sea-side","sport":"NFL","date":"2026-09-09","game":"NE at SEA","type":"side","pick":"Patriots +3","close":"NE +3 (-102)","stake":100,"to_win":98,"status":"SETTLED","result":"PUSH","pl":0,"final":"SEA 13-10","confidence":"LEAN","href":"nfl-week-1-ne-sea.html"},
@@ -35,19 +35,19 @@
     {"id":"cfb-w2-lou-vill","sport":"CFB","date":"2026-09-11","game":"VILL at LOU","type":"side","pick":"Louisville -36.5","close":"LOU -36.5","stake":100,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"cfb-week-2-lou-vill.html"},
     {"id":"cfb-w2-uva-norf","sport":"CFB","date":"2026-09-11","game":"NORF at UVA","type":"side","pick":"Virginia -45.5","close":"UVA -45.5","stake":100,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"cfb-week-2-uva-norf.html"},
     {"id":"cfb-w2-miz-ku","sport":"CFB","date":"2026-09-11","game":"MIZ at KU","type":"side","pick":"Missouri -5.5","close":"MIZ -5.5 (-110)","stake":110,"to_win":100,"status":"OPEN","confidence":"LEAN","href":"cfb-week-2-miz-ku.html"},
-    {"id":"mlb-911-pit-chc-ml","sport":"MLB","date":"2026-09-11","game":"PIT at CHC","type":"ml","pick":"Pirates ML","close":"PIT +159","stake":100,"to_win":159,"status":"LOCKED","confidence":"BET","href":"mlb-2026-09-11-pit-chc.html"},
-    {"id":"mlb-911-pit-chc-hr","sport":"MLB","date":"2026-09-11","game":"PIT at CHC","type":"hr","pick":"Pete Crow-Armstrong","close":"+320","stake":100,"to_win":320,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-pit-chc.html"},
-    {"id":"mlb-911-col-det-tot","sport":"MLB","date":"2026-09-11","game":"COL at DET","type":"total","pick":"Under 8","close":"u8 (-102)","stake":102,"to_win":100,"status":"OPEN","confidence":"BET","href":"mlb-2026-09-11-col-det.html"},
-    {"id":"mlb-911-col-det-hr","sport":"MLB","date":"2026-09-11","game":"COL at DET","type":"hr","pick":"Riley Greene","close":"+405","stake":100,"to_win":405,"status":"OPEN","confidence":"LEAN","href":"mlb-2026-09-11-col-det.html"},
-    {"id":"mlb-911-laa-wsh-ml","sport":"MLB","date":"2026-09-11","game":"LAA at WSH","type":"ml","pick":"Nationals ML","close":"WSH -156","stake":156,"to_win":100,"status":"OPEN","confidence":"LEAN","href":"mlb-2026-09-11-laa-wsh.html"},
-    {"id":"mlb-911-laa-wsh-hr","sport":"MLB","date":"2026-09-11","game":"LAA at WSH","type":"hr","pick":"James Wood","close":"+525","stake":100,"to_win":525,"status":"OPEN","confidence":"FADE","href":"mlb-2026-09-11-laa-wsh.html"},
-    {"id":"mlb-911-nym-nyy-ml","sport":"MLB","date":"2026-09-11","game":"NYM at NYY","type":"ml","pick":"Mets ML","close":"NYM +114","stake":100,"to_win":114,"status":"OPEN","confidence":"BET","href":"mlb-2026-09-11-nym-nyy.html"},
-    {"id":"mlb-911-nym-nyy-hr","sport":"MLB","date":"2026-09-11","game":"NYM at NYY","type":"hr","pick":"Juan Soto","close":"+305","stake":100,"to_win":305,"status":"OPEN","confidence":"LEAN","href":"mlb-2026-09-11-nym-nyy.html"},
-    {"id":"mlb-911-bal-tor-ml","sport":"MLB","date":"2026-09-11","game":"BAL at TOR","type":"ml","pick":"Orioles ML","close":"BAL +114","stake":100,"to_win":114,"status":"OPEN","confidence":"LEAN","href":"mlb-2026-09-11-bal-tor.html"},
-    {"id":"mlb-911-hou-tb-ml","sport":"MLB","date":"2026-09-11","game":"HOU at TB","type":"ml","pick":"Rays ML","close":"TB -174","stake":174,"to_win":100,"status":"OPEN","confidence":"FADE","href":"mlb-2026-09-11-hou-tb.html"},
-    {"id":"mlb-911-kc-bos-ml","sport":"MLB","date":"2026-09-11","game":"KC at BOS","type":"ml","pick":"Red Sox ML","close":"BOS -206","stake":206,"to_win":100,"status":"OPEN","confidence":"FADE","href":"mlb-2026-09-11-kc-bos.html"},
-    {"id":"mlb-911-lad-mia-ml","sport":"MLB","date":"2026-09-11","game":"LAD at MIA","type":"ml","pick":"Dodgers ML","close":"LAD -208","stake":208,"to_win":100,"status":"OPEN","confidence":"FADE","href":"mlb-2026-09-11-lad-mia.html"},
-    {"id":"mlb-911-phi-atl-ml","sport":"MLB","date":"2026-09-11","game":"PHI at ATL","type":"ml","pick":"Braves ML","close":"ATL -187","stake":187,"to_win":100,"status":"OPEN","confidence":"FADE","href":"mlb-2026-09-11-phi-atl.html"},
+    {"id":"mlb-911-pit-chc-ml","sport":"MLB","date":"2026-09-11","game":"PIT at CHC","type":"ml","pick":"Pirates ML","close":"PIT +159","stake":100,"to_win":159,"status":"SETTLED","result":"LOSS","pl":-100,"final":"CHC 12-2","confidence":"BET","href":"mlb-2026-09-11-pit-chc.html"},
+    {"id":"mlb-911-pit-chc-hr","sport":"MLB","date":"2026-09-11","game":"PIT at CHC","type":"hr","pick":"Pete Crow-Armstrong","close":"+320","stake":100,"to_win":320,"status":"SETTLED","result":"LOSS","pl":-100,"final":"CHC 12-2","confidence":"LEAN","href":"mlb-2026-09-11-pit-chc.html"},
+    {"id":"mlb-911-col-det-tot","sport":"MLB","date":"2026-09-11","game":"COL at DET","type":"total","pick":"Under 8","close":"u8 (-102)","stake":102,"to_win":100,"status":"LOCKED","confidence":"BET","href":"mlb-2026-09-11-col-det.html"},
+    {"id":"mlb-911-col-det-hr","sport":"MLB","date":"2026-09-11","game":"COL at DET","type":"hr","pick":"Riley Greene","close":"+405","stake":100,"to_win":405,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-col-det.html"},
+    {"id":"mlb-911-laa-wsh-ml","sport":"MLB","date":"2026-09-11","game":"LAA at WSH","type":"ml","pick":"Nationals ML","close":"WSH -156","stake":156,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-laa-wsh.html"},
+    {"id":"mlb-911-laa-wsh-hr","sport":"MLB","date":"2026-09-11","game":"LAA at WSH","type":"hr","pick":"James Wood","close":"+525","stake":100,"to_win":525,"status":"LOCKED","confidence":"FADE","href":"mlb-2026-09-11-laa-wsh.html"},
+    {"id":"mlb-911-nym-nyy-ml","sport":"MLB","date":"2026-09-11","game":"NYM at NYY","type":"ml","pick":"Mets ML","close":"NYM +114","stake":100,"to_win":114,"status":"LOCKED","confidence":"BET","href":"mlb-2026-09-11-nym-nyy.html"},
+    {"id":"mlb-911-nym-nyy-hr","sport":"MLB","date":"2026-09-11","game":"NYM at NYY","type":"hr","pick":"Juan Soto","close":"+305","stake":100,"to_win":305,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-nym-nyy.html"},
+    {"id":"mlb-911-bal-tor-ml","sport":"MLB","date":"2026-09-11","game":"BAL at TOR","type":"ml","pick":"Orioles ML","close":"BAL +114","stake":100,"to_win":114,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-bal-tor.html"},
+    {"id":"mlb-911-hou-tb-ml","sport":"MLB","date":"2026-09-11","game":"HOU at TB","type":"ml","pick":"Rays ML","close":"TB -174","stake":174,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"mlb-2026-09-11-hou-tb.html"},
+    {"id":"mlb-911-kc-bos-ml","sport":"MLB","date":"2026-09-11","game":"KC at BOS","type":"ml","pick":"Red Sox ML","close":"BOS -206","stake":206,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"mlb-2026-09-11-kc-bos.html"},
+    {"id":"mlb-911-lad-mia-ml","sport":"MLB","date":"2026-09-11","game":"LAD at MIA","type":"ml","pick":"Dodgers ML","close":"LAD -208","stake":208,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"mlb-2026-09-11-lad-mia.html"},
+    {"id":"mlb-911-phi-atl-ml","sport":"MLB","date":"2026-09-11","game":"PHI at ATL","type":"ml","pick":"Braves ML","close":"ATL -187","stake":187,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"mlb-2026-09-11-phi-atl.html"},
     {"id":"mlb-911-cin-mil-ml","sport":"MLB","date":"2026-09-11","game":"CIN at MIL","type":"ml","pick":"Brewers ML","close":"MIL -206","stake":206,"to_win":100,"status":"OPEN","confidence":"FADE","href":"mlb-2026-09-11-cin-mil.html"},
     {"id":"mlb-911-cle-min-ml","sport":"MLB","date":"2026-09-11","game":"CLE at MIN","type":"ml","pick":"Guardians ML","close":"CLE -118","stake":118,"to_win":100,"status":"OPEN","confidence":"LEAN","href":"mlb-2026-09-11-cle-min.html"}
   ]

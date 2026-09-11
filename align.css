@@ -1,3 +1,6 @@
 .tb-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; margin:0 0 8px; }
 .tb-row h3 { grid-column:1 / -1; margin-bottom:4px; }
+.tb-row.teams { align-items:center; margin-bottom:14px; }
+.team-head { display:flex; align-items:center; gap:10px; min-height:52px; }
+.team-head img { width:48px; height:48px; object-fit:contain; flex:0 0 48px; }
 @media (max-width:800px){ .tb-row { grid-template-columns:1fr; } }

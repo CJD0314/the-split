@@ -72,6 +72,62 @@ function sportDrop(title, html, open){
 function sportBlock(title, html){
   return `<h3>${title}</h3>` + (html || `<p class="note">Nothing posted.</p>`);
 }
+function resultClass(b){
+  if (b.result === "WIN") return "ok";
+  if (b.result === "LOSS") return "loss";
+  return "push";
+}
+function resultText(b){
+  if (b.status === "SETTLED") return (b.result||"") + (b.final?" · "+b.final:"");
+  return b.status;
+}
+function reviewRow(b){
+  const href = b.href ? `<a class="full-link" href="${b.href}">${b.game}</a>` : b.game;
+  const pl = b.status === "SETTLED" ? money(b.pl) : "--";
+  return `<tr>
+    <td>${(b.date||"").slice(5)}</td>
+    <td>${href}</td>
+    <td>${b.pick}</td>
+    <td>${b.close||"--"}</td>
+    <td>$${b.stake} to win $${b.to_win}</td>
+    <td>${b.confidence||"--"}</td>
+    <td class="${resultClass(b)}">${resultText(b)}</td>
+    <td>${pl}</td>
+  </tr>`;
+}
+function reviewTable(rows){
+  if (!rows.length) return `<p class="note">No tickets.</p>`;
+  const settled = rows.filter(b => b.status === "SETTLED");
+  const pl = settled.reduce((a,b)=>a+(Number(b.pl)||0),0);
+  const body = rows.map(reviewRow).join("");
+  return `<table class="res">
+    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLOSE</th><th>STAKE</th><th>CONF</th><th>RESULT</th><th>P/L</th></tr>
+    ${body}
+    <tr class="total"><td colspan="7">SETTLED P/L</td><td>${money(pl)}</td></tr>
+  </table>`;
+}
+function isProp(b){
+  const t = String(b.type||"").toLowerCase();
+  return t === "td" || t === "hr" || t === "prop";
+}
+async function renderReviews(){
+  const data = await loadLedger();
+  const s = summarize(data);
+  renderBank(document.getElementById("review-bank"), s);
+  const order = ["NFL","CFB","MLB","NBA","NHL"];
+  const names = {NFL:"NFL",CFB:"COLLEGE FOOTBALL",MLB:"MLB",NBA:"NBA",NHL:"NHL"};
+  const box = document.getElementById("review-tables");
+  if (!box) return;
+  box.innerHTML = order.map((sp,i) => {
+    const rows = (data.bets||[]).filter(b => b.sport === sp);
+    const best = rows.filter(b => !isProp(b));
+    const props = rows.filter(isProp);
+    const inner = rows.length
+      ? `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(props)}`
+      : `<p class="note">No tickets posted yet.</p>`;
+    return sportDrop(names[sp], inner, i===0);
+  }).join("");
+}
 async function renderToday(){
   const data = await loadLedger();
   const s = summarize(data);
@@ -86,10 +142,10 @@ async function renderToday(){
     if (!rows.length) return "";
     return sportDrop(sp, groupByGame(rows), true);
   }).filter(Boolean);
-  tickets.innerHTML = live.length ? live.join("") : `<p class="note">No tickets today.</p>`;
+  if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No tickets today.</p>`;
   const loops = document.getElementById("loops");
   const L = data.loops || {};
-  loops.innerHTML = order.map(sp => {
+  if (loops) loops.innerHTML = order.map(sp => {
     const items = L[sp] || [];
     return sportBlock(sp, items.length ? "<ul>"+items.map(x=>`<li>${x}</li>`).join("")+"</ul>" : `<p class="note">No review notes yet.</p>`);
   }).join("");

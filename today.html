@@ -4,10 +4,6 @@
 <title>The Split -- Today</title>
 <link rel="stylesheet" href="dive.css"/>
 <style>
-.bank{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
-.bank div{background:#121820;border:1px solid #2a3644;border-radius:12px;padding:14px;text-align:center}
-.bank b{display:block;color:#93a3b5;font-size:10px;letter-spacing:.1em}
-.bank span{font-size:22px;font-weight:800}
 .row{background:#121820;border:1px solid #2a3644;border-radius:12px;padding:12px;margin:8px 0}
 .row a{color:#d4a017;font-weight:800;text-decoration:none}
 .stamp{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em}
@@ -17,7 +13,6 @@
 .stamp.bet{background:#0d2a1c;color:#3dd68c}
 .stamp.lean{background:#3d2a00;color:#d4a017}
 .stamp.fade{background:#3a1212;color:#ff6b6b}
-@media(max-width:700px){.bank{grid-template-columns:1fr 1fr}}
 </style></head>
 <body>
 <div class="topnav"><a href="today.html">TODAY</a> &nbsp;|&nbsp; <a href="index.html">HOME</a></div>
@@ -27,7 +22,6 @@
 <div class="meta" id="tagline">The card. The number. The miss.</div>
 </header>
 <div class="wrap">
-<div class="bank" id="bank"></div>
 <p class="note">BET = fire a unit. LEAN = half unit or skip. FADE = posted for the card; would not fire real money.</p>
 <details class="block" open><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
@@ -38,6 +32,6 @@
 <details class="block"><summary>DFS NOTE</summary>
 <div class="body"><p>No NFL slate tonight. Sunday classic lives under NFL → DFS CHEAT SHEET.</p></div></details>
 </div>
-<script src="tracker.js?v=4"></script>
+<script src="tracker.js?v=5"></script>
 <script>renderToday();</script>
 </body></html>

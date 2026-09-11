@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Split -- Betting Reviews</title>
+<link rel="stylesheet" href="dive.css"/>
+<style>
+.stamp{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em}
+.stamp.open{background:#3d2a00;color:#d4a017}
+.stamp.locked{background:#0d2a1c;color:#3dd68c}
+.stamp.settled{background:#1a2230;color:#93a3b5}
+.stamp.bet{background:#0d2a1c;color:#3dd68c}
+.stamp.lean{background:#3d2a00;color:#d4a017}
+.stamp.fade{background:#3a1212;color:#ff6b6b}
+.stamp.win{background:#0d2a1c;color:#3dd68c}
+.stamp.loss{background:#3a1212;color:#ff6b6b}
+.stamp.push{background:#3d2a00;color:#d4a017}
+table.res{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
+table.res th,table.res td{text-align:left;padding:8px 6px;border-bottom:1px solid #2a3644;vertical-align:top}
+table.res th{color:#93a3b5;font-size:11px;letter-spacing:.08em}
+table.res tr.total td{border-top:2px solid #d4a017;font-weight:800;color:#d4a017}
+h3.track{color:#d4a017;font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
+.ok{color:#3dd68c;font-weight:800}.loss{color:#ff6b6b;font-weight:800}.push{color:#d4a017;font-weight:800}
+.bank{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.bank div{background:#121820;border:1px solid #2a3644;border-radius:12px;padding:12px;text-align:center}
+.bank b{display:block;color:#93a3b5;font-size:10px;letter-spacing:.1em}
+.bank span{font-size:20px;font-weight:800}
+</style></head>
+<body>
+<div class="topnav">
+  <a href="today.html">TODAY</a>
+  <a href="index.html">HOME</a>
+  <a href="reviews.html">BETTING REVIEWS</a>
+</div>
+<header>
+  <div class="brand">THE SPLIT</div>
+  <div class="week">BETTING REVIEWS</div>
+  <div class="meta">Best bets and TD / HR tickets are separate line items. One row per ticket.</div>
+</header>
+<div class="wrap">
+  <div class="bank" id="review-bank"></div>
+  <p class="note">BET = fire a unit. LEAN = half unit or skip. FADE = posted for the card; would not fire real money.</p>
+  <div id="review-tables"><p class="note">Loading ledger...</p></div>
+</div>
+<script src="tracker.js?v=7"></script>
+<script>renderReviews();</script>
+</body></html>

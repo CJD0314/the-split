@@ -17,7 +17,7 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 .league > summary::after, .subhead > summary::after { content:"+"; color:var(--gold); font-size:18px; }
 .league[open] > summary::after, .subhead[open] > summary::after { content:"-"; }
 .inner { padding:0 14px 16px; border-top:1px solid var(--line); }
-.weeks { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:12px 0; }
+.weeks { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:12px 0; }
 .weeks button { padding:10px 6px; border-radius:8px; border:1px solid var(--line); background:#0e141c; color:var(--muted); font-weight:700; cursor:pointer; font-family:inherit; }
 .weeks button.on { border-color:var(--ok); color:var(--ok); }
 .g { display:flex; align-items:center; gap:10px; background:#0e141c; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; color:inherit; }
@@ -63,28 +63,44 @@ table.res th { color:var(--muted); font-size:11px; letter-spacing:.08em; }
 <tr><th>WEEK</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>STAKE</th><th>FINAL</th><th>RESULT</th><th>P/L</th></tr>
 <tr><td>1</td><td>NE at SEA</td><td>Patriots +3</td><td>NE +3 (-102)</td><td>$100 to win $98</td><td>SEA 13-10</td><td class="push">PUSH</td><td>$0</td></tr>
 <tr><td>1</td><td>SF at LAR</td><td>49ers +3.5</td><td>SF +3.5 (-102)</td><td>$102 to win $100</td><td>SF 27-7</td><td class="ok">WIN</td><td>+$100</td></tr>
-<tr><td>1</td><td>CHI at CAR</td><td>Bears -3</td><td>CHI -3 (-118)</td><td>$118 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>TB at CIN</td><td>Bucs +3.5</td><td>TB +3.5 (-108)</td><td>$100 to win $93</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>NO at DET</td><td>Saints +7</td><td>NO +7 (-112)</td><td>$100 to win $89</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>BUF at HOU</td><td>Bills -1.5</td><td>BUF -1.5 (-108)</td><td>$108 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>BAL at IND</td><td>Colts +3.5</td><td>IND +3.5 (-115)</td><td>$100 to win $87</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>CLE at JAX</td><td>Browns +8.5</td><td>CLE +8.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>ATL at PIT</td><td>Falcons +3.5</td><td>ATL +3.5 (-108)</td><td>$100 to win $93</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>NYJ at TEN</td><td>Titans -1.5</td><td>TEN -1.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>ARI at LAC</td><td>Cardinals +9.5</td><td>ARI +9.5 (-105)</td><td>$105 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>MIA at LV</td><td>Raiders -3.5</td><td>LV -3.5 (-185 ML no)</td><td>$118 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>GB at MIN</td><td>Vikings -1.5</td><td>MIN -1.5 (-108)</td><td>$108 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>WAS at PHI</td><td>Eagles -5.5</td><td>PHI -5.5 (-105)</td><td>$105 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>DAL at NYG</td><td>Giants +3</td><td>NYG +3 (-115)</td><td>$100 to win $87</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>1</td><td>DEN at KC</td><td>Broncos +2.5</td><td>DEN +2.5 (-102)</td><td>$100 to win $98</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
+</table>
+<p class="note">Sunday / Monday NFL openers stay on the live dives until they close.</p>
+</div>
+</details>
+</div>
+</details>
+
+<details class="league">
+<summary>COLLEGE FOOTBALL</summary>
+<div class="inner">
+<details class="subhead">
+<summary>DEEP DIVES</summary>
+<div class="inner">
+<p class="note">AP Top 25 games only. No DFS. Weeks 1-10 live. Current week selected.</p>
+<div class="weeks" id="cfb-week-btns"></div>
+<div id="cfb-slate"></div>
+</div>
+</details>
+<details class="subhead">
+<summary>RESULTS</summary>
+<div class="inner">
+<p class="note">$100 unit. DraftKings close. CFB record 0-0-0.</p>
+<table class="res">
+<tr><th>WEEK</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>STAKE</th><th>FINAL</th><th>RESULT</th><th>P/L</th></tr>
+<tr><td>2</td><td>#1 Ohio State at #4 Texas</td><td>Ohio State +1.5</td><td>OSU +1.5 (-108)</td><td>$108 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
+<tr><td>2</td><td>#11 Oklahoma at Michigan</td><td>Michigan +3.5</td><td>MICH +3.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
+<tr><td>2</td><td>#23 Missouri at Kansas</td><td>Missouri -5.5</td><td>MIZ -5.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
+<tr><td>2</td><td>#21 Iowa vs Iowa State</td><td>Under 43.5</td><td>u43.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
 </table>
 </div>
 </details>
 </div>
 </details>
+
 <details class="league"><summary>MLB</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 <details class="league"><summary>NBA</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 <details class="league"><summary>NHL</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 </div>
-<script src="schedule.js?v=12"></script>
+<script src="schedule.js?v=14"></script>
+<script src="cfb.js?v=1"></script>
 </body></html>

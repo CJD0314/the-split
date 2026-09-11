@@ -7,7 +7,7 @@ header{text-align:center;padding:20px 16px 8px}.brand{font-size:34px;font-weight
 .week{color:var(--gold);letter-spacing:.16em;font-weight:700;margin:8px 0 16px}
 .logos{display:flex;justify-content:center;gap:28px;align-items:center}.logos img{width:88px;height:88px;object-fit:contain}
 h1{font-size:22px;font-weight:800}.meta{color:var(--muted);font-size:14px}
-.updated{color:var(--gold);font-size:12px;letter-spacing:.08em;font-weight:700;margin:10px 0 0}
+.updated{display:inline-block;margin:14px auto 0;padding:8px 16px;background:#3d2a00;border:1px solid var(--gold);border-radius:999px;color:#ffe08a;font-size:14px;letter-spacing:.08em;font-weight:800}
 .stamp{display:inline-block;margin:8px 4px 0;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em}
 .stamp.first{background:#3d2a00;color:#d4a017}
 .stamp.locked{background:#0d2a1c;color:#3dd68c}

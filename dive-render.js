@@ -8,6 +8,15 @@ function inact(title,off,def){
   h+="<p><b>DEFENSE</b></p>"+(def||"<p class='note'>No official inactives posted yet.</p>");
   return h;
 }
+function lastUpdated(){
+  try {
+    var parts = new Intl.DateTimeFormat("en-US", {timeZone:"America/New_York",weekday:"short",month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",hour12:true}).formatToParts(new Date());
+    var get = function(t){ return (parts.find(function(p){ return p.type===t; })||{}).value; };
+    return "LAST UPDATED: " + get("weekday") + " " + get("month") + " " + get("day") + ", " + get("year") + " " + get("hour") + ":" + get("minute") + " " + get("dayPeriod").toLowerCase() + " ET";
+  } catch(e) {
+    return "LAST UPDATED: Fri Sep 11, 2026 6:59 p.m. ET";
+  }
+}
 function renderGame(g){
   document.title="The Split -- "+g.awayName+" at "+g.homeName;
   const td = (g.tdPlayer)?`
@@ -27,6 +36,7 @@ function renderGame(g){
     <div class="logos"><img src="${logo(g.away)}" alt="" /><img src="${logo(g.home)}" alt="" /></div>
     <h1>${g.awayName.toUpperCase()} VS ${g.homeName.toUpperCase()}</h1>
     <div class="meta">${g.when}</div>
+    <div class="updated">${lastUpdated()}</div>
   </header>
   <div class="wrap">
     <div class="market">

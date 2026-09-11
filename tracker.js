@@ -34,23 +34,46 @@ function renderBank(el, s){
     <div><b>ROI</b><span>${s.roi}</span></div>
     <div><b>RISKED</b><span>$${s.risked}</span></div>`;
 }
+function ticketCard(b){
+  return `<div class="row">
+      <span class="stamp ${String(b.status).toLowerCase()}">${b.status}</span>
+      <b> ${b.game}</b>
+      <div>${b.pick} · ${b.close}</div>
+      <div class="note">$${b.stake} to win $${b.to_win}${b.final?" · "+b.final:""}${b.result?" · "+b.result:""}</div>
+      <a href="${b.href}">BOARD</a>
+    </div>`;
+}
+function sportBlock(title, html){
+  return `<h3>${title}</h3>` + (html || `<p class="note">Nothing posted.</p>`);
+}
 async function renderToday(){
   const data = await loadLedger();
   const s = summarize(data);
   renderBank(document.getElementById("bank"), s);
-  const types = Object.entries(s.byType).map(([k,v])=>`${k.toUpperCase()} ${v.w}-${v.l}-${v.p} (${money(v.pl)})`).join(" · ");
+  const line = document.getElementById("tagline");
+  if (line) line.textContent = data.tagline || "The card. The number. The miss.";
+  const order = ["NFL","CFB","MLB"];
+  const live = data.bets.filter(b => b.status !== "SETTLED" || b.date === "2026-09-11");
+  const settledShow = data.bets.filter(b => b.status === "SETTLED");
   const tickets = document.getElementById("tickets");
-  const today = data.bets.filter(b => b.date === "2026-09-11" || b.status !== "SETTLED");
-  tickets.innerHTML = `<p class="note">${types || "No settled type splits yet."}</p>` + today.map(b => `
-    <div class="row">
-      <span class="stamp ${b.status.toLowerCase()}">${b.status}</span>
-      <b> ${b.sport} ${b.game}</b>
-      <div>${b.pick} · ${b.close}</div>
-      <div class="note">${b.stake} to win ${b.to_win}${b.final?" · "+b.final:""}${b.result?" · "+b.result:""}</div>
-      <a href="${b.href}">BOARD</a>
-    </div>`).join("");
+  tickets.innerHTML = order.map(sp => {
+    const rows = live.filter(b => b.sport === sp);
+    return sportBlock(sp, rows.length ? rows.map(ticketCard).join("") : `<p class="note">No live tickets.</p>`);
+  }).join("");
   const loops = document.getElementById("loops");
-  loops.innerHTML = "<ul>" + (data.loops||[]).map(x=>`<li>${x}</li>`).join("") + "</ul>";
+  const L = data.loops || {};
+  loops.innerHTML = order.map(sp => {
+    const items = L[sp] || [];
+    return sportBlock(sp, items.length ? "<ul>"+items.map(x=>`<li>${x}</li>`).join("")+"</ul>" : `<p class="note">No review notes yet.</p>`);
+  }).join("");
+  const fades = document.getElementById("fades");
+  if (fades){
+    const F = data.fades || {};
+    fades.innerHTML = order.map(sp => {
+      const items = F[sp] || [];
+      return sportBlock(sp, items.length ? "<ul>"+items.map(x=>`<li>${x}</li>`).join("")+"</ul>" : `<p class="note">No fades posted.</p>`);
+    }).join("");
+  }
 }
 async function renderHomeBank(){
   const el = document.getElementById("home-bank");

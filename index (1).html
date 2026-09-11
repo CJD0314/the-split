@@ -33,9 +33,11 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 .note { color:var(--muted); font-size:13px; }
 .push { color:var(--gold); font-weight:800; }
 .ok { color:var(--ok); font-weight:800; }
+.loss { color:#ff6b6b; font-weight:800; }
 table.res { width:100%; border-collapse:collapse; font-size:12px; margin-top:8px; }
 table.res th, table.res td { text-align:left; padding:7px 5px; border-bottom:1px solid var(--line); vertical-align:top; }
 table.res th { color:var(--muted); font-size:11px; letter-spacing:.08em; }
+table.res tr.total td { border-top:2px solid var(--gold); font-weight:800; color:var(--gold); }
 @media (max-width:640px){ .weeks,.mini{grid-template-columns:1fr 1fr;} h1{font-size:32px;} }
 </style></head>
 <body>
@@ -56,15 +58,16 @@ table.res th { color:var(--muted); font-size:11px; letter-spacing:.08em; }
 </div>
 </details>
 <details class="subhead">
-<summary>RESULTS</summary>
+<summary>BET TRACKER</summary>
 <div class="inner">
-<p class="note">$100 unit. Closing DraftKings number. Record 1-0-1, +$100.</p>
+<p class="note">$100 unit. Closing DraftKings number. Settled 1-0-1. Closed bets do not move.</p>
 <table class="res">
 <tr><th>WEEK</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>STAKE</th><th>FINAL</th><th>RESULT</th><th>P/L</th></tr>
 <tr><td>1</td><td>NE at SEA</td><td>Patriots +3</td><td>NE +3 (-102)</td><td>$100 to win $98</td><td>SEA 13-10</td><td class="push">PUSH</td><td>$0</td></tr>
 <tr><td>1</td><td>SF at LAR</td><td>49ers +3.5</td><td>SF +3.5 (-102)</td><td>$102 to win $100</td><td>SF 27-7</td><td class="ok">WIN</td><td>+$100</td></tr>
+<tr class="total"><td colspan="7">SETTLED P/L</td><td>+$100</td></tr>
 </table>
-<p class="note">Sunday / Monday NFL openers stay on the live dives until they close.</p>
+<p class="note">Sunday / Monday Week 1 NFL bets post to this table when each game closes. After kickoff the pick and close price are frozen.</p>
 </div>
 </details>
 </div>
@@ -82,16 +85,20 @@ table.res th { color:var(--muted); font-size:11px; letter-spacing:.08em; }
 </div>
 </details>
 <details class="subhead">
-<summary>RESULTS</summary>
+<summary>BET TRACKER</summary>
 <div class="inner">
-<p class="note">$100 unit. DraftKings close. CFB record 0-0-0.</p>
+<p class="note">$100 unit. DraftKings close. Settled 0-0-0. Closed bets do not move.</p>
 <table class="res">
 <tr><th>WEEK</th><th>GAME</th><th>BEST BET</th><th>CLOSE</th><th>STAKE</th><th>FINAL</th><th>RESULT</th><th>P/L</th></tr>
+<tr><td>2</td><td>Villanova at #24 Louisville</td><td>Louisville -36.5</td><td>LOU -36.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
+<tr><td>2</td><td>Norfolk State at #25 Virginia</td><td>Virginia -45.5</td><td>UVA -45.5 (-105)</td><td>$105 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
+<tr><td>2</td><td>#23 Missouri at Kansas</td><td>Missouri -5.5</td><td>MIZ -5.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
 <tr><td>2</td><td>#1 Ohio State at #4 Texas</td><td>Ohio State +1.5</td><td>OSU +1.5 (-108)</td><td>$108 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
 <tr><td>2</td><td>#11 Oklahoma at Michigan</td><td>Michigan +3.5</td><td>MICH +3.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
-<tr><td>2</td><td>#23 Missouri at Kansas</td><td>Missouri -5.5</td><td>MIZ -5.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
 <tr><td>2</td><td>#21 Iowa vs Iowa State</td><td>Under 43.5</td><td>u43.5 (-110)</td><td>$110 to win $100</td><td>--</td><td class="push">OPEN</td><td>--</td></tr>
+<tr class="total"><td colspan="7">SETTLED P/L</td><td>$0</td></tr>
 </table>
+<p class="note">OPEN rows can still take a close price until kickoff. After kickoff the pick and close price freeze. Only RESULT and P/L update.</p>
 </div>
 </details>
 </div>
@@ -101,6 +108,6 @@ table.res th { color:var(--muted); font-size:11px; letter-spacing:.08em; }
 <details class="league"><summary>NBA</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 <details class="league"><summary>NHL</summary><div class="inner"><p class="note">Coming next.</p></div></details>
 </div>
-<script src="schedule.js?v=14"></script>
-<script src="cfb.js?v=1"></script>
+<script src="schedule.js?v=15"></script>
+<script src="cfb.js?v=2"></script>
 </body></html>

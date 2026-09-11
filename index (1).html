@@ -17,7 +17,7 @@ h1 { margin:4px 0 10px; font-size:48px; letter-spacing:.14em; font-weight:800; }
 .league > summary::after, .subhead > summary::after { content:"+"; color:var(--gold); font-size:18px; }
 .league[open] > summary::after, .subhead[open] > summary::after { content:"-"; }
 .inner { padding:0 14px 16px; border-top:1px solid var(--line); }
-.weeks { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:12px 0; }
+.weeks { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:12px 0; }
 .weeks button { padding:10px 6px; border-radius:8px; border:1px solid var(--line); background:#0e141c; color:var(--muted); font-weight:700; cursor:pointer; font-family:inherit; }
 .weeks button.on { border-color:var(--ok); color:var(--ok); }
 .g { display:flex; align-items:center; gap:10px; background:#0e141c; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; color:inherit; }
@@ -55,6 +55,13 @@ table.res tr.total td { border-top:2px solid var(--gold); font-weight:800; color
 <div class="weeks" id="week-btns"></div>
 <div id="slate"></div>
 <p class="note">Schedule source: NFL.com / CBS 2026 slate.</p>
+</div>
+</details>
+<details class="subhead">
+<summary>DFS CHEAT SHEET</summary>
+<div class="inner">
+<p class="note">Classic DraftKings slate. Week button opens its own page.</p>
+<div class="weeks" id="dfs-week-btns"></div>
 </div>
 </details>
 <details class="subhead">
@@ -110,4 +117,17 @@ table.res tr.total td { border-top:2px solid var(--gold); font-weight:800; color
 </div>
 <script src="schedule.js?v=15"></script>
 <script src="cfb.js?v=2"></script>
+<script>
+(function(){
+  const box = document.getElementById("dfs-week-btns");
+  if (!box) return;
+  for (let i=1;i<=18;i++){
+    const b=document.createElement("button");
+    b.textContent="Week "+i;
+    if (i===1) b.classList.add("on");
+    b.onclick=()=>{ location.href = i===1 ? "nfl-dfs-week-1.html" : ("nfl-dfs-week.html?w="+i); };
+    box.appendChild(b);
+  }
+})();
+</script>
 </body></html>

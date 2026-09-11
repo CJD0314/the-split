@@ -26,7 +26,7 @@ h3{color:var(--gold);font-size:13px;letter-spacing:.08em}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
 .note{color:var(--muted);font-size:13px}.callout{background:var(--panel2);border-left:3px solid var(--gold);padding:12px 14px;margin:10px 0}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.push{color:var(--gold);font-weight:800}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.push{color:var(--gold);font-weight:800}.ok{color:#3dd68c;font-weight:800}
 @media(max-width:800px){.market,.grid2{grid-template-columns:1fr}}
 </style></head>
 <body>
@@ -36,13 +36,13 @@ th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertic
 <div class="week">NFL WEEK 1</div>
 <div class="logos"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="49ers" /><img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" alt="Rams" /></div>
 <h1>SAN FRANCISCO 49ERS VS LOS ANGELES RAMS</h1>
-<div class="meta">Thursday, Sept. 10, 2026 | 8:35 p.m. ET | Melbourne Cricket Ground | Netflix</div>
+<div class="meta">Thursday, Sept. 10, 2026 | Melbourne Cricket Ground | Final SF 27 LAR 7</div>
 </header>
 <div class="wrap" id="app"><p class="note" style="text-align:center;padding:24px">Loading board...</p></div>
 <script>
 Promise.all([
-  fetch("parts/sf-1.html?v=11").then(r=>r.text()),
-  fetch("parts/sf-2.html?v=11").then(r=>r.text())
+  fetch("parts/sf-1.html?v=12").then(r=>r.text()),
+  fetch("parts/sf-2.html?v=12").then(r=>r.text())
 ]).then(parts=>{ document.getElementById("app").innerHTML = parts.join(""); });
 </script>
 </body></html>

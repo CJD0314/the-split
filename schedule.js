@@ -21,22 +21,22 @@ for (let w = 2; w <= 18; w++) GAMES.push([w, "WEEK " + w, "tbd", "tbd", "", "", 
 const LOGO = c => "https://a.espncdn.com/i/teamlogos/nfl/500/" + c + ".png";
 const CURRENT_WEEK = 1;
 const TILES = {
-"dive-ne":["nfl-week-1-ne-sea.html","SEA vs NE","SEA -3 / NE +3","44.5","SEA -170 / NE +142","Toward NE","nfl-week-1-ne-sea-review.html"],
-"dive-sf":["nfl-week-1-sf-lar.html","SF vs LAR","LAR -3.5 / SF +3.5","48.5","LAR -198 / SF +164","Cashed +3.5","nfl-week-1-sf-lar-review.html"],
-"chi-car":["nfl-week-1-chi-car.html","CHI at CAR","CHI -3 / CAR +3","46.5","CHI -162 / CAR +136","CHI road favorite"],
-"tb-cin":["nfl-week-1-tb-cin.html","TB at CIN","CIN -3.5 / TB +3.5","50.5","CIN -198 / TB +164","Chase knee"],
-"no-det":["nfl-week-1-no-det.html","NO at DET","DET -7 / NO +7","49.5","DET -310 / NO +250","Home favorite"],
-"buf-hou":["nfl-week-1-buf-hou.html","BUF at HOU","BUF -1.5 / HOU +1.5","44.5","BUF -122 / HOU +102","Pick-em"],
-"bal-ind":["nfl-week-1-bal-ind.html","BAL at IND","BAL -3.5 / IND +3.5","47.5","BAL -175 / IND +145","Jones Achilles"],
-"cle-jax":["nfl-week-1-cle-jax.html","CLE at JAX","JAX -8.5 / CLE +8.5","39.5","JAX -470 / CLE +360","Watson start"],
-"atl-pit":["nfl-week-1-atl-pit.html","ATL at PIT","PIT -3.5 / ATL +3.5","41.5","PIT -185 / ATL +155","Low total"],
-"nyj-ten":["nfl-week-1-nyj-ten.html","NYJ at TEN","TEN -1.5 / NYJ +1.5","38.5","TEN -125 / NYJ +105","Lowest total"],
-"ari-lac":["nfl-week-1-ari-lac.html","ARI at LAC","LAC -9.5 / ARI +9.5","47.5","LAC -500 / ARI +380","Biggest spread"],
-"mia-lv":["nfl-week-1-mia-lv.html","MIA at LV","LV -3.5 / MIA +3.5","40.5","LV -185 / MIA +155","Bowers out"],
-"gb-min":["nfl-week-1-gb-min.html","GB at MIN","MIN -1.5 / GB +1.5","46.5","MIN -122 / GB +102","Flipped off GB"],
-"wsh-phi":["nfl-week-1-wsh-phi.html","WAS at PHI","PHI -5.5 / WAS +5.5","44.5","PHI -230 / WAS +190","Home favorite"],
-"dal-nyg":["nfl-week-1-dal-nyg.html","DAL at NYG","DAL -3 / NYG +3","48.5","DAL -162 / NYG +136","SNF"],
-"den-kc":["nfl-week-1-den-kc.html","DEN at KC","KC -2.5 / DEN +2.5","43.5","KC -150 / DEN +124","Mahomes return"]
+"dive-ne":["nfl-week-1-ne-sea.html","SEA vs NE","SEA -3 / NE +3","44.5","SEA -170 / NE +142","SEA -3.5 to -3","nfl-week-1-ne-sea-review.html"],
+"dive-sf":["nfl-week-1-sf-lar.html","SF vs LAR","LAR -3.5 / SF +3.5","48.5","LAR -198 / SF +164","Held -3.5","nfl-week-1-sf-lar-review.html"],
+"chi-car":["nfl-week-1-chi-car.html","CHI at CAR","CHI -3 / CAR +3","46.5","CHI -162 / CAR +136","Held -3"],
+"tb-cin":["nfl-week-1-tb-cin.html","TB at CIN","CIN -3.5 / TB +3.5","50.5","CIN -198 / TB +164","Held -3.5"],
+"no-det":["nfl-week-1-no-det.html","NO at DET","DET -7 / NO +7","49.5","DET -310 / NO +250","Held -7"],
+"buf-hou":["nfl-week-1-buf-hou.html","BUF at HOU","BUF -1.5 / HOU +1.5","44.5","BUF -122 / HOU +102","Held -1.5"],
+"bal-ind":["nfl-week-1-bal-ind.html","BAL at IND","BAL -3.5 / IND +3.5","47.5","BAL -175 / IND +145","Held -3.5"],
+"cle-jax":["nfl-week-1-cle-jax.html","CLE at JAX","JAX -8.5 / CLE +8.5","39.5","JAX -470 / CLE +360","Held -8.5"],
+"atl-pit":["nfl-week-1-atl-pit.html","ATL at PIT","PIT -3.5 / ATL +3.5","41.5","PIT -185 / ATL +155","Held -3.5"],
+"nyj-ten":["nfl-week-1-nyj-ten.html","NYJ at TEN","TEN -1.5 / NYJ +1.5","38.5","TEN -125 / NYJ +105","Held -1.5"],
+"ari-lac":["nfl-week-1-ari-lac.html","ARI at LAC","LAC -9.5 / ARI +9.5","47.5","LAC -500 / ARI +380","Held -9.5"],
+"mia-lv":["nfl-week-1-mia-lv.html","MIA at LV","LV -3.5 / MIA +3.5","40.5","LV -185 / MIA +155","Held -3.5"],
+"gb-min":["nfl-week-1-gb-min.html","GB at MIN","MIN -1.5 / GB +1.5","46.5","MIN -122 / GB +102","Flipped to MIN -1.5"],
+"wsh-phi":["nfl-week-1-wsh-phi.html","WAS at PHI","PHI -5.5 / WAS +5.5","44.5","PHI -230 / WAS +190","Held -5.5"],
+"dal-nyg":["nfl-week-1-dal-nyg.html","DAL at NYG","DAL -3 / NYG +3","48.5","DAL -162 / NYG +136","Held -3"],
+"den-kc":["nfl-week-1-den-kc.html","DEN at KC","KC -2.5 / DEN +2.5","43.5","KC -150 / DEN +124","Held -2.5"]
 };
 function card(href,title,spread,total,ml,move,a,h,t,n,review){
   const rev = review ? `<a class="full-link" href="${review}">REVIEW</a>` : "";

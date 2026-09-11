@@ -2,8 +2,13 @@ const MLB_LOGO = c => "https://a.espncdn.com/i/teamlogos/mlb/500/"+c+".png";
 const MLB_TODAY = "2026-09-11";
 let mlbMonth = 8;
 function href(id){
-  if (id==="nym-nyy") return "mlb-2026-09-11-nym-nyy.html";
-  return "mlb-game.html?id="+id;
+  const full = {
+    "nym-nyy":"mlb-2026-09-11-nym-nyy.html",
+    "pit-chc":"mlb-2026-09-11-pit-chc.html",
+    "col-det":"mlb-2026-09-11-col-det.html",
+    "laa-wsh":"mlb-2026-09-11-laa-wsh.html"
+  };
+  return full[id] || ("mlb-game.html?id="+id);
 }
 const MLB_GAMES = {
 "2026-09-11":[
@@ -40,6 +45,14 @@ function mlbCard(g){
     </div></div></div>`;
 }
 function daysInMonth(y,m){ return new Date(y,m+1,0).getDate(); }
+function paintCal(){
+  document.querySelectorAll("#mlb-cal button[data-day]").forEach(b=>{
+    const iso = b.dataset.day;
+    b.classList.toggle("on", iso===mlbSelected);
+    if (iso===MLB_TODAY && mlbSelected!==MLB_TODAY) b.style.boxShadow = "0 0 0 2px #d4a017";
+    else b.style.boxShadow = "";
+  });
+}
 function mlbDrawCal(){
   const cal = document.getElementById("mlb-cal");
   if (!cal) return;
@@ -58,21 +71,18 @@ function mlbDrawCal(){
   const dim = daysInMonth(y,m);
   for (let d=1;d<=dim;d++){
     const iso = y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
-    const today = iso===MLB_TODAY ? " style='box-shadow:0 0 0 2px #d4a017'" : "";
-    html += `<button data-day="${iso}"${today}>${d}</button>`;
+    html += `<button data-day="${iso}">${d}</button>`;
   }
   html += "</div>";
   cal.innerHTML = html;
   document.getElementById("mlb-prev").onclick = ()=>{ mlbMonth = (mlbMonth+11)%12; mlbDrawCal(); mlbShow(mlbSelected); };
   document.getElementById("mlb-next").onclick = ()=>{ mlbMonth = (mlbMonth+1)%12; mlbDrawCal(); mlbShow(mlbSelected); };
   cal.querySelectorAll("button[data-day]").forEach(b=> b.onclick = ()=> mlbShow(b.dataset.day));
-  cal.querySelectorAll("button[data-day]").forEach(b=> b.classList.toggle("on", b.dataset.day===mlbSelected));
+  paintCal();
 }
 function mlbShow(iso){
   mlbSelected = iso;
-  document.querySelectorAll("#mlb-cal button[data-day]").forEach(b=>{
-    b.classList.toggle("on", b.dataset.day===iso);
-  });
+  paintCal();
   const list = MLB_GAMES[iso] || [];
   const box = document.getElementById("mlb-slate");
   if (!box) return;

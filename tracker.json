@@ -1,10 +1,28 @@
 {
   "unit": 100,
-  "updated": "2026-09-11T15:40:00-04:00",
-  "loops": [
-    "NE/SEA: we were right on one-score and +3. We missed how dead the passing game stayed after both SEA safeties sat. Next primetime underdog: do not assume backup safeties automatically mean 250 pass yards.",
-    "SF/LAR: 49ers +3.5 cashed easy. We under-weighted how completely LAR stalled. Next time a road favorite looks tired on a short week, fade the side harder than the total."
-  ],
+  "updated": "2026-09-11T15:59:00-04:00",
+  "tagline": "The card. The number. The miss.",
+  "loops": {
+    "NFL": [
+      "NE/SEA: one-score and +3 were right. Backup safeties did not equal 250 passing yards.",
+      "SF/LAR: 49ers +3.5 cashed. We still under-weighted how dead a short-week favorite can look."
+    ],
+    "CFB": [],
+    "MLB": []
+  },
+  "fades": {
+    "NFL": [
+      "Do not assume a backup safety group means 250 passing yards.",
+      "Do not captain a short-week road favorite just because the name is bigger."
+    ],
+    "CFB": [
+      "Do not lay juice through a Top-25 team on a short week until the inactive / availability note is posted."
+    ],
+    "MLB": [
+      "Do not live in a 23rd-ranked pen if the starter is out before the fifth.",
+      "Do not force a HR on a .118 team book."
+    ]
+  },
   "bets": [
     {"id":"nfl-w1-ne-sea-side","sport":"NFL","date":"2026-09-10","game":"NE at SEA","type":"side","pick":"Patriots +3","close":"NE +3 (-102)","stake":100,"to_win":98,"status":"SETTLED","result":"PUSH","pl":0,"final":"SEA 13-10","href":"nfl-week-1-ne-sea.html"},
     {"id":"nfl-w1-sf-lar-side","sport":"NFL","date":"2026-09-07","game":"SF at LAR","type":"side","pick":"49ers +3.5","close":"SF +3.5 (-102)","stake":102,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"SF 27-7","href":"nfl-week-1-sf-lar.html"},

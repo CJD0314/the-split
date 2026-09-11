@@ -1,18 +1,18 @@
 {
   "unit": 100,
-  "updated": "2026-09-11T19:38:00-04:00",
+  "updated": "2026-09-11T19:36:00-04:00",
   "today": "2026-09-11",
   "tagline": "The card. The number. The miss.",
   "confidence_key": "BET = fire a unit. LEAN = half unit or skip if tight. FADE = posted because every game needs a number; would not fire real money.",
   "loops": {
     "NFL": ["NE/SEA: one-score and +3 were right. Backup safeties did not equal 250 passing yards.","SF/LAR: 49ers +3.5 cashed. We still under-weighted how dead a short-week favorite can look."],
     "CFB": ["Miami/FAMU: -59.5 cashed. Do not treat that as a license to lay 35+ every Friday."],
-    "MLB": ["PIT/CHC: plus-money dog and PCA HR both died in a 12-2. Do not fade a healthy Imanaga home favorite just because the dog is +159."]
+    "MLB": ["PIT/CHC: dog ML and PCA HR both lost in a 12-2 blowout. Plus-money dogs still need the starter to keep it close; 23rd-ranked pen only matters if the favorite is short."]
   },
   "fades": {
     "NFL": ["Do not assume a backup safety group means 250 passing yards.","Do not captain a short-week road favorite just because the name is bigger."],
     "CFB": ["Do not lay juice through a Top-25 team on a short week until availability is posted.","Do not treat a 50-point FCS win as a repeatable side.","Do not treat a live 40-point FCS number as anything but a bench bet."],
-    "MLB": ["Do not live in a 23rd-ranked pen if the starter is out before the fifth.","Do not force a HR on a .118 team book.","Do not buy a plus-money dog at Wrigley against Imanaga when the bats are already loud."]
+    "MLB": ["Do not live in a 23rd-ranked pen if the starter is out before the fifth.","Do not force a HR on a .118 team book."]
   },
   "bets": [
     {"id":"nfl-w1-ne-sea-side","sport":"NFL","date":"2026-09-09","game":"NE at SEA","type":"side","pick":"Patriots +3","close":"NE +3 (-102)","stake":100,"to_win":98,"status":"SETTLED","result":"PUSH","pl":0,"final":"SEA 13-10","confidence":"LEAN","href":"nfl-week-1-ne-sea.html"},

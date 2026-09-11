@@ -12,7 +12,7 @@ function href(id){
 }
 const MLB_GAMES = {
 "2026-09-11":[
-["pit","chc","PIT at CHC","2:20","Wrigley","CHC -1.5 / PIT +1.5","8","CHC -193 / PIT +159","Total 8.5 to 8",href("pit-chc")],
+["pit","chc","PIT at CHC","2:20","Wrigley","CHC -1.5 / PIT +1.5","8","CHC -193 / PIT +159","Total 8.5 to 8",href("pit-chc"),"mlb-2026-09-11-pit-chc-review.html"],
 ["col","det","COL at DET","6:40","Comerica","DET -1.5 / COL +1.5","8","DET -187 / COL +154","DET -178 to -187",href("col-det")],
 ["laa","wsh","LAA at WSH","6:45","Nationals Park","WSH -1.5 / LAA +1.5","7.5","WSH -156 / LAA +129","Total 8 to 7.5",href("laa-wsh")],
 ["nym","nyy","NYM at NYY","7:05","Yankee Stadium","NYY -1.5 / NYM +1.5","8","NYY -137 / NYM +114","NYM +116 to +114",href("nym-nyy")],
@@ -31,11 +31,12 @@ const MLB_GAMES = {
 };
 let mlbSelected = MLB_TODAY;
 function mlbCard(g){
-  const [a,h,title,t,n,spread,total,ml,move,link]=g;
+  const [a,h,title,t,n,spread,total,ml,move,link,review]=g;
+  const rev = review ? ` <a class="full-link" href="${review}">REVIEW</a>` : "";
   return `<div class="g" style="flex-wrap:wrap">
     <img src="${MLB_LOGO(a)}"><img src="${MLB_LOGO(h)}">
     <b>${title}</b>
-    <a class="full-link" href="${link}">FULL BREAKDOWN</a>
+    <a class="full-link" href="${link}">FULL BREAKDOWN</a>${rev}
     <span>${t} ${n||""}</span>
     <div class="dive-box" style="width:100%"><div class="mini">
       <div><b>SPREAD</b><span>${spread||"--"}</span></div>

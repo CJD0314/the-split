@@ -1,3 +1,4 @@
+const LEDGER_TODAY = "2026-09-11";
 async function loadLedger(){
   const r = await fetch("tracker.json?v=" + Date.now());
   return r.json();
@@ -16,6 +17,7 @@ function summarize(data){
   const risked = settled.reduce((a,b)=>a+(Number(b.stake)||0),0);
   const roi = risked ? ((pl/risked)*100).toFixed(1)+"%" : "--";
   const byType = {};
+  const bySport = {};
   settled.forEach(b=>{
     const k = b.type || "other";
     if(!byType[k]) byType[k] = {w:0,l:0,p:0,pl:0};
@@ -23,8 +25,14 @@ function summarize(data){
     else if(b.result==="LOSS") byType[k].l++;
     else byType[k].p++;
     byType[k].pl += Number(b.pl)||0;
+    const s = b.sport || "OTH";
+    if(!bySport[s]) bySport[s] = {w:0,l:0,p:0,pl:0};
+    if(b.result==="WIN") bySport[s].w++;
+    else if(b.result==="LOSS") bySport[s].l++;
+    else bySport[s].p++;
+    bySport[s].pl += Number(b.pl)||0;
   });
-  return {settled,wins,losses,pushes,pl,risked,roi,byType};
+  return {settled,wins,losses,pushes,pl,risked,roi,byType,bySport};
 }
 function renderBank(el, s){
   if(!el) return;
@@ -34,14 +42,27 @@ function renderBank(el, s){
     <div><b>ROI</b><span>${s.roi}</span></div>
     <div><b>RISKED</b><span>$${s.risked}</span></div>`;
 }
-function ticketCard(b){
-  return `<div class="row">
-      <span class="stamp ${String(b.status).toLowerCase()}">${b.status}</span>
-      <b> ${b.game}</b>
-      <div>${b.pick} · ${b.close}</div>
-      <div class="note">$${b.stake} to win $${b.to_win}${b.final?" · "+b.final:""}${b.result?" · "+b.result:""}</div>
-      <a href="${b.href}">BOARD</a>
+function ticketLine(b){
+  return `<div class="note" style="margin:6px 0">
+    <span class="stamp ${String(b.status).toLowerCase()}">${b.status}</span>
+    ${b.pick} · ${b.close} · $${b.stake} to win $${b.to_win}${b.final?" · "+b.final:""}${b.result?" · "+b.result:""}
+  </div>`;
+}
+function groupByGame(rows){
+  const map = {};
+  rows.forEach(b=>{
+    const k = b.game;
+    if(!map[k]) map[k] = [];
+    map[k].push(b);
+  });
+  return Object.entries(map).map(([game, list]) => {
+    const href = list[0].href;
+    return `<div class="row">
+      <b>${game}</b>
+      ${list.map(ticketLine).join("")}
+      <a href="${href}">BOARD</a>
     </div>`;
+  }).join("");
 }
 function sportBlock(title, html){
   return `<h3>${title}</h3>` + (html || `<p class="note">Nothing posted.</p>`);
@@ -52,13 +73,12 @@ async function renderToday(){
   renderBank(document.getElementById("bank"), s);
   const line = document.getElementById("tagline");
   if (line) line.textContent = data.tagline || "The card. The number. The miss.";
+  const day = data.today || LEDGER_TODAY;
   const order = ["NFL","CFB","MLB"];
-  const live = data.bets.filter(b => b.status !== "SETTLED" || b.date === "2026-09-11");
-  const settledShow = data.bets.filter(b => b.status === "SETTLED");
   const tickets = document.getElementById("tickets");
   tickets.innerHTML = order.map(sp => {
-    const rows = live.filter(b => b.sport === sp);
-    return sportBlock(sp, rows.length ? rows.map(ticketCard).join("") : `<p class="note">No live tickets.</p>`);
+    const rows = data.bets.filter(b => b.sport === sp && b.date === day);
+    return sportBlock(sp, rows.length ? groupByGame(rows) : `<p class="note">No games today.</p>`);
   }).join("");
   const loops = document.getElementById("loops");
   const L = data.loops || {};
@@ -76,13 +96,20 @@ async function renderToday(){
   }
 }
 async function renderHomeBank(){
-  const el = document.getElementById("home-bank");
-  if(!el) return;
   const data = await loadLedger();
-  renderBank(el, summarize(data));
+  const s = summarize(data);
+  renderBank(document.getElementById("home-bank"), s);
   const t = document.getElementById("home-types");
   if(t){
-    const s = summarize(data);
-    t.textContent = Object.entries(s.byType).map(([k,v])=>k.toUpperCase()+" "+v.w+"-"+v.l+"-"+v.p).join("  |  ") || "Type splits appear after more settled tickets.";
+    const sports = Object.entries(s.bySport).map(([k,v])=>k+" "+v.w+"-"+v.l+"-"+v.p+" ("+money(v.pl)+")").join("  |  ");
+    t.textContent = sports || "No settled tickets yet.";
   }
+  const box = document.getElementById("home-opens");
+  if(!box) return;
+  const order = ["NFL","CFB","MLB"];
+  const open = data.bets.filter(b => b.status !== "SETTLED");
+  box.innerHTML = order.map(sp => {
+    const rows = open.filter(b => b.sport === sp);
+    return sportBlock(sp, rows.length ? groupByGame(rows) : `<p class="note">No open tickets.</p>`);
+  }).join("");
 }

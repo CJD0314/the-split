@@ -14,6 +14,9 @@
 .stamp.open{background:#3d2a00;color:#d4a017}
 .stamp.locked{background:#0d2a1c;color:#3dd68c}
 .stamp.settled{background:#1a2230;color:#93a3b5}
+.stamp.bet{background:#0d2a1c;color:#3dd68c}
+.stamp.lean{background:#3d2a00;color:#d4a017}
+.stamp.fade{background:#3a1212;color:#ff6b6b}
 @media(max-width:700px){.bank{grid-template-columns:1fr 1fr}}
 </style></head>
 <body>
@@ -25,6 +28,7 @@
 </header>
 <div class="wrap">
 <div class="bank" id="bank"></div>
+<p class="note">BET = fire a unit. LEAN = half unit or skip. FADE = posted for the card; would not fire real money.</p>
 <details class="block" open><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
 <details class="block" open><summary>QUICK REVIEWS</summary>
@@ -34,6 +38,6 @@
 <details class="block"><summary>DFS NOTE</summary>
 <div class="body"><p>No NFL slate tonight. Sunday classic lives under NFL → DFS CHEAT SHEET.</p></div></details>
 </div>
-<script src="tracker.js?v=3"></script>
+<script src="tracker.js?v=4"></script>
 <script>renderToday();</script>
 </body></html>

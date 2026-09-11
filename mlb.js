@@ -1,5 +1,6 @@
 const MLB_LOGO = c => "https://a.espncdn.com/i/teamlogos/mlb/500/"+c+".png";
 const MLB_TODAY = "2026-09-11";
+let mlbMonth = 8;
 function href(id){
   if (id==="nym-nyy") return "mlb-2026-09-11-nym-nyy.html";
   return "mlb-game.html?id="+id;
@@ -23,6 +24,7 @@ const MLB_GAMES = {
 ["sd","sf","SD at SF","10:15","Oracle / Apple TV","SD -149 / SF +126","8","SD -149 / SF +126","Held -149",href("sd-sf")]
 ]
 };
+let mlbSelected = MLB_TODAY;
 function mlbCard(g){
   const [a,h,title,t,n,spread,total,ml,move,link]=g;
   return `<div class="g" style="flex-wrap:wrap">
@@ -30,41 +32,52 @@ function mlbCard(g){
     <b>${title}</b>
     <a class="full-link" href="${link}">FULL BREAKDOWN</a>
     <span>${t} ${n||""}</span>
-    <div class="dive-box" style="width:100%">
-      <div class="mini">
-        <div><b>SPREAD</b><span>${spread||"--"}</span></div>
-        <div><b>TOTAL</b><span>${total||"--"}</span></div>
-        <div><b>MONEYLINE</b><span>${ml||"--"}</span></div>
-        <div><b>MOVE</b><span>${move||"--"}</span></div>
-      </div>
-    </div>
+    <div class="dive-box" style="width:100%"><div class="mini">
+      <div><b>SPREAD</b><span>${spread||"--"}</span></div>
+      <div><b>TOTAL</b><span>${total||"--"}</span></div>
+      <div><b>MONEYLINE</b><span>${ml||"--"}</span></div>
+      <div><b>MOVE</b><span>${move||"--"}</span></div>
+    </div></div></div>`;
+}
+function daysInMonth(y,m){ return new Date(y,m+1,0).getDate(); }
+function mlbDrawCal(){
+  const cal = document.getElementById("mlb-cal");
+  if (!cal) return;
+  const y = 2026, m = mlbMonth;
+  const names = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
+  const start = new Date(y,m,1);
+  const dow = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+  let html = `<div style="display:flex;align-items:center;justify-content:space-between;margin:8px 0">
+    <button type="button" id="mlb-prev"><</button>
+    <b>${names[m]} ${y}</b>
+    <button type="button" id="mlb-next">></button>
   </div>`;
+  html += "<div class='weeks' style='grid-template-columns:repeat(7,1fr);margin-bottom:8px'>"+dow.map(d=>`<div class='note' style='text-align:center;font-size:10px'>${d}</div>`).join("")+"</div>";
+  html += "<div class='weeks' style='grid-template-columns:repeat(7,1fr)'>";
+  for (let i=0;i<start.getDay();i++) html += "<div></div>";
+  const dim = daysInMonth(y,m);
+  for (let d=1;d<=dim;d++){
+    const iso = y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
+    const today = iso===MLB_TODAY ? " style='box-shadow:0 0 0 2px #d4a017'" : "";
+    html += `<button data-day="${iso}"${today}>${d}</button>`;
+  }
+  html += "</div>";
+  cal.innerHTML = html;
+  document.getElementById("mlb-prev").onclick = ()=>{ mlbMonth = (mlbMonth+11)%12; mlbDrawCal(); mlbShow(mlbSelected); };
+  document.getElementById("mlb-next").onclick = ()=>{ mlbMonth = (mlbMonth+1)%12; mlbDrawCal(); mlbShow(mlbSelected); };
+  cal.querySelectorAll("button[data-day]").forEach(b=> b.onclick = ()=> mlbShow(b.dataset.day));
+  cal.querySelectorAll("button[data-day]").forEach(b=> b.classList.toggle("on", b.dataset.day===mlbSelected));
 }
 function mlbShow(iso){
-  document.querySelectorAll("#mlb-cal button").forEach(b=>{
+  mlbSelected = iso;
+  document.querySelectorAll("#mlb-cal button[data-day]").forEach(b=>{
     b.classList.toggle("on", b.dataset.day===iso);
   });
   const list = MLB_GAMES[iso] || [];
   const box = document.getElementById("mlb-slate");
   if (!box) return;
-  if (!list.length){ box.innerHTML = "<p class='note'>No slate stored for this date yet. Friday Sept 11 is live.</p>"; return; }
+  if (!list.length){ box.innerHTML = `<div class="day">${iso}</div><p class='note'>No slate stored for this date yet. Friday Sept 11 is live.</p>`; return; }
   box.innerHTML = `<div class="day">${iso}</div>` + list.map(mlbCard).join("");
 }
-(function(){
-  const cal = document.getElementById("mlb-cal");
-  if (!cal) return;
-  const start = new Date(2026,8,1);
-  const dow = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
-  let html = "<div class='weeks' style='grid-template-columns:repeat(7,1fr);margin-bottom:8px'>"+dow.map(d=>`<div class='note' style='text-align:center;font-size:10px'>${d}</div>`).join("")+"</div>";
-  html += "<div class='weeks' style='grid-template-columns:repeat(7,1fr)'>";
-  const pad = start.getDay();
-  for (let i=0;i<pad;i++) html += "<div></div>";
-  for (let d=1;d<=30;d++){
-    const iso = "2026-09-"+String(d).padStart(2,"0");
-    html += `<button data-day="${iso}">${d}</button>`;
-  }
-  html += "</div>";
-  cal.innerHTML = html;
-  cal.querySelectorAll("button").forEach(b=> b.onclick = ()=> mlbShow(b.dataset.day));
-  mlbShow(MLB_TODAY);
-})();
+mlbDrawCal();
+mlbShow(MLB_TODAY);

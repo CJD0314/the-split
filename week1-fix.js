@@ -1,60 +1,37 @@
+window.TD1 = {
+"chi-car": {player:"D'Andre Swift", team:"CHI", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["Bears are the road favorite. Swift is the early-down back in Ben Johnson's first script.","Carolina two-high gives the underneath and the red-zone carry to the back, not the boundary WR.","Price posts on the DraftKings anytime board. Do not guess juice."]},
+"tb-cin": {player:"Bucky Irving", team:"TB", price:"+125", stake:"$100 to win $125", why:["DraftKings anytime +125 (Sept 11 board). Chase Brown is -135 and Chase is -125. Irving is the plus-money back in a 50.5.","If Tampa trails, Irving still gets the pass-down work. That is how a +125 hits in a shootout.","Not the chalk scorer. The price is the point."]},
+"no-det": {player:"Jahmyr Gibbs", team:"DET", price:"-320", stake:"$320 to win $100", why:["DraftKings anytime -320. Bell cow. Montgomery is in Houston. Vaki / Saylors are the committee behind him.","Detroit implied near 28 at home in a 49.5. Gibbs is the red-zone carry.","Juice is real. Unit sized to win $100, not to fade the role."]},
+"buf-hou": {player:"James Cook", team:"BUF", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["Allen steals rushing scores. Cook still gets the early-down and goal-line carries on a short number.","Houston front is real. The bet is volume, not a 40-yard dash.","Close price from the DraftKings anytime board Saturday."]},
+"bal-ind": {player:"Jonathan Taylor", team:"IND", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["Home workhorse. Jones is coming off Achilles and does not need to finish drives with his legs.","Baltimore new staff on the road. Taylor is the one Colt who does not need the new script to be pretty.","Sporting News had -185 at another book. We wait for the DraftKings number rather than copy it."]},
+"cle-jax": {player:"Brian Thomas Jr.", team:"JAX", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["Home favorite in a 39.5. Scoring chances are scarce. Thomas is the Jaguars WR who actually finishes.","Etienne is in New Orleans now. Do not put him on Jacksonville.","Low-total WR1 is the way a 39.5 still produces a TD."]},
+"atl-pit": {player:"Bijan Robinson", team:"ATL", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["41.5 total. Bijan is the offense. New Falcons staff still hands him the red zone.","Steelers front can win. That makes the back the scorer, not the WR2.","Close price Saturday on DraftKings."]},
+"nyj-ten": {player:"Breece Hall", team:"NYJ", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["Lowest total on the board. Hall is the only Jet who creates a score without a clean passing script.","Titans are a field-goal favorite. Hall still gets the volume if New York stays in it.","Close price Saturday."]},
+"ari-lac": {player:"Omarion Hampton", team:"LAC", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["Biggest spread on the slate. Arizona run defense is the tape. Hampton is the Chargers early-down back.","Herbert can steal passing scores. The bet is the favorite's RB in a game they are priced to control.","Close price Saturday."]},
+"mia-lv": {player:"De'Von Achane", team:"MIA", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["40.5 on the road. Achane is the Dolphins offense. Mayer is the Raiders TE with Bowers out -- different bet.","If Miami scores twice, Achane is in on one of them more often than the WR2.","Close price Saturday."]},
+"gb-min": {player:"Aaron Jones", team:"MIN", price:"+155", stake:"$100 to win $155", why:["DraftKings anytime +155 (Sept 11 board, GB at MIN).","Minnesota took the number after it opened Packers -1.5. Jones is the plus-money back in that building.","Jefferson is the star. Jones is the scorer at a price."]},
+"wsh-phi": {player:"Saquon Barkley", team:"PHI", price:"-130", stake:"$130 to win $100", why:["DraftKings anytime -130 (Sept 11 board). Home favorite. Commanders run defense is the spot.","Hurts steals rushing TDs at +110. Barkley is still the early-down and goal-line carry.","A.J. Brown is in New England. Smith is +165. The back is the number we will stand on."]},
+"dal-nyg": {player:"Javonte Williams", team:"DAL", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["SNF 48.5. Dallas road favorite. Williams is the early-down back.","Nabers snap count is the Giants watch. Do not make him the locked scorer until that is clean.","Close price Saturday."]},
+"den-kc": {player:"Kenneth Walker III", team:"KC", price:"DK anytime -- confirm Saturday", stake:"$100 unit", why:["Mahomes return, 43.5 at Arrowhead. Walker is the Chiefs early-down back.","Pacheco is in Detroit. Do not put him on Kansas City.","Close price Saturday."]}
+};
 (function(){
 const p = window.W1;
 if (!p) return;
 function set(id, fields){ if(p[id]) Object.assign(p[id], fields); }
-set("tb-cin", {
-  awayKeys:["<b>Baker Mayfield</b> -- road-dog cash QB at 50.5.","<b>Chris Godwin</b> -- healthy. Target projection lives here with Evans gone.","<b>Emeka Egbuka</b> -- full practice after toe. Listed WR starter.","<b>Jalen McMillan</b> -- depth-chart starter, knee. Saturday designation.","<b>Bucky Irving</b> -- if this stays a game."],
-  awayNews:["Evans is in San Francisco. Godwin / Egbuka / McMillan are the Tampa room. McMillan knee is the watch."],
-  cover:["Chase vs Bucs CB1. If Chase is limited, Higgins vs the other outside.","Godwin vs Cam Taylor-Britt in the slot/short. Egbuka vs the boundary."]
+Object.keys(window.TD1).forEach(k=>{
+  set(k, {
+    tdPlayer: window.TD1[k].player,
+    tdTeam: window.TD1[k].team,
+    tdPrice: window.TD1[k].price,
+    tdStake: window.TD1[k].stake,
+    tdWhy: window.TD1[k].why
+  });
 });
 set("no-det", {
-  awayStaff:[["HC Kellen Moore (calls plays - offense)","Year 2. Shough is the opener."],["OC","Moore keeps the headset."],["DC","Has to tackle Gibbs in space."]],
   awayKeys:["<b>Tyler Shough</b> -- Year 2 starter.","<b>Chris Olave</b> -- the Saints tree.","<b>Travis Etienne Jr.</b> -- Saints back. Not Jacksonville.","<b>Juwan Johnson</b> -- TE if they live in 12."],
   homeKeys:["<b>Jared Goff</b>","<b>Jahmyr Gibbs</b> -- bell cow. Montgomery is in Houston.","<b>Amon-Ra St. Brown</b>"]
-});
-set("atl-pit", {
-  awayKeys:["<b>Tua Tagovailoa</b> -- named the Week 1 starter. Penix still recovering from ACL.","<b>Bijan Robinson</b> -- the slate RB in a 41.5.","<b>Drake London</b> -- if Atlanta throws."],
-  homeKeys:["<b>Aaron Rodgers</b> -- listed Week 1 starter, expected final opening-day start.","<b>DK Metcalf</b> -- Steelers WR1.","<b>The PIT lead back</b> -- 41.5 game."],
-  awayNews:["Tua named starter this week while Penix continues ACL rehab."],
-  homeNews:["Rodgers Week 1 starter. Pickens is in Dallas."]
-});
-set("nyj-ten", {
-  homeKeys:["<b>Cam Ward</b> -- Year 2 starter.","<b>The TEN lead back</b>","<b>Calvin Ridley / Wan'Dale Robinson</b> -- confirm the Week 1 WR1 Saturday."],
-  awayKeys:["<b>Geno Smith</b>","<b>Breece Hall</b>","<b>Garrett Wilson</b>"]
-});
-set("ari-lac", {
-  awayKeys:["<b>Jacoby Brissett</b> -- Cardinals Week 1 starter.","<b>Marvin Harrison Jr.</b>","<b>Trey McBride</b>","<b>Jeremiyah Love</b> -- ankle, limited."]
-});
-set("mia-lv", {
-  awayKeys:["<b>Malik Willis</b> -- first Week 1 start. Miami debut.","<b>De'Von Achane</b> -- the offense.","<b>Malik Washington / Caleb Douglas</b> -- the WR room with Tyreek gone."],
-  homeKeys:["<b>Kirk Cousins</b> -- Week 1 starter over Mendoza.","<b>Ashton Jeanty</b> -- ankle, practicing, no designation.","<b>Michael Mayer</b> -- Bowers out after meniscus trim."]
-});
-set("gb-min", {
-  homeKeys:["<b>Kyler Murray</b> -- listed Minnesota starter entering Week 1.","<b>Justin Jefferson</b> -- cash WR.","<b>Aaron Jones</b> -- Vikings back.","<b>Jordan Addison</b>"],
-  dfs:["Jefferson is the cash WR. Love vs Murray is the GPP fork.","Reed / Addison are the unique WRs."]
-});
-set("dal-nyg", {
-  homeKeys:["<b>Jaxson Dart</b> -- first career Week 1 start.","<b>Malik Nabers</b> -- full practice after ACL. Snap count possible.","<b>Cam Skattebo</b> -- Giants non-star RB."]
-});
-set("den-kc", {
-  awayKeys:["<b>Bo Nix</b>","<b>Courtland Sutton / Jaylen Waddle</b> -- confirm the Week 1 WR2.","<b>J.K. Dobbins</b>"]
-});
-set("bal-ind", {
-  awayKeys:["<b>Lamar Jackson</b>","<b>Derrick Henry</b>","<b>Zay Flowers</b>"],
-  homeKeys:["<b>Daniel Jones</b> -- Achilles return. Reduced scramble volume.","<b>Jonathan Taylor</b> -- 1pm RB1 of the group.","<b>Josh Downs / Alec Pierce</b>"]
 });
 set("cle-jax", {
   homeKeys:["<b>Trevor Lawrence</b>","<b>Brian Thomas Jr. / Parker Washington</b> -- Etienne is in New Orleans."]
 });
-if (window.TD1){
-  Object.keys(window.TD1).forEach(k=>{
-    set(k, {
-      tdPlayer: window.TD1[k].player,
-      tdTeam: window.TD1[k].team,
-      tdPrice: window.TD1[k].price,
-      tdStake: window.TD1[k].stake,
-      tdWhy: window.TD1[k].why
-    });
-  });
-}
 })();

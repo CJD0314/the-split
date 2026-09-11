@@ -81,11 +81,12 @@ async function renderToday(){
   const day = data.today || LEDGER_TODAY;
   const order = ["NFL","CFB","MLB"];
   const tickets = document.getElementById("tickets");
-  tickets.innerHTML = order.map(sp => {
+  const live = order.map(sp => {
     const rows = data.bets.filter(b => b.sport === sp && b.date === day);
-    const body = rows.length ? groupByGame(rows) : `<p class="note">No games today.</p>`;
-    return sportDrop(sp, body, rows.length > 0);
-  }).join("");
+    if (!rows.length) return "";
+    return sportDrop(sp, groupByGame(rows), true);
+  }).filter(Boolean);
+  tickets.innerHTML = live.length ? live.join("") : `<p class="note">No tickets today.</p>`;
   const loops = document.getElementById("loops");
   const L = data.loops || {};
   loops.innerHTML = order.map(sp => {

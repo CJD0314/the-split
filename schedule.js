@@ -1,9 +1,44 @@
 const NAMES = {ne:"Patriots",sea:"Seahawks",sf:"49ers",lar:"Rams",chi:"Bears",car:"Panthers",tb:"Buccaneers",cin:"Bengals",no:"Saints",det:"Lions",buf:"Bills",hou:"Texans",bal:"Ravens",ind:"Colts",cle:"Browns",jax:"Jaguars",atl:"Falcons",pit:"Steelers",nyj:"Jets",ten:"Titans",mia:"Dolphins",lv:"Raiders",gb:"Packers",min:"Vikings",wsh:"Commanders",phi:"Eagles",ari:"Cardinals",lac:"Chargers",dal:"Cowboys",nyg:"Giants",den:"Broncos",kc:"Chiefs",tbd:"TBD"};
-const GAMES = [[1,"WED SEPT 9","ne","sea","8:20","NBC","dive-ne"],[1,"THU SEPT 10","sf","lar","8:35","NFLX","dive-sf"],[1,"SUN SEPT 13","chi","car","1:00","FOX",""],[1,"SUN SEPT 13","tb","cin","1:00","FOX",""],[1,"SUN SEPT 13","no","det","1:00","FOX",""],[1,"SUN SEPT 13","buf","hou","1:00","CBS",""],[1,"SUN SEPT 13","bal","ind","1:00","CBS",""],[1,"SUN SEPT 13","cle","jax","1:00","CBS",""],[1,"SUN SEPT 13","atl","pit","1:00","FOX",""],[1,"SUN SEPT 13","nyj","ten","1:00","CBS",""],[1,"SUN 4:25","ari","lac","4:25","CBS",""],[1,"SUN 4:25","mia","lv","4:25","FOX",""],[1,"SUN 4:25","gb","min","4:25","CBS",""],[1,"SUN 4:25","wsh","phi","4:25","FOX",""],[1,"SNF","dal","nyg","8:20","NBC",""],[1,"MON SEPT 14","den","kc","8:15","ABC/ESPN",""],[2,"THU SEPT 17","det","buf","8:15","PRIME",""],[2,"SUN SEPT 20","min","chi","1:00","FOX",""],[2,"SUN SEPT 20","phi","ten","1:00","FOX",""],[2,"SUN SEPT 20","gb","nyj","1:00","FOX",""],[2,"SUN SEPT 20","car","atl","1:00","FOX",""],[2,"SUN SEPT 20","no","bal","1:00","CBS",""],[2,"SUN SEPT 20","cin","hou","1:00","CBS",""],[2,"SUN SEPT 20","cle","tb","1:00","CBS",""],[2,"SUN SEPT 20","pit","ne","1:00","CBS",""],[2,"SUN 4:05","lv","lac","4:05","CBS",""],[2,"SUN 4:05","jax","den","4:05","CBS",""],[2,"SUN 4:25","mia","sf","4:25","FOX",""],[2,"SUN 4:25","sea","ari","4:25","FOX",""],[2,"SUN 4:25","wsh","dal","4:25","FOX",""],[2,"SNF","ind","kc","8:20","NBC",""],[2,"MON SEPT 21","nyg","lar","8:15","ABC/ESPN",""]];
-for (let w = 3; w <= 18; w++) GAMES.push([w, "WEEK " + w, "tbd", "tbd", "", "", ""]);
+const GAMES = [
+[1,"WED SEPT 9","ne","sea","8:20","NBC","dive-ne"],
+[1,"THU SEPT 10","sf","lar","8:35","NFLX","dive-sf"],
+[1,"SUN SEPT 13","chi","car","1:00","FOX","w1#chi-car"],
+[1,"SUN SEPT 13","tb","cin","1:00","FOX","w1#tb-cin"],
+[1,"SUN SEPT 13","no","det","1:00","FOX","w1#no-det"],
+[1,"SUN SEPT 13","buf","hou","1:00","CBS","w1#buf-hou"],
+[1,"SUN SEPT 13","bal","ind","1:00","CBS","w1#bal-ind"],
+[1,"SUN SEPT 13","cle","jax","1:00","CBS","w1#cle-jax"],
+[1,"SUN SEPT 13","atl","pit","1:00","FOX","w1#atl-pit"],
+[1,"SUN SEPT 13","nyj","ten","1:00","CBS","w1#nyj-ten"],
+[1,"SUN 4:25","ari","lac","4:25","CBS","w1#ari-lac"],
+[1,"SUN 4:25","mia","lv","4:25","FOX","w1#mia-lv"],
+[1,"SUN 4:25","gb","min","4:25","CBS","w1#gb-min"],
+[1,"SUN 4:25","wsh","phi","4:25","FOX","w1#wsh-phi"],
+[1,"SNF","dal","nyg","8:20","NBC","w1#dal-nyg"],
+[1,"MON SEPT 14","den","kc","8:15","ABC/ESPN","w1#den-kc"]
+];
+for (let w = 2; w <= 18; w++) GAMES.push([w, "WEEK " + w, "tbd", "tbd", "", "", ""]);
 const LOGO = c => "https://a.espncdn.com/i/teamlogos/nfl/500/" + c + ".png";
 const CURRENT_WEEK = 1;
-function card(title, href, spread, total, ml, move, a, h, t, n){
+const TILES = {
+"dive-ne":["nfl-week-1-ne-sea.html","SEA vs NE","SEA -3 / NE +3","44.5","SEA -170 / NE +142","Toward NE"],
+"dive-sf":["nfl-week-1-sf-lar.html","SF vs LAR","LAR -3.5 / SF +3.5","48.5","LAR -198 / SF +164","Held, then cashed"],
+"w1#chi-car":["nfl-week-1-rest.html#chi-car","CHI at CAR","CHI -3 / CAR +3","46.5","CHI -162 / CAR +136","CHI favored on the road"],
+"w1#tb-cin":["nfl-week-1-rest.html#tb-cin","TB at CIN","CIN -3.5 / TB +3.5","50.5","CIN -198 / TB +164","Chase knee watch"],
+"w1#no-det":["nfl-week-1-rest.html#no-det","NO at DET","DET -7 / NO +7","49.5","DET -310 / NO +250","Home favorite"],
+"w1#buf-hou":["nfl-week-1-rest.html#buf-hou","BUF at HOU","BUF -1.5 / HOU +1.5","44.5","BUF -122 / HOU +102","Pick-em band"],
+"w1#bal-ind":["nfl-week-1-rest.html#bal-ind","BAL at IND","BAL -3.5 / IND +3.5","47.5","BAL -175 / IND +145","Jones Achilles return"],
+"w1#cle-jax":["nfl-week-1-rest.html#cle-jax","CLE at JAX","JAX -8.5 / CLE +8.5","39.5","JAX -470 / CLE +360","Watson start"],
+"w1#atl-pit":["nfl-week-1-rest.html#atl-pit","ATL at PIT","PIT -3.5 / ATL +3.5","41.5","PIT -185 / ATL +155","Low total"],
+"w1#nyj-ten":["nfl-week-1-rest.html#nyj-ten","NYJ at TEN","TEN -1.5 / NYJ +1.5","38.5","TEN -125 / NYJ +105","Lowest total"],
+"w1#ari-lac":["nfl-week-1-rest.html#ari-lac","ARI at LAC","LAC -9.5 / ARI +9.5","47.5","LAC -500 / ARI +380","Biggest spread"],
+"w1#mia-lv":["nfl-week-1-rest.html#mia-lv","MIA at LV","LV -3.5 / MIA +3.5","40.5","LV -185 / MIA +155","Bowers out"],
+"w1#gb-min":["nfl-week-1-rest.html#gb-min","GB at MIN","MIN -1.5 / GB +1.5","46.5","MIN -122 / GB +102","Flipped off GB -1.5"],
+"w1#wsh-phi":["nfl-week-1-rest.html#wsh-phi","WAS at PHI","PHI -5.5 / WAS +5.5","44.5","PHI -230 / WAS +190","Home dog-hunter fade"],
+"w1#dal-nyg":["nfl-week-1-rest.html#dal-nyg","DAL at NYG","DAL -3 / NYG +3","48.5","DAL -162 / NYG +136","SNF"],
+"w1#den-kc":["nfl-week-1-rest.html#den-kc","DEN at KC","KC -2.5 / DEN +2.5","43.5","KC -150 / DEN +124","Mahomes ACL return"]
+};
+function card(href,title,spread,total,ml,move,a,h,t,n){
   return `<div class="g" style="flex-wrap:wrap">
     <img src="${LOGO(a)}"><img src="${LOGO(h)}">
     <b>${title}</b>
@@ -21,15 +56,16 @@ function card(title, href, spread, total, ml, move, a, h, t, n){
 }
 function row(g){
   const [w,day,a,h,t,n,extra] = g;
-  if (extra === "dive-ne") return card("SEA vs NE","nfl-week-1-ne-sea.html","SEA -3 (-118)","44.5","SEA -170 / NE +142","Toward NE",a,h,t,n);
-  if (extra === "dive-sf") return card("SF vs LAR","nfl-week-1-sf-lar.html","LAR -3.5 (-118)","48.5","LAR -198 / SF +164","No real move",a,h,t,n);
+  if (TILES[extra]) {
+    const x = TILES[extra];
+    return card(x[0], x[1], x[2], x[3], x[4], x[5], a, h, t, n);
+  }
   const imgs = (a === "tbd") ? "" : `<img src="${LOGO(a)}"><img src="${LOGO(h)}">`;
-  const label = extra && a === "tbd" ? extra : ((NAMES[a]||a)+" at "+(NAMES[h]||h)+(extra?" ("+extra+")":""));
+  const label = (NAMES[a]||a)+" at "+(NAMES[h]||h);
   return `<div class="g">${imgs}<b>${label}</b><span>${t} ${n}</span></div>`;
 }
 function show(week){
   document.querySelectorAll("#week-btns button").forEach((b,i)=>{
-    b.classList.remove("live");
     b.classList.toggle("on", i+1===week);
   });
   const list = GAMES.filter(g=>g[0]===week);

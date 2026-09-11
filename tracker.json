@@ -1,6 +1,6 @@
 {
   "unit": 100,
-  "updated": "2026-09-11T17:32:00-04:00",
+  "updated": "2026-09-11T19:19:00-04:00",
   "today": "2026-09-11",
   "tagline": "The card. The number. The miss.",
   "confidence_key": "BET = fire a unit. LEAN = half unit or skip if tight. FADE = posted because every game needs a number; would not fire real money.",
@@ -11,7 +11,7 @@
   },
   "fades": {
     "NFL": ["Do not assume a backup safety group means 250 passing yards.","Do not captain a short-week road favorite just because the name is bigger."],
-    "CFB": ["Do not lay juice through a Top-25 team on a short week until availability is posted.","Do not treat a 50-point FCS win as a repeatable side."],
+    "CFB": ["Do not lay juice through a Top-25 team on a short week until availability is posted.","Do not treat a 50-point FCS win as a repeatable side.","Do not treat a live 40-point FCS number as anything but a bench bet."],
     "MLB": ["Do not live in a 23rd-ranked pen if the starter is out before the fifth.","Do not force a HR on a .118 team book."]
   },
   "bets": [
@@ -32,8 +32,8 @@
     {"id":"nfl-w1-dal-nyg-side","sport":"NFL","date":"2026-09-13","game":"DAL at NYG","type":"side","pick":"Giants +3","close":"NYG +3 (-115)","stake":100,"to_win":87,"status":"OPEN","confidence":"LEAN","href":"nfl-week-1-dal-nyg.html"},
     {"id":"nfl-w1-den-kc-side","sport":"NFL","date":"2026-09-14","game":"DEN at KC","type":"side","pick":"Broncos +2.5","close":"DEN +2.5 (-102)","stake":100,"to_win":98,"status":"OPEN","confidence":"BET","href":"nfl-week-1-den-kc.html"},
     {"id":"cfb-w2-mia-famu","sport":"CFB","date":"2026-09-10","game":"FAMU at MIA","type":"side","pick":"Miami -59.5","close":"MIA -59.5","stake":100,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"MIA 77-7","confidence":"FADE","href":"cfb-week-2-mia-famu.html"},
-    {"id":"cfb-w2-lou-vill","sport":"CFB","date":"2026-09-11","game":"VILL at LOU","type":"side","pick":"Louisville -36.5","close":"LOU -36.5","stake":100,"to_win":100,"status":"OPEN","confidence":"FADE","href":"cfb-week-2-lou-vill.html"},
-    {"id":"cfb-w2-uva-norf","sport":"CFB","date":"2026-09-11","game":"NORF at UVA","type":"side","pick":"Virginia -45.5","close":"UVA -45.5","stake":100,"to_win":100,"status":"OPEN","confidence":"FADE","href":"cfb-week-2-uva-norf.html"},
+    {"id":"cfb-w2-lou-vill","sport":"CFB","date":"2026-09-11","game":"VILL at LOU","type":"side","pick":"Louisville -36.5","close":"LOU -36.5","stake":100,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"cfb-week-2-lou-vill.html"},
+    {"id":"cfb-w2-uva-norf","sport":"CFB","date":"2026-09-11","game":"NORF at UVA","type":"side","pick":"Virginia -45.5","close":"UVA -45.5","stake":100,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"cfb-week-2-uva-norf.html"},
     {"id":"cfb-w2-miz-ku","sport":"CFB","date":"2026-09-11","game":"MIZ at KU","type":"side","pick":"Missouri -5.5","close":"MIZ -5.5 (-110)","stake":110,"to_win":100,"status":"OPEN","confidence":"LEAN","href":"cfb-week-2-miz-ku.html"},
     {"id":"mlb-911-pit-chc-ml","sport":"MLB","date":"2026-09-11","game":"PIT at CHC","type":"ml","pick":"Pirates ML","close":"PIT +159","stake":100,"to_win":159,"status":"LOCKED","confidence":"BET","href":"mlb-2026-09-11-pit-chc.html"},
     {"id":"mlb-911-pit-chc-hr","sport":"MLB","date":"2026-09-11","game":"PIT at CHC","type":"hr","pick":"Pete Crow-Armstrong","close":"+320","stake":100,"to_win":320,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-pit-chc.html"},

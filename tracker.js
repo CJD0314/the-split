@@ -99,17 +99,14 @@ function reviewTable(rows){
   if (!rows.length) return `<p class="note">No tickets.</p>`;
   const settled = rows.filter(b => b.status === "SETTLED");
   const pl = settled.reduce((a,b)=>a+(Number(b.pl)||0),0);
-  const body = rows.map(reviewRow).join("");
   return `<table class="res">
     <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLOSE</th><th>STAKE</th><th>CONF</th><th>RESULT</th><th>P/L</th></tr>
-    ${body}
+    ${rows.map(reviewRow).join("")}
     <tr class="total"><td colspan="7">SETTLED P/L</td><td>${money(pl)}</td></tr>
   </table>`;
 }
-function isProp(b){
-  const t = String(b.type||"").toLowerCase();
-  return t === "td" || t === "hr" || t === "prop";
-}
+function isTdHr(b){ const t=String(b.type||"").toLowerCase(); return t==="td"||t==="hr"; }
+function isPlayerProp(b){ return String(b.type||"").toLowerCase()==="prop"; }
 async function renderReviews(){
   const data = await loadLedger();
   const s = summarize(data);
@@ -120,10 +117,11 @@ async function renderReviews(){
   if (!box) return;
   box.innerHTML = order.map((sp,i) => {
     const rows = (data.bets||[]).filter(b => b.sport === sp);
-    const best = rows.filter(b => !isProp(b));
-    const props = rows.filter(isProp);
+    const best = rows.filter(b => !isTdHr(b) && !isPlayerProp(b));
+    const tdhr = rows.filter(isTdHr);
+    const props = rows.filter(isPlayerProp);
     const inner = rows.length
-      ? `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(props)}`
+      ? `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`
       : `<p class="note">No tickets posted yet.</p>`;
     return sportDrop(names[sp], inner, i===0);
   }).join("");
@@ -167,12 +165,4 @@ async function renderHomeBank(){
     const sports = Object.entries(s.bySport).map(([k,v])=>k+" "+v.w+"-"+v.l+"-"+v.p+" ("+money(v.pl)+")").join("  |  ");
     t.textContent = sports || "No settled tickets yet.";
   }
-  const box = document.getElementById("home-opens");
-  if(!box) return;
-  const order = ["NFL","CFB","MLB"];
-  const open = data.bets.filter(b => b.status !== "SETTLED");
-  box.innerHTML = order.map(sp => {
-    const rows = open.filter(b => b.sport === sp);
-    return sportBlock(sp, rows.length ? groupByGame(rows) : `<p class="note">No open tickets.</p>`);
-  }).join("");
 }

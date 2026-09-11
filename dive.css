@@ -21,4 +21,6 @@ table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px}
 .note{color:var(--muted);font-size:13px}.callout{background:var(--panel2);border-left:3px solid var(--gold);padding:12px 14px;margin:10px 0}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.push{color:var(--gold);font-weight:800}.ok{color:var(--ok);font-weight:800}
-@media(max-width:800px){.market,.grid2{grid-template-columns:1fr}}
+.tb-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;margin:0 0 10px}
+.tb-row h3{grid-column:1 / -1;margin:12px 0 4px}
+@media(max-width:800px){.market,.grid2,.tb-row{grid-template-columns:1fr}}

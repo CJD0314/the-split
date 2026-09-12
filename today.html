@@ -10,6 +10,7 @@
 .g-main{min-width:160px}
 .g-name{display:block;font-weight:800;font-size:14px}
 .g-pick{display:block;color:#e8eef5;font-size:13px;margin-top:2px}
+.g-when{display:block;color:#93a3b5;font-size:11px;margin-top:2px}
 .g-side{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .g-score{color:#93a3b5;font-size:11px}
 .g-row a{color:#d4a017;font-weight:800;text-decoration:underline;font-size:11px}
@@ -19,9 +20,6 @@
 .stamp.fade{background:#3a1212;color:#ff6b6b}
 .rule{padding:10px 0;border-top:1px solid #2a3644}
 .rule b{display:block;color:#d4a017;font-size:11px;letter-spacing:.08em}
-.ok{color:#3dd68c;font-weight:800}
-.loss{color:#ff6b6b;font-weight:800}
-.push{color:#d4a017;font-weight:800}
 </style></head>
 <body>
 <div class="topnav">
@@ -34,12 +32,12 @@
 <header>
 <div class="brand">THE SPLIT</div>
 <div class="week">TODAY</div>
-<div class="meta" id="tagline">Tickets stay until midnight ET.</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:36 a.m. ET</div>
+<div class="meta" id="tagline">Saturday card. Friday is on Reviews.</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:50 a.m. ET</div>
 <div class="updated" id="pass-line"></div>
 </header>
 <div class="wrap">
-<p class="note">Open a sport. Games sit in a list.</p>
+<p class="note">Only tickets dated today. Same series as Friday still means Saturday's number.</p>
 <details class="block"><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
 <details class="block"><summary>WHAT WE ARE CHANGING</summary>
@@ -54,6 +52,30 @@
 <script src="tracker.js?v=21"></script>
 <script src="stamp.js"></script>
 <script>
+const FIRST_PITCH = {
+  "COL at DET":"1:10 ET","NYM at NYY":"1:35 ET","PIT at CHC":"2:20 ET",
+  "BAL at TOR":"3:07 ET","LAD at MIA":"4:10 ET",
+  "OSU at TEX":"7:30 ET","OU at MICH":"12:00 ET","ALA at UK":"3:30 ET",
+  "TENN at GT":"7:00 ET","ISU at IOWA":"7:30 ET"
+};
+function flatRow(b){
+  const conf = String(b.confidence || "LEAN").toUpperCase();
+  const href = b.href || "#";
+  const day = (b.date || "").slice(5).replace("-", "/");
+  const when = FIRST_PITCH[b.game] || "";
+  return `<div class="g-row">
+    <div class="g-main">
+      <span class="g-name">${b.game}</span>
+      <span class="g-pick">${b.pick}</span>
+      <span class="g-when">${day}${when ? " · " + when : ""} · ${b.close || ""}</span>
+    </div>
+    <div class="g-side">
+      <span class="stamp ${conf.toLowerCase()}">${conf}</span>
+      <span class="g-score">${b.status || "OPEN"}</span>
+      <a href="${href}">GAME DETAIL</a>
+    </div>
+  </div>`;
+}
 if (window.LAST_PASS) {
   var el = document.getElementById("pass-line");
   if (el) el.textContent = window.LAST_PASS;

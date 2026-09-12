@@ -5,6 +5,11 @@ function etDate(){
   } catch (e) { return LEDGER_TODAY; }
 }
 function cardDate(){ return etDate(); }
+function isFire(b){
+  const c = String(b.confidence || "LEAN").toUpperCase();
+  return c === "BET" || c === "LEAN";
+}
+function isFade(b){ return String(b.confidence || "").toUpperCase() === "FADE"; }
 function gameScore(b){
   const map = window.SCORES || {};
   return b.final || map[b.game] || "";
@@ -261,38 +266,33 @@ async function renderToday(){
   renderBank(document.getElementById("bank"), s);
   const line = document.getElementById("tagline");
   const day = cardDate(data);
-  if (line) line.textContent = "Tickets stay on this page until midnight ET. Card date " + day;
+  if (line) line.textContent = "Card date " + day;
   const order = ["NFL","CFB","MLB"];
   const tickets = document.getElementById("tickets");
   const live = order.map(sp => {
-    const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day);
+    const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day && isFire(b));
     if (!rows.length) return "";
     return sportDrop(sp, sportTodayHtml(sp, rows), false);
   }).filter(Boolean);
-  if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No tickets dated ${day}.</p>`;
-  const loops = document.getElementById("loops");
-  const L = data.loops || {};
-  if (loops) loops.innerHTML = order.map(sp => {
-    const items = L[sp] || [];
-    return sportBlock(sp, items.length ? "<ul>"+items.map(x=>`<li>${x}</li>`).join("")+"</ul>" : `<p class="note">No lessons posted.</p>`);
-  }).join("");
+  if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No BET or LEAN tickets dated ${day}.</p>`;
   const fades = document.getElementById("fades");
   if (fades){
-    const F = data.fades || {};
     fades.innerHTML = order.map(sp => {
-      const items = F[sp] || [];
-      return sportBlock(sp, items.length ? "<ul>"+items.map(x=>`<li>${x}</li>`).join("")+"</ul>" : `<p class="note">No fades posted.</p>`);
-    }).join("");
+      const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day && isFade(b));
+      if (!rows.length) return "";
+      const items = [];
+      const seen = {};
+      rows.forEach(b => {
+        if (seen[b.game + b.pick]) return;
+        seen[b.game + b.pick] = true;
+        items.push(b.game + " \u2014 " + b.pick + (b.close ? " \u00b7 " + b.close : ""));
+      });
+      return sportBlock(sp, "<ul>"+items.map(x=>"<li>"+x+"</li>").join("")+"</ul>");
+    }).filter(Boolean).join("") || `<p class="note">No fade tickets today.</p>`;
   }
-  await renderPlaybook();
 }
 async function renderHomeBank(){
   const data = await loadLedger();
   const s = summarize(data);
   renderBank(document.getElementById("home-bank"), s);
-  const t = document.getElementById("home-types");
-  if(t){
-    const sports = Object.entries(s.bySport).map(([k,v])=>k+" "+v.w+"-"+v.l+"-"+v.p+" ("+money(v.pl)+")").join("  |  ");
-    t.textContent = (sports || "No settled tickets yet.") + (data.updated ? "  \u00b7  " + stampLine(data) : "");
-  }
 }

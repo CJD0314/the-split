@@ -1,4 +1,8 @@
 const LEDGER_TODAY = "2026-09-11";
+function gameScore(b){
+  const map = window.SCORES || {};
+  return b.final || map[b.game] || "";
+}
 async function loadLedger(){
   const r = await fetch("tracker.json?v=" + Date.now());
   return r.json();
@@ -44,10 +48,11 @@ function renderBank(el, s){
 }
 function ticketLine(b){
   const conf = String(b.confidence || "LEAN").toLowerCase();
+  const sc = gameScore(b);
   return `<div class="note" style="margin:6px 0">
     <span class="stamp ${String(b.status).toLowerCase()}">${b.status}</span>
     <span class="stamp ${conf}">${String(b.confidence || "LEAN").toUpperCase()}</span>
-    ${b.pick} · ${b.close} · $${b.stake} to win $${b.to_win}${b.final?" · "+b.final:""}${b.result?" · "+b.result:""}
+    ${b.pick} · ${b.close} · $${b.stake} to win $${b.to_win}${sc?" · "+sc:""}${b.result?" · "+b.result:""}
   </div>`;
 }
 function groupByGame(rows){
@@ -59,8 +64,9 @@ function groupByGame(rows){
   });
   return Object.entries(map).map(([game, list]) => {
     const href = list[0].href;
+    const sc = gameScore(list[0]);
     return `<div class="row">
-      <b>${game}</b>
+      <b>${game}</b>${sc?` <span class="note">${sc}</span>`:""}
       ${list.map(ticketLine).join("")}
       <a href="${href}">BOARD</a>
     </div>`;
@@ -78,8 +84,9 @@ function resultClass(b){
   return "push";
 }
 function resultText(b){
-  if (b.status === "SETTLED") return (b.result||"") + (b.final?" · "+b.final:"");
-  return b.status;
+  const sc = gameScore(b);
+  if (b.status === "SETTLED") return (b.result||"") + (sc?" · "+sc:"");
+  return (b.status||"") + (sc?" · "+sc:"");
 }
 function reviewRow(b){
   const href = b.href ? `<a class="full-link" href="${b.href}">${b.game}</a>` : b.game;
@@ -100,7 +107,7 @@ function reviewTable(rows){
   const settled = rows.filter(b => b.status === "SETTLED");
   const pl = settled.reduce((a,b)=>a+(Number(b.pl)||0),0);
   return `<table class="res">
-    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLOSE</th><th>STAKE</th><th>CONF</th><th>RESULT</th><th>P/L</th></tr>
+    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLOSE</th><th>STAKE</th><th>CONF</th><th>SCORE / RESULT</th><th>P/L</th></tr>
     ${rows.map(reviewRow).join("")}
     <tr class="total"><td colspan="7">SETTLED P/L</td><td>${money(pl)}</td></tr>
   </table>`;

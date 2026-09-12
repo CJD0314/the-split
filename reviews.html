@@ -35,7 +35,8 @@ h3.track{color:#d4a017;font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
   </div>
   <div id="review-tables"><p class="note">Loading ledger...</p></div>
 </div>
-<script src="tracker.js?v=9"></script>
+<script src="tracker.js?v=12"></script>
+<script src="stamp.js"></script>
 <script>
 window.REVIEW_FILTER = "ALL";
 function loadScores(){
@@ -49,6 +50,7 @@ function loadScores(){
 async function refreshReviews(){
   await loadScores();
   await renderReviews(window.REVIEW_FILTER);
+  if (window.closeAllTabs) closeAllTabs();
 }
 document.getElementById("conf-filters").addEventListener("click", function(e){
   var b = e.target.closest("button"); if (!b) return;

@@ -2,12 +2,12 @@ const CFB_WEEK_NOTES = {
   1: {
     held: ["Blowout favorites that were already 30-plus mostly cashed.","Oregon -24.5 and Michigan -27.5 were the sides that did not."],
     broke: ["A huge opener is not automatically a live number the next week."],
-    next: ["Do not copy a 50-point Week 1 margin into a Week 2 35-point FCS number and call it a fire."]
+    next: ["Board every Top-25 game. Do not copy a 50-point Week 1 margin into a Week 2 35-point FCS number and call it a fire."]
   },
   2: {
     held: ["Miami, Louisville, Virginia covered 36-plus FCS numbers. The number cashed. The stamp stays FADE.","Missouri -5.5 on the road was a real game and covered. 3-to-7 ranked sides are live."],
     broke: ["A 50-point Thursday night does not license the next 35-point Friday as a BET."],
-    next: ["Fire 3-to-7 point ranked sides. Do not fire 28-plus."]
+    next: ["Fire 3-to-7 point ranked sides when the board says so.","28-plus is volatile. Still board it. Promote off FADE only if sit-outs or script say the number is wrong."]
   }
 };
 function cfbReviewWeek(week){

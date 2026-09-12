@@ -6,16 +6,16 @@ window.SCORES = {
   "COL at DET": "FINAL DET 6-2",
   "LAA at WSH": "FINAL WSH 4-3",
   "HOU at TB": "FINAL TB 3-1",
-  "VILL at LOU": "LIVE LOU 52-13 4Q",
-  "NORF at UVA": "LIVE UVA 59-3 4Q",
-  "MIZ at KU": "LIVE KU 14-14 HT",
-  "NYM at NYY": "LIVE NYY 5-2 8th",
-  "BAL at TOR": "LIVE BAL 7-2 8th",
-  "KC at BOS": "LIVE KC 3-2 8th",
-  "LAD at MIA": "LIVE LAD 6-1 8th",
-  "PHI at ATL": "LIVE PHI 3-1 6th",
-  "CIN at MIL": "LIVE MIL 17-0 6th",
-  "CLE at MIN": "LIVE MIN 1-0 6th"
+  "NYM at NYY": "FINAL NYY 6-4",
+  "BAL at TOR": "FINAL BAL 7-4",
+  "KC at BOS": "FINAL KC 3-2",
+  "LAD at MIA": "FINAL LAD 6-2",
+  "NORF at UVA": "FINAL UVA 59-3",
+  "VILL at LOU": "LIVE LOU 59-13 4Q",
+  "MIZ at KU": "LIVE MIZ 14-14 3Q",
+  "PHI at ATL": "LIVE PHI 3-2 8th",
+  "CIN at MIL": "LIVE MIL 20-0 9th",
+  "CLE at MIN": "LIVE CLE 2-1 7th"
 };
 window.SCORE_SPORT = {
   "NE at SEA":"NFL","SF at LAR":"NFL",

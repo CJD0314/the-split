@@ -11,9 +11,6 @@
 .stamp.bet{background:#0d2a1c;color:#3dd68c}
 .stamp.lean{background:#3d2a00;color:#d4a017}
 .stamp.fade{background:#3a1212;color:#ff6b6b}
-.stamp.win{background:#0d2a1c;color:#3dd68c}
-.stamp.loss{background:#3a1212;color:#ff6b6b}
-.stamp.push{background:#3d2a00;color:#d4a017}
 table.res{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
 table.res th,table.res td{text-align:left;padding:8px 6px;border-bottom:1px solid #2a3644;vertical-align:top}
 table.res th{color:#93a3b5;font-size:11px;letter-spacing:.08em}
@@ -34,13 +31,14 @@ h3.track{color:#d4a017;font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
 <header>
   <div class="brand">THE SPLIT</div>
   <div class="week">BETTING REVIEWS</div>
-  <div class="meta">Best bets and TD / HR tickets are separate line items. One row per ticket.</div>
+  <div class="meta">Scores update with the hourly pass. Finals stay. Live lines are marked LIVE.</div>
 </header>
 <div class="wrap">
   <div class="bank" id="review-bank"></div>
   <p class="note">BET = fire a unit. LEAN = half unit or skip. FADE = posted for the card; would not fire real money.</p>
   <div id="review-tables"><p class="note">Loading ledger...</p></div>
 </div>
-<script src="tracker.js?v=7"></script>
+<script src="scores.js?v=1"></script>
+<script src="tracker.js?v=8"></script>
 <script>renderReviews();</script>
 </body></html>

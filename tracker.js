@@ -84,14 +84,17 @@ function renderBank(el, s){
 function ticketLine(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
   const res = b.result || b.status;
-  return `<div class="tix">
-    <div class="tix-type">${typeLabel(b)}</div>
-    <div></div>
-    <div class="tix-pick">${b.pick}</div>
-    <div><span class="tix-lab">STAKE</span><span class="tix-num">$${b.stake}</span></div>
-    <div><span class="tix-lab">TO WIN</span><span class="tix-num">$${b.to_win}</span></div>
-    <div><span class="tix-lab">CONF</span><span class="stamp ${conf.toLowerCase()}">${conf}</span></div>
-    <div><span class="tix-lab">RESULT</span><span class="${resultClass(b)}">${res}</span></div>
+  return `<div class="slip">
+    <div class="slip-type">${typeLabel(b)}</div>
+    <div class="slip-pick">${b.pick}</div>
+    <div class="slip-money">
+      <div><b>STAKE</b><span>$${b.stake}</span></div>
+      <div><b>TO WIN</b><span>$${b.to_win}</span></div>
+    </div>
+    <div class="slip-foot">
+      <span class="stamp ${conf.toLowerCase()}">${conf}</span>
+      <span class="${resultClass(b)}">${res}</span>
+    </div>
   </div>`;
 }
 function groupByGame(rows){
@@ -106,8 +109,9 @@ function groupByGame(rows){
     const href = list[0].href;
     const sc = gameScore(list[0]);
     return `<div class="row">
-      <div class="row-head"><b>${game}</b>${sc?`<span class="note">${sc}</span>`:""}<a href="${href}">GAME DETAIL</a></div>
+      <div class="row-head"><b>${game}</b>${sc?`<span class="score">${sc}</span>`:""}</div>
       ${list.map(ticketLine).join("")}
+      <div style="margin-top:10px"><a href="${href}">GAME DETAIL</a></div>
     </div>`;
   }).join("");
 }

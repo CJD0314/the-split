@@ -44,8 +44,9 @@ h1{margin:4px 0 8px;font-size:48px;letter-spacing:.14em;font-weight:800}
 </header>
 <div class="wrap">
 <h3 style="color:#d4a017;letter-spacing:.08em;font-size:13px">SCOREBOARD</h3>
+<p class="note" id="board-note">Finals first. Live games follow.</p>
 <div class="scores" id="home-scores"></div>
-<p class="note"><a class="full-link" href="reviews.html">Open the full book</a> &nbsp;·&nbsp; Filters and CLV live on Betting Reviews.</p>
+<p class="note"><a class="full-link" href="reviews.html">Open the full book</a> &nbsp;·&nbsp; <a class="full-link" href="today.html">Today's tickets</a></p>
 
 <details class="league"><summary>NFL</summary>
 <div class="inner">
@@ -76,20 +77,23 @@ h1{margin:4px 0 8px;font-size:48px;letter-spacing:.14em;font-weight:800}
 <details class="league"><summary>NBA</summary><div class="inner"><p class="note">Opens with the 2026-27 tip.</p></div></details>
 <details class="league"><summary>NHL</summary><div class="inner"><p class="note">Opens with the 2026-27 puck drop.</p></div></details>
 </div>
-<script src="scores.js?v=2"></script>
+<script src="scores.js?v=3"></script>
 <script src="schedule.js?v=16"></script>
 <script src="cfb.js?v=3"></script>
 <script src="mlb.js?v=5"></script>
-<script src="tracker.js?v=9"></script>
+<script src="tracker.js?v=10"></script>
 <script src="stamp.js"></script>
 <script>
 renderHomeBank();
 (function(){
   const box = document.getElementById("home-scores");
-  const map = window.SCORES || {};
-  const keys = Object.keys(map);
   if (!box) return;
-  box.innerHTML = keys.length ? keys.map(k => `<div class="score"><b>${k}</b><span>${map[k]}</span></div>`).join("") : `<div class="score"><b>BOARD</b><span>No live games</span></div>`;
+  const rows = (window.scoreEntries ? window.scoreEntries() : Object.entries(window.SCORES||{}));
+  const sport = window.SCORE_SPORT || {};
+  box.innerHTML = rows.length ? rows.map(function(pair){
+    const tag = sport[pair[0]] || "";
+    return '<div class="score"><b>'+tag+' '+pair[0]+'</b><span>'+pair[1]+'</span></div>';
+  }).join("") : '<div class="score"><b>BOARD</b><span>No live games</span></div>';
   const dfs = document.getElementById("dfs-week-btns");
   if (!dfs) return;
   for (let i=1;i<=18;i++){

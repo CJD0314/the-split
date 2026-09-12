@@ -3,6 +3,19 @@ function gameScore(b){
   const map = window.SCORES || {};
   return b.final || map[b.game] || "";
 }
+function clv(b){
+  if (b.clv) return b.clv;
+  if (b.open && b.close && b.open !== b.close) return "Open " + b.open + " / Close " + b.close;
+  return b.close ? "Close " + b.close : "--";
+}
+function passFilter(b, filter){
+  const c = String(b.confidence||"LEAN").toUpperCase();
+  if (!filter || filter === "ALL") return true;
+  if (filter === "BET") return c === "BET";
+  if (filter === "LEAN") return c === "BET" || c === "LEAN";
+  if (filter === "FADE") return c === "FADE";
+  return true;
+}
 async function loadLedger(){
   const r = await fetch("tracker.json?v=" + Date.now());
   return r.json();
@@ -20,15 +33,8 @@ function summarize(data){
   const pl = settled.reduce((a,b)=>a+(Number(b.pl)||0),0);
   const risked = settled.reduce((a,b)=>a+(Number(b.stake)||0),0);
   const roi = risked ? ((pl/risked)*100).toFixed(1)+"%" : "--";
-  const byType = {};
   const bySport = {};
   settled.forEach(b=>{
-    const k = b.type || "other";
-    if(!byType[k]) byType[k] = {w:0,l:0,p:0,pl:0};
-    if(b.result==="WIN") byType[k].w++;
-    else if(b.result==="LOSS") byType[k].l++;
-    else byType[k].p++;
-    byType[k].pl += Number(b.pl)||0;
     const s = b.sport || "OTH";
     if(!bySport[s]) bySport[s] = {w:0,l:0,p:0,pl:0};
     if(b.result==="WIN") bySport[s].w++;
@@ -36,7 +42,7 @@ function summarize(data){
     else bySport[s].p++;
     bySport[s].pl += Number(b.pl)||0;
   });
-  return {settled,wins,losses,pushes,pl,risked,roi,byType,bySport};
+  return {settled,wins,losses,pushes,pl,risked,roi,bySport};
 }
 function renderBank(el, s){
   if(!el) return;
@@ -95,7 +101,7 @@ function reviewRow(b){
     <td>${(b.date||"").slice(5)}</td>
     <td>${href}</td>
     <td>${b.pick}</td>
-    <td>${b.close||"--"}</td>
+    <td>${clv(b)}</td>
     <td>$${b.stake} to win $${b.to_win}</td>
     <td>${b.confidence||"--"}</td>
     <td class="${resultClass(b)}">${resultText(b)}</td>
@@ -107,14 +113,14 @@ function reviewTable(rows){
   const settled = rows.filter(b => b.status === "SETTLED");
   const pl = settled.reduce((a,b)=>a+(Number(b.pl)||0),0);
   return `<table class="res">
-    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLOSE</th><th>STAKE</th><th>CONF</th><th>SCORE / RESULT</th><th>P/L</th></tr>
+    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLV / CLOSE</th><th>STAKE</th><th>CONF</th><th>SCORE / RESULT</th><th>P/L</th></tr>
     ${rows.map(reviewRow).join("")}
     <tr class="total"><td colspan="7">SETTLED P/L</td><td>${money(pl)}</td></tr>
   </table>`;
 }
 function isTdHr(b){ const t=String(b.type||"").toLowerCase(); return t==="td"||t==="hr"; }
 function isPlayerProp(b){ return String(b.type||"").toLowerCase()==="prop"; }
-async function renderReviews(){
+async function renderReviews(filter){
   const data = await loadLedger();
   const s = summarize(data);
   renderBank(document.getElementById("review-bank"), s);
@@ -123,13 +129,13 @@ async function renderReviews(){
   const box = document.getElementById("review-tables");
   if (!box) return;
   box.innerHTML = order.map((sp,i) => {
-    const rows = (data.bets||[]).filter(b => b.sport === sp);
+    const rows = (data.bets||[]).filter(b => b.sport === sp && passFilter(b, filter));
     const best = rows.filter(b => !isTdHr(b) && !isPlayerProp(b));
     const tdhr = rows.filter(isTdHr);
     const props = rows.filter(isPlayerProp);
     const inner = rows.length
       ? `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`
-      : `<p class="note">No tickets posted yet.</p>`;
+      : `<p class="note">No tickets in this filter.</p>`;
     return sportDrop(names[sp], inner, i===0);
   }).join("");
 }

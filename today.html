@@ -19,11 +19,11 @@
 <header>
 <div class="brand">THE SPLIT</div>
 <div class="week">TODAY</div>
-<div class="meta" id="tagline">The card. The number. The miss.</div>
+<div class="meta" id="tagline">Tickets stay until midnight ET.</div>
 <div class="updated" id="pass-line"></div>
 </header>
 <div class="wrap">
-<p class="note">Only games scheduled today. Same tickets as the book.</p>
+<p class="note">Finished games stay on this page until the next calendar day. Game recaps live on each REVIEW board. Quick reviews are lessons only.</p>
 <details class="block" open><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
 <details class="block" open><summary>QUICK REVIEWS</summary>
@@ -33,7 +33,7 @@
 </div>
 <script src="last_pass.js?v=1"></script>
 <script src="scores.js?v=3"></script>
-<script src="tracker.js?v=10"></script>
+<script src="tracker.js?v=11"></script>
 <script src="stamp.js"></script>
 <script>
 if (window.LAST_PASS) {
@@ -41,6 +41,5 @@ if (window.LAST_PASS) {
   if (el) el.textContent = window.LAST_PASS;
 }
 renderToday();
-setInterval(function(){ location.reload(); }, 180000);
 </script>
 </body></html>

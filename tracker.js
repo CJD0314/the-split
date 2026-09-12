@@ -147,32 +147,6 @@ function mlbBuckets(rows){
     + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false)
     + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
 }
-function groupByGame(rows){
-  const map = {};
-  rows.forEach(b=>{
-    const k = b.game;
-    if(!map[k]) map[k] = [];
-    map[k].push(b);
-  });
-  return Object.entries(map).map(([game, list]) => {
-    list.sort((a,b)=>typeOrder(a)-typeOrder(b));
-    const href = list[0].href || "#";
-    const sc = scoreLabel(gameScore(list[0]));
-    const finished = list.some(b => b.status === "SETTLED" || b.final) || /^FINAL/i.test(sc);
-    const tag = /live/i.test(sc) ? "LIVE" : (finished || sc ? "FINAL" : "PREGAME");
-    const shown = sc.replace(/^FINAL\s*/i,"").replace(/^LIVE\s*/i,"");
-    const reviewHref = list[0].review_href || String(href).replace(/\.html$/i, "-review.html");
-    const reviewLink = finished ? `<a href="${reviewHref}">REVIEW</a>` : "";
-    return `<details class="game">
-      <summary><span class="g-name">${game}</span></summary>
-      <div class="scorebox"><b>${tag}</b><span>${shown || "--"}</span></div>
-      <div class="body">
-        ${list.map(ticketLine).join("")}
-        <div class="links"><a href="${href}">GAME DETAIL</a>${reviewLink}</div>
-      </div>
-    </details>`;
-  }).join("");
-}
 function sportDrop(title, html, open){
   return `<details class="block" ${open?"open":""}><summary>${title}</summary><div class="body">${html || `<p class="note">Nothing posted.</p>`}</div></details>`;
 }
@@ -222,8 +196,6 @@ async function renderReviews(filter){
   const data = await loadLedger();
   const s = summarize(data);
   renderBank(document.getElementById("review-bank"), s);
-  const meta = document.querySelector("header .meta");
-  if (meta && data.updated) meta.textContent = "Filter by confidence. " + stampLine(data);
   const order = ["NFL","CFB","MLB","NBA","NHL"];
   const names = {NFL:"NFL",CFB:"COLLEGE FOOTBALL",MLB:"MLB",NBA:"NBA",NHL:"NHL"};
   const box = document.getElementById("review-tables");
@@ -240,22 +212,6 @@ async function renderReviews(filter){
     return sportDrop(names[sp], inner, false);
   }).join("");
 }
-async function renderPlaybook(){
-  const box = document.getElementById("playbook");
-  if (!box) return;
-  const book = await loadPlaybook();
-  const rules = book.rules || [];
-  if (!rules.length) {
-    box.innerHTML = `<p class="note">No rules posted yet.</p>`;
-    return;
-  }
-  const order = ["NFL","CFB","MLB"];
-  box.innerHTML = `<p class="note">${book.how_we_use_this || "Next board has to use these rules."}</p>` + order.map(sp => {
-    const items = rules.filter(r => r.sport === sp);
-    if (!items.length) return "";
-    return sportBlock(sp, items.map(r => `<div class="rule"><b>${r.from}</b>${r.rule}<div class="note">NEXT: ${r.next}</div></div>`).join(""));
-  }).join("");
-}
 function sportTodayHtml(sp, rows){
   if (sp === "MLB") return mlbBuckets(rows);
   return flatGameList(rows);
@@ -264,9 +220,7 @@ async function renderToday(){
   const data = await loadLedger();
   const s = summarize(data);
   renderBank(document.getElementById("bank"), s);
-  const line = document.getElementById("tagline");
   const day = cardDate(data);
-  if (line) line.textContent = "Card date " + day;
   const order = ["NFL","CFB","MLB"];
   const tickets = document.getElementById("tickets");
   const live = order.map(sp => {
@@ -278,9 +232,9 @@ async function renderToday(){
   const fades = document.getElementById("fades");
   if (fades){
     const away = order.map(sp => {
-      const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day && isFade(b));
+      const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day && isFade(b) && !isTdHr(b) && !isPlayerProp(b));
       if (!rows.length) return "";
-      return sportDrop(sp, sportTodayHtml(sp, rows), false);
+      return sportDrop(sp, flatGameList(rows), false);
     }).filter(Boolean);
     fades.innerHTML = away.length ? away.join("") : `<p class="note">No stay-away tickets dated ${day}.</p>`;
   }

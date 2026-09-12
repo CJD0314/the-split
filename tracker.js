@@ -120,10 +120,15 @@ function reviewTable(rows){
 }
 function isTdHr(b){ const t=String(b.type||"").toLowerCase(); return t==="td"||t==="hr"; }
 function isPlayerProp(b){ return String(b.type||"").toLowerCase()==="prop"; }
+function stampLine(data){
+  return data && data.updated ? "Ledger " + data.updated.replace("T"," ") : "";
+}
 async function renderReviews(filter){
   const data = await loadLedger();
   const s = summarize(data);
   renderBank(document.getElementById("review-bank"), s);
+  const meta = document.querySelector("header .meta");
+  if (meta && data.updated) meta.textContent = "Filter by confidence. " + stampLine(data);
   const order = ["NFL","CFB","MLB","NBA","NHL"];
   const names = {NFL:"NFL",CFB:"COLLEGE FOOTBALL",MLB:"MLB",NBA:"NBA",NHL:"NHL"};
   const box = document.getElementById("review-tables");
@@ -144,7 +149,7 @@ async function renderToday(){
   const s = summarize(data);
   renderBank(document.getElementById("bank"), s);
   const line = document.getElementById("tagline");
-  if (line) line.textContent = data.tagline || "The card. The number. The miss.";
+  if (line) line.textContent = (data.tagline || "The card. The number. The miss.") + (data.updated ? "  ·  " + stampLine(data) : "");
   const day = data.today || LEDGER_TODAY;
   const order = ["NFL","CFB","MLB"];
   const tickets = document.getElementById("tickets");
@@ -176,6 +181,6 @@ async function renderHomeBank(){
   const t = document.getElementById("home-types");
   if(t){
     const sports = Object.entries(s.bySport).map(([k,v])=>k+" "+v.w+"-"+v.l+"-"+v.p+" ("+money(v.pl)+")").join("  |  ");
-    t.textContent = sports || "No settled tickets yet.";
+    t.textContent = (sports || "No settled tickets yet.") + (data.updated ? "  ·  " + stampLine(data) : "");
   }
 }

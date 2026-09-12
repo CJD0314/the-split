@@ -30,7 +30,7 @@ h1,.brand{margin:0;font-size:28px;letter-spacing:.12em;font-weight:800}
 .mini{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0 0;width:100%}
 .mini div{background:#121820;border:1px solid var(--line);border-radius:8px;padding:6px 7px}
 .mini b{display:block;color:var(--muted);font-size:9px;letter-spacing:.08em}
-.mini span{font-size:11px;font-weight:800;color:#e8eef5}
+.mini span{display:block;font-size:11px;font-weight:800;color:#e8eef5;line-height:1.35}
 .full-link{color:var(--gold);font-weight:800;text-decoration:underline;font-size:11px}
 @media(max-width:640px){
   .weeks{grid-template-columns:repeat(4,1fr)}

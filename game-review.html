@@ -10,19 +10,20 @@
 <a href="nfl.html">NFL</a>
 <a href="cfb.html">CFB</a>
 <a href="mlb.html">MLB</a>
-<a href="reviews.html">REVIEWS</a>
+<a href="reviews.html">BET TRACKER</a>
 </div>
 <header>
 <div class="brand">THE SPLIT</div>
 <div class="week">REVIEW</div>
 <h1 id="title">Loading</h1>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:09 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 1:15 p.m. ET</div>
 </header>
 <div class="wrap" id="body">
 <p class="note">Loading ledger...</p>
 </div>
-<script src="tracker.js?v=21"></script>
+<script src="tracker.js?v=25"></script>
 <script src="cfb-rank.js"></script>
+<script src="stamp.js?v=3"></script>
 <script>
 const q = new URLSearchParams(location.search);
 const sport = (q.get("sport") || "").toUpperCase();
@@ -36,7 +37,7 @@ loadLedger().then(function(data){
     return (!sport || b.sport === sport) && (!date || b.date === date) && (!game || b.game === game);
   });
   const title = document.getElementById("title");
-  title.textContent = (rows[0] ? label(rows[0].game) : game || "REVIEW") + (rows[0] && rows[0].final ? " · " + rows[0].final : "");
+  title.textContent = (rows[0] ? label(rows[0].game) : game || "REVIEW") + (rows[0] && rows[0].final ? " \u00b7 " + rows[0].final : "");
   if (!rows.length) {
     document.getElementById("body").innerHTML = "<p class='note'>No tickets stored for this game.</p>";
     return;
@@ -45,15 +46,13 @@ loadLedger().then(function(data){
   const wrong = rows.filter(b => b.result === "LOSS");
   function list(arr, empty){
     if (!arr.length) return "<p class='note'>" + empty + "</p>";
-    return "<ul>" + arr.map(b => "<li><b>" + typeLabel(b) + "</b> " + b.pick + " · " + (b.close||"") + " · " + (b.result || b.status) + "</li>").join("") + "</ul>";
+    return "<ul>" + arr.map(b => "<li><b>" + typeLabel(b) + "</b> " + b.pick + " \u00b7 " + (b.close||"") + " \u00b7 " + (b.result || b.status) + "</li>").join("") + "</ul>";
   }
   document.getElementById("body").innerHTML = `
     <details class="block" open><summary>TICKETS</summary><div class="body">${list(rows, "None.")}</div></details>
     <details class="block" open><summary>WHAT WE GOT RIGHT</summary><div class="body">${list(right, "Nothing cashed.")}</div></details>
     <details class="block" open><summary>WHAT WE GOT WRONG</summary><div class="body">${list(wrong, "Nothing missed.")}</div></details>
-    <details class="block"><summary>WHAT WE MISSED</summary><div class="body"><p class="note">A plus-money dog still needs the starter. A 28-point CFB number is a bench bet.</p></div></details>
-    <details class="block"><summary>GET BETTER</summary><div class="body"><p class="note">Do not reuse last night's final on a rematch. Fade juice through a short favorite.</p></div></details>
-    <p><a class="full-link" href="reviews.html">FULL BOOK</a></p>`;
+    <p><a class="full-link" href="reviews.html">BET TRACKER</a></p>`;
 });
 </script>
 </body></html>

@@ -15,8 +15,8 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">COLLEGE FOOTBALL</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 10:28 a.m. ET</div>
 <div class="bank" id="sport-bank"></div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:34 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="subhead"><summary>DEEP DIVES</summary>
@@ -27,10 +27,11 @@
 <script src="cfb.js?v=5"></script>
 <script src="cfb-week-review.js"></script>
 <script src="tracker.js?v=21"></script>
-<script src="stamp.js"></script>
+<script src="stamp.js?v=2"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="CFB";})}));
+  if (window.splitStamp) splitStamp();
 });
 if (window.closeAllTabs) closeAllTabs();
 </script>

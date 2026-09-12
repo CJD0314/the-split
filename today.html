@@ -4,6 +4,8 @@
 <title>The Split -- Today</title>
 <link rel="stylesheet" href="dive.css"/>
 <style>
+.topnav{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.topnav a.on{color:#3dd68c}
 .game{background:#121820;border:1px solid #2a3644;border-radius:14px;margin:8px 0;overflow:hidden}
 .game>summary{list-style:none;cursor:pointer;padding:14px 16px}
 .game>summary::-webkit-details-marker{display:none}
@@ -32,12 +34,18 @@
 .push{color:#d4a017;font-weight:800}
 </style></head>
 <body>
-<div class="topnav"><a href="today.html">TODAY</a><a href="index.html">HOME</a><a href="reviews.html">BETTING REVIEWS</a></div>
+<div class="topnav">
+<a class="on" href="today.html">TODAY</a>
+<a href="nfl.html">NFL</a>
+<a href="cfb.html">CFB</a>
+<a href="mlb.html">MLB</a>
+<a href="reviews.html">REVIEWS</a>
+</div>
 <header>
 <div class="brand">THE SPLIT</div>
 <div class="week">TODAY</div>
 <div class="meta" id="tagline">Tickets stay until midnight ET.</div>
-<div class="updated">LAST UPDATED: Fri Sep 11, 2026 11:39 p.m. ET</div>
+<div class="updated">LAST UPDATED: Fri Sep 11, 2026 11:45 p.m. ET</div>
 <div class="updated" id="pass-line"></div>
 </header>
 <div class="wrap">

@@ -20,6 +20,12 @@
 .stamp.bet{background:#0d2a1c;color:#3dd68c}
 .stamp.lean{background:#3d2a00;color:#d4a017}
 .stamp.fade{background:#3a1212;color:#ff6b6b}
+.stamp.win{background:#0d2a1c;color:#3dd68c}
+.stamp.loss{background:#3a1212;color:#ff6b6b}
+.stamp.push{background:#3d2a00;color:#d4a017}
+.ok{color:#3dd68c;font-weight:800}
+.loss{color:#ff6b6b;font-weight:800}
+.push{color:#d4a017;font-weight:800}
 </style></head>
 <body>
 <div class="topnav">
@@ -34,7 +40,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SAT SEP 12, 2026</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 1:00 p.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:35 p.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -43,8 +49,8 @@
 <div class="body" id="fades"></div></details>
 </div>
 <script src="cfb-rank.js"></script>
-<script src="scores.js?v=5"></script>
-<script src="tracker.js?v=25"></script>
+<script src="scores.js?v=6"></script>
+<script src="tracker.js?v=26"></script>
 <script src="stamp.js?v=2"></script>
 <script>
 const KICK = {
@@ -70,9 +76,91 @@ function kickMin(game){
 }
 function gameScore(b){
   const map = window.SCORES || {};
-  const raw = map[(b.date || "") + "|" + b.game] || "";
+  const raw = map[(b.date || "") + "|" + b.game] || map[b.game] || b.final || "";
   if (/\d+:\d+/.test(raw) && !/final|live|inning|qtr/i.test(raw)) return "";
   return raw;
+}
+function parseFinal(sc){
+  const s = String(sc || "");
+  if (!/final/i.test(s)) return null;
+  const m = s.match(/FINAL\s+([A-Z0-9&]+)\s+(\d+)\s*-\s*(\d+)/i);
+  if (!m) return null;
+  return { winner: m[1].toUpperCase(), hi: Number(m[2]), lo: Number(m[3]) };
+}
+function gameTeams(game){
+  const p = String(game || "").split(/\s+at\s+/i);
+  return { away: (p[0] || "").trim().toUpperCase(), home: (p[1] || "").trim().toUpperCase() };
+}
+function teamScores(b){
+  const f = parseFinal(gameScore(b));
+  if (!f) return null;
+  const t = gameTeams(b.game);
+  if (!t.away || !t.home) return null;
+  const loser = f.winner === t.home ? t.away : (f.winner === t.away ? t.home : "");
+  if (!loser) return null;
+  const out = {};
+  out[f.winner] = f.hi;
+  out[loser] = f.lo;
+  return out;
+}
+function pickBits(b){
+  const src = [b.close, b.booked, b.pick].filter(Boolean).join(" ");
+  const t = String(b.type || "").toLowerCase();
+  if (t === "total") {
+    const tot = String(src).match(/\b([ou])\s*(\d+(?:\.\d+)?)/i);
+    if (tot) return { kind: "total", side: tot[1].toLowerCase(), line: Number(tot[2]) };
+  }
+  const spr = String(src).match(/\b([A-Z]{2,4})\s+([+-]\d+(?:\.\d+)?)\b/);
+  if (spr) {
+    const n = Number(spr[2]);
+    if (Math.abs(n) < 80) return { kind: (t === "ml" ? "ml" : "spread"), team: spr[1].toUpperCase(), line: n };
+  }
+  const ml = String(src).match(/\b([A-Z]{2,4})\s+([+-]\d{3,})\b/);
+  if (ml || t === "ml") {
+    const team = ml ? ml[1].toUpperCase() : null;
+    return { kind: "ml", team: team };
+  }
+  return null;
+}
+function gradeTicket(b){
+  const settled = String(b.result || "").toUpperCase();
+  if (settled === "WIN" || settled === "LOSS" || settled === "PUSH") return settled;
+  const t = String(b.type || "").toLowerCase();
+  if (t === "hr" || t === "td" || t === "prop") return "";
+  const scores = teamScores(b);
+  if (!scores) return "";
+  const bits = pickBits(b);
+  if (!bits) return "";
+  const total = Object.values(scores).reduce((a,n)=>a+n,0);
+  if (bits.kind === "total") {
+    if (bits.side === "o") {
+      if (total > bits.line) return "WIN";
+      if (total < bits.line) return "LOSS";
+      return "PUSH";
+    }
+    if (total < bits.line) return "WIN";
+    if (total > bits.line) return "LOSS";
+    return "PUSH";
+  }
+  if (!bits.team || scores[bits.team] == null) return "";
+  const mine = scores[bits.team];
+  const theirs = Object.keys(scores).filter(k => k !== bits.team).map(k => scores[k])[0];
+  if (theirs == null) return "";
+  if (bits.kind === "ml" || bits.line == null) {
+    if (mine > theirs) return "WIN";
+    if (mine < theirs) return "LOSS";
+    return "PUSH";
+  }
+  const adj = mine + bits.line;
+  if (adj > theirs) return "WIN";
+  if (adj < theirs) return "LOSS";
+  return "PUSH";
+}
+function resultStamp(res){
+  if (!res) return "";
+  const r = String(res).toUpperCase();
+  const cls = r === "WIN" ? "win" : r === "LOSS" ? "loss" : "push";
+  return `<span class="stamp ${cls}">${r}</span>`;
 }
 function flatRow(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
@@ -80,8 +168,10 @@ function flatRow(b){
   const day = (b.date || "").slice(5).replace("-", "/");
   const kick = KICK[b.game] || "";
   const live = gameScore(b);
+  const grade = gradeTicket(b);
   const name = b.sport === "CFB" && window.rankCfbGame ? window.rankCfbGame(b.game) : b.game;
   const when = [day, kick].filter(Boolean).join(" \u00b7 ");
+  const scoreTxt = live || b.status || "OPEN";
   return `<div class="g-row">
     <div class="g-main">
       <span class="g-name">${name}</span>
@@ -90,7 +180,8 @@ function flatRow(b){
     </div>
     <div class="g-side">
       <span class="stamp ${conf.toLowerCase()}">${conf}</span>
-      <span class="g-score">${live || b.status || "OPEN"}</span>
+      ${resultStamp(grade)}
+      <span class="g-score">${scoreTxt}</span>
       <a href="${href}">GAME DETAIL</a>
     </div>
   </div>`;

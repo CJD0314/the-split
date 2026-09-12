@@ -34,12 +34,12 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SAT SEP 12, 2026</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 12:08 p.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 12:12 p.m. ET</div>
 </header>
 <div class="wrap">
-<details class="block"><summary>TODAY'S TICKETS</summary>
+<details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
-<details class="block"><summary>FADES TO REMEMBER</summary>
+<details class="block" id="away-block"><summary>STAY AWAY GAMES</summary>
 <div class="body" id="fades"></div></details>
 </div>
 <script src="cfb-rank.js"></script>
@@ -120,14 +120,20 @@ function mlbBuckets(rows){
     + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false)
     + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
 }
+function keepTicketsOpen(){
+  const el = document.getElementById("tickets-block");
+  if (el) el.setAttribute("open", "");
+}
 const _rt = renderToday;
 renderToday = async function(){
   await _rt();
   const el = document.getElementById("card-date");
   if (el) el.textContent = prettyCard(cardDate());
   if (window.splitStamp) splitStamp();
+  keepTicketsOpen();
 };
 renderToday();
 if (window.closeAllTabs) closeAllTabs();
+keepTicketsOpen();
 </script>
 </body></html>

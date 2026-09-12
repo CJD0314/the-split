@@ -9,30 +9,17 @@ Must match:
 - SPREAD, TOTAL, MONEYLINE each show Current: and Open: in the same large white type
 - MOVE is ONLY open-to-current line movement. Nothing about players, coaches, injuries, TV, or narratives.
 - MONEYLINE lists the price. Write "heavy" only if the favorite is worse than -600.
-- TEAM BREAKDOWN uses .tb-row. ONE heading spans both teams (STAFF, WHAT THAT MEANS THIS WEEK, KEY PLAYERS, IN THE NEWS). Team logos sit in the first row, 48px left of the name, same as NFL.
-- Staff labels: (calls plays - offense) and (calls plays - defense)
-- Personnel always translated in parentheses when used
-- Travel notes live in IN THE NEWS only
-- INACTIVES split by team, then offense / defense. Team name once.
-- SCRIPT: TEAM WINS IF -- winning score first. Specific downs, red zone, who has to stay clean. No base-band box.
-- WR VS CB split by team. Table columns: Receiver, Team, Primary cover, Game effect, Why it matters.
-- BEST BET: pick, juice, stake to win $100. Why uses the number, the tape, and the sit that actually moves the bet.
-- College football: no DFS, no DK salaries, no lineup review. No CFB TD or player props unless the user asks.
-- NFL primetime only: DK salaries + lineup review
-- After the game: REVIEW page. Correct / incorrect / missed / get better.
+- TEAM BREAKDOWN uses .tb-row. ONE heading spans both teams.
+- After the game: REVIEW page. Correct / incorrect / missed / get better. Betting lessons only. No shop notes.
+
+## LAST UPDATED
+Every HTML page that changes gets its own stamp in the header:
+LAST UPDATED: Ddd Mon DD, YYYY h:mm a.m./p.m. ET
+Only stamp the files you actually edited. Do not refresh a stamp on a page you did not touch.
+last_pass.js is the site-wide pass clock. It does not replace the page stamp.
 
 ## BET TRACKER
-Home subsection is BET TRACKER (not Results). $100 unit. DraftKings close.
-- OPEN rows may take an updated close price until kickoff.
-- At kickoff the pick, close number, and stake freeze. They do not get rewritten to a better number after the fact.
-- After the game, only FINAL, RESULT, and P/L update.
-- Do not add a settled bet that was not on the board before kickoff.
-- SETTLED P/L is the running total of closed rows only. OPEN rows are not in the total.
+$100 unit. DraftKings close. Kickoff freezes pick, close, stake.
 
 ## LEARNING LOOP
-Every settled ticket writes one rule into tracker.json book[] if the review produced a new lesson.
-Next board in that sport MUST cite the matching rule in BEST BET or FADES.
-If confidence is FADE, do not fire a full juice favorite just to fill the card.
-A plus-money dog needs the starter to keep it close.
-Do not stamp FADE and still treat the ticket like a BET.
-Hourly job: grade, review, then update book / loops / fades. That is the growth pass.
+Settled tickets write on-field rules into playbook.json. Next board cites the rule. No shop process on the public site.

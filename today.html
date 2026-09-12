@@ -21,6 +21,8 @@
 .slip-meta span{color:#e8eef5;font-weight:700}
 .links{display:flex;gap:16px;margin-top:10px}
 .game a{color:#d4a017;font-weight:800;text-decoration:underline;font-size:12px;letter-spacing:.06em}
+.rule{padding:10px 0;border-top:1px solid #2a3644}
+.rule b{display:block;color:#d4a017;font-size:11px;letter-spacing:.08em}
 .stamp{display:inline-block;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em}
 .stamp.bet{background:#0d2a1c;color:#3dd68c}
 .stamp.lean{background:#3d2a00;color:#d4a017}
@@ -41,6 +43,8 @@
 <p class="note">Tap a game for the ticket. Finished games stay until the next calendar day.</p>
 <details class="block"><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
+<details class="block"><summary>WHAT WE ARE CHANGING</summary>
+<div class="body" id="playbook"><p class="note">Loading playbook...</p></div></details>
 <details class="block"><summary>QUICK REVIEWS</summary>
 <div class="body" id="loops"></div></details>
 <details class="block"><summary>FADES TO REMEMBER</summary>
@@ -48,7 +52,7 @@
 </div>
 <script src="last_pass.js?v=1"></script>
 <script src="scores.js?v=3"></script>
-<script src="tracker.js?v=19"></script>
+<script src="tracker.js?v=20"></script>
 <script src="stamp.js"></script>
 <script>
 if (window.LAST_PASS) {

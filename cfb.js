@@ -17,7 +17,7 @@ const CFB = {
   ["FRI SEPT 11",2450,258,"#25 Virginia 59, Norfolk State 3","FINAL","UVA -45.5 / NORF +45.5","55.5","UVA heavy","cfb-week-2-uva-norf.html","cfb-week-2-uva-norf-review.html","Cashed -45.5"],
   ["FRI SEPT 11",142,2305,"#23 Missouri 38, Kansas 21","FINAL","MIZ -5.5 / KU +5.5","50.5","MIZ -218 / KU +180","cfb-week-2-miz-ku.html","cfb-week-2-miz-ku-review.html","Cashed -5.5"],
   ["SAT SEPT 12",194,251,"#1 Ohio State at #4 Texas","7:30 ABC","TEX -1.5 / OSU +1.5","49.5","TEX -118 / OSU +100","cfb-week-2-osu-tex.html","","Spread held -1.5. Total 47.5 to 49.5"],
-  ["SAT SEPT 12",201,130,"#11 Oklahoma at Michigan","12:00 FOX","OU -3.5 / MICH +3.5","44.5","OU -166 / MICH +140","cfb-week-2-ou-mich.html","","Held -3.5 / 44.5"],
+  ["SAT SEPT 12",201,130,"#11 Oklahoma at Michigan","12:00 FOX","OU -5.5 (-108) / MICH +5.5 (-112)","43.5","OU -205 / MICH +170","cfb-week-2-ou-mich.html","","DK: OU -3.5 to -5.5. Total 44.5 to 43.5"],
   ["SAT SEPT 12",333,96,"#12 Alabama at Kentucky","3:30 ABC","ALA -10.5 / UK +10.5","48.5","ALA -380 / UK +300","cfb-week-2-ala-uk.html","","Held -10.5 / 48.5"],
   ["SAT SEPT 12",245,9,"#10 Texas A&M vs Arizona State","12:00 ABC","TA&M -13.5 / ASU +13.5","52.5","TA&M -550 / ASU +400","cfb-game.html?g=tamu-asu","","Held -13.5 / 52.5"],
   ["SAT SEPT 12",248,197,"#6 Oregon at Oklahoma State","12:00 ESPN","ORE -20.5 / OKST +20.5","55.5","ORE heavy","cfb-game.html?g=ore-okst","","Held -20.5 / 55.5"],

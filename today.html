@@ -34,7 +34,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SAT SEP 12, 2026</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:20 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 10:06 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block"><summary>TODAY'S TICKETS</summary>
@@ -49,7 +49,7 @@
 <script src="cfb-rank.js"></script>
 <script src="scores.js?v=4"></script>
 <script src="tracker.js?v=21"></script>
-<script src="stamp.js"></script>
+<script src="stamp.js?v=2"></script>
 <script>
 function gameScore(b){
   const map = window.SCORES || {};
@@ -85,6 +85,7 @@ renderToday = async function(){
   await _rt();
   const el = document.getElementById("card-date");
   if (el) el.textContent = prettyCard(cardDate());
+  if (window.splitStamp) splitStamp();
 };
 renderToday();
 if (window.closeAllTabs) closeAllTabs();

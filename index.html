@@ -1,113 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="UTF-8"/>
+<meta http-equiv="refresh" content="0; url=today.html"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split</title>
-<style>
-:root{--bg:#0b0f14;--panel:#121820;--line:#2a3644;--text:#e8eef5;--muted:#93a3b5;--gold:#d4a017;--ok:#3dd68c}
-*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",system-ui,sans-serif;background:#0b0f14;color:#e8eef5;line-height:1.45}
-.topnav{display:flex;justify-content:center;gap:18px;padding:12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#0b0f14;z-index:5}
-.topnav a{color:var(--gold);text-decoration:none;font-weight:800;font-size:13px;letter-spacing:.08em}
-header{padding:20px 24px 12px;text-align:center}
-h1{margin:4px 0 8px;font-size:48px;letter-spacing:.14em;font-weight:800}
-.sub,.note{color:var(--muted);font-size:15px}
-.wrap{max-width:920px;margin:0 auto;padding:8px 18px 56px}
-.bank,.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
-.bank div,.score{background:#121820;border:1px solid #2a3644;border-radius:12px;padding:12px;text-align:center}
-.bank b,.score b{display:block;color:#93a3b5;font-size:10px;letter-spacing:.1em}
-.bank span{font-size:20px;font-weight:800}
-.score span{font-size:14px;font-weight:800}
-.league,.subhead{background:#121820;border:1px solid #2a3644;border-radius:14px;margin:14px 0;overflow:hidden}
-.league>summary,.subhead>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;padding:16px 18px;font-weight:800}
-.subhead>summary{padding:12px 16px;font-size:15px;color:var(--gold);letter-spacing:.08em}
-.league>summary::after,.subhead>summary::after{content:"+";color:var(--gold)}
-.league[open]>summary::after,.subhead[open]>summary::after{content:"-"}
-.inner{padding:0 14px 16px;border-top:1px solid var(--line)}
-.weeks{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0}
-.weeks button{padding:10px 6px;border-radius:8px;border:1px solid var(--line);background:#0e141c;color:var(--muted);font-weight:700;cursor:pointer}
-.weeks button.on{border-color:var(--ok);color:var(--ok)}
-.g{display:flex;align-items:center;gap:10px;background:#0e141c;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;flex-wrap:wrap}
-.g img{width:28px;height:28px;object-fit:contain}.g b{flex:1;font-size:14px}.g span{color:var(--muted);font-size:12px}
-.day{color:var(--muted);font-size:11px;letter-spacing:.1em;margin:12px 0 4px;font-weight:700}
-.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 0;width:100%}
-.mini div{background:#121820;border:1px solid var(--line);border-radius:10px;padding:10px}
-.mini b{display:block;color:var(--muted);font-size:10px}.mini span{font-size:13px;font-weight:800;color:#e8eef5}
-.full-link{color:var(--gold);font-weight:800;text-decoration:none;font-size:12px}
-@media(max-width:640px){.weeks,.mini,.bank,.scores{grid-template-columns:1fr 1fr}h1{font-size:32px}}
-</style></head>
+<script>location.replace("today.html");</script>
+</head>
 <body>
-<div class="topnav"><a href="today.html">TODAY</a><a href="index.html">HOME</a><a href="reviews.html">BETTING REVIEWS</a></div>
-<header>
-<h1>THE SPLIT</h1>
-<div class="sub">Who is on who, what the line did, and which role players actually move a game.</div>
-<div class="bank" id="home-bank"></div>
-<p class="note" id="home-types"></p>
-</header>
-<div class="wrap">
-<h3 style="color:#d4a017;letter-spacing:.08em;font-size:13px">SCOREBOARD</h3>
-<p class="note" id="board-note">Finals first. Live games follow.</p>
-<div class="scores" id="home-scores"></div>
-<p class="note"><a class="full-link" href="reviews.html">Open the full book</a> &nbsp;·&nbsp; <a class="full-link" href="today.html">Today's tickets</a> &nbsp;·&nbsp; <a class="full-link" href="nfl-dfs-week-1.html">Week 1 DFS</a></p>
-
-<details class="league"><summary>NFL</summary>
-<div class="inner">
-<details class="subhead" id="deep-dives"><summary>DEEP DIVES</summary>
-<div class="inner"><div class="weeks" id="week-btns"></div><div id="slate"></div></div></details>
-<details class="subhead"><summary>DFS CHEAT SHEET</summary>
-<div class="inner"><div class="weeks" id="dfs-week-btns"></div></div></details>
-<details class="subhead"><summary>BET TRACKER</summary>
-<div class="inner"><p class="note">The full NFL book is on <a class="full-link" href="reviews.html">BETTING REVIEWS</a>.</p></div></details>
-</div></details>
-
-<details class="league"><summary>COLLEGE FOOTBALL</summary>
-<div class="inner">
-<details class="subhead"><summary>DEEP DIVES</summary>
-<div class="inner"><div class="weeks" id="cfb-week-btns"></div><div id="cfb-slate"></div></div></details>
-<details class="subhead"><summary>BET TRACKER</summary>
-<div class="inner"><p class="note">The full CFB book is on <a class="full-link" href="reviews.html">BETTING REVIEWS</a>.</p></div></details>
-</div></details>
-
-<details class="league"><summary>MLB</summary>
-<div class="inner">
-<details class="subhead"><summary>DEEP DIVES</summary>
-<div class="inner"><div id="mlb-cal"></div><div id="mlb-slate"></div></div></details>
-<details class="subhead"><summary>BET TRACKER</summary>
-<div class="inner"><p class="note">The full MLB book is on <a class="full-link" href="reviews.html">BETTING REVIEWS</a>.</p></div></details>
-</div></details>
-
-<details class="league"><summary>NBA</summary><div class="inner"><p class="note">Opens with the 2026-27 tip.</p></div></details>
-<details class="league"><summary>NHL</summary><div class="inner"><p class="note">Opens with the 2026-27 puck drop.</p></div></details>
-</div>
-<script src="last_pass.js?v=1"></script>
-<script src="scores.js?v=3"></script>
-<script src="schedule.js?v=16"></script>
-<script src="cfb.js?v=3"></script>
-<script src="mlb.js?v=5"></script>
-<script src="tracker.js?v=12"></script>
-<script src="stamp.js"></script>
-<script>
-renderHomeBank();
-(function(){
-  if (window.LAST_PASS) {
-    var n = document.getElementById("board-note");
-    if (n) n.textContent = window.LAST_PASS + " · Finals first, then live.";
-  }
-  const box = document.getElementById("home-scores");
-  if (!box) return;
-  const rows = (window.scoreEntries ? window.scoreEntries() : Object.entries(window.SCORES||{}));
-  const sport = window.SCORE_SPORT || {};
-  box.innerHTML = rows.length ? rows.map(function(pair){
-    const tag = sport[pair[0]] || "";
-    return '<div class="score"><b>'+tag+' '+pair[0]+'</b><span>'+pair[1]+'</span></div>';
-  }).join("") : '<div class="score"><b>BOARD</b><span>No live games</span></div>';
-  const dfs = document.getElementById("dfs-week-btns");
-  if (!dfs) return;
-  for (let i=1;i<=18;i++){
-    const b=document.createElement("button");
-    b.textContent="Week "+i;
-    if (i===1) b.classList.add("on");
-    b.onclick=()=>{ location.href = i===1 ? "nfl-dfs-week-1.html" : ("nfl-dfs-week.html?w="+i); };
-    dfs.appendChild(b);
-  }
-})();
-</script>
+<p><a href="today.html">TODAY</a> · <a href="nfl.html">NFL</a> · <a href="cfb.html">CFB</a> · <a href="mlb.html">MLB</a> · <a href="reviews.html">REVIEWS</a></p>
 </body></html>

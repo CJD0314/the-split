@@ -1,5 +1,7 @@
 # BET STANDARD
 
+Purpose: explore the whole market, post only live accurate DraftKings numbers, and get smarter after every card.
+
 Applies to every ticket on TODAY, Bet Tracker, and every full breakdown. No exceptions.
 
 ## What we post
@@ -24,8 +26,8 @@ Applies to every ticket on TODAY, Bet Tracker, and every full breakdown. No exce
 
 ## Stamp
 - LAST UPDATED rewrites on every page that changes.
-- Format: `LAST UPDATED: Sat Sep 12, 2026 10:18 a.m. ET`
 
 ## After the game
 - Grade off `booked`, not the moving current line.
 - Write REVIEW. Hook it. Public copy only: RIGHT / WRONG / MISSED / GET BETTER.
+- Carry the miss into the next card. Do not repeat the same default.

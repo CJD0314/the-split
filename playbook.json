@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11T23:35:00-04:00",
+  "updated": "2026-09-12T00:02:00-04:00",
   "how_we_use_this": "Rules we take into the next card.",
   "rules": [
     {"id":"nfl-backup-safety","sport":"NFL","from":"NE at SEA","rule":"Backup safeties do not equal 250 passing yards.","next":"Do not build a passing script off a name on the injury report. Need snaps and who actually covers."},
@@ -8,6 +8,8 @@
     {"id":"mlb-dog-starter","sport":"MLB","from":"PIT at CHC","rule":"A plus-money dog still needs the starter to keep it close.","next":"Do not bet a depth-arm dog unless the favorite is also throwing a short start."},
     {"id":"mlb-round-total","sport":"MLB","from":"COL at DET","rule":"A total that lands on the number is a trap when the board is a round 8.","next":"If the total is a whole number and soft, take the half-point or pass."},
     {"id":"mlb-hr-name","sport":"MLB","from":"COL at DET / HOU at TB / PIT at CHC","rule":"A three-hit night is not a homer. Do not force a HR on a name.","next":"HR tickets need launch angle, park, or wind. Name alone is not enough."},
-    {"id":"mlb-fade-juice","sport":"MLB","from":"KC at BOS","rule":"A -200 home favorite can still lose 3-2.","next":"If the juice is that heavy and the lean is weak, pass or take the dog."}
+    {"id":"mlb-fade-juice","sport":"MLB","from":"KC at BOS","rule":"A -200 home favorite can still lose 3-2.","next":"If the juice is that heavy and the lean is weak, pass or take the dog."},
+    {"id":"cfb-road-fav-run","sport":"CFB","from":"MIZ at KU","rule":"A road favorite that trails early can still cover if the run game takes over after the half.","next":"Do not panic on a flat first half when the back has 20-plus carries and the number is single digits."},
+    {"id":"mlb-extra-inn-ml","sport":"MLB","from":"PHI at ATL","rule":"An extra-inning home win still counts the same on the moneyline.","next":"If you are on the home ML in a tight game, stay to the end."}
   ]
 }

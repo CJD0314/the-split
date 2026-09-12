@@ -34,7 +34,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SAT SEP 12, 2026</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:02 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:05 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block"><summary>TODAY'S TICKETS</summary>
@@ -46,6 +46,7 @@
 <details class="block"><summary>FADES TO REMEMBER</summary>
 <div class="body" id="fades"></div></details>
 </div>
+<script src="cfb-rank.js"></script>
 <script src="scores.js?v=4"></script>
 <script src="tracker.js?v=21"></script>
 <script src="stamp.js"></script>
@@ -59,9 +60,10 @@ function flatRow(b){
   const href = b.href || "#";
   const day = (b.date || "").slice(5).replace("-", "/");
   const live = gameScore(b);
+  const name = b.sport === "CFB" && window.rankCfbGame ? window.rankCfbGame(b.game) : b.game;
   return `<div class="g-row">
     <div class="g-main">
-      <span class="g-name">${b.game}</span>
+      <span class="g-name">${name}</span>
       <span class="g-pick">${b.pick} · ${b.close || ""}</span>
       <span class="g-when">${day}${live ? " · " + live : ""}</span>
     </div>

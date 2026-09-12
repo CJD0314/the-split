@@ -34,7 +34,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SAT SEP 12, 2026</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 10:06 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 10:47 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block"><summary>TODAY'S TICKETS</summary>
@@ -48,9 +48,30 @@
 </div>
 <script src="cfb-rank.js"></script>
 <script src="scores.js?v=4"></script>
-<script src="tracker.js?v=21"></script>
+<script src="tracker.js?v=22"></script>
 <script src="stamp.js?v=2"></script>
 <script>
+const KICK = {
+  "OU at MICH":"12:00 p.m. ET", "ASU at TAMU":"12:00 p.m. ET", "ORE at OKST":"12:00 p.m. ET",
+  "HOW at IU":"12:00 p.m. ET", "PSU at TEM":"12:00 p.m. ET", "WKU at UGA":"12:45 p.m. ET",
+  "ALA at UK":"3:30 p.m. ET", "RICE at ND":"3:30 p.m. ET", "ARIZ at BYU":"3:30 p.m. ET",
+  "USU at WASH":"3:30 p.m. ET", "UCD at SMU":"4:00 p.m. ET",
+  "TENN at GT":"7:00 p.m. ET", "SOU at HOU":"7:00 p.m. ET",
+  "OSU at TEX":"7:30 p.m. ET", "LT at LSU":"7:30 p.m. ET", "TTU at ORST":"7:30 p.m. ET",
+  "ISU at IOWA":"7:30 p.m. ET", "CHAR at MISS":"7:45 p.m. ET",
+  "ARK at UTAH":"10:15 p.m. ET", "ULL at USC":"11:00 p.m. ET",
+  "COL at DET":"1:10 p.m. ET", "NYM at NYY":"1:35 p.m. ET", "PIT at CHC":"2:20 p.m. ET",
+  "BAL at TOR":"3:07 p.m. ET", "LAD at MIA":"4:10 p.m. ET"
+};
+function kickMin(game){
+  const t = KICK[game] || "";
+  const m = t.match(/(\d+):(\d+)\s*(a\.m\.|p\.m\.)/i);
+  if (!m) return 9999;
+  let h = Number(m[1]); const min = Number(m[2]);
+  if (/p/i.test(m[3]) && h !== 12) h += 12;
+  if (/a/i.test(m[3]) && h === 12) h = 0;
+  return h * 60 + min;
+}
 function gameScore(b){
   const map = window.SCORES || {};
   return map[(b.date || "") + "|" + b.game] || "";
@@ -59,13 +80,15 @@ function flatRow(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
   const href = b.href || "#";
   const day = (b.date || "").slice(5).replace("-", "/");
+  const kick = KICK[b.game] || "";
   const live = gameScore(b);
   const name = b.sport === "CFB" && window.rankCfbGame ? window.rankCfbGame(b.game) : b.game;
+  const when = [day, kick, live].filter(Boolean).join(" \u00b7 ");
   return `<div class="g-row">
     <div class="g-main">
       <span class="g-name">${name}</span>
       <span class="g-pick">${b.pick} \u00b7 ${b.close || ""}</span>
-      <span class="g-when">${day}${live ? " \u00b7 " + live : ""}</span>
+      <span class="g-when">${when}</span>
     </div>
     <div class="g-side">
       <span class="stamp ${conf.toLowerCase()}">${conf}</span>
@@ -80,6 +103,27 @@ function prettyCard(iso){
   const d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
   return d.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric", year:"numeric"}).toUpperCase();
 }
+const _fg = flatGameList;
+flatGameList = function(rows){
+  const seen = {};
+  const list = [];
+  (rows || []).slice().sort((a,b)=> kickMin(a.game) - kickMin(b.game)).forEach(b => {
+    if (seen[b.game]) return;
+    seen[b.game] = true;
+    list.push(b);
+  });
+  return list.map(flatRow).join("") || `<p class="note">Nothing posted.</p>`;
+};
+const _mb = mlbBuckets;
+mlbBuckets = function(rows){
+  const sort = (arr) => arr.slice().sort((a,b)=> kickMin(a.game) - kickMin(b.game) || typeOrder(a) - typeOrder(b));
+  const side = sort(rows.filter(b => !isTdHr(b) && !isPlayerProp(b)));
+  const hr = sort(rows.filter(b => String(b.type||"").toLowerCase()==="hr"));
+  const prop = sort(rows.filter(isPlayerProp));
+  return sportDrop("SIDE", side.map(flatRow).join(""), false)
+    + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false)
+    + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
+};
 const _rt = renderToday;
 renderToday = async function(){
   await _rt();

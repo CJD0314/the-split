@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>The Split -- MLB</title><link rel="stylesheet" href="dive.css"/></head>
-<body><div id="app"></div>
+<body><div class="topnav"><a href="today.html">TODAY</a><a href="index.html">HOME</a><a href="reviews.html">BETTING REVIEWS</a></div><div id="app"></div>
 <script src="mlb-data.js"></script>
 <script src="stamp.js"></script>
 <script>
@@ -7,23 +7,23 @@ const id = new URLSearchParams(location.search).get("id");
 const g = window.MLB && window.MLB[id];
 const L = c => "https://a.espncdn.com/i/teamlogos/mlb/500/"+c+".png";
 if (!g) {
-  document.getElementById("app").innerHTML = '<div class="topnav"><a href="index.html">HOME</a></div><div class="wrap"><p>Board for this game is still being filled.</p></div>';
+  document.getElementById("app").innerHTML = '<div class="wrap"><p>Board for this game is still being filled.</p></div>';
 } else {
   document.title = "The Split -- "+g.awayName+" at "+g.homeName;
   document.getElementById("app").innerHTML = `
-  <div class="topnav"><a href="index.html">HOME</a></div>
   <header><div class="brand">THE SPLIT</div><div class="week">MLB</div>
   <div class="logos"><img src="${L(g.away)}"/><img src="${L(g.home)}"/></div>
   <h1>${g.awayName.toUpperCase()} VS ${g.homeName.toUpperCase()}</h1>
   <div class="meta">${g.when}</div>
-  <div class="updated">LAST UPDATED: Fri Sep 11, 2026 6:59 p.m. ET</div></header>
+  <div class="updated">LAST UPDATED: Fri Sep 11, 2026 10:02 p.m. ET</div></header>
   <div class="wrap">
   <div class="market">
-    <div class="tile"><b>SPREAD</b><span>Current: ${g.spread}</span><span>Open: ${g.spread}</span></div>
-    <div class="tile"><b>TOTAL</b><span>Current: ${g.total}</span><span>Open: ${g.total}</span></div>
-    <div class="tile"><b>MONEYLINE</b><span>Current: ${g.ml}</span><span>Open: ${g.ml}</span></div>
+    <div class="tile"><b>SPREAD</b><span>Closed: ${g.spread}</span><span>Open: ${g.spread}</span></div>
+    <div class="tile"><b>TOTAL</b><span>Closed: ${g.total}</span><span>Open: ${g.total}</span></div>
+    <div class="tile"><b>MONEYLINE</b><span>Closed: ${g.ml}</span><span>Open: ${g.ml}</span></div>
     <div class="tile"><b>MOVE</b><span>${g.move}</span></div>
   </div>
+  <p class="note"><a class="full-link" href="reviews.html">BETTING REVIEWS</a> &nbsp;|&nbsp; <a class="full-link" href="today.html">TODAY</a></p>
   <details class="block" open><summary>TEAM BREAKDOWN</summary><div class="body">
     <div class="tb-row teams">
       <div class="team-head"><img src="${L(g.away)}"/><div><b>${g.awayName.toUpperCase()}</b><div class="note">${g.awayNote}</div></div></div>

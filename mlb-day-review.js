@@ -30,37 +30,21 @@ function mlbReviewDay(iso){
   });
   const box = document.getElementById("mlb-day-review");
   if (!box) return;
-  const list = (window.MLB_GAMES && MLB_GAMES[iso]) || [];
   const notes = MLB_DAY_NOTES[iso] || {held:[],broke:[],next:[]};
-  const finals = list.filter(function(g){ return String(g[3]).toUpperCase() === "FINAL"; });
-  const open = list.filter(function(g){ return String(g[3]).toUpperCase() !== "FINAL"; });
   function bullets(arr, empty){
     if (!arr.length) return "<p class='note'>"+empty+"</p>";
     return "<ul>"+arr.map(function(x){ return "<li>"+x+"</li>"; }).join("")+"</ul>";
   }
-  function row(g){
-    const title = g[2];
-    const when = g[3];
-    const extra = g[4] || "";
-    const href = g[9] || "#";
-    const review = g[10];
-    const rev = review ? " <a class='full-link' href='"+review+"'>REVIEW</a>" : "";
-    return "<div class='g'><b>"+title+"</b><a class='full-link' href='"+href+"'>GAME DETAIL</a>"+rev+"<span>"+when+" "+extra+"</span></div>";
-  }
   box.innerHTML =
-    "<p class='note'>"+iso+" · "+finals.length+" final · "+open.length+" still live</p>" +
-    "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>WHAT HELD</h3>" + bullets(notes.held, "No finals in yet.") +
+    "<p class='note'>"+iso+"</p>" +
+    "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>WHAT HELD</h3>" + bullets(notes.held, "Nothing posted.") +
     "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>WHAT BROKE</h3>" + bullets(notes.broke, "Nothing posted.") +
-    "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>RULES THAT MOVE TO THE NEXT CARD</h3>" + bullets(notes.next, "Nothing posted.") +
-    "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>FINALS</h3>" +
-    (finals.length ? finals.map(row).join("") : "<p class='note'>No finals yet.</p>") +
-    "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>STILL LIVE</h3>" +
-    (open.length ? open.map(row).join("") : "<p class='note'>Card is closed.</p>");
+    "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>RULES THAT MOVE TO THE NEXT CARD</h3>" + bullets(notes.next, "Nothing posted.");
 }
 (function(){
   const box = document.getElementById("mlb-review-days");
   if (!box) return;
-  const days = Object.keys(window.MLB_GAMES || {"2026-09-11":1,"2026-09-12":1}).sort();
+  const days = Object.keys(MLB_DAY_NOTES).sort();
   days.forEach(function(iso){
     const b = document.createElement("button");
     b.textContent = iso.slice(5);
@@ -68,6 +52,5 @@ function mlbReviewDay(iso){
     b.onclick = function(){ mlbReviewDay(iso); };
     box.appendChild(b);
   });
-  const start = (typeof MLB_TODAY === "string" && MLB_GAMES[MLB_TODAY]) ? MLB_TODAY : days[days.length-1];
-  mlbReviewDay(start || "2026-09-12");
+  mlbReviewDay(days[days.length-1] || "2026-09-12");
 })();

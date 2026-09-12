@@ -15,8 +15,8 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">NFL</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 10:28 a.m. ET</div>
 <div class="bank" id="sport-bank"></div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:20 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="subhead"><summary>DEEP DIVES</summary>
@@ -26,21 +26,12 @@
 </div>
 <script src="schedule.js?v=16"></script>
 <script src="tracker.js?v=21"></script>
-<script src="stamp.js"></script>
+<script src="stamp.js?v=2"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="NFL";})}));
+  if (window.splitStamp) splitStamp();
 });
-(function(){
-  const dfs = document.getElementById("dfs-week-btns");
-  for (let i=1;i<=18;i++){
-    const b=document.createElement("button");
-    b.textContent="Week "+i;
-    if (i===1) b.classList.add("on");
-    b.onclick=function(){ location.href = i===1 ? "nfl-dfs-week-1.html" : ("nfl-dfs-week.html?w="+i); };
-    dfs.appendChild(b);
-  }
-})();
 if (window.closeAllTabs) closeAllTabs();
 </script>
 </body></html>

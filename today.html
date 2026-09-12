@@ -27,14 +27,14 @@
 <a href="nfl.html">NFL</a>
 <a href="cfb.html">CFB</a>
 <a href="mlb.html">MLB</a>
-<a href="reviews.html">REVIEWS</a>
+<a href="reviews.html">BET TRACKER</a>
 </div>
 <header>
 <div class="brand">THE SPLIT</div>
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SAT SEP 12, 2026</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:05 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:20 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block"><summary>TODAY'S TICKETS</summary>
@@ -64,8 +64,8 @@ function flatRow(b){
   return `<div class="g-row">
     <div class="g-main">
       <span class="g-name">${name}</span>
-      <span class="g-pick">${b.pick} · ${b.close || ""}</span>
-      <span class="g-when">${day}${live ? " · " + live : ""}</span>
+      <span class="g-pick">${b.pick} \u00b7 ${b.close || ""}</span>
+      <span class="g-when">${day}${live ? " \u00b7 " + live : ""}</span>
     </div>
     <div class="g-side">
       <span class="stamp ${conf.toLowerCase()}">${conf}</span>
@@ -85,8 +85,6 @@ renderToday = async function(){
   await _rt();
   const el = document.getElementById("card-date");
   if (el) el.textContent = prettyCard(cardDate());
-  const line = document.getElementById("tagline");
-  if (line) line.remove();
 };
 renderToday();
 if (window.closeAllTabs) closeAllTabs();

@@ -87,7 +87,8 @@ function ticketLine(b){
   return `<div class="tix">
     <span class="tix-type">${typeLabel(b)}</span>
     <span class="tix-pick">${b.pick}</span>
-    <span class="tix-stake">$${b.stake} to win $${b.to_win}</span>
+    <span class="tix-num">$${b.stake}</span>
+    <span class="tix-num">$${b.to_win}</span>
     <span class="stamp ${conf.toLowerCase()}">${conf}</span>
     <span class="${resultClass(b)}">${res}</span>
   </div>`;
@@ -105,7 +106,7 @@ function groupByGame(rows){
     const sc = gameScore(list[0]);
     return `<div class="row">
       <div class="row-head"><b>${game}</b>${sc?`<span class="note">${sc}</span>`:""}<a href="${href}">GAME DETAIL</a></div>
-      <div class="tix-head"><span>TYPE</span><span>BET</span><span>STAKE</span><span>CONF</span><span>RESULT</span></div>
+      <div class="tix-head"><span>TYPE</span><span>BET</span><span>STAKE</span><span>TO WIN</span><span>CONF</span><span>RESULT</span></div>
       ${list.map(ticketLine).join("")}
     </div>`;
   }).join("");
@@ -134,7 +135,8 @@ function reviewRow(b){
     <td>${href}</td>
     <td>${typeLabel(b)} · ${b.pick}</td>
     <td>${clv(b)}</td>
-    <td>$${b.stake} to win $${b.to_win}</td>
+    <td>$${b.stake}</td>
+    <td>$${b.to_win}</td>
     <td>${b.confidence||"--"}</td>
     <td class="${resultClass(b)}">${resultText(b)}</td>
     <td>${pl}</td>
@@ -145,9 +147,9 @@ function reviewTable(rows){
   const settled = rows.filter(b => b.status === "SETTLED");
   const pl = settled.reduce((a,b)=>a+(Number(b.pl)||0),0);
   return `<table class="res">
-    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLV / CLOSE</th><th>STAKE</th><th>CONF</th><th>SCORE / RESULT</th><th>P/L</th></tr>
+    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLV / CLOSE</th><th>STAKE</th><th>TO WIN</th><th>CONF</th><th>SCORE / RESULT</th><th>P/L</th></tr>
     ${rows.map(reviewRow).join("")}
-    <tr class="total"><td colspan="7">SETTLED P/L</td><td>${money(pl)}</td></tr>
+    <tr class="total"><td colspan="8">SETTLED P/L</td><td>${money(pl)}</td></tr>
   </table>`;
 }
 function stampLine(data){
@@ -163,7 +165,7 @@ async function renderReviews(filter){
   const names = {NFL:"NFL",CFB:"COLLEGE FOOTBALL",MLB:"MLB",NBA:"NBA",NHL:"NHL"};
   const box = document.getElementById("review-tables");
   if (!box) return;
-  box.innerHTML = order.map((sp,i) => {
+  box.innerHTML = order.map((sp) => {
     const rows = (data.bets||[]).filter(b => b.sport === sp && passFilter(b, filter));
     const best = rows.filter(b => !isTdHr(b) && !isPlayerProp(b));
     const tdhr = rows.filter(isTdHr);

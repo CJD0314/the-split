@@ -6,7 +6,6 @@ function etDate(){
 }
 function cardDate(data){
   const live = etDate();
-  const booked = (data && data.today) || LEDGER_TODAY;
   return live;
 }
 function gameScore(b){
@@ -84,7 +83,7 @@ function groupByGame(rows){
     return `<div class="row">
       <b>${game}</b>${sc?` <span class="note">${sc}</span>`:""}
       ${list.map(ticketLine).join("")}
-      <a href="${href}">BOARD</a>
+      <a href="${href}">GAME DETAIL</a>
     </div>`;
   }).join("");
 }

@@ -43,7 +43,6 @@ loadLedger().then(function(data){
   }
   const right = rows.filter(b => b.result === "WIN");
   const wrong = rows.filter(b => b.result === "LOSS");
-  const push = rows.filter(b => b.result === "PUSH" || b.status !== "SETTLED");
   function list(arr, empty){
     if (!arr.length) return "<p class='note'>" + empty + "</p>";
     return "<ul>" + arr.map(b => "<li><b>" + typeLabel(b) + "</b> " + b.pick + " · " + (b.close||"") + " · " + (b.result || b.status) + "</li>").join("") + "</ul>";
@@ -52,8 +51,8 @@ loadLedger().then(function(data){
     <details class="block" open><summary>TICKETS</summary><div class="body">${list(rows, "None.")}</div></details>
     <details class="block" open><summary>WHAT WE GOT RIGHT</summary><div class="body">${list(right, "Nothing cashed.")}</div></details>
     <details class="block" open><summary>WHAT WE GOT WRONG</summary><div class="body">${list(wrong, "Nothing missed.")}</div></details>
-    <details class="block"><summary>WHAT WE MISSED</summary><div class="body"><p class="note">If the side was right and a prop sat LOCKED, the miss was not grading the full card the hour the final posted.</p></div></details>
-    <details class="block"><summary>GET BETTER</summary><div class="body"><p class="note">Use the close number. Do not reuse last night's final on a rematch. Fade 28-point CFB numbers.</p></div></details>
+    <details class="block"><summary>WHAT WE MISSED</summary><div class="body"><p class="note">A plus-money dog still needs the starter. A 28-point CFB number is a bench bet.</p></div></details>
+    <details class="block"><summary>GET BETTER</summary><div class="body"><p class="note">Do not reuse last night's final on a rematch. Fade juice through a short favorite.</p></div></details>
     <p><a class="full-link" href="reviews.html">FULL BOOK</a></p>`;
 });
 </script>

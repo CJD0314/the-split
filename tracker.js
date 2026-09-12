@@ -12,7 +12,7 @@ function isFire(b){
 function isFade(b){ return String(b.confidence || "").toUpperCase() === "FADE"; }
 function gameScore(b){
   const map = window.SCORES || {};
-  return b.final || map[b.game] || "";
+  return b.final || map[(b.date || "") + "|" + b.game] || map[b.game] || "";
 }
 function scoreLabel(sc){
   if (!sc) return "";
@@ -120,7 +120,7 @@ function flatRow(b){
   return `<div class="g-row">
     <div class="g-main">
       <span class="g-name">${b.game}</span>
-      <span class="g-pick">${b.pick}</span>
+      <span class="g-pick">${b.pick} \u00b7 ${b.close || ""}</span>
     </div>
     <div class="g-side">
       <span class="stamp ${conf.toLowerCase()}">${conf}</span>
@@ -277,18 +277,12 @@ async function renderToday(){
   if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No BET or LEAN tickets dated ${day}.</p>`;
   const fades = document.getElementById("fades");
   if (fades){
-    fades.innerHTML = order.map(sp => {
+    const away = order.map(sp => {
       const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day && isFade(b));
       if (!rows.length) return "";
-      const items = [];
-      const seen = {};
-      rows.forEach(b => {
-        if (seen[b.game + b.pick]) return;
-        seen[b.game + b.pick] = true;
-        items.push(b.game + " \u2014 " + b.pick + (b.close ? " \u00b7 " + b.close : ""));
-      });
-      return sportBlock(sp, "<ul>"+items.map(x=>"<li>"+x+"</li>").join("")+"</ul>");
-    }).filter(Boolean).join("") || `<p class="note">No fade tickets today.</p>`;
+      return sportDrop(sp, sportTodayHtml(sp, rows), false);
+    }).filter(Boolean);
+    fades.innerHTML = away.length ? away.join("") : `<p class="note">No stay-away tickets dated ${day}.</p>`;
   }
 }
 async function renderHomeBank(){

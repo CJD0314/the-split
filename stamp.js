@@ -2,7 +2,7 @@ function splitStamp(){
   if (document.querySelector(".updated")) return true;
   var header = document.querySelector("header");
   if (!header) return false;
-  var text = "LAST UPDATED: Fri Sep 11, 2026 7:25 p.m. ET";
+  var text = "LAST UPDATED: Fri Sep 11, 2026 9:17 p.m. ET";
   try {
     var parts = new Intl.DateTimeFormat("en-US", {
       timeZone: "America/New_York",

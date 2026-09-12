@@ -15,7 +15,7 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">NFL</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 11:27 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 1:15 p.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
@@ -38,27 +38,23 @@
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
 <div class="inner" id="team-identities"></div></details>
 </div>
-<script src="schedule.js?v=16"></script>
+<script src="schedule.js?v=18"></script>
 <script src="nfl-week-review.js"></script>
 <script src="nfl-identities.js"></script>
-<script src="tracker.js?v=22"></script>
-<script src="stamp.js?v=2"></script>
+<script src="tracker.js?v=25"></script>
+<script src="stamp.js?v=3"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="NFL";})}));
-  if (window.splitStamp) splitStamp();
 });
-if (window.closeAllTabs) closeAllTabs();
 (function(){
   const dfs = document.getElementById("dfs-week-btns");
   if (!dfs) return;
-  for (let i=1;i<=18;i++){
-    const b=document.createElement("button");
-    b.textContent="Week "+i;
-    if (i===1) b.classList.add("on");
-    b.onclick=function(){ location.href = i===1 ? "nfl-dfs-week-1.html" : ("nfl-dfs-week.html?w="+i); };
-    dfs.appendChild(b);
-  }
+  const b=document.createElement("button");
+  b.textContent="Week 1";
+  b.classList.add("on");
+  b.onclick=function(){ location.href = "nfl-dfs-week-1.html"; };
+  dfs.appendChild(b);
 })();
 </script>
 </body></html>

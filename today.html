@@ -6,6 +6,7 @@
 <style>
 .topnav{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 .topnav a.on{color:#3dd68c}
+.card-date{color:#3dd68c;font-size:16px;font-weight:800;letter-spacing:.12em;margin:8px 0 4px}
 .g-row{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #2a3644}
 .g-main{min-width:160px}
 .g-name{display:block;font-weight:800;font-size:14px}
@@ -30,12 +31,10 @@
 <header>
 <div class="brand">THE SPLIT</div>
 <div class="week">TODAY</div>
-<div class="meta" id="tagline">Saturday card. Odds are the number we took.</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:52 a.m. ET</div>
-<div class="updated" id="pass-line"></div>
+<div class="card-date" id="card-date">CARD DATE SAT SEP 12, 2026</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:01 a.m. ET</div>
 </header>
 <div class="wrap">
-<p class="note">Scores on this page are only today's game.</p>
 <details class="block"><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
 <details class="block"><summary>WHAT WE ARE CHANGING</summary>
@@ -45,15 +44,13 @@
 <details class="block"><summary>FADES TO REMEMBER</summary>
 <div class="body" id="fades"></div></details>
 </div>
-<script src="last_pass.js?v=1"></script>
 <script src="scores.js?v=4"></script>
 <script src="tracker.js?v=21"></script>
 <script src="stamp.js"></script>
 <script>
 function gameScore(b){
   const map = window.SCORES || {};
-  const key = (b.date || "") + "|" + b.game;
-  return map[key] || "";
+  return map[(b.date || "") + "|" + b.game] || "";
 }
 function flatRow(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
@@ -73,10 +70,21 @@ function flatRow(b){
     </div>
   </div>`;
 }
-if (window.LAST_PASS) {
-  var el = document.getElementById("pass-line");
-  if (el) el.textContent = window.LAST_PASS;
+function prettyCard(iso){
+  const p = (iso || "").split("-");
+  if (p.length !== 3) return iso || "";
+  const d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+  return d.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric", year:"numeric"}).toUpperCase();
 }
+const _rt = renderToday;
+renderToday = async function(){
+  await _rt();
+  const day = cardDate();
+  const el = document.getElementById("card-date");
+  if (el) el.textContent = "CARD DATE " + prettyCard(day);
+  const line = document.getElementById("tagline");
+  if (line) line.remove();
+};
 renderToday();
 if (window.closeAllTabs) closeAllTabs();
 </script>

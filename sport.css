@@ -22,8 +22,8 @@ h1,.brand{margin:0;font-size:28px;letter-spacing:.12em;font-weight:800}
 .weeks button{padding:7px 4px;border-radius:7px;border:1px solid var(--line);background:#0e141c;color:var(--muted);font-weight:700;font-size:12px;cursor:pointer}
 .weeks button.on{border-color:var(--ok);color:var(--ok)}
 .day{color:var(--muted);font-size:10px;letter-spacing:.1em;margin:10px 0 4px;font-weight:700}
-.g{display:flex;align-items:center;gap:8px;background:#0e141c;border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:6px 0;flex-wrap:wrap}
-.g img{width:20px;height:20px;object-fit:contain;flex:0 0 20px}
+.g{display:flex;align-items:center;gap:6px;background:#0e141c;border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:6px 0;flex-wrap:wrap}
+.g img{width:16px !important;height:16px !important;max-width:16px !important;object-fit:contain;flex:0 0 16px}
 .g b{flex:1;font-size:13px;font-weight:700}
 .g span{color:var(--muted);font-size:11px}
 .mini{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0 0;width:100%}

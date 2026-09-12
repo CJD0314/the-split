@@ -4,13 +4,25 @@ function etDate(){
     return new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric", month:"2-digit", day:"2-digit"}).format(new Date());
   } catch (e) { return LEDGER_TODAY; }
 }
-function cardDate(data){
-  const live = etDate();
-  return live;
-}
+function cardDate(){ return etDate(); }
 function gameScore(b){
   const map = window.SCORES || {};
   return b.final || map[b.game] || "";
+}
+function typeLabel(b){
+  const t = String(b.type||"").toLowerCase();
+  if (t === "hr") return "HR";
+  if (t === "td") return "TD";
+  if (t === "prop") return "PROP";
+  if (t === "total") return "TOTAL";
+  if (t === "ml") return "ML";
+  return "SIDE";
+}
+function typeOrder(b){
+  const t = String(b.type||"").toLowerCase();
+  if (t === "side" || t === "ml" || t === "total") return 0;
+  if (t === "td" || t === "hr") return 1;
+  return 2;
 }
 function clv(b){
   if (b.clv) return b.clv;
@@ -64,10 +76,11 @@ function renderBank(el, s){
 function ticketLine(b){
   const conf = String(b.confidence || "LEAN").toLowerCase();
   const sc = gameScore(b);
-  return `<div class="note" style="margin:6px 0">
+  return `<div class="note" style="margin:8px 0;padding:8px 0;border-top:1px solid #2a3644">
+    <div style="font-size:11px;letter-spacing:.08em;color:#d4a017;font-weight:800">${typeLabel(b)}</div>
     <span class="stamp ${String(b.status).toLowerCase()}">${b.status}</span>
     <span class="stamp ${conf}">${String(b.confidence || "LEAN").toUpperCase()}</span>
-    ${b.pick} · ${b.close} · $${b.stake} to win $${b.to_win}${sc?" · "+sc:""}${b.result?" · "+b.result:""}
+    ${b.pick} · ${b.close} · $${b.stake} to win $${b.to_win}${b.result?" · "+b.result:""}
   </div>`;
 }
 function groupByGame(rows){
@@ -78,6 +91,7 @@ function groupByGame(rows){
     map[k].push(b);
   });
   return Object.entries(map).map(([game, list]) => {
+    list.sort((a,b)=>typeOrder(a)-typeOrder(b));
     const href = list[0].href;
     const sc = gameScore(list[0]);
     return `<div class="row">
@@ -109,7 +123,7 @@ function reviewRow(b){
   return `<tr>
     <td>${(b.date||"").slice(5)}</td>
     <td>${href}</td>
-    <td>${b.pick}</td>
+    <td>${typeLabel(b)} · ${b.pick}</td>
     <td>${clv(b)}</td>
     <td>$${b.stake} to win $${b.to_win}</td>
     <td>${b.confidence||"--"}</td>

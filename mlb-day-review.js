@@ -1,3 +1,12 @@
+const MLB_QUICK = {
+  "2026-09-11": [
+    "Plus-money road dogs that kept the starter in the game cashed.",
+    "A -200 home favorite can still lose 3-2."
+  ],
+  "2026-09-12": [
+    "Do not glue Friday's final to Saturday's rematch."
+  ]
+};
 const MLB_DAY_NOTES = {
   "2026-09-11": {
     held: [
@@ -10,8 +19,7 @@ const MLB_DAY_NOTES = {
     ],
     next: [
       "Fire a plus-money dog only if the starter can keep it close.",
-      "Pass or take -1.5 when the ML is worse than -200.",
-      "Do not glue Friday's final to Saturday's rematch."
+      "Pass or take -1.5 when the ML is worse than -200."
     ]
   },
   "2026-09-12": {
@@ -19,8 +27,7 @@ const MLB_DAY_NOTES = {
     broke: [],
     next: [
       "Skenes vs Holmes is the live plus-money pile (PIT +104).",
-      "Yankees / Tigers juice stays FADE.",
-      "Do not reuse Friday scores on these rematches."
+      "Yankees / Tigers juice stays FADE."
     ]
   }
 };
@@ -31,12 +38,14 @@ function mlbReviewDay(iso){
   const box = document.getElementById("mlb-day-review");
   if (!box) return;
   const notes = MLB_DAY_NOTES[iso] || {held:[],broke:[],next:[]};
+  const quick = MLB_QUICK[iso] || [];
   function bullets(arr, empty){
     if (!arr.length) return "<p class='note'>"+empty+"</p>";
     return "<ul>"+arr.map(function(x){ return "<li>"+x+"</li>"; }).join("")+"</ul>";
   }
   box.innerHTML =
     "<p class='note'>"+iso+"</p>" +
+    "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>QUICK REVIEWS</h3>" + bullets(quick, "No quick notes this day.") +
     "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>WHAT HELD</h3>" + bullets(notes.held, "Nothing posted.") +
     "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>WHAT BROKE</h3>" + bullets(notes.broke, "Nothing posted.") +
     "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>RULES THAT MOVE TO THE NEXT CARD</h3>" + bullets(notes.next, "Nothing posted.");

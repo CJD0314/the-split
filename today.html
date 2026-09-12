@@ -8,11 +8,11 @@
 .row a{color:#d4a017;font-weight:800;text-decoration:none;font-size:12px}
 .row-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .row-head b{font-size:16px;flex:1}
-.tix-head,.tix{display:grid;grid-template-columns:56px 1fr 70px 70px 64px 64px;gap:8px;align-items:center;padding:8px 0;border-top:1px solid #2a3644;font-size:14px}
-.tix-head{border-top:none;color:#93a3b5;font-size:10px;letter-spacing:.08em;font-weight:800}
-.tix-type{color:#d4a017;font-weight:800;font-size:11px;letter-spacing:.06em}
-.tix-pick{font-weight:800}
-.tix-num{font-variant-numeric:tabular-nums;font-weight:700}
+.tix{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;padding:10px 0;border-top:1px solid #2a3644}
+.tix-type{color:#d4a017;font-weight:800;font-size:11px;letter-spacing:.08em}
+.tix-pick{grid-column:1 / -1;font-weight:800;font-size:18px}
+.tix-lab{display:block;color:#93a3b5;font-size:10px;letter-spacing:.08em;font-weight:800}
+.tix-num{font-variant-numeric:tabular-nums;font-weight:800;font-size:16px}
 .stamp{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;text-align:center}
 .stamp.open{background:#3d2a00;color:#d4a017}
 .stamp.locked{background:#0d2a1c;color:#3dd68c}
@@ -21,11 +21,6 @@
 .stamp.lean{background:#3d2a00;color:#d4a017}
 .stamp.fade{background:#3a1212;color:#ff6b6b}
 .ok{color:#3dd68c;font-weight:800}.loss{color:#ff6b6b;font-weight:800}.push{color:#d4a017;font-weight:800}
-@media(max-width:640px){
-  .tix-head{display:none}
-  .tix{grid-template-columns:1fr 1fr;gap:4px 10px}
-  .tix-pick{grid-column:1 / -1;font-size:16px}
-}
 </style></head>
 <body>
 <div class="topnav"><a href="today.html">TODAY</a><a href="index.html">HOME</a><a href="reviews.html">BETTING REVIEWS</a></div>
@@ -46,7 +41,7 @@
 </div>
 <script src="last_pass.js?v=1"></script>
 <script src="scores.js?v=3"></script>
-<script src="tracker.js?v=14"></script>
+<script src="tracker.js?v=15"></script>
 <script src="stamp.js"></script>
 <script>
 if (window.LAST_PASS) {

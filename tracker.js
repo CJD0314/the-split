@@ -115,7 +115,7 @@ function groupByGame(rows){
     const finished = list.some(b => b.status === "SETTLED" || b.final) || /^FINAL/i.test(sc);
     const tag = /live/i.test(sc) ? "LIVE" : (finished || sc ? "FINAL" : "PREGAME");
     const shown = sc.replace(/^FINAL\s*/i,"").replace(/^LIVE\s*/i,"");
-    const reviewHref = list[0].review_href || (href + "#review");
+    const reviewHref = list[0].review_href || String(href).replace(/\.html$/i, "-review.html");
     const reviewLink = finished ? `<a href="${reviewHref}">REVIEW</a>` : "";
     return `<details class="game">
       <summary><span class="g-name">${game}</span></summary>

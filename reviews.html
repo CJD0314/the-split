@@ -4,6 +4,8 @@
 <title>The Split -- Betting Reviews</title>
 <link rel="stylesheet" href="dive.css"/>
 <style>
+.topnav{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.topnav a.on{color:#3dd68c}
 .stamp{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800}
 table.res{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
 table.res th,table.res td{text-align:left;padding:8px 6px;border-bottom:1px solid #2a3644;vertical-align:top}
@@ -19,11 +21,18 @@ h3.track{color:#d4a017;font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
 .filters button.on{border-color:#d4a017;color:#d4a017}
 </style></head>
 <body>
-<div class="topnav"><a href="today.html">TODAY</a><a href="index.html">HOME</a><a href="reviews.html">BETTING REVIEWS</a></div>
+<div class="topnav">
+<a href="today.html">TODAY</a>
+<a href="nfl.html">NFL</a>
+<a href="cfb.html">CFB</a>
+<a href="mlb.html">MLB</a>
+<a class="on" href="reviews.html">REVIEWS</a>
+</div>
 <header>
   <div class="brand">THE SPLIT</div>
   <div class="week">BETTING REVIEWS</div>
-  <div class="meta">Filter by confidence. Scores refresh every two minutes.</div>
+  <div class="meta">Filter by confidence.</div>
+  <div class="updated">LAST UPDATED: Fri Sep 11, 2026 11:45 p.m. ET</div>
 </header>
 <div class="wrap">
   <div class="bank" id="review-bank"></div>
@@ -35,7 +44,7 @@ h3.track{color:#d4a017;font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
   </div>
   <div id="review-tables"><p class="note">Loading ledger...</p></div>
 </div>
-<script src="tracker.js?v=12"></script>
+<script src="tracker.js?v=20"></script>
 <script src="stamp.js"></script>
 <script>
 window.REVIEW_FILTER = "ALL";

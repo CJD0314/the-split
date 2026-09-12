@@ -19,40 +19,17 @@ function splitNav(){
   }).join("");
 }
 function closeAllTabs(){
-  document.querySelectorAll("details[open]").forEach(function(d){ d.removeAttribute("open"); });
-}
-function etStamp(){
-  try {
-    var parts = new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/New_York",
-      weekday: "short", month: "short", day: "numeric", year: "numeric",
-      hour: "numeric", minute: "2-digit", hour12: true
-    }).formatToParts(new Date());
-    var get = function(t){ return (parts.find(function(p){ return p.type===t; })||{}).value; };
-    return "LAST UPDATED: " + get("weekday") + " " + get("month") + " " + get("day") + ", " + get("year") + " " + get("hour") + ":" + get("minute") + " " + String(get("dayPeriod")||"PM").toLowerCase() + " ET";
-  } catch (e) {
-    return "LAST UPDATED: Sat Sep 12, 2026 10:06 a.m. ET";
-  }
+  document.querySelectorAll("details[open]").forEach(function(d){
+    if (d.id === "tickets-block") return;
+    d.removeAttribute("open");
+  });
 }
 function splitStamp(){
   splitNav();
-  closeAllTabs();
-  var text = window.SPLIT_UPDATED || etStamp();
-  var el = document.querySelector(".updated");
-  if (!el) {
-    var header = document.querySelector("header");
-    if (!header) return false;
-    el = document.createElement("div");
-    el.className = "updated";
-    header.appendChild(el);
-  }
-  el.textContent = text;
   return true;
 }
 (function(){
   splitNav();
-  closeAllTabs();
-  splitStamp();
-  document.addEventListener("DOMContentLoaded", function(){ splitNav(); closeAllTabs(); splitStamp(); });
-  window.addEventListener("load", function(){ splitNav(); closeAllTabs(); splitStamp(); });
+  document.addEventListener("DOMContentLoaded", splitNav);
+  window.addEventListener("load", splitNav);
 })();

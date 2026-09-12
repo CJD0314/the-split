@@ -34,7 +34,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SAT SEP 12, 2026</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 12:50 p.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 1:00 p.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -44,7 +44,7 @@
 </div>
 <script src="cfb-rank.js"></script>
 <script src="scores.js?v=5"></script>
-<script src="tracker.js?v=24"></script>
+<script src="tracker.js?v=25"></script>
 <script src="stamp.js?v=2"></script>
 <script>
 const KICK = {
@@ -120,6 +120,19 @@ function mlbBuckets(rows){
     + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false)
     + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
 }
+async function paintStayAway(){
+  const data = await loadLedger();
+  const day = cardDate();
+  const order = ["NFL","CFB","MLB"];
+  const fades = document.getElementById("fades");
+  if (!fades) return;
+  const away = order.map(sp => {
+    const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day && isFade(b) && !isTdHr(b) && !isPlayerProp(b));
+    if (!rows.length) return "";
+    return sportDrop(sp, flatGameList(rows), false);
+  }).filter(Boolean);
+  fades.innerHTML = away.length ? away.join("") : `<p class="note">No stay-away tickets dated ${day}.</p>`;
+}
 function keepTicketsOpen(){
   const el = document.getElementById("tickets-block");
   if (el) el.setAttribute("open", "");
@@ -127,6 +140,7 @@ function keepTicketsOpen(){
 const _rt = renderToday;
 renderToday = async function(){
   await _rt();
+  await paintStayAway();
   const el = document.getElementById("card-date");
   if (el) el.textContent = prettyCard(cardDate());
   if (window.splitStamp) splitStamp();

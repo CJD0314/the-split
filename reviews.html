@@ -31,14 +31,29 @@ h3.track{color:#d4a017;font-size:13px;letter-spacing:.08em;margin:16px 0 6px}
 <header>
   <div class="brand">THE SPLIT</div>
   <div class="week">BETTING REVIEWS</div>
-  <div class="meta">Scores update with the hourly pass. Finals stay. Live lines are marked LIVE.</div>
+  <div class="meta" id="review-stamp">Ledger refreshes on this page every two minutes. Hourly job writes the file.</div>
 </header>
 <div class="wrap">
   <div class="bank" id="review-bank"></div>
   <p class="note">BET = fire a unit. LEAN = half unit or skip. FADE = posted for the card; would not fire real money.</p>
   <div id="review-tables"><p class="note">Loading ledger...</p></div>
 </div>
-<script src="scores.js?v=1"></script>
 <script src="tracker.js?v=8"></script>
-<script>renderReviews();</script>
+<script>
+function loadScores(){
+  return new Promise(function(ok){
+    var s = document.createElement("script");
+    s.src = "scores.js?v=" + Date.now();
+    s.onload = ok;
+    s.onerror = ok;
+    document.body.appendChild(s);
+  });
+}
+async function refreshReviews(){
+  await loadScores();
+  await renderReviews();
+}
+refreshReviews();
+setInterval(refreshReviews, 120000);
+</script>
 </body></html>

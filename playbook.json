@@ -1,14 +1,13 @@
 {
-  "updated": "2026-09-11T23:31:00-04:00",
-  "how_we_use_this": "Every new board has to name the matching rule in BEST BET or FADES. If the rule says pass, we pass.",
+  "updated": "2026-09-11T23:35:00-04:00",
+  "how_we_use_this": "Rules we take into the next card.",
   "rules": [
     {"id":"nfl-backup-safety","sport":"NFL","from":"NE at SEA","rule":"Backup safeties do not equal 250 passing yards.","next":"Do not build a passing script off a name on the injury report. Need snaps and who actually covers."},
-    {"id":"nfl-short-week-fav","sport":"NFL","from":"SF at LAR","rule":"A short-week road favorite can look dead even when the name is bigger.","next":"Fade or pass the short-week favorite unless the rest and travel lean our way."},
-    {"id":"cfb-fcs-number","sport":"CFB","from":"FAMU at MIA / VILL at LOU / NORF at UVA","rule":"A 50-point FCS win is not a license to lay 35-plus the next Friday.","next":"Treat a 40-point FCS number as a bench bet. If confidence is FADE, do not fire a full unit."},
+    {"id":"nfl-short-week-fav","sport":"NFL","from":"SF at LAR","rule":"A short-week road favorite can look dead even when the name is bigger.","next":"Fade or pass the short-week favorite unless rest and travel lean our way."},
+    {"id":"cfb-fcs-number","sport":"CFB","from":"FAMU at MIA / VILL at LOU / NORF at UVA","rule":"A 50-point FCS win is not a license to lay 35-plus the next Friday.","next":"Treat a 40-point FCS number as a bench bet."},
     {"id":"mlb-dog-starter","sport":"MLB","from":"PIT at CHC","rule":"A plus-money dog still needs the starter to keep it close.","next":"Do not bet a depth-arm dog unless the favorite is also throwing a short start."},
     {"id":"mlb-round-total","sport":"MLB","from":"COL at DET","rule":"A total that lands on the number is a trap when the board is a round 8.","next":"If the total is a whole number and soft, take the half-point or pass."},
-    {"id":"mlb-hr-name","sport":"MLB","from":"COL at DET / HOU at TB / PIT at CHC","rule":"A three-hit night is not a homer. Do not force a HR on a name.","next":"HR tickets need launch angle, park, or wind. Name plus salary is not enough."},
-    {"id":"mlb-fade-juice","sport":"MLB","from":"KC at BOS / LAD at MIA / CIN at MIL","rule":"If confidence is FADE, do not fire a -200 favorite just to fill the card.","next":"FADE means pass or take the dog. Filling the card is not a reason."},
-    {"id":"mlb-three-tickets","sport":"MLB","from":"BAL at TOR","rule":"ML-only first passes leave HR and props ungraded.","next":"Every boarded MLB game gets ML/side, HR, and prop on the first pass."}
+    {"id":"mlb-hr-name","sport":"MLB","from":"COL at DET / HOU at TB / PIT at CHC","rule":"A three-hit night is not a homer. Do not force a HR on a name.","next":"HR tickets need launch angle, park, or wind. Name alone is not enough."},
+    {"id":"mlb-fade-juice","sport":"MLB","from":"KC at BOS","rule":"A -200 home favorite can still lose 3-2.","next":"If the juice is that heavy and the lean is weak, pass or take the dog."}
   ]
 }

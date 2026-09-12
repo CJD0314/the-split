@@ -12,7 +12,7 @@ function gameScore(b){
 function scoreLabel(sc){
   if (!sc) return "";
   const s = String(sc);
-  if (/final/i.test(s)) return s.toUpperCase().indexOf("FINAL") === 0 ? s : "FINAL  " + s.replace(/^FINAL\s*/i,"");
+  if (/final/i.test(s)) return s;
   if (/live|inning|qtr|quarter/i.test(s)) return s;
   return "FINAL  " + s;
 }
@@ -110,16 +110,19 @@ function groupByGame(rows){
   });
   return Object.entries(map).map(([game, list]) => {
     list.sort((a,b)=>typeOrder(a)-typeOrder(b));
-    const href = list[0].href;
+    const href = list[0].href || "#";
     const sc = scoreLabel(gameScore(list[0]));
-    const tag = /live/i.test(sc) ? "LIVE" : (sc ? "FINAL" : "PREGAME");
+    const finished = list.some(b => b.status === "SETTLED" || b.final) || /^FINAL/i.test(sc);
+    const tag = /live/i.test(sc) ? "LIVE" : (finished || sc ? "FINAL" : "PREGAME");
     const shown = sc.replace(/^FINAL\s*/i,"").replace(/^LIVE\s*/i,"");
+    const reviewHref = list[0].review_href || (href + "#review");
+    const reviewLink = finished ? `<a href="${reviewHref}">REVIEW</a>` : "";
     return `<details class="game">
       <summary><span class="g-name">${game}</span></summary>
       <div class="scorebox"><b>${tag}</b><span>${shown || "--"}</span></div>
       <div class="body">
         ${list.map(ticketLine).join("")}
-        <a href="${href}">GAME DETAIL</a>
+        <div class="links"><a href="${href}">GAME DETAIL</a>${reviewLink}</div>
       </div>
     </details>`;
   }).join("");

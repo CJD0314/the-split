@@ -48,7 +48,8 @@ function row(g){
     const x = TILES[extra];
     return card(x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], a, h, t, n, x[9]);
   }
-  return `<div class="g"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${(NAMES[a]||a)+" at "+(NAMES[h]||h)}</b><a class="full-link" href="nfl-week-1-"+a+"-"+h+".html">FULL BREAKDOWN</a><span>${t} ${n}</span></div>`;
+  const href = "nfl-week-1-" + a + "-" + h + ".html";
+  return `<div class="g"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${(NAMES[a]||a)+" at "+(NAMES[h]||h)}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a><span>${t} ${n}</span></div>`;
 }
 function show(week){
   document.querySelectorAll("#week-btns button").forEach((b)=>{

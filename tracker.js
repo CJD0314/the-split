@@ -9,6 +9,13 @@ function gameScore(b){
   const map = window.SCORES || {};
   return b.final || map[b.game] || "";
 }
+function scoreLabel(sc){
+  if (!sc) return "";
+  const s = String(sc);
+  if (/final/i.test(s)) return s.toUpperCase().indexOf("FINAL") === 0 ? s : "FINAL  " + s.replace(/^FINAL\s*/i,"");
+  if (/live|inning|qtr|quarter/i.test(s)) return s;
+  return "FINAL  " + s;
+}
 function isTdHr(b){ const t=String(b.type||"").toLowerCase(); return t==="td"||t==="hr"; }
 function isPlayerProp(b){ return String(b.type||"").toLowerCase()==="prop"; }
 function keepTicket(b){
@@ -85,21 +92,14 @@ function ticketLine(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
   const res = b.result || b.status;
   return `<div class="slip">
-    <div class="slip-type">${typeLabel(b)}</div>
-    <div class="slip-pick">${b.pick}</div>
-    <div class="slip-money">
+    <div class="slip-top"><span class="slip-type">${typeLabel(b)}</span><span class="slip-pick">${b.pick}</span></div>
+    <div class="slip-meta">
       <div><b>STAKE</b><span>$${b.stake}</span></div>
       <div><b>TO WIN</b><span>$${b.to_win}</span></div>
-    </div>
-    <div class="slip-foot">
-      <span class="stamp ${conf.toLowerCase()}">${conf}</span>
-      <span class="${resultClass(b)}">${res}</span>
+      <div><b>CONFIDENCE</b><span class="stamp ${conf.toLowerCase()}">${conf}</span></div>
+      <div><b>RESULT</b><span class="${resultClass(b)}">${res}</span></div>
     </div>
   </div>`;
-}
-function gameHeadline(list){
-  const main = list.find(b => !isTdHr(b) && !isPlayerProp(b)) || list[0];
-  return main.result || main.status || "";
 }
 function groupByGame(rows){
   const map = {};
@@ -111,11 +111,12 @@ function groupByGame(rows){
   return Object.entries(map).map(([game, list]) => {
     list.sort((a,b)=>typeOrder(a)-typeOrder(b));
     const href = list[0].href;
-    const sc = gameScore(list[0]);
-    const head = gameHeadline(list);
-    const main = list.find(b => !isTdHr(b) && !isPlayerProp(b)) || list[0];
+    const sc = scoreLabel(gameScore(list[0]));
+    const tag = /live/i.test(sc) ? "LIVE" : (sc ? "FINAL" : "PREGAME");
+    const shown = sc.replace(/^FINAL\s*/i,"").replace(/^LIVE\s*/i,"");
     return `<details class="game">
-      <summary><span class="g-name">${game}</span><span class="g-score">${sc||""}</span><span class="${resultClass(main)}">${head}</span></summary>
+      <summary><span class="g-name">${game}</span></summary>
+      <div class="scorebox"><b>${tag}</b><span>${shown || "--"}</span></div>
       <div class="body">
         ${list.map(ticketLine).join("")}
         <a href="${href}">GAME DETAIL</a>

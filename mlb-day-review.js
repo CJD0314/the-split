@@ -6,7 +6,9 @@ const MLB_QUICK = {
   "2026-09-12": [
     "Cole ER over and Soto HR cashed; Yankees -186 died 12-2.",
     "Skenes under 5.5 K held; Pirates ML lost one run.",
-    "Tigers -175 FADE still won; Greene HR missed again."
+    "Tigers -175 FADE still won; Greene HR missed again.",
+    "Orioles +114 dead 5-0 after three. O'Hearn and Ohtani were not in the lineup.",
+    "Glasnow 7 K in 4 IP. 7.5 over lost because the leash died, not the stuff."
   ]
 };
 const MLB_DAY_NOTES = {
@@ -33,12 +35,17 @@ const MLB_DAY_NOTES = {
     broke: [
       "Yankees -186 got destroyed 12-2. Heavy home juice remains a FADE.",
       "Pirates +104 lost 4-3. Close does not cash.",
-      "Greene HR missed a second straight day despite multi-hit contact."
+      "Greene HR missed a second straight day despite multi-hit contact.",
+      "Orioles ML dead 7-3. Henderson doubled off the wall. That is not the HR.",
+      "Dodgers -1.5 and Glasnow o7.5 both died when Glasnow lasted four innings.",
+      "O'Hearn and Ohtani tickets posted on bats that did not play."
     ],
     next: [
       "Pitcher ER overs when the starter is leaking beat favorite ML tickets.",
       "Skenes K unders at 5.5 stay live.",
-      "Anytime HR needs more than a hot bat name."
+      "Anytime HR needs more than a hot bat name.",
+      "Confirm the lineup at first pitch or void the prop.",
+      "A 7.5 K over and a road run line both need the starter to finish five."
     ]
   }
 };

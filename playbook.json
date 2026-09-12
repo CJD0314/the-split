@@ -1,14 +1,21 @@
 {
-  "updated": "2026-09-12T00:02:00-04:00",
+  "updated": "2026-09-12T19:50:00-04:00",
   "how_we_use_this": "Rules we take into the next card.",
   "rules": [
     {"id":"nfl-backup-safety","sport":"NFL","from":"NE at SEA","rule":"Backup safeties do not equal 250 passing yards.","next":"Do not build a passing script off a name on the injury report. Need snaps and who actually covers."},
     {"id":"nfl-short-week-fav","sport":"NFL","from":"SF at LAR","rule":"A short-week road favorite can look dead even when the name is bigger.","next":"Fade or pass the short-week favorite unless rest and travel lean our way."},
-    {"id":"cfb-fcs-number","sport":"CFB","from":"FAMU at MIA / VILL at LOU / NORF at UVA","rule":"A 50-point FCS win is not a license to lay 35-plus the next Friday.","next":"Treat a 40-point FCS number as a bench bet."},
-    {"id":"mlb-dog-starter","sport":"MLB","from":"PIT at CHC","rule":"A plus-money dog still needs the starter to keep it close.","next":"Do not bet a depth-arm dog unless the favorite is also throwing a short start."},
+    {"id":"cfb-fcs-number","sport":"CFB","from":"FAMU at MIA / VILL at LOU / NORF at UVA / WKU at UGA / RICE at ND / UCD at SMU","rule":"A 50-point FCS or G5 win is not a license to lay 35-plus the next week.","next":"Treat a 35-point maintenance number as a bench bet even when it cashes."},
+    {"id":"cfb-road-20","sport":"CFB","from":"ORE at OKST","rule":"Do not lay 20-plus on the road one week after a one-score opener.","next":"If the market adds points after a sloppy win, pass. That is a FADE, not a LEAN."},
+    {"id":"cfb-home-28-thin","sport":"CFB","from":"USU at WASH","rule":"A 28-point home favorite with two tailbacks out is not a maintenance number.","next":"FADE means do not post the favorite just to fill the card. Pass or take the dog."},
+    {"id":"cfb-sec-second-half","sport":"CFB","from":"ALA at UK","rule":"A modest SEC road favorite can trail at half and still cover if the home dog cannot convert third downs.","next":"Do not fade a 7-to-10 point SEC number off a sloppy first half. Wait a series."},
+    {"id":"cfb-real-seven","sport":"CFB","from":"ARIZ at BYU / MIZ at KU","rule":"A 6-to-7 point ranked home or road favorite in a real conference game is a live ticket.","next":"Do not lump a touchdown number with 28-point paycheck fades."},
+    {"id":"mlb-dog-starter","sport":"MLB","from":"PIT at CHC","rule":"A plus-money dog still needs the starter to keep it close.","next":"Do not bet a depth-arm dog unless the favorite is also throwing a short start. 5-0 after three is dead."},
     {"id":"mlb-round-total","sport":"MLB","from":"COL at DET","rule":"A total that lands on the number is a trap when the board is a round 8.","next":"If the total is a whole number and soft, take the half-point or pass."},
-    {"id":"mlb-hr-name","sport":"MLB","from":"COL at DET / HOU at TB / PIT at CHC","rule":"A three-hit night is not a homer. Do not force a HR on a name.","next":"HR tickets need launch angle, park, or wind. Name alone is not enough."},
-    {"id":"mlb-fade-juice","sport":"MLB","from":"KC at BOS","rule":"A -200 home favorite can still lose 3-2.","next":"If the juice is that heavy and the lean is weak, pass or take the dog."},
+    {"id":"mlb-hr-name","sport":"MLB","from":"COL at DET / HOU at TB / PIT at CHC / BAL at TOR","rule":"A double off the wall is not a homer. Do not force a HR on a name.","next":"HR tickets need launch angle, park, or wind. Name alone is not enough."},
+    {"id":"mlb-lineup-lock","sport":"MLB","from":"BAL at TOR / LAD at MIA","rule":"A player who is not in the lineup is a void, not a lean.","next":"Confirm the card at first pitch before the HR or prop is locked."},
+    {"id":"mlb-k-leash","sport":"MLB","from":"LAD at MIA","rule":"A 7.5 strikeout over needs a six-inning leash.","next":"Four innings of 7 K still loses. Do not post 7.5 unless the starter finishes five."},
+    {"id":"mlb-runline-five","sport":"MLB","from":"LAD at MIA","rule":"A road run line needs the starter to finish five.","next":"Four innings and four runs is an automatic -1.5 loss. Use the ML if you need the favorite."},
+    {"id":"mlb-fade-juice","sport":"MLB","from":"KC at BOS / NYM at NYY","rule":"A -180 to -200 home favorite can still lose by 10.","next":"If the juice is that heavy and the lean is weak, pass or take the dog. Props are the real card."},
     {"id":"cfb-road-fav-run","sport":"CFB","from":"MIZ at KU","rule":"A road favorite that trails early can still cover if the run game takes over after the half.","next":"Do not panic on a flat first half when the back has 20-plus carries and the number is single digits."},
     {"id":"mlb-extra-inn-ml","sport":"MLB","from":"PHI at ATL","rule":"An extra-inning home win still counts the same on the moneyline.","next":"If you are on the home ML in a tight game, stay to the end."}
   ]

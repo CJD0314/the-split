@@ -9,6 +9,12 @@ function gameScore(b){
   const map = window.SCORES || {};
   return b.final || map[b.game] || "";
 }
+function isTdHr(b){ const t=String(b.type||"").toLowerCase(); return t==="td"||t==="hr"; }
+function isPlayerProp(b){ return String(b.type||"").toLowerCase()==="prop"; }
+function keepTicket(b){
+  if (String(b.sport||"").toUpperCase() === "CFB" && (isTdHr(b) || isPlayerProp(b))) return false;
+  return true;
+}
 function typeLabel(b){
   const t = String(b.type||"").toLowerCase();
   if (t === "hr") return "HR";
@@ -39,7 +45,9 @@ function passFilter(b, filter){
 }
 async function loadLedger(){
   const r = await fetch("tracker.json?v=" + Date.now());
-  return r.json();
+  const data = await r.json();
+  data.bets = (data.bets || []).filter(keepTicket);
+  return data;
 }
 function money(n){
   if (n == null || n === "") return "--";
@@ -75,7 +83,6 @@ function renderBank(el, s){
 }
 function ticketLine(b){
   const conf = String(b.confidence || "LEAN").toLowerCase();
-  const sc = gameScore(b);
   return `<div class="note" style="margin:8px 0;padding:8px 0;border-top:1px solid #2a3644">
     <div style="font-size:11px;letter-spacing:.08em;color:#d4a017;font-weight:800">${typeLabel(b)}</div>
     <span class="stamp ${String(b.status).toLowerCase()}">${b.status}</span>
@@ -141,8 +148,6 @@ function reviewTable(rows){
     <tr class="total"><td colspan="7">SETTLED P/L</td><td>${money(pl)}</td></tr>
   </table>`;
 }
-function isTdHr(b){ const t=String(b.type||"").toLowerCase(); return t==="td"||t==="hr"; }
-function isPlayerProp(b){ return String(b.type||"").toLowerCase()==="prop"; }
 function stampLine(data){
   return data && data.updated ? "Ledger " + data.updated.replace("T"," ") : "";
 }
@@ -161,9 +166,10 @@ async function renderReviews(filter){
     const best = rows.filter(b => !isTdHr(b) && !isPlayerProp(b));
     const tdhr = rows.filter(isTdHr);
     const props = rows.filter(isPlayerProp);
-    const inner = rows.length
-      ? `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`
-      : `<p class="note">No tickets in this filter.</p>`;
+    let inner;
+    if (!rows.length) inner = `<p class="note">No tickets in this filter.</p>`;
+    else if (sp === "CFB") inner = `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}`;
+    else inner = `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`;
     return sportDrop(names[sp], inner, i===0);
   }).join("");
 }

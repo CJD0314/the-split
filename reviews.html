@@ -13,16 +13,17 @@
 .filters button{background:#0e141c;border:1px solid #2a3644;color:#93a3b5;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
 .filters button.on{border-color:#d4a017;color:#d4a017}
 h3.track{color:#d4a017;font-size:12px;letter-spacing:.1em;margin:18px 0 8px}
-.slip-row{display:grid;grid-template-columns:72px 1fr 90px 70px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #2a3644}
+.slip-row{display:grid;grid-template-columns:64px 1fr 88px 64px;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid #2a3644}
 .slip-row .when{color:#93a3b5;font-size:11px;font-weight:800}
 .slip-row .gm{font-weight:800;font-size:13px}
 .slip-row .tk{color:#e8eef5;font-size:12px;margin-top:2px}
 .slip-row .meta{color:#93a3b5;font-size:11px;margin-top:2px}
 .slip-row .sc{color:#93a3b5;font-size:12px;font-weight:800;text-align:right}
-.slip-row .pl{text-align:right;font-weight:800}
+.slip-row .pl{text-align:right;font-weight:800;font-size:13px}
 .ok{color:#3dd68c}.loss{color:#ff6b6b}.push{color:#d4a017}
+.dayline{color:#93a3b5;font-size:10px;letter-spacing:.12em;margin:14px 0 4px;font-weight:800}
 @media(max-width:640px){
-  .slip-row{grid-template-columns:1fr 70px}
+  .slip-row{grid-template-columns:1fr 72px}
   .slip-row .when,.slip-row .pl{display:none}
   .bank{grid-template-columns:1fr 1fr}
 }
@@ -51,10 +52,47 @@ h3.track{color:#d4a017;font-size:12px;letter-spacing:.1em;margin:18px 0 8px}
   <div id="review-tables"><p class="note">Loading ledger...</p></div>
 </div>
 <script src="scores.js?v=6"></script>
-<script src="tracker.js?v=24"></script>
+<script src="tracker.js?v=23"></script>
 <script src="stamp.js?v=2"></script>
 <script>
 window.REVIEW_FILTER = "ALL";
+function gameScore(b){
+  const map = window.SCORES || {};
+  return b.final || map[(b.date || "") + "|" + b.game] || map[b.game] || "";
+}
+function reviewRow(b){
+  const href = b.href ? `<a class="full-link" href="${b.href}">${b.game}</a>` : b.game;
+  const pl = b.status === "SETTLED" ? money(b.pl) : "--";
+  const sc = scoreLabel(gameScore(b)).replace(/^FINAL\s*/i,"");
+  const day = (b.date || "").slice(5).replace("-", "/");
+  const res = b.status === "SETTLED" ? (b.result || "") : (b.status || "OPEN");
+  return `<div class="slip-row">
+    <div class="when">${day}</div>
+    <div>
+      <div class="gm">${href}</div>
+      <div class="tk">${typeLabel(b)} \u00b7 ${b.pick} \u00b7 ${b.close || b.booked || ""}</div>
+      <div class="meta">${b.confidence || "--"} \u00b7 $${b.stake} to win $${b.to_win}</div>
+    </div>
+    <div class="sc">${sc || "--"}<div class="${resultClass(b)}">${res}</div></div>
+    <div class="pl ${resultClass(b)}">${pl}</div>
+  </div>`;
+}
+function reviewTable(rows){
+  if (!rows.length) return `<p class="note">No tickets.</p>`;
+  const settled = rows.filter(b => b.status === "SETTLED");
+  const pl = settled.reduce((a,b)=>a+(Number(b.pl)||0),0);
+  const byDay = {};
+  rows.forEach(b => {
+    const d = b.date || "";
+    if (!byDay[d]) byDay[d] = [];
+    byDay[d].push(b);
+  });
+  const days = Object.keys(byDay).sort().reverse();
+  return days.map(d => {
+    const label = d ? d.slice(5).replace("-", "/") : "--";
+    return `<div class="dayline">${label}</div>` + byDay[d].map(reviewRow).join("");
+  }).join("") + `<div class="slip-row"><div></div><div class="gm">SETTLED P/L</div><div></div><div class="pl">${money(pl)}</div></div>`;
+}
 async function refreshReviews(){
   await renderReviews(window.REVIEW_FILTER);
   if (window.splitStamp) splitStamp();

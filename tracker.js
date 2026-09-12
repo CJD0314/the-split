@@ -1,4 +1,14 @@
 const LEDGER_TODAY = "2026-09-11";
+function etDate(){
+  try {
+    return new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric", month:"2-digit", day:"2-digit"}).format(new Date());
+  } catch (e) { return LEDGER_TODAY; }
+}
+function cardDate(data){
+  const live = etDate();
+  const booked = (data && data.today) || LEDGER_TODAY;
+  return live;
+}
 function gameScore(b){
   const map = window.SCORES || {};
   return b.final || map[b.game] || "";
@@ -26,7 +36,7 @@ function money(n){
   return (s>0?"+":"") + "$" + s;
 }
 function summarize(data){
-  const settled = data.bets.filter(b => b.status === "SETTLED");
+  const settled = (data.bets||[]).filter(b => b.status === "SETTLED");
   const wins = settled.filter(b => b.result === "WIN");
   const losses = settled.filter(b => b.result === "LOSS");
   const pushes = settled.filter(b => b.result === "PUSH");
@@ -149,21 +159,21 @@ async function renderToday(){
   const s = summarize(data);
   renderBank(document.getElementById("bank"), s);
   const line = document.getElementById("tagline");
-  if (line) line.textContent = (data.tagline || "The card. The number. The miss.") + (data.updated ? "  ·  " + stampLine(data) : "");
-  const day = data.today || LEDGER_TODAY;
+  const day = cardDate(data);
+  if (line) line.textContent = "Tickets stay on this page until midnight ET. Card date " + day;
   const order = ["NFL","CFB","MLB"];
   const tickets = document.getElementById("tickets");
   const live = order.map(sp => {
-    const rows = data.bets.filter(b => b.sport === sp && b.date === day);
+    const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day);
     if (!rows.length) return "";
     return sportDrop(sp, groupByGame(rows), true);
   }).filter(Boolean);
-  if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No tickets today.</p>`;
+  if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No tickets dated ${day}.</p>`;
   const loops = document.getElementById("loops");
   const L = data.loops || {};
   if (loops) loops.innerHTML = order.map(sp => {
     const items = L[sp] || [];
-    return sportBlock(sp, items.length ? "<ul>"+items.map(x=>`<li>${x}</li>`).join("")+"</ul>" : `<p class="note">No review notes yet.</p>`);
+    return sportBlock(sp, items.length ? "<ul>"+items.map(x=>`<li>${x}</li>`).join("")+"</ul>" : `<p class="note">No lessons posted.</p>`);
   }).join("");
   const fades = document.getElementById("fades");
   if (fades){

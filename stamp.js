@@ -8,12 +8,16 @@ function splitNav(){
   }
   if (nav.innerHTML.indexOf("reviews.html") === -1) nav.innerHTML = html;
 }
+function closeAllTabs(){
+  document.querySelectorAll("details[open]").forEach(function(d){ d.removeAttribute("open"); });
+}
 function splitStamp(){
   splitNav();
+  closeAllTabs();
   if (document.querySelector(".updated")) return true;
   var header = document.querySelector("header");
   if (!header) return false;
-  var text = "LAST UPDATED: Fri Sep 11, 2026 10:02 p.m. ET";
+  var text = "LAST UPDATED: Fri Sep 11, 2026 11:00 p.m. ET";
   try {
     var parts = new Intl.DateTimeFormat("en-US", {
       timeZone: "America/New_York",
@@ -38,10 +42,14 @@ function splitStamp(){
 }
 (function(){
   splitNav();
+  closeAllTabs();
   if (splitStamp()) return;
   var n = 0;
   var t = setInterval(function(){
     n++;
+    closeAllTabs();
     if (splitStamp() || n > 40) clearInterval(t);
   }, 100);
+  document.addEventListener("DOMContentLoaded", closeAllTabs);
+  window.addEventListener("load", closeAllTabs);
 })();

@@ -21,13 +21,7 @@ function splitNav(){
 function closeAllTabs(){
   document.querySelectorAll("details[open]").forEach(function(d){ d.removeAttribute("open"); });
 }
-function splitStamp(){
-  splitNav();
-  closeAllTabs();
-  if (document.querySelector(".updated")) return true;
-  var header = document.querySelector("header");
-  if (!header) return false;
-  var text = "LAST UPDATED: Sat Sep 12, 2026 8:28 a.m. ET";
+function etStamp(){
   try {
     var parts = new Intl.DateTimeFormat("en-US", {
       timeZone: "America/New_York",
@@ -35,18 +29,30 @@ function splitStamp(){
       hour: "numeric", minute: "2-digit", hour12: true
     }).formatToParts(new Date());
     var get = function(t){ return (parts.find(function(p){ return p.type===t; })||{}).value; };
-    text = "LAST UPDATED: " + get("weekday") + " " + get("month") + " " + get("day") + ", " + get("year") + " " + get("hour") + ":" + get("minute") + " " + String(get("dayPeriod")||"PM").toLowerCase() + " ET";
-  } catch (e) {}
-  var el = document.createElement("div");
-  el.className = "updated";
+    return "LAST UPDATED: " + get("weekday") + " " + get("month") + " " + get("day") + ", " + get("year") + " " + get("hour") + ":" + get("minute") + " " + String(get("dayPeriod")||"PM").toLowerCase() + " ET";
+  } catch (e) {
+    return "LAST UPDATED: Sat Sep 12, 2026 10:06 a.m. ET";
+  }
+}
+function splitStamp(){
+  splitNav();
+  closeAllTabs();
+  var text = window.SPLIT_UPDATED || etStamp();
+  var el = document.querySelector(".updated");
+  if (!el) {
+    var header = document.querySelector("header");
+    if (!header) return false;
+    el = document.createElement("div");
+    el.className = "updated";
+    header.appendChild(el);
+  }
   el.textContent = text;
-  header.appendChild(el);
   return true;
 }
 (function(){
   splitNav();
   closeAllTabs();
   splitStamp();
-  document.addEventListener("DOMContentLoaded", function(){ splitNav(); closeAllTabs(); });
-  window.addEventListener("load", function(){ splitNav(); closeAllTabs(); });
+  document.addEventListener("DOMContentLoaded", function(){ splitNav(); closeAllTabs(); splitStamp(); });
+  window.addEventListener("load", function(){ splitNav(); closeAllTabs(); splitStamp(); });
 })();

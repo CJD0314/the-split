@@ -82,12 +82,14 @@ function renderBank(el, s){
     <div><b>RISKED</b><span>$${s.risked}</span></div>`;
 }
 function ticketLine(b){
-  const conf = String(b.confidence || "LEAN").toLowerCase();
-  return `<div class="note" style="margin:8px 0;padding:8px 0;border-top:1px solid #2a3644">
-    <div style="font-size:11px;letter-spacing:.08em;color:#d4a017;font-weight:800">${typeLabel(b)}</div>
-    <span class="stamp ${String(b.status).toLowerCase()}">${b.status}</span>
-    <span class="stamp ${conf}">${String(b.confidence || "LEAN").toUpperCase()}</span>
-    ${b.pick} · ${b.close} · $${b.stake} to win $${b.to_win}${b.result?" · "+b.result:""}
+  const conf = String(b.confidence || "LEAN").toUpperCase();
+  const res = b.result || b.status;
+  return `<div class="tix">
+    <span class="tix-type">${typeLabel(b)}</span>
+    <span class="tix-pick">${b.pick}</span>
+    <span class="tix-stake">$${b.stake} to win $${b.to_win}</span>
+    <span class="stamp ${conf.toLowerCase()}">${conf}</span>
+    <span class="${resultClass(b)}">${res}</span>
   </div>`;
 }
 function groupByGame(rows){
@@ -102,9 +104,9 @@ function groupByGame(rows){
     const href = list[0].href;
     const sc = gameScore(list[0]);
     return `<div class="row">
-      <b>${game}</b>${sc?` <span class="note">${sc}</span>`:""}
+      <div class="row-head"><b>${game}</b>${sc?`<span class="note">${sc}</span>`:""}<a href="${href}">GAME DETAIL</a></div>
+      <div class="tix-head"><span>TYPE</span><span>BET</span><span>STAKE</span><span>CONF</span><span>RESULT</span></div>
       ${list.map(ticketLine).join("")}
-      <a href="${href}">GAME DETAIL</a>
     </div>`;
   }).join("");
 }
@@ -170,7 +172,7 @@ async function renderReviews(filter){
     if (!rows.length) inner = `<p class="note">No tickets in this filter.</p>`;
     else if (sp === "CFB") inner = `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}`;
     else inner = `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`;
-    return sportDrop(names[sp], inner, i===0);
+    return sportDrop(names[sp], inner, false);
   }).join("");
 }
 async function renderToday(){
@@ -185,7 +187,7 @@ async function renderToday(){
   const live = order.map(sp => {
     const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day);
     if (!rows.length) return "";
-    return sportDrop(sp, groupByGame(rows), true);
+    return sportDrop(sp, groupByGame(rows), false);
   }).filter(Boolean);
   if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No tickets dated ${day}.</p>`;
   const loops = document.getElementById("loops");

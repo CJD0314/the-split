@@ -24,16 +24,16 @@
 </header>
 <div class="wrap">
 <p class="note">Finished games stay on this page until the next calendar day. Game recaps live on each REVIEW board. Quick reviews are lessons only.</p>
-<details class="block" open><summary>TODAY'S TICKETS</summary>
+<details class="block"><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
-<details class="block" open><summary>QUICK REVIEWS</summary>
+<details class="block"><summary>QUICK REVIEWS</summary>
 <div class="body" id="loops"></div></details>
-<details class="block" open><summary>FADES TO REMEMBER</summary>
+<details class="block"><summary>FADES TO REMEMBER</summary>
 <div class="body" id="fades"></div></details>
 </div>
 <script src="last_pass.js?v=1"></script>
 <script src="scores.js?v=3"></script>
-<script src="tracker.js?v=11"></script>
+<script src="tracker.js?v=12"></script>
 <script src="stamp.js"></script>
 <script>
 if (window.LAST_PASS) {
@@ -41,5 +41,6 @@ if (window.LAST_PASS) {
   if (el) el.textContent = window.LAST_PASS;
 }
 renderToday();
+if (window.closeAllTabs) closeAllTabs();
 </script>
 </body></html>

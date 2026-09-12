@@ -97,6 +97,10 @@ function ticketLine(b){
     </div>
   </div>`;
 }
+function gameHeadline(list){
+  const main = list.find(b => !isTdHr(b) && !isPlayerProp(b)) || list[0];
+  return main.result || main.status || "";
+}
 function groupByGame(rows){
   const map = {};
   rows.forEach(b=>{
@@ -108,11 +112,15 @@ function groupByGame(rows){
     list.sort((a,b)=>typeOrder(a)-typeOrder(b));
     const href = list[0].href;
     const sc = gameScore(list[0]);
-    return `<div class="row">
-      <div class="row-head"><b>${game}</b>${sc?`<span class="score">${sc}</span>`:""}</div>
-      ${list.map(ticketLine).join("")}
-      <div style="margin-top:10px"><a href="${href}">GAME DETAIL</a></div>
-    </div>`;
+    const head = gameHeadline(list);
+    const main = list.find(b => !isTdHr(b) && !isPlayerProp(b)) || list[0];
+    return `<details class="game">
+      <summary><span class="g-name">${game}</span><span class="g-score">${sc||""}</span><span class="${resultClass(main)}">${head}</span></summary>
+      <div class="body">
+        ${list.map(ticketLine).join("")}
+        <a href="${href}">GAME DETAIL</a>
+      </div>
+    </details>`;
   }).join("");
 }
 function sportDrop(title, html, open){
@@ -122,6 +130,7 @@ function sportBlock(title, html){
   return `<h3>${title}</h3>` + (html || `<p class="note">Nothing posted.</p>`);
 }
 function resultClass(b){
+  if (!b) return "push";
   if (b.result === "WIN") return "ok";
   if (b.result === "LOSS") return "loss";
   return "push";

@@ -56,6 +56,12 @@ async function loadLedger(){
   data.bets = (data.bets || []).filter(keepTicket);
   return data;
 }
+async function loadPlaybook(){
+  try {
+    const r = await fetch("playbook.json?v=" + Date.now());
+    return r.json();
+  } catch (e) { return {rules:[]}; }
+}
 function money(n){
   if (n == null || n === "") return "--";
   const s = Number(n);
@@ -194,6 +200,22 @@ async function renderReviews(filter){
     return sportDrop(names[sp], inner, false);
   }).join("");
 }
+async function renderPlaybook(){
+  const box = document.getElementById("playbook");
+  if (!box) return;
+  const book = await loadPlaybook();
+  const rules = book.rules || [];
+  if (!rules.length) {
+    box.innerHTML = `<p class="note">No rules posted yet.</p>`;
+    return;
+  }
+  const order = ["NFL","CFB","MLB"];
+  box.innerHTML = `<p class="note">${book.how_we_use_this || "Next board has to use these rules."}</p>` + order.map(sp => {
+    const items = rules.filter(r => r.sport === sp);
+    if (!items.length) return "";
+    return sportBlock(sp, items.map(r => `<div class="rule"><b>${r.from}</b>${r.rule}<div class="note">NEXT: ${r.next}</div></div>`).join(""));
+  }).join("");
+}
 async function renderToday(){
   const data = await loadLedger();
   const s = summarize(data);
@@ -223,6 +245,7 @@ async function renderToday(){
       return sportBlock(sp, items.length ? "<ul>"+items.map(x=>`<li>${x}</li>`).join("")+"</ul>" : `<p class="note">No fades posted.</p>`);
     }).join("");
   }
+  await renderPlaybook();
 }
 async function renderHomeBank(){
   const data = await loadLedger();

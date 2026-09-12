@@ -4,23 +4,26 @@
 <title>The Split -- Today</title>
 <link rel="stylesheet" href="dive.css"/>
 <style>
-.row{background:#121820;border:1px solid #2a3644;border-radius:12px;padding:14px;margin:10px 0}
-.row a{color:#d4a017;font-weight:800;text-decoration:none;font-size:12px}
-.row-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.row-head b{font-size:16px;flex:1}
-.tix{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;padding:10px 0;border-top:1px solid #2a3644}
-.tix-type{color:#d4a017;font-weight:800;font-size:11px;letter-spacing:.08em}
-.tix-pick{grid-column:1 / -1;font-weight:800;font-size:18px}
-.tix-lab{display:block;color:#93a3b5;font-size:10px;letter-spacing:.08em;font-weight:800}
-.tix-num{font-variant-numeric:tabular-nums;font-weight:800;font-size:16px}
-.stamp{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;text-align:center}
-.stamp.open{background:#3d2a00;color:#d4a017}
-.stamp.locked{background:#0d2a1c;color:#3dd68c}
-.stamp.settled{background:#1a2230;color:#93a3b5}
+.row{background:#121820;border:1px solid #2a3644;border-radius:14px;padding:14px;margin:12px 0}
+.row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.row-head b{font-size:17px}
+.row-head .score{color:#93a3b5;font-size:13px}
+.row a{color:#d4a017;font-weight:800;text-decoration:none;font-size:12px;letter-spacing:.06em}
+.slip{margin-top:12px;padding-top:12px;border-top:1px solid #2a3644}
+.slip-type{color:#d4a017;font-size:11px;font-weight:800;letter-spacing:.12em}
+.slip-pick{font-size:20px;font-weight:800;margin:4px 0 10px;line-height:1.2}
+.slip-money{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}
+.slip-money div{background:#0e141c;border:1px solid #2a3644;border-radius:10px;padding:8px 10px}
+.slip-money b{display:block;color:#93a3b5;font-size:10px;letter-spacing:.1em}
+.slip-money span{font-size:18px;font-weight:800}
+.slip-foot{display:flex;justify-content:space-between;align-items:center}
+.stamp{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em}
 .stamp.bet{background:#0d2a1c;color:#3dd68c}
 .stamp.lean{background:#3d2a00;color:#d4a017}
 .stamp.fade{background:#3a1212;color:#ff6b6b}
-.ok{color:#3dd68c;font-weight:800}.loss{color:#ff6b6b;font-weight:800}.push{color:#d4a017;font-weight:800}
+.ok{color:#3dd68c;font-weight:800;font-size:16px}
+.loss{color:#ff6b6b;font-weight:800;font-size:16px}
+.push{color:#d4a017;font-weight:800;font-size:16px}
 </style></head>
 <body>
 <div class="topnav"><a href="today.html">TODAY</a><a href="index.html">HOME</a><a href="reviews.html">BETTING REVIEWS</a></div>
@@ -31,7 +34,7 @@
 <div class="updated" id="pass-line"></div>
 </header>
 <div class="wrap">
-<p class="note">Finished games stay on this page until the next calendar day. Game recaps live on each REVIEW board. Quick reviews are lessons only.</p>
+<p class="note">Finished games stay on this page until the next calendar day.</p>
 <details class="block"><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
 <details class="block"><summary>QUICK REVIEWS</summary>
@@ -41,7 +44,7 @@
 </div>
 <script src="last_pass.js?v=1"></script>
 <script src="scores.js?v=3"></script>
-<script src="tracker.js?v=15"></script>
+<script src="tracker.js?v=16"></script>
 <script src="stamp.js"></script>
 <script>
 if (window.LAST_PASS) {

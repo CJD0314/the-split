@@ -6,7 +6,8 @@
 <style>
 .topnav{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 .topnav a.on{color:#3dd68c}
-.card-date{color:#3dd68c;font-size:16px;font-weight:800;letter-spacing:.12em;margin:8px 0 4px}
+.card-lab{color:#93a3b5;font-size:11px;letter-spacing:.16em;font-weight:800;margin-top:8px}
+.card-date{color:#3dd68c;font-size:18px;font-weight:800;letter-spacing:.08em;margin:2px 0 8px}
 .g-row{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #2a3644}
 .g-main{min-width:160px}
 .g-name{display:block;font-weight:800;font-size:14px}
@@ -31,8 +32,9 @@
 <header>
 <div class="brand">THE SPLIT</div>
 <div class="week">TODAY</div>
-<div class="card-date" id="card-date">CARD DATE SAT SEP 12, 2026</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:01 a.m. ET</div>
+<div class="card-lab">CARD DATE</div>
+<div class="card-date" id="card-date">SAT SEP 12, 2026</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 8:02 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block"><summary>TODAY'S TICKETS</summary>
@@ -79,9 +81,8 @@ function prettyCard(iso){
 const _rt = renderToday;
 renderToday = async function(){
   await _rt();
-  const day = cardDate();
   const el = document.getElementById("card-date");
-  if (el) el.textContent = "CARD DATE " + prettyCard(day);
+  if (el) el.textContent = prettyCard(cardDate());
   const line = document.getElementById("tagline");
   if (line) line.remove();
 };

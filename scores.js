@@ -11,11 +11,11 @@ window.SCORES = {
   "KC at BOS": "FINAL KC 3-2",
   "LAD at MIA": "FINAL LAD 6-2",
   "NORF at UVA": "FINAL UVA 59-3",
-  "VILL at LOU": "LIVE LOU 59-13 4Q",
-  "MIZ at KU": "LIVE MIZ 14-14 3Q",
-  "PHI at ATL": "LIVE PHI 3-2 8th",
-  "CIN at MIL": "LIVE MIL 20-0 9th",
-  "CLE at MIN": "LIVE CLE 2-1 7th"
+  "VILL at LOU": "FINAL LOU 59-13",
+  "MIZ at KU": "FINAL MIZ 38-21",
+  "PHI at ATL": "FINAL ATL 6-5",
+  "CIN at MIL": "FINAL MIL 20-0",
+  "CLE at MIN": "FINAL CLE 5-2"
 };
 window.SCORE_SPORT = {
   "NE at SEA":"NFL","SF at LAR":"NFL",

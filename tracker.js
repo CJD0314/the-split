@@ -1,4 +1,4 @@
-const LEDGER_TODAY = "2026-09-11";
+const LEDGER_TODAY = "2026-09-12";
 function etDate(){
   try {
     return new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric", month:"2-digit", day:"2-digit"}).format(new Date());
@@ -107,6 +107,41 @@ function ticketLine(b){
     </div>
   </div>`;
 }
+function flatRow(b){
+  const conf = String(b.confidence || "LEAN").toUpperCase();
+  const href = b.href || "#";
+  const sc = scoreLabel(gameScore(b));
+  const shown = sc.replace(/^FINAL\s*/i,"").replace(/^LIVE\s*/i,"");
+  return `<div class="g-row">
+    <div class="g-main">
+      <span class="g-name">${b.game}</span>
+      <span class="g-pick">${b.pick}</span>
+    </div>
+    <div class="g-side">
+      <span class="stamp ${conf.toLowerCase()}">${conf}</span>
+      <span class="g-score">${shown || (b.status||"")}</span>
+      <a href="${href}">GAME DETAIL</a>
+    </div>
+  </div>`;
+}
+function flatGameList(rows){
+  const seen = {};
+  const list = [];
+  rows.forEach(b => {
+    if (seen[b.game]) return;
+    seen[b.game] = true;
+    list.push(b);
+  });
+  return list.map(flatRow).join("") || `<p class="note">Nothing posted.</p>`;
+}
+function mlbBuckets(rows){
+  const side = rows.filter(b => !isTdHr(b) && !isPlayerProp(b));
+  const hr = rows.filter(b => String(b.type||"").toLowerCase()==="hr");
+  const prop = rows.filter(isPlayerProp);
+  return sportDrop("SIDE", side.map(flatRow).join(""), false)
+    + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false)
+    + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
+}
 function groupByGame(rows){
   const map = {};
   rows.forEach(b=>{
@@ -147,8 +182,8 @@ function resultClass(b){
 }
 function resultText(b){
   const sc = gameScore(b);
-  if (b.status === "SETTLED") return (b.result||"") + (sc?" · "+sc:"");
-  return (b.status||"") + (sc?" · "+sc:"");
+  if (b.status === "SETTLED") return (b.result||"") + (sc?" \u00b7 "+sc:"");
+  return (b.status||"") + (sc?" \u00b7 "+sc:"");
 }
 function reviewRow(b){
   const href = b.href ? `<a class="full-link" href="${b.href}">${b.game}</a>` : b.game;
@@ -156,7 +191,7 @@ function reviewRow(b){
   return `<tr>
     <td>${(b.date||"").slice(5)}</td>
     <td>${href}</td>
-    <td>${typeLabel(b)} · ${b.pick}</td>
+    <td>${typeLabel(b)} \u00b7 ${b.pick}</td>
     <td>${clv(b)}</td>
     <td>$${b.stake}</td>
     <td>$${b.to_win}</td>
@@ -195,8 +230,8 @@ async function renderReviews(filter){
     const props = rows.filter(isPlayerProp);
     let inner;
     if (!rows.length) inner = `<p class="note">No tickets in this filter.</p>`;
-    else if (sp === "CFB") inner = `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}`;
-    else inner = `<h3 class="track">BEST BETS — SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`;
+    else if (sp === "CFB") inner = `<h3 class="track">BEST BETS \u2014 SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}`;
+    else inner = `<h3 class="track">BEST BETS \u2014 SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`;
     return sportDrop(names[sp], inner, false);
   }).join("");
 }
@@ -216,6 +251,10 @@ async function renderPlaybook(){
     return sportBlock(sp, items.map(r => `<div class="rule"><b>${r.from}</b>${r.rule}<div class="note">NEXT: ${r.next}</div></div>`).join(""));
   }).join("");
 }
+function sportTodayHtml(sp, rows){
+  if (sp === "MLB") return mlbBuckets(rows);
+  return flatGameList(rows);
+}
 async function renderToday(){
   const data = await loadLedger();
   const s = summarize(data);
@@ -228,7 +267,7 @@ async function renderToday(){
   const live = order.map(sp => {
     const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day);
     if (!rows.length) return "";
-    return sportDrop(sp, groupByGame(rows), false);
+    return sportDrop(sp, sportTodayHtml(sp, rows), false);
   }).filter(Boolean);
   if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No tickets dated ${day}.</p>`;
   const loops = document.getElementById("loops");
@@ -254,6 +293,6 @@ async function renderHomeBank(){
   const t = document.getElementById("home-types");
   if(t){
     const sports = Object.entries(s.bySport).map(([k,v])=>k+" "+v.w+"-"+v.l+"-"+v.p+" ("+money(v.pl)+")").join("  |  ");
-    t.textContent = (sports || "No settled tickets yet.") + (data.updated ? "  ·  " + stampLine(data) : "");
+    t.textContent = (sports || "No settled tickets yet.") + (data.updated ? "  \u00b7  " + stampLine(data) : "");
   }
 }

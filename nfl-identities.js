@@ -2,7 +2,7 @@ window.NFL_DFS_NOTES = [
   "Short week: do not captain the home favorite. Use the road skill stack or leave the game.",
   "Low total (under 45): RB / TE cash. Do not pay up at WR1 unless the matchup note says otherwise.",
   "High total (50-plus): QB + WR1 is the default stack. Second receiver only if the board already likes both.",
-  "Backup safeties are not a license to smash the opposing QB. Need the rest of the script first.",
+  "Backup safeties are not a license to smash the opposing QB. Need snaps and who actually covers, not a name on the injury report.",
   "Road dog that already cashed a short week: those skill pieces stay in the identity book the next time that club is a dog."
 ];
 window.NFL_IDENTITIES = {
@@ -27,13 +27,13 @@ window.NFL_IDENTITIES = {
   lv: {name:"Las Vegas Raiders", note:"Week 1 vs MIA still live. Identity fills after the first reviewed game."},
   mia: {name:"Miami Dolphins", note:"Week 1 at LV still live. Identity fills after the first reviewed game."},
   min: {name:"Minnesota Vikings", note:"Week 1 vs GB still live. Identity fills after the first reviewed game."},
-  ne: {name:"New England Patriots", note:"Road dog in a low total. Henry / Stevenson type roles are the cash pieces. Do not captain Maye unless the script is already a shootout."},
+  ne: {name:"New England Patriots", note:"Road dog in a low total. Henry / Stevenson type roles are the cash pieces. Do not captain Maye unless the script is already a shootout. Do not build the passing script off a Seattle injury-report name."},
   no: {name:"New Orleans Saints", note:"Week 1 at DET still live. Identity fills after the first reviewed game."},
   nyg: {name:"New York Giants", note:"Week 1 vs DAL still live. Identity fills after the first reviewed game."},
   nyj: {name:"New York Jets", note:"Week 1 at TEN still live. Identity fills after the first reviewed game."},
   phi: {name:"Philadelphia Eagles", note:"Week 1 vs WAS still live. Identity fills after the first reviewed game."},
   pit: {name:"Pittsburgh Steelers", note:"Week 1 vs ATL still live. Identity fills after the first reviewed game."},
-  sea: {name:"Seattle Seahawks", note:"Low-total home favorite. Do not force SEA pass-catchers in GPPs just because they are home. Bring-back NE pieces only if the total stays in the 40s."},
+  sea: {name:"Seattle Seahawks", note:"Low-total home favorite. Do not force SEA pass-catchers in GPPs just because they are home. Backup safety looks do not automatically smash the other QB."},
   sf: {name:"San Francisco 49ers", note:"Road dog that cashed a short week. When a short-week favorite is getting faded, the other skill pieces (CMC, Jennings, Kittle) are the stack, not the home QB."},
   tb: {name:"Tampa Bay Buccaneers", note:"Week 1 at CIN still live. Identity fills after the first reviewed game."},
   ten: {name:"Tennessee Titans", note:"Week 1 vs NYJ still live. Identity fills after the first reviewed game."},

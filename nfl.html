@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- NFL</title>
-<link rel="stylesheet" href="sport.css?v=4"/>
+<link rel="stylesheet" href="sport.css?v=5"/>
 </head>
 <body>
 <div class="topnav">
@@ -15,7 +16,7 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">NFL</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 1:15 p.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:55 p.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
@@ -23,14 +24,8 @@
 <div class="inner"><div class="weeks" id="week-btns"></div><div id="slate"></div></div></details>
 <details class="subhead"><summary>REVIEW</summary>
 <div class="inner"><div class="weeks" id="nfl-review-btns"></div><div id="nfl-week-review"></div></div></details>
-<details class="subhead"><summary>BETTING NOTES</summary>
-<div class="inner">
-<ul>
-<li>Backup safeties do not always equal 250 passing yards.</li>
-<li>Do not captain a short-week favorite just because the name is bigger.</li>
-<li>A dog in a low total is the side. The favorite does not have to cash for that to stay true.</li>
-</ul>
-</div></details>
+<details class="subhead" open><summary>BETTING NOTES</summary>
+<div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
 <details class="subhead"><summary>DFS CHEAT SHEET</summary>
 <div class="inner"><div class="weeks" id="dfs-week-btns"></div></div></details>
 <details class="subhead"><summary>DFS NOTES</summary>
@@ -42,11 +37,13 @@
 <script src="nfl-week-review.js"></script>
 <script src="nfl-identities.js"></script>
 <script src="tracker.js?v=25"></script>
+<script src="notes.js?v=1"></script>
 <script src="stamp.js?v=3"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="NFL";})}));
 });
+paintBettingNotes("NFL");
 (function(){
   const dfs = document.getElementById("dfs-week-btns");
   if (!dfs) return;

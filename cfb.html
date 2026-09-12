@@ -3,7 +3,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- College Football</title>
-<link rel="stylesheet" href="sport.css?v=4"/>
+<link rel="stylesheet" href="sport.css?v=5"/>
 </head>
 <body>
 <div class="topnav">
@@ -16,7 +16,7 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">COLLEGE FOOTBALL</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:50 p.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:55 p.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
@@ -25,24 +25,18 @@
 <details class="subhead"><summary>REVIEW</summary>
 <div class="inner"><div class="weeks" id="cfb-review-btns"></div><div id="cfb-week-review"></div></div></details>
 <details class="subhead" open><summary>BETTING NOTES</summary>
-<div class="inner">
-<ul>
-<li>A 50-point FCS or G5 win is not a license to lay 35-plus the next week.</li>
-<li>Do not lay 20-plus on the road one week after a one-score opener. Oregon at Oklahoma State is the tape.</li>
-<li>A 28-point home favorite with two tailbacks out is not a maintenance number. Washington 16-14 is the tape.</li>
-<li>Fire 6-to-10 point ranked sides in real conference games. Alabama -10.5 and BYU -6.5 were live.</li>
-<li>The number can cash and still be a FADE. Cover is not the same as a fire.</li>
-</ul>
-</div></details>
+<div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
 </div>
 <script src="cfb.js?v=6"></script>
 <script src="cfb-week-review.js?v=2"></script>
 <script src="tracker.js?v=27"></script>
+<script src="notes.js?v=1"></script>
 <script src="stamp.js?v=3"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="CFB";})}));
 });
+paintBettingNotes("CFB");
 document.querySelectorAll("#cfb-week-btns button").forEach(function(b,i){ if (i > 1) b.remove(); });
 document.querySelectorAll("#cfb-review-btns button").forEach(function(b,i){ if (i > 1) b.remove(); });
 </script>

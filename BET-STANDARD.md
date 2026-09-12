@@ -27,7 +27,10 @@ Applies to every ticket on TODAY, Bet Tracker, and every full breakdown. No exce
 ## Stamp
 - LAST UPDATED rewrites on every page that changes.
 
-## After the game
+## After the game (required, every time)
 - Grade off `booked`, not the moving current line.
-- Write REVIEW. Hook it. Public copy only: RIGHT / WRONG / MISSED / GET BETTER.
+- Write REVIEW. Public copy only: RIGHT / WRONG / MISSED / GET BETTER.
+- Add one plain-English line to `tracker.json` `loops` (what to keep doing) or `fades` (what to stay away from) for that sport.
+- If the club has an identity page, append the same lesson under HOW WE BET THEM.
+- Copy on notes and reviews must be easy to read on a phone: short sentences, no jargon pile-up.
 - Carry the miss into the next card. Do not repeat the same default.

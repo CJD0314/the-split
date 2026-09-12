@@ -3,7 +3,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- MLB</title>
-<link rel="stylesheet" href="sport.css?v=4"/>
+<link rel="stylesheet" href="sport.css?v=5"/>
 </head>
 <body>
 <div class="topnav">
@@ -16,7 +16,7 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">MLB</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:50 p.m. ET</div>
+<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:55 p.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
@@ -25,27 +25,19 @@
 <details class="subhead"><summary>REVIEW</summary>
 <div class="inner"><div class="weeks" id="mlb-review-days"></div><div id="mlb-day-review"></div></div></details>
 <details class="subhead" open><summary>BETTING NOTES</summary>
-<div class="inner">
-<ul>
-<li>Fire a plus-money dog only if the starter can keep it close. 5-0 after three is dead.</li>
-<li>Pass or take the run line when the moneyline is worse than -200.</li>
-<li>Do not glue Friday's final to Saturday's rematch.</li>
-<li>A double off the wall is not a homer. HR tickets need launch, park, or wind.</li>
-<li>Confirm the lineup at first pitch. A bat that does not play is a void.</li>
-<li>A 7.5 K over and a road -1.5 both need the starter to finish five.</li>
-<li>A whole-number total on a soft board is a trap. Take the half-point or pass.</li>
-</ul>
-</div></details>
+<div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
 </div>
 <script src="mlb.js?v=7"></script>
 <script src="mlb-day-review.js?v=2"></script>
 <script src="tracker.js?v=27"></script>
+<script src="notes.js?v=1"></script>
 <script src="stamp.js?v=2"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="MLB";})}));
   if (window.splitStamp) splitStamp();
 });
+paintBettingNotes("MLB");
 if (window.closeAllTabs) closeAllTabs();
 </script>
 </body></html>

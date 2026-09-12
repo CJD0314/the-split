@@ -1,7 +1,7 @@
 {
   "unit": 100,
-  "updated": "2026-09-11T22:54:00-04:00",
-  "today": "2026-09-11",
+  "updated": "2026-09-12T00:01:00-04:00",
+  "today": "2026-09-12",
   "tagline": "The card. The number. The miss.",
   "confidence_key": "BET = fire a unit. LEAN = half unit or skip if tight. FADE = posted because every game needs a number; would not fire real money.",
   "loops": {
@@ -24,7 +24,7 @@
     {"id":"cfb-w2-uva-norf","sport":"CFB","date":"2026-09-11","game":"NORF at UVA","type":"side","pick":"Virginia -45.5","close":"UVA -45.5","stake":100,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"UVA 59-3","confidence":"FADE","href":"cfb-week-2-uva-norf.html"},
     {"id":"cfb-w2-uva-norf-td","sport":"CFB","date":"2026-09-11","game":"NORF at UVA","type":"td","pick":"Beau Pribula anytime TD","close":"live lock","stake":100,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"UVA 59-3","confidence":"LEAN","href":"cfb-week-2-uva-norf.html"},
     {"id":"cfb-w2-uva-norf-prop","sport":"CFB","date":"2026-09-11","game":"NORF at UVA","type":"prop","pick":"Beau Pribula over passing yards","close":"live lock","stake":100,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"cfb-week-2-uva-norf.html"},
-    {"id":"cfb-w2-miz-ku","sport":"CFB","date":"2026-09-11","game":"MIZ at KU","type":"side","pick":"Missouri -5.5","close":"MIZ -5.5 (-110)","stake":110,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"cfb-week-2-miz-ku.html"},
+    {"id":"cfb-w2-miz-ku","sport":"CFB","date":"2026-09-11","game":"MIZ at KU","type":"side","pick":"Missouri -5.5","close":"MIZ -5.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"MIZ 38-21","confidence":"LEAN","href":"cfb-week-2-miz-ku.html"},
     {"id":"cfb-w2-miz-ku-td","sport":"CFB","date":"2026-09-11","game":"MIZ at KU","type":"td","pick":"Austin Simmons anytime TD","close":"DK pregame","stake":100,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"cfb-week-2-miz-ku.html"},
     {"id":"cfb-w2-miz-ku-prop","sport":"CFB","date":"2026-09-11","game":"MIZ at KU","type":"prop","pick":"Austin Simmons over passing yards","close":"DK pregame","stake":100,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"cfb-week-2-miz-ku.html"},
     {"id":"mlb-911-pit-chc-ml","sport":"MLB","date":"2026-09-11","game":"PIT at CHC","type":"ml","pick":"Pirates ML","close":"PIT +159","stake":100,"to_win":159,"status":"SETTLED","result":"LOSS","pl":-100,"final":"CHC 12-2","confidence":"BET","href":"mlb-2026-09-11-pit-chc.html"},
@@ -54,10 +54,10 @@
     {"id":"mlb-911-cin-mil-ml","sport":"MLB","date":"2026-09-11","game":"CIN at MIL","type":"ml","pick":"Brewers ML","close":"MIL -206","stake":206,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"MIL 20-0","confidence":"FADE","href":"mlb-2026-09-11-cin-mil.html"},
     {"id":"mlb-911-cin-mil-hr","sport":"MLB","date":"2026-09-11","game":"CIN at MIL","type":"hr","pick":"William Contreras HR","close":"DK lock","stake":100,"to_win":300,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-cin-mil.html"},
     {"id":"mlb-911-cin-mil-prop","sport":"MLB","date":"2026-09-11","game":"CIN at MIL","type":"prop","pick":"Freddy Peralta over strikeouts","close":"DK lock","stake":100,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-cin-mil.html"},
-    {"id":"mlb-911-phi-atl-ml","sport":"MLB","date":"2026-09-11","game":"PHI at ATL","type":"ml","pick":"Braves ML","close":"ATL -187","stake":187,"to_win":100,"status":"LOCKED","confidence":"FADE","href":"mlb-2026-09-11-phi-atl.html"},
+    {"id":"mlb-911-phi-atl-ml","sport":"MLB","date":"2026-09-11","game":"PHI at ATL","type":"ml","pick":"Braves ML","close":"ATL -187","stake":187,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"ATL 6-5","confidence":"FADE","href":"mlb-2026-09-11-phi-atl.html"},
     {"id":"mlb-911-phi-atl-hr","sport":"MLB","date":"2026-09-11","game":"PHI at ATL","type":"hr","pick":"Ronald Acuna Jr HR","close":"DK lock","stake":100,"to_win":280,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-phi-atl.html"},
     {"id":"mlb-911-phi-atl-prop","sport":"MLB","date":"2026-09-11","game":"PHI at ATL","type":"prop","pick":"Chris Sale over strikeouts","close":"DK lock","stake":100,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-phi-atl.html"},
-    {"id":"mlb-911-cle-min-ml","sport":"MLB","date":"2026-09-11","game":"CLE at MIN","type":"ml","pick":"Guardians ML","close":"CLE -118","stake":118,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-cle-min.html"},
+    {"id":"mlb-911-cle-min-ml","sport":"MLB","date":"2026-09-11","game":"CLE at MIN","type":"ml","pick":"Guardians ML","close":"CLE -118","stake":118,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"CLE 5-2","confidence":"LEAN","href":"mlb-2026-09-11-cle-min.html"},
     {"id":"mlb-911-cle-min-hr","sport":"MLB","date":"2026-09-11","game":"CLE at MIN","type":"hr","pick":"Jose Ramirez HR","close":"DK lock","stake":100,"to_win":280,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-cle-min.html"},
     {"id":"mlb-911-cle-min-prop","sport":"MLB","date":"2026-09-11","game":"CLE at MIN","type":"prop","pick":"Parker Messick over strikeouts","close":"DK lock","stake":100,"to_win":100,"status":"LOCKED","confidence":"LEAN","href":"mlb-2026-09-11-cle-min.html"}
   ]

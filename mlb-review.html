@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>The Split -- MLB Review</title><link rel="stylesheet" href="dive.css"/></head>
+<body>
+<div class="topnav"><a href="today.html">TODAY</a><a href="mlb.html">MLB</a><a href="reviews.html">BET TRACKER</a></div>
+<header>
+<div class="brand">THE SPLIT</div>
+<div class="week">MLB REVIEW</div>
+<h1 id="title">Loading</h1>
+<div class="updated">LAST UPDATED: Sun Sep 13, 2026 5:33 a.m. ET</div>
+</header>
+<div class="wrap" id="body"><p class="note">Loading ledger...</p></div>
+<script src="tracker.js?v=27"></script>
+<script src="stamp.js?v=3"></script>
+<script>
+const q = new URLSearchParams(location.search);
+const date = q.get("date") || "";
+const game = q.get("game") || "";
+const slug = q.get("g") || "";
+loadLedger().then(function(data){
+  const rows = (data.bets || []).filter(function(b){
+    if (b.sport !== "MLB") return false;
+    if (date && b.date !== date) return false;
+    if (game && String(b.game).toUpperCase().indexOf(game.toUpperCase()) < 0 && game.toUpperCase().indexOf(String(b.game).toUpperCase()) < 0) return false;
+    if (slug) {
+      const key = String(b.game||"").toLowerCase().replace(/\s+/g,"");
+      if (key.indexOf(slug.replace(/-/g,"")) < 0 && String(b.id||"").indexOf(slug) < 0) return false;
+    }
+    return true;
+  });
+  document.getElementById("title").textContent = (rows[0] ? rows[0].game : (game || slug || "MLB")) + (rows[0] && rows[0].final ? " · " + rows[0].final : "");
+  if (!rows.length) {
+    document.getElementById("body").innerHTML = "<p class='note'>No stored tickets for this game. Open BET TRACKER.</p><p><a class='full-link' href='reviews.html'>BET TRACKER</a></p>";
+    return;
+  }
+  const right = rows.filter(b => b.result === "WIN" || b.result === "PUSH");
+  const wrong = rows.filter(b => b.result === "LOSS");
+  function list(arr, empty){
+    if (!arr.length) return "<p class='note'>"+empty+"</p>";
+    return "<ul>" + arr.map(b => "<li><b>"+(b.type||"")+"</b> "+b.pick+" · "+(b.close||"")+" · "+(b.result||b.status)+"</li>").join("") + "</ul>";
+  }
+  document.getElementById("body").innerHTML =
+    "<details class='block' open><summary>TICKETS</summary><div class='body'>"+list(rows,"None.")+"</div></details>" +
+    "<details class='block' open><summary>WHAT WE GOT RIGHT</summary><div class='body'>"+list(right,"Nothing cashed.")+"</div></details>" +
+    "<details class='block' open><summary>WHAT WE GOT WRONG</summary><div class='body'>"+list(wrong,"Nothing missed.")+"</div></details>" +
+    "<p><a class='full-link' href='reviews.html'>BET TRACKER</a></p>";
+});
+</script>
+</body></html>

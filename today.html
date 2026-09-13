@@ -40,7 +40,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SUN SEP 13, 2026</div>
-<div class="updated">LAST UPDATED: Sun Sep 13, 2026 8:18 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sun Sep 13, 2026 9:31 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -193,8 +193,8 @@ function prettyCard(iso){
   return d.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric", year:"numeric"}).toUpperCase();
 }
 function flatGameList(rows){
-  const seen = {};
   const list = [];
+  const seen = {};
   (rows || []).slice().sort((a,b)=> kickMin(a.game) - kickMin(b.game)).forEach(b => {
     if (seen[b.game]) return;
     seen[b.game] = true;

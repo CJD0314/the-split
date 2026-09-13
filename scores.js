@@ -49,7 +49,7 @@ window.SCORES = {
   "2026-09-12|LT at LSU": "FINAL LSU 45-14",
   "2026-09-12|TTU at ORST": "FINAL TTU 35-24",
   "2026-09-12|CHAR at MISS": "FINAL MISS 41-9",
-  "2026-09-12|ARK at UTAH": "LIVE UTAH 36-ARK 3 (3rd)"
+  "2026-09-12|ARK at UTAH": "FINAL UTAH 43-10"
 };
 window.SCORE_SPORT = {
   "2026-09-09|NE at SEA":"NFL","2026-09-10|SF at LAR":"NFL",
@@ -71,7 +71,7 @@ window.scoreEntries = function(){
   var day = "";
   try {
     day = new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric", month:"2-digit", day:"2-digit"}).format(new Date());
-  } catch (e) { day = "2026-09-12"; }
+  } catch (e) { day = "2026-09-13"; }
   return Object.entries(window.SCORES||{}).filter(function(pair){
     return pair[0].indexOf(day + "|") === 0;
   }).map(function(pair){

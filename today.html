@@ -40,7 +40,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SUN SEP 13, 2026</div>
-<div class="updated">LAST UPDATED: Sun Sep 13, 2026 9:31 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sun Sep 13, 2026 10:23 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -163,6 +163,7 @@ function resultStamp(res){
   return `<span class="stamp ${cls}">${r}</span>`;
 }
 function flatRow(b){
+  const t = String(b.type || "").toLowerCase();
   const conf = String(b.confidence || "LEAN").toUpperCase();
   const href = b.href || "#";
   const day = (b.date || "").slice(5).replace("-", "/");

@@ -10,11 +10,10 @@ function href11(id){ return "mlb-2026-09-11-"+id+".html"; }
 function href12(id){ return "mlb-2026-09-12-"+id+".html"; }
 function rev11(id){ return "mlb-2026-09-11-"+id+"-review.html"; }
 function rev12(id){ return "mlb-2026-09-12-"+id+"-review.html"; }
+function ledgerRev(iso, title){ return "mlb-review.html?date="+iso+"&game="+encodeURIComponent(title); }
 function mlbReviewHref(link, review, title, iso){
   if (review) return review;
-  if (link && /mlb-20\d{2}-\d{2}-\d{2}-/.test(link) && link.indexOf("-review") < 0)
-    return link.replace(".html", "-review.html");
-  return "game-review.html?sport=MLB&date=" + encodeURIComponent(iso||"") + "&game=" + encodeURIComponent(title||"");
+  return ledgerRev(iso, title);
 }
 const MLB_GAMES = {
 "2026-09-11":[
@@ -35,17 +34,17 @@ const MLB_GAMES = {
 ["nym","nyy","NYM at NYY","FINAL","NYY recap","NYY -1.5 / NYM +1.5","8","NYY -186 / NYM +153","Open NYY -186",href12("nym-nyy"),rev12("nym-nyy")],
 ["pit","chc","PIT at CHC","FINAL","CHC recap","CHC -1.5 / PIT +1.5","8","CHC -126 / PIT +104","Open PIT +104",href12("pit-chc"),rev12("pit-chc")],
 ["bal","tor","BAL at TOR","FINAL","series recap","TOR -1.5 / BAL +1.5","8","TOR -138 / BAL +114","Open BAL +114",href12("bal-tor"),rev12("bal-tor")],
-["laa","wsh","LAA at WSH","FINAL","series recap","WSH -1.5 / LAA +1.5","7.5","WSH -156 / LAA +129","Open WSH -156",href12("laa-wsh"),rev12("laa-wsh")],
-["sd","sf","SD at SF","FINAL","series recap","SD -149 / SF +126","8","SD -149 / SF +126","Open SD -149",href12("sd-sf"),rev12("sd-sf")],
-["kc","bos","KC at BOS","FINAL","series recap","BOS -1.5 / KC +1.5","8.5","BOS -175 / KC +145","Open BOS -175",href12("kc-bos"),rev12("kc-bos")],
+["laa","wsh","LAA at WSH","FINAL","series recap","WSH -1.5 / LAA +1.5","7.5","WSH -156 / LAA +129","Open WSH -156",href12("laa-wsh"),ledgerRev("2026-09-12","LAA at WSH")],
+["sd","sf","SD at SF","FINAL","series recap","SD -149 / SF +126","8","SD -149 / SF +126","Open SD -149",href12("sd-sf"),ledgerRev("2026-09-12","SD at SF")],
+["kc","bos","KC at BOS","FINAL","series recap","BOS -1.5 / KC +1.5","8.5","BOS -175 / KC +145","Open BOS -175",href12("kc-bos"),ledgerRev("2026-09-12","KC at BOS")],
 ["lad","mia","LAD at MIA","FINAL","series recap","LAD -1.5 / MIA +1.5","7.5","LAD -165 / MIA +140","Open LAD -1.5",href12("lad-mia"),rev12("lad-mia")],
-["cle","min","CLE at MIN","FINAL","series recap","MIN -1.5 / CLE +1.5","7.5","MIN -140 / CLE +118","Open MIN -140",href12("cle-min"),rev12("cle-min")],
-["hou","tb","HOU at TB","FINAL","series recap","TB -1.5 / HOU +1.5","7.5","TB -150 / HOU +125","Open TB -150",href12("hou-tb"),rev12("hou-tb")],
-["cin","mil","CIN at MIL","FINAL","series recap","MIL -1.5 / CIN +1.5","8","MIL -180 / CIN +150","Open MIL -180",href12("cin-mil"),rev12("cin-mil")],
-["phi","atl","PHI at ATL","FINAL","series recap","ATL -1.5 / PHI +1.5","7","ATL -160 / PHI +135","Open ATL -160",href12("phi-atl"),rev12("phi-atl")],
-["chw","stl","CHW at STL","FINAL","series recap","STL -130 / CHW +110","8","STL -130 / CHW +110","Open STL -130",href12("chw-stl"),rev12("chw-stl")],
-["tex","ari","TEX at ARI","FINAL","series recap","ARI -118 / TEX +100","8.5","ARI -118 / TEX +100","Open ARI -118",href12("tex-ari"),rev12("tex-ari")],
-["sea","oak","SEA at ATH","FINAL","series recap","SEA -168 / ATH +142","10","SEA -168 / ATH +142","Open SEA -168",href12("sea-oak"),rev12("sea-oak")]
+["cle","min","CLE at MIN","FINAL","series recap","MIN -1.5 / CLE +1.5","7.5","MIN -140 / CLE +118","Open MIN -140",href12("cle-min"),ledgerRev("2026-09-12","CLE at MIN")],
+["hou","tb","HOU at TB","FINAL","series recap","TB -1.5 / HOU +1.5","7.5","TB -150 / HOU +125","Open TB -150",href12("hou-tb"),ledgerRev("2026-09-12","HOU at TB")],
+["cin","mil","CIN at MIL","FINAL","series recap","MIL -1.5 / CIN +1.5","8","MIL -180 / CIN +150","Open MIL -180",href12("cin-mil"),ledgerRev("2026-09-12","CIN at MIL")],
+["phi","atl","PHI at ATL","FINAL","series recap","ATL -1.5 / PHI +1.5","7","ATL -160 / PHI +135","Open ATL -160",href12("phi-atl"),ledgerRev("2026-09-12","PHI at ATL")],
+["chw","stl","CHW at STL","FINAL","series recap","STL -130 / CHW +110","8","STL -130 / CHW +110","Open STL -130",href12("chw-stl"),ledgerRev("2026-09-12","CHW at STL")],
+["tex","ari","TEX at ARI","FINAL","series recap","ARI -118 / TEX +100","8.5","ARI -118 / TEX +100","Open ARI -118",href12("tex-ari"),ledgerRev("2026-09-12","TEX at ARI")],
+["sea","oak","SEA at ATH","FINAL","series recap","SEA -168 / ATH +142","10","SEA -168 / ATH +142","Open SEA -168",href12("sea-oak"),ledgerRev("2026-09-12","SEA at ATH")]
 ]
 };
 let mlbSelected = MLB_TODAY;

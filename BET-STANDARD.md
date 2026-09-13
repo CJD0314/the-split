@@ -4,6 +4,15 @@ Purpose: explore the whole market, post only live accurate DraftKings numbers, a
 
 Applies to every ticket on TODAY, Bet Tracker, and every full breakdown. No exceptions.
 
+## LEDGER LOCK
+`tracker.json` is the record. SETTLED rows never leave.
+- Read the live file first. Count `bets`.
+- Patch by `id` or APPEND a new `id`. Never write fewer `bets` than you read.
+- Forbidden: `bets: []`, PLACEHOLDER, a one-row stub, empty `loops`/`fades`, rebuilding from memory.
+- "No OPEN tickets" is not an empty ledger.
+- If the file is already empty, restore the latest commit whose message contains `RESTORE full` before any other edit.
+- If a write would truncate the JSON, skip `tracker.json` that pass.
+
 ## What we post
 - Source is always DraftKings.
 - Number AND juice. Never `OU -3.5`. Always `OU -5.5 (-108)` or `DET -176`.
@@ -30,7 +39,7 @@ Applies to every ticket on TODAY, Bet Tracker, and every full breakdown. No exce
 ## After the game (required, every time)
 - Grade off `booked`, not the moving current line.
 - Write REVIEW. Public copy only: RIGHT / WRONG / MISSED / GET BETTER.
-- Add one plain-English line to `tracker.json` `loops` (what to keep doing) or `fades` (what to stay away from) for that sport.
+- APPEND one plain-English line to `tracker.json` `loops` or `fades`. Do not replace those arrays.
 - If the club has an identity page, append the same lesson under HOW WE BET THEM.
 - Copy on notes and reviews must be easy to read on a phone: short sentences, no jargon pile-up.
 - Carry the miss into the next card. Do not repeat the same default.

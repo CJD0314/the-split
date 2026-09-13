@@ -16,22 +16,22 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">MLB</div>
-<div class="updated">LAST UPDATED: Sat Sep 12, 2026 7:55 p.m. ET</div>
+<div class="updated">LAST UPDATED: Sun Sep 13, 2026 5:33 a.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
-<details class="subhead"><summary>DEEP DIVES</summary>
+<details class="subhead" open><summary>DEEP DIVES</summary>
 <div class="inner"><div id="mlb-cal"></div><div id="mlb-slate"></div></div></details>
 <details class="subhead"><summary>REVIEW</summary>
 <div class="inner"><div class="weeks" id="mlb-review-days"></div><div id="mlb-day-review"></div></div></details>
 <details class="subhead" open><summary>BETTING NOTES</summary>
 <div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
 </div>
-<script src="mlb.js?v=7"></script>
+<script src="mlb.js?v=8"></script>
 <script src="mlb-day-review.js?v=2"></script>
 <script src="tracker.js?v=27"></script>
 <script src="notes.js?v=1"></script>
-<script src="stamp.js?v=2"></script>
+<script src="stamp.js?v=3"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="MLB";})}));

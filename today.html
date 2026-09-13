@@ -40,7 +40,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SUN SEP 13, 2026</div>
-<div class="updated">LAST UPDATED: Sun Sep 13, 2026 5:13 a.m. ET</div>
+<div class="updated">LAST UPDATED: Sun Sep 13, 2026 6:19 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -104,8 +104,8 @@ function teamScores(b){
   return out;
 }
 function pickBits(b){
-  const src = [b.close, b.booked, b.pick].filter(Boolean).join(" ");
   const t = String(b.type || "").toLowerCase();
+  const src = [b.close, b.booked, b.pick].filter(Boolean).join(" ");
   if (t === "total") {
     const tot = String(src).match(/\b([ou])\s*(\d+(?:\.\d+)?)/i);
     if (tot) return { kind: "total", side: tot[1].toLowerCase(), line: Number(tot[2]) };

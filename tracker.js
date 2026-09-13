@@ -1,4 +1,4 @@
-const LEDGER_TODAY = "2026-09-12";
+const LEDGER_TODAY = "2026-09-13";
 function etDate(){
   try {
     return new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric", month:"2-digit", day:"2-digit"}).format(new Date());

@@ -1,1 +1,245 @@
-<placeholder>
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Split -- Today</title>
+<link rel="stylesheet" href="dive.css"/>
+<style>
+.topnav{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.topnav a.on{color:#3dd68c}
+.card-lab{color:#93a3b5;font-size:11px;letter-spacing:.16em;font-weight:800;margin-top:8px}
+.card-date{color:#3dd68c;font-size:18px;font-weight:800;letter-spacing:.08em;margin:2px 0 8px}
+.g-row{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #2a3644}
+.g-main{min-width:160px}
+.g-name{display:block;font-weight:800;font-size:14px}
+.g-pick{display:block;color:#e8eef5;font-size:13px;margin-top:2px}
+.g-when{display:block;color:#93a3b5;font-size:11px;margin-top:2px}
+.g-side{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.g-score{color:#93a3b5;font-size:11px}
+.g-row a{color:#d4a017;font-weight:800;text-decoration:underline;font-size:11px}
+.stamp{display:inline-block;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em}
+.stamp.bet{background:#0d2a1c;color:#3dd68c}
+.stamp.lean{background:#3d2a00;color:#d4a017}
+.stamp.fade{background:#3a1212;color:#ff6b6b}
+.stamp.win{background:#0d2a1c;color:#3dd68c}
+.stamp.loss{background:#3a1212;color:#ff6b6b}
+.stamp.push{background:#3d2a00;color:#d4a017}
+.ok{color:#3dd68c;font-weight:800}
+.loss{color:#ff6b6b;font-weight:800}
+.push{color:#d4a017;font-weight:800}
+</style></head>
+<body>
+<div class="topnav">
+<a class="on" href="today.html">TODAY</a>
+<a href="nfl.html">NFL</a>
+<a href="cfb.html">CFB</a>
+<a href="mlb.html">MLB</a>
+<a href="reviews.html">BET TRACKER</a>
+</div>
+<header>
+<div class="brand">THE SPLIT</div>
+<div class="week">TODAY</div>
+<div class="card-lab">CARD DATE</div>
+<div class="card-date" id="card-date">SUN SEP 13, 2026</div>
+<div class="updated">LAST UPDATED: Sun Sep 13, 2026 2:45 p.m. ET</div>
+</header>
+<div class="wrap">
+<details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
+<div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
+<details class="block" id="away-block"><summary>STAY AWAY GAMES</summary>
+<div class="body" id="fades"></div></details>
+</div>
+<script src="cfb-rank.js"></script>
+<script src="scores.js?v=8"></script>
+<script src="tracker.js?v=27"></script>
+<script src="stamp.js?v=2"></script>
+<script>
+const KICK = {
+  "ATL at PIT":"1:00 p.m. ET", "TB at CIN":"1:00 p.m. ET", "CHI at CAR":"1:00 p.m. ET",
+  "NO at DET":"1:00 p.m. ET", "BAL at IND":"1:00 p.m. ET", "BUF at HOU":"1:00 p.m. ET",
+  "NYJ at TEN":"1:00 p.m. ET", "CLE at JAC":"1:00 p.m. ET",
+  "ARI at LAC":"4:25 p.m. ET", "GB at MIN":"4:25 p.m. ET", "MIA at LV":"4:25 p.m. ET",
+  "WSH at PHI":"4:25 p.m. ET", "DAL at NYG":"8:20 p.m. ET",
+  "COL at DET":"1:10 p.m. ET", "NYM at NYY":"1:35 p.m. ET", "LAA at WSH":"1:35 p.m. ET",
+  "KC at BOS":"1:35 p.m. ET", "PHI at ATL":"1:35 p.m. ET", "BAL at TOR":"1:37 p.m. ET",
+  "LAD at MIA":"1:40 p.m. ET", "HOU at TB":"1:40 p.m. ET", "CIN at MIL":"2:10 p.m. ET",
+  "CLE at MIN":"2:10 p.m. ET", "CHW at STL":"2:15 p.m. ET", "PIT at CHC":"2:20 p.m. ET",
+  "SEA at ATH":"4:05 p.m. ET", "TEX at ARI":"4:10 p.m. ET", "SD at SF":"7:20 p.m. ET"
+};
+function kickMin(game){
+  const t = KICK[game] || "";
+  const m = t.match(/(\d+):(\d+)\s*(a\.m\.|p\.m\.)/i);
+  if (!m) return 9999;
+  let h = Number(m[1]); const min = Number(m[2]);
+  if (/p/i.test(m[3]) && h !== 12) h += 12;
+  if (/a/i.test(m[3]) && h === 12) h = 0;
+  return h * 60 + min;
+}
+function gameScore(b){
+  const map = window.SCORES || {};
+  const raw = map[(b.date || "") + "|" + b.game] || map[b.game] || b.final || "";
+  if (/\d+:\d+/.test(raw) && !/final|live|inning|qtr/i.test(raw)) return "";
+  return raw;
+}
+function parseFinal(sc){
+  const s = String(sc || "");
+  if (!/final/i.test(s)) return null;
+  const m = s.match(/FINAL\s+([A-Z0-9&]+)\s+(\d+)\s*-\s*(\d+)/i);
+  if (!m) return null;
+  return { winner: m[1].toUpperCase(), hi: Number(m[2]), lo: Number(m[3]) };
+}
+function gameTeams(game){
+  const p = String(game || "").split(/\s+at\s+/i);
+  return { away: (p[0] || "").trim().toUpperCase(), home: (p[1] || "").trim().toUpperCase() };
+}
+function teamScores(b){
+  const f = parseFinal(gameScore(b));
+  if (!f) return null;
+  const t = gameTeams(b.game);
+  if (!t.away || !t.home) return null;
+  const loser = f.winner === t.home ? t.away : (f.winner === t.away ? t.home : "");
+  if (!loser) return null;
+  const out = {};
+  out[f.winner] = f.hi;
+  out[loser] = f.lo;
+  return out;
+}
+function pickBits(b){
+  const t = String(b.type || "").toLowerCase();
+  const src = [b.close, b.booked, b.pick].filter(Boolean).join(" ");
+  if (t === "total") {
+    const tot = String(src).match(/\b([ou])\s*(\d+(?:\.\d+)?)/i);
+    if (tot) return { kind: "total", side: tot[1].toLowerCase(), line: Number(tot[2]) };
+  }
+  const spr = String(src).match(/\b([A-Z]{2,4})\s+([+-]\d+(?:\.\d+)?)\b/);
+  if (spr) {
+    const n = Number(spr[2]);
+    if (Math.abs(n) < 80) return { kind: (t === "ml" ? "ml" : "spread"), team: spr[1].toUpperCase(), line: n };
+  }
+  const ml = String(src).match(/\b([A-Z]{2,4})\s+([+-]\d{3,})\b/);
+  if (ml || t === "ml") {
+    const team = ml ? ml[1].toUpperCase() : null;
+    return { kind: "ml", team: team };
+  }
+  return null;
+}
+function gradeTicket(b){
+  const settled = String(b.result || "").toUpperCase();
+  if (settled === "WIN" || settled === "LOSS" || settled === "PUSH") return settled;
+  const t = String(b.type || "").toLowerCase();
+  if (t === "hr" || t === "td" || t === "prop") return "";
+  const scores = teamScores(b);
+  if (!scores) return "";
+  const bits = pickBits(b);
+  if (!bits) return "";
+  const total = Object.values(scores).reduce((a,n)=>a+n,0);
+  if (bits.kind === "total") {
+    if (bits.side === "o") {
+      if (total > bits.line) return "WIN";
+      if (total < bits.line) return "LOSS";
+      return "PUSH";
+    }
+    if (total < bits.line) return "WIN";
+    if (total > bits.line) return "LOSS";
+    return "PUSH";
+  }
+  if (!bits.team || scores[bits.team] == null) return "";
+  const mine = scores[bits.team];
+  const theirs = Object.keys(scores).filter(k => k !== bits.team).map(k => scores[k])[0];
+  if (theirs == null) return "";
+  if (bits.kind === "ml" || bits.line == null) {
+    if (mine > theirs) return "WIN";
+    if (mine < theirs) return "LOSS";
+    return "PUSH";
+  }
+  const adj = mine + bits.line;
+  if (adj > theirs) return "WIN";
+  if (adj < theirs) return "LOSS";
+  return "PUSH";
+}
+function resultStamp(res){
+  if (!res) return "";
+  const r = String(res).toUpperCase();
+  const cls = r === "WIN" ? "win" : r === "LOSS" ? "loss" : "push";
+  return `<span class="stamp ${cls}">${r}</span>`;
+}
+function flatRow(b){
+  const t = String(b.type || "").toLowerCase();
+  const conf = String(b.confidence || "LEAN").toUpperCase();
+  const href = b.href || "#";
+  const day = (b.date || "").slice(5).replace("-", "/");
+  const kick = KICK[b.game] || "";
+  const live = gameScore(b);
+  const grade = gradeTicket(b);
+  const name = b.sport === "CFB" && window.rankCfbGame ? window.rankCfbGame(b.game) : b.game;
+  const when = [day, kick].filter(Boolean).join(" \u00b7 ");
+  const scoreTxt = live || b.status || "OPEN";
+  return `<div class="g-row">
+    <div class="g-main">
+      <span class="g-name">${name}</span>
+      <span class="g-pick">${b.pick} \u00b7 ${b.close || ""}</span>
+      <span class="g-when">${when}</span>
+    </div>
+    <div class="g-side">
+      <span class="stamp ${conf.toLowerCase()}">${conf}</span>
+      ${resultStamp(grade)}
+      <span class="g-score">${scoreTxt}</span>
+      <a href="${href}">GAME DETAIL</a>
+    </div>
+  </div>`;
+}
+function prettyCard(iso){
+  const p = (iso || "").split("-");
+  if (p.length !== 3) return iso || "";
+  const d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+  return d.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric", year:"numeric"}).toUpperCase();
+}
+function flatGameList(rows){
+  const list = [];
+  const seen = {};
+  (rows || []).slice().sort((a,b)=> kickMin(a.game) - kickMin(b.game)).forEach(b => {
+    if (seen[b.game]) return;
+    seen[b.game] = true;
+    list.push(b);
+  });
+  return list.map(flatRow).join("") || `<p class="note">Nothing posted.</p>`;
+}
+function mlbBuckets(rows){
+  const sort = (arr) => arr.slice().sort((a,b)=> kickMin(a.game) - kickMin(b.game));
+  const side = sort(rows.filter(b => !isTdHr(b) && !isPlayerProp(b)));
+  const hr = sort(rows.filter(b => String(b.type||"").toLowerCase()==="hr"));
+  const prop = sort(rows.filter(isPlayerProp));
+  return sportDrop("SIDE", side.map(flatRow).join(""), false)
+    + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false)
+    + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
+}
+async function paintStayAway(){
+  const data = await loadLedger();
+  const day = cardDate();
+  const order = ["NFL","CFB","MLB"];
+  const fades = document.getElementById("fades");
+  if (!fades) return;
+  const away = order.map(sp => {
+    const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day && isFade(b) && !isTdHr(b) && !isPlayerProp(b));
+    if (!rows.length) return "";
+    return sportDrop(sp, flatGameList(rows), false);
+  }).filter(Boolean);
+  fades.innerHTML = away.length ? away.join("") : `<p class="note">No stay-away tickets dated ${day}.</p>`;
+}
+function keepTicketsOpen(){
+  const el = document.getElementById("tickets-block");
+  if (el) el.setAttribute("open", "");
+}
+const _rt = renderToday;
+renderToday = async function(){
+  await _rt();
+  await paintStayAway();
+  const el = document.getElementById("card-date");
+  if (el) el.textContent = prettyCard(cardDate());
+  if (window.splitStamp) splitStamp();
+  keepTicketsOpen();
+};
+renderToday();
+if (window.closeAllTabs) closeAllTabs();
+keepTicketsOpen();
+</script>
+</body></html>

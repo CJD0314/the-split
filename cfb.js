@@ -11,6 +11,14 @@ const CFB_OPEN = {
   "cfb-week-2-uva-norf.html": {sp:"not confirmed", tot:"not confirmed", ml:"not confirmed", move:"final"},
   "cfb-week-2-miz-ku.html": {sp:"not confirmed", tot:"not confirmed", ml:"not confirmed", move:"final"}
 };
+function reviewLink(href, review){
+  if (review) return review;
+  if (href && href.indexOf("cfb-week-2-") === 0 && href.indexOf("?") < 0)
+    return href.replace(".html", "-review.html");
+  const m = href && href.match(/[?&]g=([^&]+)/);
+  if (m) return "cfb-review.html?g=" + m[1];
+  return "reviews.html";
+}
 const CFB = {
 1: [
   ["THU SEPT 3",254,16,"#21 Utah 66, Idaho 14","FINAL","UTAH -38.5","52.5","UTAH heavy","cfb-game.html?g=utah-idaho","cfb-review.html?g=utah-idaho","Cashed"],
@@ -27,26 +35,26 @@ const CFB = {
   ["FRI SEPT 11",222,97,"#24 Louisville 59, Villanova 13","FINAL","LOU -36.5 / VILL +36.5","56.5","LOU heavy","cfb-week-2-lou-vill.html","cfb-week-2-lou-vill-review.html","final"],
   ["FRI SEPT 11",2450,258,"#25 Virginia 59, Norfolk State 3","FINAL","UVA -45.5 / NORF +45.5","55.5","UVA heavy","cfb-week-2-uva-norf.html","cfb-week-2-uva-norf-review.html","final"],
   ["FRI SEPT 11",142,2305,"#23 Missouri 38, Kansas 21","FINAL","MIZ -5.5 / KU +5.5","50.5","MIZ -218 / KU +180","cfb-week-2-miz-ku.html","cfb-week-2-miz-ku-review.html","final"],
-  ["SAT SEPT 12",194,251,"#1 Ohio State at #4 Texas","7:30 ABC","TEX -1.5 / OSU +1.5 (-108)","49.5","TEX -118 / OSU +100","cfb-week-2-osu-tex.html","","TEX -1.5 held"],
-  ["SAT SEPT 12",201,130,"#11 Oklahoma at Michigan","12:00 FOX","OU -5.5 (-108) / MICH +5.5 (-112)","43.5","OU -205 / MICH +170","cfb-week-2-ou-mich.html","","OU -4.5 to -5.5"],
-  ["SAT SEPT 12",333,96,"#12 Alabama at Kentucky","3:30 ABC","ALA -10 (-110) / UK +10 (-110)","48.5","ALA -380 / UK +300","cfb-week-2-ala-uk.html","","ALA -10.5 to -10"],
-  ["SAT SEPT 12",245,9,"#10 Texas A&M vs Arizona State","12:00 ABC","TAMU -14.5 (-108) / ASU +14.5","50.5","TAMU -700 / ASU +500","cfb-game.html?g=tamu-asu","","not confirmed"],
-  ["SAT SEPT 12",248,197,"#6 Oregon at Oklahoma State","12:00 ESPN","ORE -23.5 (-108) / OKST +23.5","54.5","ORE heavy","cfb-game.html?g=ore-okst","","not confirmed"],
-  ["SAT SEPT 12",61,98,"#2 Georgia vs W. Kentucky","12:45 SECN","UGA -40.5 / WKU +40.5","55.5","UGA heavy","cfb-game.html?g=uga-wku","","not confirmed"],
-  ["SAT SEPT 12",87,242,"#3 Notre Dame vs Rice","3:30 NBC","ND -44.5 / RICE +44.5","55.5","ND heavy","cfb-game.html?g=nd-rice","","not confirmed"],
-  ["SAT SEPT 12",84,47,"#5 Indiana vs Howard","12:00 BTN","IU -57.5 / HOW +57.5","66.5","IU heavy","cfb-game.html?g=iu-how","","not confirmed"],
-  ["SAT SEPT 12",2633,59,"#18 Tennessee at Georgia Tech","7:00 ESPN","TENN -11.5 / GT +11.5","55.5","TENN -485 / GT +370","cfb-week-2-tenn-gt.html","","not confirmed"],
-  ["SAT SEPT 12",2294,66,"#21 Iowa vs Iowa State","7:30 NBC","IOWA -14 (-105) / ISU +14 (-115)","40.5","IOWA -600 / ISU +440","cfb-week-2-iowa-isu.html","","IOWA -14.5 to -14"],
-  ["SAT SEPT 12",252,12,"#15 BYU vs Arizona","3:30 FOX","BYU -7 (-108) / ARIZ +7","48.5","BYU -270 / ARIZ +220","cfb-game.html?g=byu-ariz","","not confirmed"],
-  ["SAT SEPT 12",2641,204,"#13 Texas Tech at Oregon State","7:30 CBS","TTU -25.5 / ORST +25.5","53.5","TTU heavy","cfb-game.html?g=ttu-orst","","not confirmed"],
-  ["SAT SEPT 12",213,218,"#16 Penn State at Temple","12:00 ESPN2","PSU -24.5 / TEM +24.5","50.5","PSU heavy","cfb-game.html?g=psu-tem","","not confirmed"],
-  ["SAT SEPT 12",264,328,"#19 Washington vs Utah State","3:30 BTN","WASH -27.5 / USU +27.5","55.5","WASH heavy","cfb-game.html?g=wash-usu","","not confirmed"],
-  ["SAT SEPT 12",254,8,"#20 Utah vs Arkansas","10:15 ESPN","UTAH -7 / ARK +7","54.5","UTAH -280 / ARK +230","cfb-game.html?g=utah-ark","","not confirmed"],
-  ["SAT SEPT 12",30,309,"#14 USC vs Louisiana","11:00 ESPN","USC -21.5 / ULL +21.5","58.5","USC heavy","cfb-game.html?g=usc-ull","","not confirmed"],
-  ["SAT SEPT 12",99,234,"#8 LSU vs Louisiana Tech","7:30 SECN+","LSU -35.5 (-102) / LT +35.5","55.5","LSU heavy","cfb-game.html?g=lsu-lt","","not confirmed"],
-  ["SAT SEPT 12",145,2429,"#9 Ole Miss vs Charlotte","7:45 ESPN","MISS -47.5 / CHAR +47.5","61.5","MISS heavy","cfb-game.html?g=miss-char","","not confirmed"],
-  ["SAT SEPT 12",2567,302,"#17 SMU vs UC Davis","4:00 ACCNX","SMU -24.5 / UCD +24.5","58.5","SMU heavy","cfb-game.html?g=smu-ucd","","not confirmed"],
-  ["SAT SEPT 12",248,2582,"#22 Houston vs Southern","7:00 ESPN+","HOU -51.5 / SOU +51.5","60.5","HOU heavy","cfb-game.html?g=hou-sou","","not confirmed"]
+  ["SAT SEPT 12",194,251,"#1 Ohio State at #4 Texas","FINAL TEX 24-23","TEX -1.5 / OSU +1.5","49.5","TEX -118 / OSU +100","cfb-week-2-osu-tex.html","cfb-week-2-osu-tex-review.html","OSU +1.5 WIN"],
+  ["SAT SEPT 12",201,130,"#11 Oklahoma at Michigan","FINAL MICH 17-10","OU -5.5 / MICH +5.5","43.5","OU -205 / MICH +170","cfb-week-2-ou-mich.html","cfb-week-2-ou-mich-review.html","OU -5.5 LOSS"],
+  ["SAT SEPT 12",333,96,"#12 Alabama at Kentucky","FINAL ALA 45-17","ALA -10 / UK +10","48.5","ALA -380 / UK +300","cfb-week-2-ala-uk.html","cfb-week-2-ala-uk-review.html","ALA -10 WIN"],
+  ["SAT SEPT 12",245,9,"#10 Texas A&M vs Arizona State","FINAL TAMU 48-20","TAMU -14.5 / ASU +14.5","50.5","TAMU -700 / ASU +500","cfb-game.html?g=tamu-asu","cfb-week-2-tamu-asu-review.html","TAMU -14.5 WIN"],
+  ["SAT SEPT 12",248,197,"#6 Oregon at Oklahoma State","FINAL OKST 39-31","ORE -23.5 / OKST +23.5","54.5","ORE heavy","cfb-game.html?g=ore-okst","cfb-week-2-ore-okst-review.html","ORE -23.5 LOSS"],
+  ["SAT SEPT 12",61,98,"#2 Georgia vs W. Kentucky","FINAL UGA 70-20","UGA -40.5 / WKU +40.5","55.5","UGA heavy","cfb-game.html?g=uga-wku","cfb-week-2-uga-wku-review.html","UGA -40.5 WIN"],
+  ["SAT SEPT 12",87,242,"#3 Notre Dame vs Rice","FINAL ND 52-0","ND -44.5 / RICE +44.5","55.5","ND heavy","cfb-game.html?g=nd-rice","cfb-week-2-nd-rice-review.html","ND -44.5 WIN"],
+  ["SAT SEPT 12",84,47,"#5 Indiana vs Howard","FINAL IU 55-0","IU -57.5 / HOW +57.5","66.5","IU heavy","cfb-game.html?g=iu-how","cfb-week-2-iu-how-review.html","IU -57.5 LOSS"],
+  ["SAT SEPT 12",2633,59,"#18 Tennessee at Georgia Tech","FINAL TENN 45-24","TENN -11.5 / GT +11.5","55.5","TENN -485 / GT +370","cfb-week-2-tenn-gt.html","cfb-week-2-tenn-gt-review.html","TENN -11.5 WIN"],
+  ["SAT SEPT 12",2294,66,"#21 Iowa vs Iowa State","FINAL IOWA 16-13","IOWA -14 / ISU +14","40.5","IOWA -600 / ISU +440","cfb-week-2-iowa-isu.html","cfb-week-2-iowa-isu-review.html","IOWA -14 LOSS"],
+  ["SAT SEPT 12",252,12,"#15 BYU vs Arizona","FINAL BYU 28-17","BYU -7 / ARIZ +7","48.5","BYU -270 / ARIZ +220","cfb-game.html?g=byu-ariz","cfb-week-2-byu-ariz-review.html","BYU -7 WIN"],
+  ["SAT SEPT 12",2641,204,"#13 Texas Tech at Oregon State","FINAL TTU 35-24","TTU -25.5 / ORST +25.5","53.5","TTU heavy","cfb-game.html?g=ttu-orst","cfb-week-2-ttu-orst-review.html","TTU -25.5 LOSS"],
+  ["SAT SEPT 12",213,218,"#16 Penn State at Temple","FINAL PSU 27-9","PSU -24.5 / TEM +24.5","50.5","PSU heavy","cfb-game.html?g=psu-tem","cfb-week-2-psu-tem-review.html","PSU -24.5 LOSS"],
+  ["SAT SEPT 12",264,328,"#19 Washington vs Utah State","FINAL WASH 16-14","WASH -27.5 / USU +27.5","55.5","WASH heavy","cfb-game.html?g=wash-usu","cfb-week-2-wash-usu-review.html","WASH -27.5 LOSS"],
+  ["SAT SEPT 12",254,8,"#20 Utah vs Arkansas","FINAL UTAH 43-10","UTAH -7 / ARK +7","54.5","UTAH -280 / ARK +230","cfb-game.html?g=utah-ark","cfb-week-2-utah-ark-review.html","UTAH -7 WIN"],
+  ["SAT SEPT 12",30,309,"#14 USC vs Louisiana","FINAL USC 49-30","USC -21.5 / ULL +21.5","58.5","USC heavy","cfb-game.html?g=usc-ull","cfb-week-2-usc-ull-review.html","USC -21.5 LOSS"],
+  ["SAT SEPT 12",99,234,"#8 LSU vs Louisiana Tech","FINAL LSU 45-14","LSU -35.5 / LT +35.5","55.5","LSU heavy","cfb-game.html?g=lsu-lt","cfb-week-2-lsu-lt-review.html","LSU -35.5 LOSS"],
+  ["SAT SEPT 12",145,2429,"#9 Ole Miss vs Charlotte","FINAL MISS 41-9","MISS -47.5 / CHAR +47.5","61.5","MISS heavy","cfb-game.html?g=miss-char","cfb-week-2-miss-char-review.html","MISS -47.5 LOSS"],
+  ["SAT SEPT 12",2567,302,"#17 SMU vs UC Davis","FINAL SMU 56-10","SMU -24.5 / UCD +24.5","58.5","SMU heavy","cfb-game.html?g=smu-ucd","cfb-week-2-smu-ucd-review.html","SMU -24.5 WIN"],
+  ["SAT SEPT 12",248,2582,"#22 Houston vs Southern","FINAL HOU 77-6","HOU -51.5 / SOU +51.5","60.5","HOU heavy","cfb-game.html?g=hou-sou","cfb-week-2-hou-sou-review.html","HOU -51.5 WIN"]
 ]
 };
 function cfbCard(row){
@@ -58,7 +66,8 @@ function cfbCard(row){
   const mv = src.move || move || "not confirmed";
   const imgs = `<img src="${CFB_LOGO(a)}">` + (h ? `<img src="${CFB_LOGO(h)}">` : "");
   const link = href ? `<a class="full-link" href="${href}">FULL BREAKDOWN</a>` : "";
-  const rev = review ? `<a class="full-link" href="${review}">REVIEW</a>` : "";
+  const revHref = reviewLink(href, review);
+  const rev = `<a class="full-link" href="${revHref}">REVIEW</a>`;
   const tiles = `<div class="dive-box" style="width:100%"><div class="mini">
     <div><b>SPREAD</b><span>Current: ${spread}</span><span>Open: ${openSp}</span></div>
     <div><b>TOTAL</b><span>Current: ${total||"--"}</span><span>Open: ${openTot}</span></div>

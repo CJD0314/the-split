@@ -24,32 +24,23 @@ const TILES = {
 "dive-ne":["nfl-week-1-ne-sea.html","SEA vs NE","SEA -3 (-118) / NE +3 (-102)","SEA -3.5","44.5","44.5","SEA -170 / NE +142","SEA -198 / NE +164","SEA -3.5 to -3","nfl-week-1-ne-sea-review.html"],
 "dive-sf":["nfl-week-1-sf-lar.html","SF vs LAR","LAR -3.5 (-118) / SF +3.5 (-102)","LAR -3.5","48.5","48.5","LAR -198 / SF +164","not confirmed","Held -3.5","nfl-week-1-sf-lar-review.html"]
 };
+function reviewHref(a,h,extra){
+  if (TILES[extra] && TILES[extra][9]) return TILES[extra][9];
+  return "nfl-week-1-reviews.html#" + extra;
+}
 function card(href,title,curSp,opSp,curTot,opTot,curMl,opMl,move,a,h,t,n,review){
-  const rev = review ? `<a class="full-link" href="${review}">REVIEW</a>` : "";
-  return `<div class="g" style="flex-wrap:wrap">
-    <img src="${LOGO(a)}"><img src="${LOGO(h)}">
-    <b>${title}</b>
-    <a class="full-link" href="${href}">FULL BREAKDOWN</a>
-    ${rev}
-    <span>${t} ${n}</span>
-    <div class="dive-box" style="width:100%">
-      <div class="mini">
-        <div><b>SPREAD</b><span>Current: ${curSp}</span><span>Open: ${opSp}</span></div>
-        <div><b>TOTAL</b><span>Current: ${curTot}</span><span>Open: ${opTot}</span></div>
-        <div><b>MONEYLINE</b><span>Current: ${curMl}</span><span>Open: ${opMl}</span></div>
-        <div><b>MOVE</b><span>${move}</span></div>
-      </div>
-    </div>
-  </div>`;
+  const rev = review ? `<a class=\"full-link\" href=\"${review}\">REVIEW</a>` : "";
+  return `<div class=\"g\" style=\"flex-wrap:wrap\">\n    <img src=\"${LOGO(a)}\"><img src=\"${LOGO(h)}\">\n    <b>${title}</b>\n    <a class=\"full-link\" href=\"${href}\">FULL BREAKDOWN</a>\n    ${rev}\n    <span>${t} ${n}</span>\n  </div>`;
 }
 function row(g){
   const [w,day,a,h,t,n,extra] = g;
+  const rev = reviewHref(a,h,extra);
   if (TILES[extra]) {
     const x = TILES[extra];
-    return card(x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], a, h, t, n, x[9]);
+    return card(x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], a, h, t, n, rev);
   }
   const href = "nfl-week-1-" + a + "-" + h + ".html";
-  return `<div class="g"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${(NAMES[a]||a)+" at "+(NAMES[h]||h)}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a><span>${t} ${n}</span></div>`;
+  return `<div class=\"g\" style=\"flex-wrap:wrap\"><img src=\"${LOGO(a)}\"><img src=\"${LOGO(h)}\"><b>${(NAMES[a]||a)+\" at \"+(NAMES[h]||h)}</b><a class=\"full-link\" href=\"${href}\">FULL BREAKDOWN</a><a class=\"full-link\" href=\"${rev}\">REVIEW</a><span>${t} ${n}</span></div>`;
 }
 function show(week){
   document.querySelectorAll("#week-btns button").forEach((b)=>{
@@ -58,7 +49,7 @@ function show(week){
   const list = GAMES.filter(g=>g[0]===week);
   let html="", last="";
   for (const g of list){
-    if (g[1]!==last){ html += `<div class="day">${g[1]}</div>`; last=g[1]; }
+    if (g[1]!==last){ html += `<div class=\"day\">${g[1]}</div>`; last=g[1]; }
     html += row(g);
   }
   const slate = document.getElementById("slate");

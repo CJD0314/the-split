@@ -12,7 +12,9 @@
 <a href="reviews.html">BET TRACKER</a>
 </div>
 <div id="one"><p class="note">Loading identity...</p></div>
-<script src="nfl-identities.js?v=2"></script>
+<script src="nfl-id-a.js?v=1"></script>
+<script src="nfl-id-b.js?v=1"></script>
+<script src="nfl-identities.js?v=3"></script>
 <script>
 (function(){
   const id = new URLSearchParams(location.search).get("t") || "";
@@ -23,7 +25,7 @@
     return;
   }
   document.title = "The Split -- " + t.name;
-  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">${t.name.toUpperCase()}</div><div class="meta">${t.w1} \u00b7 ${t.ticket}</div></header><div class="wrap"><details class="block" open><summary>WHO THEY ARE</summary><div class="body"><p>${t.who}</p></div></details><details class="block" open><summary>HOW WE BET THEM</summary><div class="body"><p>${t.bet}</p></div></details><details class="block" open><summary>HOW WE PLAY THEM IN DFS</summary><div class="body"><p>${t.dfs}</p></div></details><p><a class="full-link" href="${t.rev}">GAME REVIEW</a> \u00b7 <a class="full-link" href="nfl.html">NFL</a></p></div>`;
+  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">${t.name.toUpperCase()}</div><div class="meta">Identity book · built to feed the next full breakdown</div></header><div class="wrap"><div class="market"><div class="tile"><b>WEEK 1</b><span>${t.w1}</span><span>${t.ticket}</span></div><div class="tile"><b>POINTS</b><span>FOR ${t.pf}</span><span>AGT ${t.pa}</span></div><div class="tile"><b>ENGINE</b><span>${t.engine}</span><span>${t.style}</span></div><div class="tile"><b>KEY STAT</b><span>${t.stat}</span></div></div><details class="block" open><summary>WHO THEY ARE ON THIS TAPE</summary><div class="body"><p>${t.who}</p></div></details><details class="block" open><summary>HOW WE BET THEM</summary><div class="body"><p>${t.bet}</p></div></details><details class="block" open><summary>HOW WE PLAY THEM IN DFS</summary><div class="body"><p>${t.dfs}</p></div></details><details class="block" open><summary>USE THIS IN THE NEXT BREAKDOWN</summary><div class="body"><p>${t.next}</p></div></details><p><a class="full-link" href="${t.rev}">GAME REVIEW</a> · <a class="full-link" href="nfl.html">NFL</a></p></div>`;
 })();
 </script>
 </body></html>

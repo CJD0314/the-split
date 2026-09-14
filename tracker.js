@@ -1,4 +1,4 @@
-const LEDGER_TODAY = "2026-09-13";
+const LEDGER_TODAY = "2026-09-14";
 function etDate(){
   try {
     return new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric", month:"2-digit", day:"2-digit"}).format(new Date());
@@ -58,7 +58,20 @@ function passFilter(b, filter){
 async function loadLedger(){
   const r = await fetch("tracker.json?v=" + Date.now());
   const data = await r.json();
-  data.bets = (data.bets || []).filter(keepTicket);
+  data.bets = data.bets || [];
+  const seen = {};
+  data.bets.forEach(function(b){ if (b && b.id) seen[b.id]=true; });
+  const shards = ["tracker-settled.json","tracker-open.json"];
+  for (let i=0;i<shards.length;i++){
+    try {
+      const extra = await (await fetch(shards[i] + "?v=" + Date.now())).json();
+      const more = extra.bets || extra || [];
+      more.forEach(function(b){
+        if (b && b.id && !seen[b.id]){ data.bets.push(b); seen[b.id]=true; }
+      });
+    } catch (e) {}
+  }
+  data.bets = data.bets.filter(keepTicket);
   return data;
 }
 async function loadPlaybook(){
@@ -93,41 +106,19 @@ function summarize(data){
 }
 function renderBank(el, s){
   if(!el) return;
-  el.innerHTML = `
-    <div><b>SETTLED P/L</b><span>${money(s.pl)}</span></div>
-    <div><b>RECORD</b><span>${s.wins.length}-${s.losses.length}-${s.pushes.length}</span></div>
-    <div><b>ROI</b><span>${s.roi}</span></div>
-    <div><b>RISKED</b><span>$${s.risked}</span></div>`;
+  el.innerHTML = `\n    <div><b>SETTLED P/L</b><span>${money(s.pl)}</span></div>\n    <div><b>RECORD</b><span>${s.wins.length}-${s.losses.length}-${s.pushes.length}</span></div>\n    <div><b>ROI</b><span>${s.roi}</span></div>\n    <div><b>RISKED</b><span>$${s.risked}</span></div>`;
 }
 function ticketLine(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
   const res = b.result || b.status;
-  return `<div class="slip">
-    <div class="slip-top"><span class="slip-type">${typeLabel(b)}</span><span class="slip-pick">${b.pick}</span></div>
-    <div class="slip-meta">
-      <div><b>STAKE</b><span>$${b.stake}</span></div>
-      <div><b>TO WIN</b><span>$${b.to_win}</span></div>
-      <div><b>CONFIDENCE</b><span class="stamp ${conf.toLowerCase()}">${conf}</span></div>
-      <div><b>RESULT</b><span class="${resultClass(b)}">${res}</span></div>
-    </div>
-  </div>`;
+  return `<div class=\"slip\">\n    <div class=\"slip-top\"><span class=\"slip-type\">${typeLabel(b)}</span><span class=\"slip-pick\">${b.pick}</span></div>\n    <div class=\"slip-meta\">\n      <div><b>STAKE</b><span>$${b.stake}</span></div>\n      <div><b>TO WIN</b><span>$${b.to_win}</span></div>\n      <div><b>CONFIDENCE</b><span class=\"stamp ${conf.toLowerCase()}\">${conf}</span></div>\n      <div><b>RESULT</b><span class=\"${resultClass(b)}\">${res}</span></div>\n    </div>\n  </div>`;
 }
 function flatRow(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
   const href = b.href || "#";
   const sc = scoreLabel(gameScore(b));
   const shown = sc.replace(/^FINAL\s*/i,"").replace(/^LIVE\s*/i,"");
-  return `<div class="g-row">
-    <div class="g-main">
-      <span class="g-name">${b.game}</span>
-      <span class="g-pick">${b.pick} \u00b7 ${b.close || ""}</span>
-    </div>
-    <div class="g-side">
-      <span class="stamp ${conf.toLowerCase()}">${conf}</span>
-      <span class="g-score">${shown || (b.status||"")}</span>
-      <a href="${href}">GAME DETAIL</a>
-    </div>
-  </div>`;
+  return `<div class=\"g-row\">\n    <div class=\"g-main\">\n      <span class=\"g-name\">${b.game}</span>\n      <span class=\"g-pick\">${b.pick} \u00b7 ${b.close || \"\"}</span>\n    </div>\n    <div class=\"g-side\">\n      <span class=\"stamp ${conf.toLowerCase()}\">${conf}</span>\n      <span class=\"g-score\">${shown || (b.status||\"\")}</span>\n      <a href=\"${href}\">GAME DETAIL</a>\n    </div>\n  </div>`;
 }
 function flatGameList(rows){
   const seen = {};
@@ -137,7 +128,7 @@ function flatGameList(rows){
     seen[b.game] = true;
     list.push(b);
   });
-  return list.map(flatRow).join("") || `<p class="note">Nothing posted.</p>`;
+  return list.map(flatRow).join("") || `<p class=\"note\">Nothing posted.</p>`;
 }
 function mlbBuckets(rows){
   const side = rows.filter(b => !isTdHr(b) && !isPlayerProp(b));
@@ -148,10 +139,7 @@ function mlbBuckets(rows){
     + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
 }
 function sportDrop(title, html, open){
-  return `<details class="block" ${open?"open":""}><summary>${title}</summary><div class="body">${html || `<p class="note">Nothing posted.</p>`}</div></details>`;
-}
-function sportBlock(title, html){
-  return `<h3>${title}</h3>` + (html || `<p class="note">Nothing posted.</p>`);
+  return `<details class=\"block\" ${open?\"open\":\"\"}><summary>${title}</summary><div class=\"body\">${html || `<p class=\"note\">Nothing posted.</p>`}</div></details>`;
 }
 function resultClass(b){
   if (!b) return "push";
@@ -165,32 +153,15 @@ function resultText(b){
   return (b.status||"") + (sc?" \u00b7 "+sc:"");
 }
 function reviewRow(b){
-  const href = b.href ? `<a class="full-link" href="${b.href}">${b.game}</a>` : b.game;
+  const href = b.href ? `<a class=\"full-link\" href=\"${b.href}\">${b.game}</a>` : b.game;
   const pl = b.status === "SETTLED" ? money(b.pl) : "--";
-  return `<tr>
-    <td>${(b.date||"").slice(5)}</td>
-    <td>${href}</td>
-    <td>${typeLabel(b)} \u00b7 ${b.pick}</td>
-    <td>${clv(b)}</td>
-    <td>$${b.stake}</td>
-    <td>$${b.to_win}</td>
-    <td>${b.confidence||"--"}</td>
-    <td class="${resultClass(b)}">${resultText(b)}</td>
-    <td>${pl}</td>
-  </tr>`;
+  return `<tr>\n    <td>${(b.date||\"\").slice(5)}</td>\n    <td>${href}</td>\n    <td>${typeLabel(b)} \u00b7 ${b.pick}</td>\n    <td>${clv(b)}</td>\n    <td>$${b.stake}</td>\n    <td>$${b.to_win}</td>\n    <td>${b.confidence||\"--\"}</td>\n    <td class=\"${resultClass(b)}\">${resultText(b)}</td>\n    <td>${pl}</td>\n  </tr>`;
 }
 function reviewTable(rows){
-  if (!rows.length) return `<p class="note">No tickets.</p>`;
+  if (!rows.length) return `<p class=\"note\">No tickets.</p>`;
   const settled = rows.filter(b => b.status === "SETTLED");
   const pl = settled.reduce((a,b)=>a+(Number(b.pl)||0),0);
-  return `<table class="res">
-    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLV / CLOSE</th><th>STAKE</th><th>TO WIN</th><th>CONF</th><th>SCORE / RESULT</th><th>P/L</th></tr>
-    ${rows.map(reviewRow).join("")}
-    <tr class="total"><td colspan="8">SETTLED P/L</td><td>${money(pl)}</td></tr>
-  </table>`;
-}
-function stampLine(data){
-  return data && data.updated ? "Ledger " + data.updated.replace("T"," ") : "";
+  return `<table class=\"res\">\n    <tr><th>DATE</th><th>GAME</th><th>TICKET</th><th>CLV / CLOSE</th><th>STAKE</th><th>TO WIN</th><th>CONF</th><th>SCORE / RESULT</th><th>P/L</th></tr>\n    ${rows.map(reviewRow).join(\"\")}\n    <tr class=\"total\"><td colspan=\"8\">SETTLED P/L</td><td>${money(pl)}</td></tr>\n  </table>`;
 }
 async function renderReviews(filter){
   const data = await loadLedger();
@@ -206,9 +177,9 @@ async function renderReviews(filter){
     const tdhr = rows.filter(isTdHr);
     const props = rows.filter(isPlayerProp);
     let inner;
-    if (!rows.length) inner = `<p class="note">No tickets in this filter.</p>`;
-    else if (sp === "CFB") inner = `<h3 class="track">BEST BETS \u2014 SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}`;
-    else inner = `<h3 class="track">BEST BETS \u2014 SIDE / TOTAL / MONEYLINE</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`;
+    if (!rows.length) inner = `<p class=\"note\">No tickets in this filter.</p>`;
+    else if (sp === "CFB") inner = `<h3 class=\"track\">BEST BETS</h3>${reviewTable(best)}`;
+    else inner = `<h3 class=\"track\">BEST BETS</h3>${reviewTable(best)}<h3 class=\"track\">TD / HR</h3>${reviewTable(tdhr)}<h3 class=\"track\">PLAYER PROPS</h3>${reviewTable(props)}`;
     return sportDrop(names[sp], inner, false);
   }).join("");
 }
@@ -228,7 +199,7 @@ async function renderToday(){
     if (!rows.length) return "";
     return sportDrop(sp, sportTodayHtml(sp, rows), false);
   }).filter(Boolean);
-  if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No BET or LEAN tickets dated ${day}.</p>`;
+  if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class=\"note\">No BET or LEAN tickets dated ${day}.</p>`;
   const fades = document.getElementById("fades");
   if (fades){
     const away = order.map(sp => {
@@ -236,7 +207,7 @@ async function renderToday(){
       if (!rows.length) return "";
       return sportDrop(sp, flatGameList(rows), false);
     }).filter(Boolean);
-    fades.innerHTML = away.length ? away.join("") : `<p class="note">No stay-away tickets dated ${day}.</p>`;
+    fades.innerHTML = away.length ? away.join("") : `<p class=\"note\">No stay-away tickets dated ${day}.</p>`;
   }
 }
 async function renderHomeBank(){

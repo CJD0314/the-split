@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Split -- Team Identity</title>
+<link rel="stylesheet" href="dive.css"/>
+</head>
+<body>
+<div class="topnav">
+<a href="today.html">TODAY</a>
+<a href="nfl.html">NFL</a>
+<a href="reviews.html">BET TRACKER</a>
+</div>
+<div id="one"><p class="note">Loading identity...</p></div>
+<script src="nfl-identities.js?v=2"></script>
+<script>
+(function(){
+  const id = new URLSearchParams(location.search).get("t") || "";
+  const t = (window.NFL_IDENTITIES || {})[id];
+  const box = document.getElementById("one");
+  if (!t){
+    box.innerHTML = "<div class='wrap'><p class='note'>Pick a club from the NFL page.</p><p><a class='full-link' href='nfl.html'>NFL</a></p></div>";
+    return;
+  }
+  document.title = "The Split -- " + t.name;
+  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">${t.name.toUpperCase()}</div><div class="meta">${t.w1} \u00b7 ${t.ticket}</div></header><div class="wrap"><details class="block" open><summary>WHO THEY ARE</summary><div class="body"><p>${t.who}</p></div></details><details class="block" open><summary>HOW WE BET THEM</summary><div class="body"><p>${t.bet}</p></div></details><details class="block" open><summary>HOW WE PLAY THEM IN DFS</summary><div class="body"><p>${t.dfs}</p></div></details><p><a class="full-link" href="${t.rev}">GAME REVIEW</a> \u00b7 <a class="full-link" href="nfl.html">NFL</a></p></div>`;
+})();
+</script>
+</body></html>

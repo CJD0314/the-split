@@ -16,7 +16,7 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">NFL</div>
-<div class="updated">LAST UPDATED: Mon Sep 14, 2026 7:25 p.m. ET</div>
+<div class="updated">LAST UPDATED: Mon Sep 14, 2026 7:30 p.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
@@ -26,9 +26,9 @@
 <div class="inner"><div class="weeks" id="nfl-review-btns"></div><div id="nfl-week-review"></div></div></details>
 <details class="subhead" open><summary>BETTING NOTES</summary>
 <div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
-<details class="subhead"><summary>DFS CHEAT SHEET</summary>
+<details class="subhead" open><summary>DFS CHEAT SHEET</summary>
 <div class="inner"><div class="weeks" id="dfs-week-btns"></div></div></details>
-<details class="subhead"><summary>DFS NOTES</summary>
+<details class="subhead" open><summary>DFS NOTES</summary>
 <div class="inner" id="dfs-notes"></div></details>
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
 <div class="inner" id="team-identities"></div></details>
@@ -37,13 +37,14 @@
 <script src="nfl-week-review.js?v=4"></script>
 <script src="nfl-identities.js"></script>
 <script src="tracker.js?v=32"></script>
-<script src="notes.js?v=1"></script>
+<script src="notes.js?v=2"></script>
 <script src="stamp.js?v=3"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="NFL";})}));
 });
 paintBettingNotes("NFL");
+paintDfsNotes("NFL");
 (function(){
   const dfs = document.getElementById("dfs-week-btns");
   if (!dfs) return;

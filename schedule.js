@@ -15,14 +15,15 @@ const GAMES = [
 [1,"SUN 4:25","ari","lac","Cardinals at Chargers","FINAL ARI 26-14","ARI +9.5 / LAC -9.5","47.5","LAC -420 / ARI +330","WIN · Cardinals +9.5","nfl-week-1-ari-lac.html","nfl-week-1-game-review.html#ari-lac"],
 [1,"SUN 4:25","gb","min","Packers at Vikings","FINAL MIN 39-22","GB +1.5 / MIN -1.5","45.5","MIN -122 / GB +102","LOSS · Packers +1.5","nfl-week-1-gb-min.html","nfl-week-1-game-review.html#gb-min"],
 [1,"SUN 4:25","mia","lv","Dolphins at Raiders","FINAL LV 27-13","MIA +3.5 / LV -3.5","40.5","LV -166 / MIA +140","LOSS · Dolphins +3.5","nfl-week-1-mia-lv.html","nfl-week-1-game-review.html#mia-lv"],
-[1,"SUN 4:25","wsh","phi","Commanders at Eagles","FINAL PHI 24-22","WSH +5.5 / PHI -5.5","44.5","PHI -245 / WSH +200","WIN · Commanders +5.5","nfl-week-1-wsh-phi.html","nfl-week-1-game-review.html#wsh-phi"],
+[1,"SUN 4:25","wsh","phi","Commanders at Eagles","FINAL PHI 24-22","WSH +5.5 / PHI -5.5","44.5","PHI -245 / WSH +200","WIN · Commanders +5.5","nfl-week-1-wsh-phi.html","nfl-week-1-wsh-phi-review.html"],
 [1,"SNF","dal","nyg","Cowboys at Giants","FINAL NYG 28-20","DAL -2.5 / NYG +2.5","47.5","DAL -148 / NYG +124","LOSS · Cowboys -2.5","nfl-week-1-dal-nyg.html","nfl-week-1-game-review.html#dal-nyg"],
-[1,"MON SEPT 14","den","kc","Broncos at Chiefs","8:15 ABC/ESPN","DEN +2.5 / KC -2.5","43.5","KC -135 / DEN +115","OPEN · Broncos +2.5","nfl-week-1-den-kc.html","nfl-week-1-game-review.html#den-kc"]
+[1,"MON SEPT 14","den","kc","Broncos at Chiefs","8:15 ABC/ESPN","DEN +2.5 / KC -2.5","43.5","KC -135 / DEN +115","OPEN · Broncos +2.5","nfl-week-1-den-kc.html",""]
 ];
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
   const tiles = `<div class="dive-box" style="width:100%"><div class="mini"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>RESULT</b><span>${stamp}</span></div></div></div>`;
-  return `<div class="g" style="flex-wrap:wrap"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${title}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a><a class="full-link" href="${review}">REVIEW</a><span>${when}</span>${tiles}</div>`;
+  const rev = review ? `<a class="full-link" href="${review}">REVIEW</a>` : "";
+  return `<div class="g" style="flex-wrap:wrap"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${title}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a>${rev}<span>${when}</span>${tiles}</div>`;
 }
 function show(week){
   document.querySelectorAll("#week-btns button").forEach((b)=>{

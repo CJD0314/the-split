@@ -40,7 +40,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">SUN SEP 13, 2026</div>
-<div class="updated">LAST UPDATED: Sun Sep 13, 2026 6:15 p.m. ET</div>
+<div class="updated">LAST UPDATED: Sun Sep 13, 2026 10:08 p.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -234,7 +234,7 @@ renderToday = async function(){
   await _rt();
   await paintStayAway();
   const el = document.getElementById("card-date");
-  if (el) el.textContent = prettyCard(cardDate());
+  if (el) el.setAttribute("open", "");
   if (window.splitStamp) splitStamp();
   keepTicketsOpen();
 };

@@ -10,7 +10,7 @@ const GAMES = [
 [1,"SUN SEPT 13","buf","hou","Bills at Texans","FINAL BUF 36-31","BUF -1.5 / HOU +1.5","44.5","BUF -122 / HOU +102","WIN · Bills -1.5","nfl-week-1-buf-hou.html","nfl-week-1-reviews.html#buf-hou"],
 [1,"SUN SEPT 13","bal","ind","Ravens at Colts","FINAL BAL 41-23","BAL -3 / IND +3","48.5","BAL -162 / IND +136","WIN · Ravens -3","nfl-week-1-bal-ind.html","nfl-week-1-reviews.html#bal-ind"],
 [1,"SUN SEPT 13","cle","jax","Browns at Jaguars","FINAL JAX 34-10","CLE +8.5 / JAX -8.5","40.5","JAX -470 / CLE +360","LOSS · Browns +8.5","nfl-week-1-cle-jax.html","nfl-week-1-reviews.html#cle-jax"],
-[1,"SUN SEPT 13","atl","pit","Falcons at Steelers","FINAL PIT 20-13","ATL +6.5 / PIT -6.5","40.5","PIT -280 / ATL +230","WIN · Falcons +6.5","nfl-week-1-atl-pit.html","nfl-week-1-reviews.html#atl-pit"],
+[1,"SUN SEPT 13","atl","pit","Falcons at Steelers","FINAL PIT 20-13","ATL +6.5 / PIT -6.5","40.5","PIT -280 / ATL +230","LOSS · Falcons +6.5","nfl-week-1-atl-pit.html","nfl-week-1-reviews.html#atl-pit"],
 [1,"SUN SEPT 13","nyj","ten","Jets at Titans","FINAL NYJ 23-10","NYJ +1.5 / TEN -1.5","38.5","TEN -122 / NYJ +102","WIN · Jets +1.5","nfl-week-1-nyj-ten.html","nfl-week-1-reviews.html#nyj-ten"],
 [1,"SUN 4:25","ari","lac","Cardinals at Chargers","FINAL ARI 26-14","ARI +9.5 / LAC -9.5","47.5","LAC -420 / ARI +330","WIN · Cardinals +9.5","nfl-week-1-ari-lac.html","nfl-week-1-reviews.html#ari-lac"],
 [1,"SUN 4:25","gb","min","Packers at Vikings","FINAL MIN 39-22","GB +1.5 / MIN -1.5","45.5","MIN -122 / GB +102","LOSS · Packers +1.5","nfl-week-1-gb-min.html","nfl-week-1-reviews.html#gb-min"],
@@ -21,8 +21,8 @@ const GAMES = [
 ];
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
-  const tiles = `<div class=\"dive-box\" style=\"width:100%\"><div class=\"mini\"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>RESULT</b><span>${stamp}</span></div></div></div>`;
-  return `<div class=\"g\" style=\"flex-wrap:wrap\"><img src=\"${LOGO(a)}\"><img src=\"${LOGO(h)}\"><b>${title}</b><a class=\"full-link\" href=\"${href}\">FULL BREAKDOWN</a><a class=\"full-link\" href=\"${review}\">REVIEW</a><span>${when}</span>${tiles}</div>`;
+  const tiles = `<div class="dive-box" style="width:100%"><div class="mini"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>RESULT</b><span>${stamp}</span></div></div></div>`;
+  return `<div class="g" style="flex-wrap:wrap"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${title}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a><a class="full-link" href="${review}">REVIEW</a><span>${when}</span>${tiles}</div>`;
 }
 function show(week){
   document.querySelectorAll("#week-btns button").forEach((b)=>{
@@ -31,7 +31,7 @@ function show(week){
   const list = GAMES.filter(g=>g[0]===week);
   let html="", last="";
   for (const g of list){
-    if (g[1]!==last){ html += `<div class=\"day\">${g[1]}</div>`; last=g[1]; }
+    if (g[1]!==last){ html += `<div class="day">${g[1]}</div>`; last=g[1]; }
     html += nflCard(g);
   }
   const slate = document.getElementById("slate");

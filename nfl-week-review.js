@@ -8,7 +8,7 @@ const NFL_WEEK_GAMES = {
     {day:"SUN", game:"BUF at HOU", score:"BUF 36-31", ticket:"Bills -1.5", result:"WIN", href:"nfl-week-1-reviews.html#buf-hou", note:"Allen covered. Kincaid 130 yards, no TD."},
     {day:"SUN", game:"BAL at IND", score:"BAL 41-23", ticket:"Ravens -3", result:"WIN", href:"nfl-week-1-reviews.html#bal-ind", note:"Henry 144 and three scores. Real road cover."},
     {day:"SUN", game:"CLE at JAX", score:"JAX 34-10", ticket:"Browns +8.5", result:"LOSS", href:"nfl-week-1-reviews.html#cle-jax", note:"Home smash. Hunter did not score."},
-    {day:"SUN", game:"ATL at PIT", score:"PIT 20-13", ticket:"Falcons +6.5", result:"WIN", href:"nfl-week-1-reviews.html#atl-pit", note:"Ugly home cover. Bijan scored. Points cashed."},
+    {day:"SUN", game:"ATL at PIT", score:"PIT 20-13", ticket:"Falcons +6.5", result:"LOSS", href:"nfl-week-1-reviews.html#atl-pit", note:"Pittsburgh won by 7. +6.5 loses. Bijan still scored."},
     {day:"SUN", game:"NYJ at TEN", score:"NYJ 23-10", ticket:"Jets +1.5", result:"WIN", href:"nfl-week-1-reviews.html#nyj-ten", note:"Road Jets. Hall scored. Titans opener died."},
     {day:"SUN", game:"ARI at LAC", score:"ARI 26-14", ticket:"Cardinals +9.5", result:"WIN", href:"nfl-week-1-reviews.html#ari-lac", note:"Road Cards won outright. Harrison did not score."},
     {day:"SUN", game:"GB at MIN", score:"MIN 39-22", ticket:"Packers +1.5", result:"LOSS", href:"nfl-week-1-reviews.html#gb-min", note:"Vikings last 29. Jefferson two TDs. Love yards did not cover."},
@@ -23,12 +23,12 @@ const NFL_WEEK_NOTES = {
     held: [
       "Dog in a total under 45 is the side. Patriots +3 pushed on a 23-point game.",
       "Travel-week favorite died. 49ers +3.5 won by 20.",
-      "Large home numbers leaked: Saints +7.5, Cardinals +9.5, Commanders +5.5, Falcons +6.5."
+      "Large home numbers leaked: Saints +7.5, Cardinals +9.5, Commanders +5.5."
     ],
     broke: [
       "A 13-10 opener does not mean Sunday stays under. Bears-Panthers put up 96.",
       "Yards are not touchdowns. McCaffrey and Kincaid piled work and did not score.",
-      "Fat road dogs are not automatic. Browns +8.5 lost by 24."
+      "Fat road dogs are not automatic. Browns +8.5 lost by 24. Falcons +6.5 lost by half a point."
     ],
     next: [
       "Board the side and the featured back as separate tickets.",
@@ -49,7 +49,7 @@ function nflReviewWeek(week){
   }
   const rows = games.map(g => {
     const stamp = g.result && g.result!=="--" ? g.result : g.ticket;
-    return `<div class=\"g-row\"><div class=\"g-main\"><span class=\"g-name\">${g.day} \u00b7 ${g.game}</span><span class=\"g-pick\">${g.ticket} \u00b7 ${g.score}</span><span class=\"note\">${g.note}</span></div><div class=\"g-side\"><span class=\"stamp\">${stamp}</span><a href=\"${g.href}\">REVIEW</a></div></div>`;
+    return `<div class="g-row"><div class="g-main"><span class="g-name">${g.day} · ${g.game}</span><span class="g-pick">${g.ticket} · ${g.score}</span><span class="note">${g.note}</span></div><div class="g-side"><span class="stamp">${stamp}</span><a href="${g.href}">REVIEW</a></div></div>`;
   }).join("");
   box.innerHTML =
     "<p class='note'>WEEK "+week+" — every game graded against the ledger.</p>" +

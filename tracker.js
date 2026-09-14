@@ -55,7 +55,7 @@ async function loadLedger(){
   data.bets = data.bets || [];
   const seen = {};
   data.bets.forEach(function(b){ if (b && b.id) seen[b.id]=true; });
-  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json"];
+  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json"];
   for (let i=0;i<shards.length;i++){
     try {
       const extra = await (await fetch(shards[i] + "?v=" + Date.now())).json();
@@ -153,7 +153,7 @@ async function renderReviews(filter){
     if (!rows.length) inner = `<p class="note">No tickets in this filter.</p>`;
     else if (sp === "CFB") inner = `<h3 class="track">BEST BETS</h3>${reviewTable(best)}`;
     else inner = `<h3 class="track">BEST BETS</h3>${reviewTable(best)}<h3 class="track">TD / HR</h3>${reviewTable(tdhr)}<h3 class="track">PLAYER PROPS</h3>${reviewTable(props)}`;
-    return sportDrop(names[sp], inner, false);
+    return sportDrop(names[sp], inner, sp === "NFL");
   }).join("");
 }
 function sportTodayHtml(sp, rows){

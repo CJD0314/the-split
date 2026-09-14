@@ -39,8 +39,8 @@
 <div class="brand">THE SPLIT</div>
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
-<div class="card-date" id="card-date">SUN SEP 13, 2026</div>
-<div class="updated">LAST UPDATED: Sun Sep 13, 2026 10:08 p.m. ET</div>
+<div class="card-date" id="card-date">MON SEP 14, 2026</div>
+<div class="updated">LAST UPDATED: Mon Sep 14, 2026 1:17 a.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -171,12 +171,12 @@ function flatRow(b){
   const live = gameScore(b);
   const grade = gradeTicket(b);
   const name = b.sport === "CFB" && window.rankCfbGame ? window.rankCfbGame(b.game) : b.game;
-  const when = [day, kick].filter(Boolean).join(" \u00b7 ");
+  const when = [day, kick].filter(Boolean).join(" · ");
   const scoreTxt = live || b.status || "OPEN";
   return `<div class="g-row">
     <div class="g-main">
       <span class="g-name">${name}</span>
-      <span class="g-pick">${b.pick} \u00b7 ${b.close || ""}</span>
+      <span class="g-pick">${b.pick} · ${b.close || ""}</span>
       <span class="g-when">${when}</span>
     </div>
     <div class="g-side">

@@ -234,7 +234,7 @@ renderToday = async function(){
   await _rt();
   await paintStayAway();
   const el = document.getElementById("card-date");
-  if (el) el.setAttribute("open", "");
+  if (el) el.textContent = prettyCard(cardDate());
   if (window.splitStamp) splitStamp();
   keepTicketsOpen();
 };

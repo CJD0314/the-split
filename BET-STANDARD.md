@@ -29,8 +29,8 @@ LEAN is not the default fill. BET is scarce. FADE is a stay-away, not a ticket w
 We want the number with a unit.
 - Needs two or more independent reasons that still stand if the rest of the slate vanishes.
 - Price cannot be fade juice (ML worse than -190 is never a BET).
-- MLB examples that clear the bar: plus-money road dog that already cashed this series AND tonight’s starter can keep it close after three.
-- Cap: 2–3 BET sides on a 15-game MLB card. NFL/CFB: one or two BET sides on a normal weekend unless the board is clearly wrong.
+- MLB examples that clear the bar: plus-money road dog that already cashed this series AND tonight's starter can keep it close after three.
+- Cap: 2-3 BET sides on a 15-game MLB card. NFL/CFB: one or two BET sides on a normal weekend unless the board is clearly wrong.
 - HR and player props are almost never BET. Upgrade only if the live DK number is clearly off and the bat or arm is locked in the lineup.
 
 ### LEAN
@@ -40,18 +40,18 @@ Live, not a unit.
 - Fill tickets (one HR + one prop per MLB game) stay LEAN or they do not post. They are not automatic upgrades.
 
 ### FADE
-Do not lay it. TODAY paints these under STAY AWAY.
+Do not bet this number. TODAY lists it under STAY AWAY. A FADE is not an automatic bet on the other side unless we posted that other side.
 - MLB ML juice worse than -190.
 - Tired chalk (club coming off a three-game road beating with no rest edge).
 - Pitcher K overs at Coors.
 - Name-only HR with no park, wind, or recent contact.
-- CFB 28–35 point maintenance numbers and 20-plus road favorites one week after a one-score opener.
+- CFB 28-35 point maintenance numbers and 20-plus road favorites one week after a one-score opener.
 
 ### How to stamp before posting
-1. If the number is fade juice or a written stay-away rule, stamp FADE.
-2. If two independent reasons stack and the price is clean, stamp BET.
-3. Everything else that is still worth posting is LEAN.
-4. If you cannot say the reason in one sentence, do not post it.
+1. If the moneyline is worse than -190, or a written stay-away rule hits, stamp FADE. Do not buy that number.
+2. If two separate reasons still hold and the price is better than -190, stamp BET. That is a unit.
+3. If there is one clean reason, stamp LEAN. That is not a unit.
+4. If you cannot say the reason in one sentence, do not post the ticket.
 
 Tuesday 9/15 application: BET is CWS +108 and DET +114 only. BAL +108 and ATL +117 stay LEAN. TB -232, LAD -246, MIL -264, PHI -219, SD -200, tired HOU ML stay FADE.
 

@@ -1,5 +1,5 @@
 const CFB_LOGO = id => "https://a.espncdn.com/i/teamlogos/ncaa/500/" + id + ".png";
-const CFB_WEEK = 2;
+const CFB_WEEK = 3;
 const CFB_OPEN = {
   "cfb-week-2-osu-tex.html": {sp:"TEX -1.5", tot:"not confirmed", ml:"not confirmed", move:"held near TEX -1.5 / OSU +1.5"},
   "cfb-week-2-ou-mich.html": {sp:"OU -4.5 early Sunday", tot:"45.5", ml:"not confirmed", move:"OU -4.5 to -5.5"},
@@ -13,7 +13,7 @@ const CFB_OPEN = {
 };
 function reviewLink(href, review){
   if (review) return review;
-  if (href && href.indexOf("cfb-week-2-") === 0 && href.indexOf("?") < 0)
+  if (href && href.indexOf("cfb-week-") === 0 && href.indexOf("?") < 0)
     return href.replace(".html", "-review.html");
   const m = href && href.match(/[?&]g=([^&]+)/);
   if (m) return "cfb-review.html?g=" + m[1];
@@ -55,6 +55,25 @@ const CFB = {
   ["SAT SEPT 12",145,2429,"#9 Ole Miss vs Charlotte","FINAL MISS 41-9","MISS -47.5 / CHAR +47.5","61.5","MISS heavy","cfb-game.html?g=miss-char","cfb-week-2-miss-char-review.html","MISS -47.5 LOSS"],
   ["SAT SEPT 12",2567,302,"#17 SMU vs UC Davis","FINAL SMU 56-10","SMU -24.5 / UCD +24.5","58.5","SMU heavy","cfb-game.html?g=smu-ucd","cfb-week-2-smu-ucd-review.html","SMU -24.5 WIN"],
   ["SAT SEPT 12",248,2582,"#22 Houston vs Southern","FINAL HOU 77-6","HOU -51.5 / SOU +51.5","60.5","HOU heavy","cfb-game.html?g=hou-sou","cfb-week-2-hou-sou-review.html","HOU -51.5 WIN"]
+],
+3: [
+  ["THU SEPT 17",183,221,"Syracuse at Pittsburgh","7:30 p.m. ET","PITT -6.5 / SYR +6.5","54.5","PITT -250 / SYR +205","cfb-game.html?g=syr-pitt","","OPEN"],
+  ["FRI SEPT 18",2390,154,"#5 Miami at Wake Forest","7:30 p.m. ET","MIA -20.5 / WAKE +20.5","58.5","MIA heavy","cfb-game.html?g=mia-wake","","OPEN · fade juice"],
+  ["FRI SEPT 18",248,2641,"#22 Houston at #13 Texas Tech","9:15 p.m. ET","HOU +7.5 / TTU -7.5","61.5","TTU -280 / HOU +230","cfb-game.html?g=hou-ttu","","OPEN"],
+  ["SAT SEPT 19",61,8,"#2 Georgia at Arkansas","Noon ET ABC","UGA -25.5 / ARK +25.5","53.5","UGA heavy","cfb-game.html?g=uga-ark","","OPEN · fade juice"],
+  ["SAT SEPT 19",2309,194,"Kent State at #6 Ohio State","Noon ET","KENT +52.5 / OSU -52.5","57.5","OSU heavy","cfb-game.html?g=kent-osu","","OPEN · fade juice"],
+  ["SAT SEPT 19",2084,213,"Buffalo at #14 Penn State","Noon ET","BUFF +40.5 / PSU -40.5","48.5","PSU heavy","cfb-game.html?g=buff-psu","","OPEN · fade juice"],
+  ["SAT SEPT 19",96,245,"Kentucky at #9 Texas A&M","3:30 p.m. ET ESPN","UK +16.5 / TAMU -16.5","48.5","TAMU -700 / UK +500","cfb-game.html?g=uk-tamu","","OPEN"],
+  ["SAT SEPT 19",52,333,"Florida State at #10 Alabama","3:30 p.m. ET ABC","FSU +19.5 / ALA -19.5","52.5","ALA heavy","cfb-game.html?g=fsu-ala","","OPEN"],
+  ["SAT SEPT 19",30,164,"#12 USC at Rutgers","3:30 p.m. ET CBS","USC -23.5 / RUTG +23.5","58.5","USC heavy","cfb-game.html?g=usc-rutg","","OPEN · fade juice"],
+  ["SAT SEPT 19",2567,97,"#16 SMU at #23 Louisville","3:30 p.m. ET ESPN2","SMU +1.5 / LOU -1.5","56.5","LOU -118 / SMU +100","cfb-game.html?g=smu-lou","","OPEN"],
+  ["SAT SEPT 19",99,145,"#7 LSU at #8 Ole Miss","7:30 p.m. ET ABC","LSU -2.5 / MISS +2.5","57.5","LSU -135 / MISS +114","cfb-game.html?g=lsu-miss","","OPEN"],
+  ["SAT SEPT 19",127,87,"Michigan State at #3 Notre Dame","7:30 p.m. ET NBC","MSU +29.5 / ND -29.5","53.5","ND heavy","cfb-game.html?g=msu-nd","","OPEN · fade juice"],
+  ["SAT SEPT 19",167,201,"New Mexico at #24 Oklahoma","7:30 p.m. ET ESPN2","UNM +22.5 / OU -22.5","52.5","OU heavy","cfb-game.html?g=unm-ou","","OPEN · fade juice"],
+  ["SAT SEPT 19",252,36,"#11 BYU at Colorado State","7:30 p.m. ET CBS","BYU -18 / CSU +18","52.5","BYU -750 / CSU +520","cfb-game.html?g=byu-csu","","OPEN"],
+  ["SAT SEPT 19",277,258,"West Virginia at #25 Virginia","7:30 p.m. ET ACCN","WVU +10.5 / UVA -10.5","54.5","UVA -380 / WVU +300","cfb-game.html?g=wvu-uva","","OPEN"],
+  ["SAT SEPT 19",2636,251,"UTSA at #1 Texas","7:30 p.m. ET","UTSA +30 / TEX -30","58.5","TEX heavy","cfb-game.html?g=utsa-tex","","OPEN · fade juice"],
+  ["SAT SEPT 19",249,2633,"Kennesaw State at #15 Tennessee","7:45 p.m. ET SECN","KENN +35.5 / TENN -35.5","58.5","TENN heavy","cfb-game.html?g=kenn-tenn","","OPEN · fade juice"]
 ]
 };
 function cfbCard(row){
@@ -111,11 +130,11 @@ function showCfb(week){
 }
 const cfbBtns = document.getElementById("cfb-week-btns");
 if (cfbBtns) {
-  [1,2].forEach(function(i){
+  [1,2,3].forEach(function(i){
     const b=document.createElement("button");
     b.textContent="Week "+i;
     b.onclick=function(){
-      if (b.classList.contains("on")){
+      if (b.classList.contains("on") && i !== CFB_WEEK){
         b.classList.remove("on");
         const hold = document.getElementById("cfb-game-hold");
         const pick = document.getElementById("cfb-game-pick");
@@ -129,4 +148,5 @@ if (cfbBtns) {
     };
     cfbBtns.appendChild(b);
   });
+  showCfb(CFB_WEEK);
 }

@@ -1,6 +1,6 @@
 const LOGO = c => "https://a.espncdn.com/i/teamlogos/nfl/500/" + c + ".png";
-const CURRENT_WEEK = 1;
-const BOARDED_WEEKS = [1];
+const CURRENT_WEEK = 2;
+const BOARDED_WEEKS = [1,2];
 const GAMES = [
 [1,"WED SEPT 9","ne","sea","Patriots at Seahawks","FINAL SEA 13-10","NE +3 / SEA -3","44.5","SEA -170 / NE +142","PUSH · Patriots +3","nfl-week-1-ne-sea.html","nfl-week-1-ne-sea-review.html"],
 [1,"THU SEPT 10","sf","lar","49ers at Rams","FINAL SF 27-7","SF +3.5 / LAR -3.5","48.5","LAR -198 / SF +164","WIN · 49ers +3.5","nfl-week-1-sf-lar.html","nfl-week-1-sf-lar-review.html"],
@@ -17,11 +17,27 @@ const GAMES = [
 [1,"SUN 4:25","mia","lv","Dolphins at Raiders","FINAL LV 27-13","MIA +3.5 / LV -3.5","40.5","LV -166 / MIA +140","LOSS · Dolphins +3.5","nfl-week-1-mia-lv.html","nfl-week-1-game-review.html#mia-lv"],
 [1,"SUN 4:25","wsh","phi","Commanders at Eagles","FINAL PHI 24-22","WSH +5.5 / PHI -5.5","44.5","PHI -245 / WSH +200","WIN · Commanders +5.5","nfl-week-1-wsh-phi.html","nfl-week-1-wsh-phi-review.html"],
 [1,"SNF","dal","nyg","Cowboys at Giants","FINAL NYG 28-20","DAL -2.5 / NYG +2.5","47.5","DAL -148 / NYG +124","LOSS · Cowboys -2.5","nfl-week-1-dal-nyg.html","nfl-week-1-game-review.html#dal-nyg"],
-[1,"MON SEPT 14","den","kc","Broncos at Chiefs","FINAL KC 31-10","DEN +2.5 / KC -2.5","43.5","KC -135 / DEN +115","LOSS · Broncos +2.5","nfl-week-1-den-kc.html","nfl-week-1-den-kc-review.html"]
+[1,"MON SEPT 14","den","kc","Broncos at Chiefs","FINAL KC 31-10","DEN +2.5 / KC -2.5","43.5","KC -135 / DEN +115","LOSS · Broncos +2.5","nfl-week-1-den-kc.html","nfl-week-1-den-kc-review.html"],
+[2,"THU 8:15 Prime","det","buf","Lions at Bills","Highmark · 8:15 p.m. ET","DET +4.5 / BUF -4.5","53.5","BUF -205 / DET +170","OPEN · BUF -4.5","nfl-week-2-det-buf.html",""],
+[2,"SUN 1:00 FOX","car","atl","Panthers at Falcons","Mercedes-Benz · 1:00 p.m. ET","CAR -1.5 / ATL +1.5","44.5","CAR -122 / ATL +102","OPEN · CAR -1.5","nfl-week-2-car-atl.html",""],
+[2,"SUN 1:00 FOX","min","chi","Vikings at Bears","Soldier Field · 1:00 p.m. ET","MIN +5.5 / CHI -5.5","49.5","CHI -240 / MIN +198","OPEN · CHI -5.5","nfl-week-2-min-chi.html",""],
+[2,"SUN 1:00 FOX","phi","ten","Eagles at Titans","Nissan · 1:00 p.m. ET","PHI -7 / TEN +7","39.5","PHI -340 / TEN +270","OPEN · PHI -7","nfl-week-2-phi-ten.html",""],
+[2,"SUN 1:00 CBS","pit","ne","Steelers at Patriots","Gillette · 1:00 p.m. ET","PIT +5.5 / NE -5.5","41.5","NE -240 / PIT +198","OPEN · NE -5.5","nfl-week-2-pit-ne.html",""],
+[2,"SUN 1:00 FOX","gb","nyj","Packers at Jets","MetLife · 1:00 p.m. ET","GB -4 / NYJ +4","44.5","GB -198 / NYJ +164","OPEN · GB -4","nfl-week-2-gb-nyj.html",""],
+[2,"SUN 1:00 CBS","cle","tb","Browns at Buccaneers","Raymond James · 1:00 p.m. ET","CLE +8.5 / TB -8.5","40.5","TB -410 / CLE +320","OPEN · TB -8.5","nfl-week-2-cle-tb.html",""],
+[2,"SUN 1:00 CBS","no","bal","Saints at Ravens","M&T Bank · 1:00 p.m. ET","NO +8.5 / BAL -8.5","47.5","BAL -410 / NO +320","OPEN · BAL -8.5","nfl-week-2-no-bal.html",""],
+[2,"SUN 1:00 CBS","cin","hou","Bengals at Texans","NRG · 1:00 p.m. ET","CIN +3 / HOU -3","46.5","HOU -155 / CIN +130","OPEN · HOU -3","nfl-week-2-cin-hou.html",""],
+[2,"SUN 4:05 CBS","jax","den","Jaguars at Broncos","Empower Field · 4:05 p.m. ET","JAX +3 / DEN -3","44.5","DEN -155 / JAX +130","OPEN · DEN -3","nfl-week-2-jax-den.html",""],
+[2,"SUN 4:05 CBS","lv","lac","Raiders at Chargers","SoFi · 4:05 p.m. ET","LV +7 / LAC -7","44.5","LAC -340 / LV +270","OPEN · LAC -7","nfl-week-2-lv-lac.html",""],
+[2,"SUN 4:25 FOX","sea","ari","Seahawks at Cardinals","State Farm · 4:25 p.m. ET","SEA -4.5 / ARI +4.5","41.5","SEA -205 / ARI +170","OPEN · SEA -4.5","nfl-week-2-sea-ari.html",""],
+[2,"SUN 4:25 FOX","mia","sf","Dolphins at 49ers","Levi's · 4:25 p.m. ET","MIA +12.5 / SF -12.5","45.5","SF -700 / MIA +500","OPEN · SF -12.5","nfl-week-2-mia-sf.html",""],
+[2,"SUN 4:25 FOX","wsh","dal","Commanders at Cowboys","AT&T · 4:25 p.m. ET","WSH +3.5 / DAL -3.5","50.5","DAL -180 / WSH +150","OPEN · DAL -3.5","nfl-week-2-wsh-dal.html",""],
+[2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","Arrowhead · 8:20 p.m. ET","IND +6.5 / KC -6.5","47.5","KC -290 / IND +235","OPEN · KC -6.5","nfl-week-2-ind-kc.html",""],
+[2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","SoFi · 8:15 p.m. ET","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","OPEN · LAR -7","nfl-week-2-nyg-lar.html",""]
 ];
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
-  const tiles = `<div class="dive-box" style="width:100%"><div class="mini"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>RESULT</b><span>${stamp}</span></div></div></div>`;
+  const tiles = `<div class="dive-box" style="width:100%"><div class="mini"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>MOVE</b><span>${stamp}</span></div></div></div>`;
   const rev = review ? `<a class="full-link" href="${review}">REVIEW</a>` : "";
   return `<div class="g" style="flex-wrap:wrap"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${title}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a>${rev}<span>${when}</span>${tiles}</div>`;
 }

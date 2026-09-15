@@ -1,5 +1,5 @@
 (function(){
-  const STATE = { day: "", sport: "ALL", conf: "ALL", data: null };
+  const STATE = { day: "", sport: "ALL", kind: "ALL", conf: "ALL", data: null };
 
   function prettyDay(iso){
     if (!iso) return "ALL DAYS";
@@ -42,9 +42,20 @@
     if (!STATE.day) return true;
     return b.date === STATE.day;
   }
+  function ticketKind(b){
+    const t = String(b.type||"").toLowerCase();
+    if (t === "hr") return "HR";
+    if (t === "td") return "TD";
+    if (t === "prop") return "PROP";
+    return "SIDE";
+  }
+  function passKind(b){
+    if (STATE.kind === "ALL") return true;
+    return ticketKind(b) === STATE.kind;
+  }
   function filtered(bets){
     return (bets||[]).filter(function(b){
-      return passDay(b) && passSport(b) && passFilter(b, STATE.conf);
+      return passDay(b) && passSport(b) && passKind(b) && passFilter(b, STATE.conf);
     });
   }
   function chipRow(el, items, key){
@@ -112,6 +123,9 @@
     chipRow(document.getElementById("sport-filters"),
       [{value:"ALL",label:"ALL"},{value:"NFL",label:"NFL"},{value:"CFB",label:"CFB"},{value:"MLB",label:"MLB"}],
       "sport");
+    chipRow(document.getElementById("type-filters"),
+      [{value:"ALL",label:"ALL"},{value:"SIDE",label:"SIDES"},{value:"HR",label:"HR"},{value:"TD",label:"TD"},{value:"PROP",label:"PROPS"}],
+      "kind");
     chipRow(document.getElementById("conf-filters"),
       [{value:"ALL",label:"ALL"},{value:"BET",label:"BET"},{value:"LEAN",label:"LEAN"},{value:"FADE",label:"FADE"}],
       "conf");
@@ -123,7 +137,8 @@
       return;
     }
     const s = rec(rows);
-    const head = "<div class=\"day-sum\"><b>" + prettyDay(STATE.day) + "</b><span>" + recLabel(s) + " · " + rows.length + " tickets · " + money(s.pl) + "</span></div>";
+    const title = prettyDay(STATE.day) + (STATE.kind === "ALL" ? "" : " · " + STATE.kind);
+    const head = "<div class=\"day-sum\"><b>" + title + "</b><span>" + recLabel(s) + " · " + rows.length + " tickets · " + money(s.pl) + "</span></div>";
     const order = ["NFL","CFB","MLB"];
     const sports = order.map(function(sp){
       const list = rows.filter(function(b){ return b.sport === sp; });

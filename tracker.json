@@ -1,51 +1,50 @@
 {
   "unit": 100,
-  "updated": "2026-09-14T22:36:00-04:00",
+  "updated": "2026-09-14T22:38:00-04:00",
   "today": "2026-09-14",
   "tagline": "The card. The number. The miss.",
   "confidence_key": "BET = fire a unit. LEAN = half unit or skip if tight. FADE = posted because every game needs a number; would not fire real money.",
   "loops": {
     "NFL": [
-      "Split the side from the scorer. They are two tickets. Proof: Irving, Bijan, Jeanty, Jefferson, Likely, Goedert cashed while the other number died or leaked.",
-      "A run-identity favorite is a real number. Proof: CHI -3, BAL -3, BUF -1.5, NYJ +1.5 with Hall.",
-      "A home favorite of a touchdown or more leaks in Week 1. Proof: NO +7.5, ARI +9.5, WSH +5.5. LAC -9.5 and TEN -1.5 died outright.",
-      "A travel-week or short-week favorite is live to fade. Proof: SF +3.5 after LAR flew to Melbourne, 27-7.",
-      "A total under 45 is a dog-and-points number, not a quarterback stack. Proof: NE +3 pushed 13-10. The TE did not score.",
-      "An ugly cover still covers. Proof: PIT 20-13 cashed -6.5. CIN covered -3.5 with Chase quiet."
+      "Split the side from the scorer. They are two tickets.",
+      "A run-identity favorite is a real number.",
+      "A home favorite of a touchdown or more is live to leak.",
+      "A travel-week or short-week favorite is live to fade.",
+      "A total under 45 is a dog-and-points number, not a quarterback stack.",
+      "An ugly cover still covers."
     ],
     "CFB": [
-      "Fire 6-to-14 point ranked sides in real Power or conference games. Do not lump them with paycheck numbers. Proof: BAMA -10, BYU -7, MIZ -5.5, TAMU -14.5, TENN -11.5, UTAH -7, OSU +1.5.",
-      "A late-lead dog in a 1-to-3 point ranked game still has a number. Proof: OSU +1.5 cashed 24-23.",
-      "A 28-plus vs FCS can cash and still is not a fire. Stamp stays FADE. Proof: MIA, LOU, UVA, UGA, ND, SMU, HOU covered. IU 55-0 missed -57.5."
+      "Fire 6-to-14 point ranked sides in real Power or conference games. Do not lump them with paycheck numbers.",
+      "A late-lead dog in a 1-to-3 point ranked game still has a number.",
+      "A 28-plus vs FCS can cash and still is not a fire. Stamp stays FADE."
     ],
     "MLB": [
       "A plus-money dog still needs the starter to keep it close after three innings.",
       "Confirm the lineup at first pitch. A bat that does not play is a void.",
-      "Split the bat from the chalk ML. Proof: Soto HR and Cole o2.5 ER cashed. Yankees ML died 12-2."
+      "Split the bat from the chalk ML."
     ]
   },
   "fades": {
     "NFL": [
-      "Yards are not touchdowns. Volume is not a captain and it is not an anytime. Proof: CMC 68-20-0. Kincaid 130-0. Harrison 0 TD on a side that cashed.",
-      "A fat road dog is not a system. The offense has to move. Proof: CLE +8.5 lost by 24. ATL +6.5 lost 20-13.",
-      "Do not copy one final onto the next slate. Proof: Wednesday 13-10. Sunday CHI-CAR put up 96.",
-      "Do not lay brand juice home or road. Proof: DAL -2.5 lost outright. GB +1.5 died into Flores.",
-      "Do not buy points against a featured home back. Proof: MIA never in the number after Q1 vs Jeanty.",
-      "Do not chain WR1 or TE TD onto a dog you already like. Separate those tickets.",
-      "DEN at KC is still live. Do not write that review until the whistle."
+      "Yards are not touchdowns. Volume is not a captain and it is not an anytime.",
+      "A fat road dog is not a system. The offense has to move.",
+      "Do not copy one final onto the next slate.",
+      "Do not lay brand juice home or road.",
+      "Do not buy points against a featured home back.",
+      "Do not chain WR1 or TE TD onto a dog you already like."
     ],
     "CFB": [
-      "A 50-point FCS win is not a fire the next week. Proof: IU 55-0 missed -57.5. MISS 41-9 missed -47.5. LSU 45-14 missed -35.5.",
-      "Do not lay 20-plus on the road after a one-score opener. Proof: ORE -23.5 died 39-31 at OKST.",
-      "A 50-0 G5 tape is not a road license against a Power host. Proof: OU -5.5 never led at MICH.",
-      "A 28-point home favorite with starters out is a pass. Proof: WASH 16-14 missed -27.5.",
-      "A rivalry dog keeps a ranked favorite inside a touchdown. Proof: IOWA 16-13 missed -14.",
-      "Winning is not covering. Proof: PSU 27-9 missed -24.5. TTU 35-24 missed -25.5. USC 49-30 missed -21.5."
+      "A 50-point FCS win is not a fire the next week.",
+      "Do not lay 20-plus on the road after a one-score opener.",
+      "A 50-0 G5 tape is not a road license against a Power host.",
+      "A 28-point home favorite with starters out is a pass.",
+      "A rivalry dog keeps a ranked favorite inside a touchdown.",
+      "Winning is not covering."
     ],
     "MLB": [
       "Do not lay home juice worse than -200.",
-      "Do not glue Friday's final onto Saturday's rematch. Proof: NYY cashed Friday and lost 12-2 Saturday.",
-      "A plus-money dog is one game, not a series. Proof: BAL cashed Friday and died Saturday."
+      "Do not glue Friday's final onto Saturday's rematch.",
+      "A plus-money dog is one game, not a series."
     ]
   },
   "bets": [

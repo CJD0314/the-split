@@ -8,11 +8,11 @@ async function paintBettingNotes(sport){
   var loops = (data.loops && data.loops[sport]) || [];
   var fades = (data.fades && data.fades[sport]) || [];
   if (!loops.length && !fades.length){
-    box.innerHTML = "<p class='note'>No notes logged yet. Every review adds one.</p>";
+    box.innerHTML = "<p class='note'>No notes logged yet. Every review adds one league rule.</p>";
     return;
   }
   box.innerHTML =
-    "<p class='note-head'>Updated after every reviewed final. One line per lesson.</p>" +
+    "<p class='note-head'>League rules. The ticket for a specific game comes from the full breakdown plus that week's news.</p>" +
     (loops.length ? "<p class='note-lab'>KEEP DOING</p><ul class='notes'>" + noteList(loops) + "</ul>" : "") +
     (fades.length ? "<p class='note-lab'>STAY AWAY</p><ul class='notes'>" + noteList(fades) + "</ul>" : "");
 }
@@ -72,5 +72,5 @@ function paintDfsNotes(sport){
     "<p class='note-lab'>SHOWDOWN CAPTAINS</p>" +
     "<p class='note-lab'>KEEP DOING</p><ul class='notes'>" + noteList(n.showKeep) + "</ul>" +
     "<p class='note-lab'>STAY AWAY</p><ul class='notes'>" + noteList(n.showFade) + "</ul>" +
-    "<p><a class='full-link' href='nfl-dfs-week-1.html'>MAIN SLATE</a> · <a class='full-link' href='nfl-dfs-week-1-snf.html'>SUNDAY NIGHT</a> · <a class='full-link' href='nfl-dfs-week-1-mnf.html'>MONDAY NIGHT</a></p>";
+    "<p><a class='full-link' href='nfl-dfs-week-1.html'>MAIN SLATE</a> \u00b7 <a class='full-link' href='nfl-dfs-week-1-snf.html'>SUNDAY NIGHT</a> \u00b7 <a class='full-link' href='nfl-dfs-week-1-mnf.html'>MONDAY NIGHT</a></p>";
 }

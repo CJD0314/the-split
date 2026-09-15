@@ -21,6 +21,40 @@ Applies to every ticket on TODAY, Bet Tracker, and every full breakdown. No exce
 - MLB: ML + HR + player prop.
 - NFL: side + TD + prop on primetime; side on the rest unless told.
 
+## Confidence — BET / LEAN / FADE
+
+LEAN is not the default fill. BET is scarce. FADE is a stay-away, not a ticket we like.
+
+### BET
+We want the number with a unit.
+- Needs two or more independent reasons that still stand if the rest of the slate vanishes.
+- Price cannot be fade juice (ML worse than -190 is never a BET).
+- MLB examples that clear the bar: plus-money road dog that already cashed this series AND tonight’s starter can keep it close after three.
+- Cap: 2–3 BET sides on a 15-game MLB card. NFL/CFB: one or two BET sides on a normal weekend unless the board is clearly wrong.
+- HR and player props are almost never BET. Upgrade only if the live DK number is clearly off and the bat or arm is locked in the lineup.
+
+### LEAN
+Live, not a unit.
+- One clean reason. Most HR tickets and most props live here.
+- A side is LEAN only if we would still post it if the rest of the slate vanished.
+- Fill tickets (one HR + one prop per MLB game) stay LEAN or they do not post. They are not automatic upgrades.
+
+### FADE
+Do not lay it. TODAY paints these under STAY AWAY.
+- MLB ML juice worse than -190.
+- Tired chalk (club coming off a three-game road beating with no rest edge).
+- Pitcher K overs at Coors.
+- Name-only HR with no park, wind, or recent contact.
+- CFB 28–35 point maintenance numbers and 20-plus road favorites one week after a one-score opener.
+
+### How to stamp before posting
+1. If the number is fade juice or a written stay-away rule, stamp FADE.
+2. If two independent reasons stack and the price is clean, stamp BET.
+3. Everything else that is still worth posting is LEAN.
+4. If you cannot say the reason in one sentence, do not post it.
+
+Tuesday 9/15 application: BET is CWS +108 and DET +114 only. BAL +108 and ATL +117 stay LEAN. TB -232, LAD -246, MIL -264, PHI -219, SD -200, tired HOU ML stay FADE.
+
 ## MLB player prop
 - Open the full DraftKings player market for that game before posting.
 - Look at strikeouts (over and under), hits, total bases, stolen bases, RBIs, first-five totals, team totals, and any other posted prop.

@@ -34,7 +34,7 @@ function paintCfbIdentities(){
   box.innerHTML = order.map(function(k){
     const t = CFB_IDENTITIES[k];
     const logo = "https://a.espncdn.com/i/teamlogos/ncaa/500/" + t.logo + ".png";
-    return "<a class='g' href='cfb-team.html?t="+k+"'><img src='"+logo+"' alt=''><b>#"+t.rank+" "+t.name.toUpperCase()+"</b></a>";
+    return "<a class='g' href='cfb-team.html?t="+k+"'><img src='"+logo+"' alt=''><span class='rk'>#"+t.rank+"</span><b>"+t.name.toUpperCase()+"</b></a>";
   }).join("");
 }
 paintCfbIdentities();

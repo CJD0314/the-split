@@ -10,15 +10,13 @@
 <a href="nfl.html">NFL</a>
 <a href="nfl-offense-week-1.html">OFFENSE</a>
 <a href="nfl-defense-week-1.html">HOLES</a>
-<a href="nfl-blitz-week-1.html">BLITZ</a>
-<a href="nfl-sim-pressure.html">SIM</a>
 </div>
 <div id="one"><p class="note">Loading identity...</p></div>
-<script src="nfl-id-a.js?v=2"></script>
-<script src="nfl-id-b.js?v=1"></script>
-<script src="nfl-identities.js?v=6"></script>
+<script src="nfl-id-a.js?v=3"></script>
+<script src="nfl-id-b.js?v=2"></script>
+<script src="nfl-identities.js?v=7"></script>
 <script src="nfl-id-def.js?v=3"></script>
-<script src="nfl-id-off.js?v=2"></script>
+<script src="nfl-id-off.js?v=3"></script>
 <script>
 (function(){
   const raw = new URLSearchParams(location.search).get("t") || "";
@@ -34,16 +32,17 @@
     if (!val) return "";
     return `<details class="block" open><summary>${title}</summary><div class="body"><p>${val}</p></div></details>`;
   }
-  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">${t.name.toUpperCase()}</div><div class="meta">${t.w1||""} \u00b7 ${t.ticket||""} \u00b7 FOR ${t.pf} / AGT ${t.pa}</div></header><div class="wrap">
+  const broke = t.broke || t.offhole || "";
+  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">${t.name.toUpperCase()}</div><div class="meta">${t.w1||""} · ${t.ticket||""} · FOR ${t.pf} / AGT ${t.pa}</div></header><div class="wrap">
 <div class="market">
 <div class="tile"><b>IDENTITY</b><span>${t.style||""}</span></div>
 <div class="tile"><b>ENGINE</b><span>${t.engine||""}</span></div>
 <div class="tile"><b>STAT</b><span>${t.stat||""}</span></div>
 </div>
 ${block("WHO THEY ARE", t.who)}
+${block("WHERE THE OFFENSE BROKE", broke)}
 ${block("HOW THE OFFENSE WORKS", t.offscheme)}
 ${block("WHO MOVED THE BALL", t.engine2)}
-${block("WHERE THE OFFENSE BROKE", t.offhole)}
 ${block("HOW THE DEFENSE WORKS", t.scheme)}
 ${block("WHAT THEY SENT (BLITZ)", t.blitz)}
 ${block("WHAT THEY SHOWED (SIM PRESSURE)", t.sim)}
@@ -52,7 +51,7 @@ ${block("THE BET", t.bet)}
 ${block("DFS ONLY", t.dfs)}
 ${block("NEXT BREAKDOWN STARTS HERE", t.next)}
 ${block("OFFENSE RULE FOR THE NEXT DIVE", t.howoff)}
-<p><a class="full-link" href="${t.rev||"nfl.html"}">GAME REVIEW</a> \u00b7 <a class="full-link" href="nfl.html">NFL</a></p></div>`;
+<p><a class="full-link" href="${t.rev||"nfl.html"}">GAME REVIEW</a> · <a class="full-link" href="nfl.html">NFL</a></p></div>`;
 })();
 </script>
 </body></html>

@@ -26,6 +26,11 @@
 .ok{color:#3dd68c;font-weight:800}
 .loss{color:#ff6b6b;font-weight:800}
 .push{color:#d4a017;font-weight:800}
+.count{color:#93a3b5;font-size:12px;margin:0 0 10px}
+.g-pack{border:1px solid #2a3644;border-radius:10px;padding:10px 12px;margin:10px 0}
+.g-pack-h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline;margin-bottom:4px}
+.g-pack-h b{font-size:14px}
+.g-pack .g-row:last-child{border-bottom:0;padding-bottom:0}
 </style></head>
 <body>
 <div class="topnav">
@@ -42,6 +47,8 @@
 <div class="card-date" id="card-date">TUE SEP 15, 2026</div>
 </header>
 <div class="wrap">
+<details class="block" id="units-block" open><summary>UNITS — BET ONLY</summary>
+<div class="body" id="units"><p class="note">Loading units...</p></div></details>
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
 <div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
 <details class="block" id="away-block"><summary>STAY AWAY GAMES</summary>
@@ -49,7 +56,7 @@
 </div>
 <script src="cfb-rank.js"></script>
 <script src="scores.js?v=9"></script>
-<script src="tracker.js?v=38"></script>
+<script src="tracker.js?v=39"></script>
 <script src="stamp.js?v=6"></script>
 <script>
 const KICK = {
@@ -228,29 +235,67 @@ function flatGameList(rows){
   });
   return list.map(flatRow).join("") || `<p class="note">Nothing posted.</p>`;
 }
-function mlbBuckets(rows){
-  const sort = function(arr){ return arr.slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); }); };
-  const side = sort(rows.filter(function(b){ return !isTdHr(b) && !isPlayerProp(b); }));
-  const hr = sort(rows.filter(function(b){ return String(b.type||"").toLowerCase()==="hr"; }));
-  const prop = sort(rows.filter(isPlayerProp));
-  return sportDrop("SIDE", side.map(flatRow).join(""), true)
-    + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false)
-    + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
+function typeRank(b){
+  const t = String(b.type||"").toLowerCase();
+  if (t === "ml" || t === "spread") return 0;
+  if (t === "total") return 1;
+  if (t === "hr" || t === "td") return 2;
+  return 3;
+}
+function confRank(b){
+  const c = String(b.confidence||"").toUpperCase();
+  if (c === "BET") return 0;
+  if (c === "LEAN") return 1;
+  return 2;
+}
+function packGame(game, rows){
+  const kick = KICK[game] || "";
+  const href = (rows.find(function(b){ return b.href; }) || {}).href || "#";
+  const inner = rows.slice().sort(function(a,b){
+    const tr = typeRank(a) - typeRank(b);
+    if (tr) return tr;
+    return confRank(a) - confRank(b);
+  }).map(flatRow).join("");
+  return `<div class="g-pack"><div class="g-pack-h"><b>${game}</b><span class="g-when">${kick || ""}</span><a href="${href}">FULL BREAKDOWN</a></div>${inner}</div>`;
+}
+function mlbByGame(rows){
+  const map = {};
+  (rows || []).forEach(function(b){
+    if (!b.game) return;
+    map[b.game] = map[b.game] || [];
+    map[b.game].push(b);
+  });
+  const games = Object.keys(map).sort(function(a,b){ return kickMin(a) - kickMin(b); });
+  return games.map(function(g){ return packGame(g, map[g]); }).join("") || `<p class="note">Nothing posted.</p>`;
+}
+function countLine(rows){
+  const bet = rows.filter(function(b){ return String(b.confidence||"").toUpperCase()==="BET"; }).length;
+  const lean = rows.filter(function(b){ return String(b.confidence||"").toUpperCase()==="LEAN"; }).length;
+  return `<p class="count">${bet} BET · ${lean} LEAN · first pitch order</p>`;
 }
 function sportTodayHtmlLocal(sp, rows){
-  if (sp === "MLB") return mlbBuckets(rows);
+  if (sp === "MLB") return mlbByGame(rows);
   return flatGameList(rows);
 }
 async function paintTodayCard(){
   const data = await loadLedger();
   const day = cardDate();
   const order = ["NFL","CFB","MLB"];
+  const allFire = (data.bets||[]).filter(function(b){ return b.date === day && isFire(b); });
+  const unitsEl = document.getElementById("units");
+  if (unitsEl){
+    const units = allFire.filter(function(b){ return String(b.confidence||"").toUpperCase()==="BET"; })
+      .slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
+    unitsEl.innerHTML = units.length
+      ? `<p class="count">${units.length} unit${units.length===1?"":"s"} on this card. Everything else is a lean.</p>` + units.map(flatRow).join("")
+      : `<p class="note">No BET tickets dated ${day}. Do not force a unit.</p>`;
+  }
   const tickets = document.getElementById("tickets");
   if (tickets){
     const live = order.map(function(sp){
-      const rows = (data.bets||[]).filter(function(b){ return b.sport === sp && b.date === day && isFire(b); });
+      const rows = allFire.filter(function(b){ return b.sport === sp; });
       if (!rows.length) return "";
-      return sportDrop(sp, sportTodayHtmlLocal(sp, rows), true);
+      return sportDrop(sp, countLine(rows) + sportTodayHtmlLocal(sp, rows), true);
     }).filter(Boolean);
     tickets.innerHTML = live.length ? live.join("") : `<p class="note">No BET or LEAN tickets dated ${day}.</p>`;
   }
@@ -259,26 +304,25 @@ async function paintTodayCard(){
     const away = order.map(function(sp){
       const rows = (data.bets||[]).filter(function(b){ return b.sport === sp && b.date === day && isFade(b) && !isTdHr(b) && !isPlayerProp(b); });
       if (!rows.length) return "";
-      return sportDrop(sp, flatGameList(rows), false);
+      return sportDrop(sp, flatGameList(rows), true);
     }).filter(Boolean);
     fades.innerHTML = away.length ? away.join("") : `<p class="note">No stay-away tickets dated ${day}.</p>`;
   }
 }
-function keepTicketsOpen(){
-  const el = document.getElementById("tickets-block");
-  if (el) el.setAttribute("open", "");
+function keepOpen(){
+  ["units-block","tickets-block"].forEach(function(id){
+    const el = document.getElementById(id);
+    if (el) el.setAttribute("open", "");
+  });
 }
-const _rt = renderToday;
 renderToday = async function(){
-  await _rt();
   await paintTodayCard();
   const el = document.getElementById("card-date");
   if (el) el.textContent = prettyCard(cardDate());
   if (window.splitStamp) splitStamp();
-  keepTicketsOpen();
+  keepOpen();
 };
 renderToday();
-if (window.closeAllTabs) closeAllTabs();
-keepTicketsOpen();
+keepOpen();
 </script>
 </body></html>

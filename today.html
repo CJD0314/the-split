@@ -39,7 +39,7 @@
 <div class="brand">THE SPLIT</div>
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
-<div class="card-date" id="card-date">MON SEP 14, 2026</div>
+<div class="card-date" id="card-date">TUE SEP 15, 2026</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -48,8 +48,8 @@
 <div class="body" id="fades"></div></details>
 </div>
 <script src="cfb-rank.js"></script>
-<script src="scores.js?v=8"></script>
-<script src="tracker.js?v=33"></script>
+<script src="scores.js?v=9"></script>
+<script src="tracker.js?v=38"></script>
 <script src="stamp.js?v=6"></script>
 <script>
 const KICK = {
@@ -64,6 +64,9 @@ const KICK = {
   "NYY at MIN":"7:40 p.m. ET", "ATL at CHC":"7:40 p.m. ET",
   "SF at STL":"7:45 p.m. ET", "SD at COL":"8:40 p.m. ET",
   "SEA at LAA":"9:38 p.m. ET", "MIA at ARI":"9:40 p.m. ET",
+  "ATH at TB":"6:40 p.m. ET", "MIL at PIT":"6:40 p.m. ET",
+  "PHI at WSH":"6:45 p.m. ET", "BOS at TEX":"8:05 p.m. ET",
+  "KC at HOU":"8:10 p.m. ET",
   "COL at DET":"1:10 p.m. ET", "NYM at NYY":"1:35 p.m. ET", "LAA at WSH":"1:35 p.m. ET",
   "KC at BOS":"1:35 p.m. ET", "PHI at ATL":"1:35 p.m. ET", "BAL at TOR":"1:37 p.m. ET",
   "LAD at MIA":"1:40 p.m. ET", "HOU at TB":"1:40 p.m. ET", "CIN at MIL":"2:10 p.m. ET",
@@ -168,7 +171,20 @@ function resultStamp(res){
   return `<span class="stamp ${cls}">${r}</span>`;
 }
 function pickLine(b){
-  return String(b.close || b.pick || "").trim();
+  const close = String(b.close || "").trim();
+  const pick = String(b.pick || "").trim();
+  const t = String(b.type || "").toLowerCase();
+  if (t === "hr" || t === "td" || t === "prop") {
+    if (pick && close && pick !== close && close.indexOf(pick) < 0) return pick + " · " + close;
+    return pick || close;
+  }
+  return close || pick;
+}
+function rowTitle(b){
+  const t = String(b.type || "").toLowerCase();
+  if (t === "hr" || t === "td" || t === "prop") return String(b.pick || b.game || "");
+  if (b.sport === "CFB" && window.rankCfbGame) return window.rankCfbGame(b.game);
+  return b.game;
 }
 function flatRow(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
@@ -176,8 +192,11 @@ function flatRow(b){
   const kick = KICK[b.game] || "";
   const live = gameScore(b);
   const grade = gradeTicket(b);
-  const name = b.sport === "CFB" && window.rankCfbGame ? window.rankCfbGame(b.game) : b.game;
-  const when = kick || "Time TBD";
+  const t = String(b.type || "").toLowerCase();
+  const name = rowTitle(b);
+  const when = (t === "hr" || t === "td" || t === "prop")
+    ? (b.game + (kick ? " · " + kick : ""))
+    : (kick || "Time TBD");
   const scoreTxt = live || b.status || "OPEN";
   return `<div class="g-row">
     <div class="g-main">

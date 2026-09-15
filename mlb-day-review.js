@@ -94,8 +94,19 @@ function mlbReviewDay(iso){
     if (!arr.length) return "<p class='note'>"+empty+"</p>";
     return "<ul>"+arr.map(function(x){ return "<li>"+x+"</li>"; }).join("")+"</ul>";
   }
+  let gamesHtml = "";
+  if (typeof MLB_GAMES !== "undefined" && MLB_GAMES[iso]) {
+    gamesHtml = "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>GAME REVIEWS</h3>" +
+      MLB_GAMES[iso].map(function(g){
+        const title = g[2];
+        const recap = g[4] || "";
+        const review = g[10] || ("mlb-review.html?date="+iso+"&game="+encodeURIComponent(title));
+        return "<div class='g' style='flex-wrap:wrap'><b>"+title+"</b><span>"+recap+"</span><a class='full-link' href='"+review+"'>REVIEW</a></div>";
+      }).join("");
+  }
   box.innerHTML =
     "<p class='note'>"+iso+"</p>" +
+    gamesHtml +
     "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>QUICK REVIEWS</h3>" + bullets(quick, "No quick notes this day.") +
     "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>WHAT HELD</h3>" + bullets(notes.held, "Nothing posted.") +
     "<h3 style='color:#d4a017;font-size:12px;letter-spacing:.08em'>WHAT BROKE</h3>" + bullets(notes.broke, "Nothing posted.") +

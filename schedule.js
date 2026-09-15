@@ -32,7 +32,7 @@ function paintNflGame(list, idx){
   const slate = document.getElementById("slate");
   if (!slate) return;
   const g = list[idx];
-  if (!g){ slate.innerHTML = "<p class='note'>Pick a game.</p>"; return; }
+  if (!g){ slate.innerHTML = "<p class='note'>Pick a game from the dropdown.</p>"; return; }
   slate.innerHTML = "<div class='day'>"+g[1]+"</div>" + nflCard(g);
 }
 function show(week){
@@ -41,13 +41,24 @@ function show(week){
   });
   const list = GAMES.filter(function(g){ return g[0]===week; });
   const wrap = document.getElementById("week-btns");
+  let hold = document.getElementById("nfl-game-hold");
   let pick = document.getElementById("nfl-game-pick");
-  if (!pick){
+  if (!hold && wrap && wrap.parentNode){
+    hold = document.createElement("div");
+    hold.id = "nfl-game-hold";
+    const lab = document.createElement("p");
+    lab.className = "note-lab";
+    lab.textContent = "SELECT A GAME";
     pick = document.createElement("select");
     pick.id = "nfl-game-pick";
     pick.className = "game-pick";
-    if (wrap && wrap.parentNode) wrap.parentNode.insertBefore(pick, wrap.nextSibling);
+    pick.setAttribute("aria-label", "Select a game");
+    hold.appendChild(lab);
+    hold.appendChild(pick);
+    wrap.parentNode.insertBefore(hold, wrap.nextSibling);
   }
+  pick = document.getElementById("nfl-game-pick");
+  if (!pick) return;
   pick.innerHTML = "";
   list.forEach(function(g,i){
     const o = document.createElement("option");

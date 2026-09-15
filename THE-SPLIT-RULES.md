@@ -13,10 +13,11 @@ Must match:
 - After the game: REVIEW page. Correct / incorrect / missed / get better. Betting lessons only. No shop notes.
 
 ## LAST UPDATED
-Every HTML page that changes gets its own stamp in the header:
+One file: updated.js. That is the site clock.
+stamp.js paints LAST UPDATED on every page that loads it (TODAY, NFL, CFB, MLB, BET TRACKER, identities, DFS sheets).
+Every content commit must rewrite updated.js to the minute of that commit:
 LAST UPDATED: Ddd Mon DD, YYYY h:mm a.m./p.m. ET
-Only stamp the files you actually edited. Do not refresh a stamp on a page you did not touch.
-last_pass.js is the site-wide pass clock. It does not replace the page stamp.
+Do not leave a stale stamp on a hub after you touch tracker, notes, identities, or a dive.
 
 ## BET TRACKER
 $100 unit. DraftKings close. Kickoff freezes pick, close, stake.

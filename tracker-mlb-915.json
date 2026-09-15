@@ -3,6 +3,7 @@
     "MLB": [
       "Tuesday juice worse than -190 is still a fade: TB -232, LAD -246, MIL -264, PHI -219, SD -200.",
       "Plus-money road dogs that stay close after three: CWS +108, DET +114, BAL +108, ATL +117.",
+      "BET only when two reasons stack. Tuesday units: CWS +108 and DET +114. BAL +108 and ATL +117 stay LEAN.",
       "Split the bat from the chalk. Caminero, Stewart, Schwarber, Alonso, PCA, Rice, Alvarez, Tatis, Raleigh, Carroll.",
       "Ace K overs that finish five: Yamamoto 7.5, Misiorowski 8.5, Sanchez 6.5, Gilbert 6.5."
     ]
@@ -20,7 +21,7 @@
     {"id":"mlb-915-ath-tb-ml","sport":"MLB","date":"2026-09-15","game":"ATH at TB","type":"ml","pick":"Rays ML","booked":"TB -232","close":"TB -232","stake":232,"to_win":100,"confidence":"FADE","href":"mlb-2026-09-15-ath-tb.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-ath-tb-hr","sport":"MLB","date":"2026-09-15","game":"ATH at TB","type":"hr","pick":"Junior Caminero HR","booked":"+260","close":"+260","stake":100,"to_win":260,"confidence":"LEAN","href":"mlb-2026-09-15-ath-tb.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-ath-tb-prop","sport":"MLB","date":"2026-09-15","game":"ATH at TB","type":"prop","pick":"Griffin Jax o4.5 K","booked":"Jax o4.5 K (-115)","close":"Jax o4.5 K (-115)","stake":115,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-15-ath-tb.html","status":"OPEN","result":"","pl":0},
-    {"id":"mlb-915-cws-cle","sport":"MLB","date":"2026-09-15","game":"CWS at CLE","type":"ml","pick":"White Sox ML","booked":"CWS +108","close":"CWS +108","stake":100,"to_win":108,"confidence":"LEAN","href":"mlb-2026-09-15-cws-cle.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-915-cws-cle","sport":"MLB","date":"2026-09-15","game":"CWS at CLE","type":"ml","pick":"White Sox ML","booked":"CWS +108","close":"CWS +108","stake":100,"to_win":108,"confidence":"BET","href":"mlb-2026-09-15-cws-cle.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-cws-cle-hr","sport":"MLB","date":"2026-09-15","game":"CWS at CLE","type":"hr","pick":"Miguel Vargas HR","booked":"+320","close":"+320","stake":100,"to_win":320,"confidence":"LEAN","href":"mlb-2026-09-15-cws-cle.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-cws-cle-prop","sport":"MLB","date":"2026-09-15","game":"CWS at CLE","type":"prop","pick":"Foster Griffin o4.5 K","booked":"Griffin o4.5 K (-110)","close":"Griffin o4.5 K (-110)","stake":110,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-15-cws-cle.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-lad-cin","sport":"MLB","date":"2026-09-15","game":"LAD at CIN","type":"ml","pick":"Dodgers ML","booked":"LAD -246","close":"LAD -246","stake":246,"to_win":100,"confidence":"FADE","href":"mlb-2026-09-15-lad-cin.html","status":"OPEN","result":"","pl":0},
@@ -33,7 +34,7 @@
     {"id":"mlb-915-phi-wsh-fade","sport":"MLB","date":"2026-09-15","game":"PHI at WSH","type":"ml","pick":"Phillies ML","booked":"PHI -219","close":"PHI -219","stake":219,"to_win":100,"confidence":"FADE","href":"mlb-2026-09-15-phi-wsh.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-phi-wsh-hr","sport":"MLB","date":"2026-09-15","game":"PHI at WSH","type":"hr","pick":"Kyle Schwarber HR","booked":"+240","close":"+240","stake":100,"to_win":240,"confidence":"LEAN","href":"mlb-2026-09-15-phi-wsh.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-phi-wsh-prop","sport":"MLB","date":"2026-09-15","game":"PHI at WSH","type":"prop","pick":"Cristopher Sanchez o6.5 K","booked":"Sanchez o6.5 K (-115)","close":"Sanchez o6.5 K (-115)","stake":115,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-15-phi-wsh.html","status":"OPEN","result":"","pl":0},
-    {"id":"mlb-915-det-tor","sport":"MLB","date":"2026-09-15","game":"DET at TOR","type":"ml","pick":"Tigers ML","booked":"DET +114","close":"DET +114","stake":100,"to_win":114,"confidence":"LEAN","href":"mlb-2026-09-15-det-tor.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-915-det-tor","sport":"MLB","date":"2026-09-15","game":"DET at TOR","type":"ml","pick":"Tigers ML","booked":"DET +114","close":"DET +114","stake":100,"to_win":114,"confidence":"BET","href":"mlb-2026-09-15-det-tor.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-det-tor-hr","sport":"MLB","date":"2026-09-15","game":"DET at TOR","type":"hr","pick":"Kazuma Okamoto HR","booked":"+300","close":"+300","stake":100,"to_win":300,"confidence":"LEAN","href":"mlb-2026-09-15-det-tor.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-det-tor-prop","sport":"MLB","date":"2026-09-15","game":"DET at TOR","type":"prop","pick":"Drew Anderson u4.5 K","booked":"Anderson u4.5 K (-115)","close":"Anderson u4.5 K (-115)","stake":115,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-15-det-tor.html","status":"OPEN","result":"","pl":0},
     {"id":"mlb-915-bal-nym","sport":"MLB","date":"2026-09-15","game":"BAL at NYM","type":"ml","pick":"Orioles ML","booked":"BAL +108","close":"BAL +108","stake":100,"to_win":108,"confidence":"LEAN","href":"mlb-2026-09-15-bal-nym.html","status":"OPEN","result":"","pl":0},

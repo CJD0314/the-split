@@ -40,7 +40,7 @@
 <div class="week">TODAY</div>
 <div class="card-lab">CARD DATE</div>
 <div class="card-date" id="card-date">MON SEP 14, 2026</div>
-<div class="updated">LAST UPDATED: Mon Sep 14, 2026 10:10 p.m. ET</div>
+<div class="updated">LAST UPDATED: Mon Sep 14, 2026 10:52 p.m. ET</div>
 </header>
 <div class="wrap">
 <details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
@@ -50,8 +50,8 @@
 </div>
 <script src="cfb-rank.js"></script>
 <script src="scores.js?v=8"></script>
-<script src="tracker.js?v=32"></script>
-<script src="stamp.js?v=2"></script>
+<script src="tracker.js?v=33"></script>
+<script src="stamp.js?v=5"></script>
 <script>
 const KICK = {
   "ATL at PIT":"1:00 p.m. ET", "TB at CIN":"1:00 p.m. ET", "CHI at CAR":"1:00 p.m. ET",
@@ -168,6 +168,9 @@ function resultStamp(res){
   const cls = r === "WIN" ? "win" : r === "LOSS" ? "loss" : "push";
   return `<span class="stamp ${cls}">${r}</span>`;
 }
+function pickLine(b){
+  return String(b.close || b.pick || "").trim();
+}
 function flatRow(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
   const href = b.href || "#";
@@ -180,7 +183,7 @@ function flatRow(b){
   return `<div class="g-row">
     <div class="g-main">
       <span class="g-name">${name}</span>
-      <span class="g-pick">${b.pick} · ${b.close || ""}</span>
+      <span class="g-pick">${pickLine(b)}</span>
       <span class="g-when">${when}</span>
     </div>
     <div class="g-side">
@@ -212,7 +215,7 @@ function mlbBuckets(rows){
   const side = sort(rows.filter(function(b){ return !isTdHr(b) && !isPlayerProp(b); }));
   const hr = sort(rows.filter(function(b){ return String(b.type||"").toLowerCase()==="hr"; }));
   const prop = sort(rows.filter(isPlayerProp));
-  return sportDrop("SIDE", side.map(flatRow).join(""), false)
+  return sportDrop("SIDE", side.map(flatRow).join(""), true)
     + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false)
     + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
 }
@@ -229,7 +232,7 @@ async function paintTodayCard(){
     const live = order.map(function(sp){
       const rows = (data.bets||[]).filter(function(b){ return b.sport === sp && b.date === day && isFire(b); });
       if (!rows.length) return "";
-      return sportDrop(sp, sportTodayHtmlLocal(sp, rows), false);
+      return sportDrop(sp, sportTodayHtmlLocal(sp, rows), true);
     }).filter(Boolean);
     tickets.innerHTML = live.length ? live.join("") : `<p class="note">No BET or LEAN tickets dated ${day}.</p>`;
   }

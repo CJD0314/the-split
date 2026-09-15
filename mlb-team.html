@@ -22,7 +22,7 @@
 <a href="reviews.html">BET TRACKER</a>
 </div>
 <div id="one"><p class="note">Loading identity...</p></div>
-<script src="mlb-identities.js?v=1"></script>
+<script src="mlb-identities.js?v=2"></script>
 <script>
 (function(){
   const raw = new URLSearchParams(location.search).get("t") || "";
@@ -66,16 +66,13 @@
     ${block("STAFF", "<p>"+(t.staff||"Posts after the next card.")+"</p>", true)}
     ${block("KEY PLAYERS", bullets(t.keys), true)}
     ${block("PARK", "<p>"+(t.park||"")+"</p>", true)}
-
     <div class="sec">HOW THE CARD BREAKS</div>
     ${block("HOW THEY WIN", bullets(t.howwin), true)}
     ${block("WHERE IT BROKE", bullets(t.howlose), true)}
     ${block("LAST TAPE", bullets(t.tape), true)}
-
     <div class="sec">USE THIS TOMORROW</div>
     ${block("CARRY INTO THE NEXT CARD", bullets(t.carry), true)}
     ${block("THE BET", bullets(t.bet), true)}
-
     <p><a class="full-link" href="mlb.html">MLB</a></p>
   </div>`;
 })();

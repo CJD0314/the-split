@@ -4,20 +4,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- Team Identity</title>
 <link rel="stylesheet" href="dive.css"/>
+<style>
+.id-lab{color:var(--gold);font-size:11px;letter-spacing:.12em;font-weight:800;margin:12px 0 4px}
+.id-row{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);align-items:start}
+.id-row:last-child{border-bottom:0}
+.id-k{color:var(--muted);font-size:11px;letter-spacing:.08em;font-weight:800;padding-top:2px}
+.id-v{font-size:16px;line-height:1.5;font-weight:600}
+.id-list{margin:0;padding-left:1.1em}
+.id-list li{margin:8px 0;font-size:16px;line-height:1.5}
+.sec{color:var(--gold);font-size:12px;letter-spacing:.14em;font-weight:800;margin:18px 0 6px}
+@media(max-width:520px){.id-row{grid-template-columns:64px 1fr}.market{grid-template-columns:1fr 1fr}}
+</style>
 </head>
 <body>
 <div class="topnav">
 <a href="nfl.html">NFL</a>
-<a href="nfl-offense-week-1.html">OFFENSE</a>
-<a href="nfl-defense-week-1.html">HOLES</a>
+<a href="reviews.html">TRACKER</a>
 </div>
 <div id="one"><p class="note">Loading identity...</p></div>
 <script src="nfl-id-a.js?v=3"></script>
 <script src="nfl-id-b.js?v=2"></script>
-<script src="nfl-identities.js?v=8"></script>
+<script src="nfl-identities.js?v=9"></script>
 <script src="nfl-id-def.js?v=3"></script>
 <script src="nfl-id-off.js?v=3"></script>
-<script src="nfl-id-book.js?v=1"></script>
+<script src="nfl-id-book.js?v=2"></script>
 <script>
 (function(){
   const raw = new URLSearchParams(location.search).get("t") || "";
@@ -29,33 +39,74 @@
     return;
   }
   document.title = "The Split -- " + t.name;
-  function block(title, val){
-    if (!val) return "";
-    return `<details class="block" open><summary>${title}</summary><div class="body"><p>${val}</p></div></details>`;
+
+  function bits(s){
+    if (!s) return [];
+    return String(s).split(/\.\s+/).map(function(x){
+      x = x.replace(/\.$/,"").trim();
+      return x;
+    }).filter(function(x){ return x && x.length > 2; });
   }
+  function bullets(s){
+    const a = bits(s);
+    if (!a.length) return "";
+    return "<ul class='id-list'>" + a.map(function(x){ return "<li>"+x+"</li>"; }).join("") + "</ul>";
+  }
+  function row(k, v){
+    if (!v) return "";
+    return "<div class='id-row'><div class='id-k'>"+k+"</div><div class='id-v'>"+v+"</div></div>";
+  }
+  function staffRows(s){
+    if (!s) return "";
+    const parts = String(s).split(/\.\s+/);
+    let html = "";
+    parts.forEach(function(p){
+      p = p.replace(/\.$/,"").trim();
+      if (!p) return;
+      let lab = "NOTE";
+      if (/^HC\b/i.test(p)) lab = "HC";
+      else if (/^OC\b/i.test(p)) lab = "OC";
+      else if (/^DC\b/i.test(p)) lab = "DC";
+      html += row(lab, p.replace(/^(HC|OC|DC)\s+/i,""));
+    });
+    return html || row("STAFF", s);
+  }
+  function block(title, inner, open){
+    if (!inner) return "";
+    return `<details class="block"${open ? " open" : ""}><summary>${title}</summary><div class="body">${inner}</div></details>`;
+  }
+
   const broke = t.broke || t.offhole || "";
-  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">${t.name.toUpperCase()}</div><div class="meta">${t.w1||""} · ${t.ticket||""} · FOR ${t.pf} / AGT ${t.pa}</div></header><div class="wrap">
-<div class="market">
-<div class="tile"><b>IDENTITY</b><span>${t.style||""}</span></div>
-<div class="tile"><b>ENGINE</b><span>${t.engine||""}</span></div>
-<div class="tile"><b>STAT</b><span>${t.stat||""}</span></div>
-</div>
-${block("WHO THEY ARE", t.who)}
-${block("STAFF", t.staff)}
-${block("KEY PLAYERS", t.keys)}
-${block("CARRY INTO THE NEXT DIVE", t.carry)}
-${block("WHERE THE OFFENSE BROKE", broke)}
-${block("HOW THE OFFENSE WORKS", t.offscheme)}
-${block("WHO MOVED THE BALL", t.engine2)}
-${block("HOW THE DEFENSE WORKS", t.scheme)}
-${block("WHAT THEY SENT (BLITZ)", t.blitz)}
-${block("WHAT THEY SHOWED (SIM PRESSURE)", t.sim)}
-${block("WHERE THE DEFENSE BROKE", t.def)}
-${block("THE BET", t.bet)}
-${block("DFS ONLY", t.dfs)}
-${block("NEXT BREAKDOWN STARTS HERE", t.next)}
-${block("OFFENSE RULE FOR THE NEXT DIVE", t.howoff)}
-<p><a class="full-link" href="${t.rev||"nfl.html"}">GAME REVIEW</a> · <a class="full-link" href="nfl.html">NFL</a></p></div>`;
+  box.innerHTML = `<header>
+    <div class="brand">THE SPLIT</div>
+    <div class="week">${t.name.toUpperCase()}</div>
+    <div class="meta">${t.w1||""} &nbsp;·&nbsp; ${t.ticket||""}</div>
+  </header>
+  <div class="wrap">
+    <div class="market">
+      <div class="tile"><b>FOR / AGT</b><span>${t.pf||"—"} / ${t.pa||"—"}</span></div>
+      <div class="tile"><b>IDENTITY</b><span>${t.style||""}</span></div>
+      <div class="tile"><b>ENGINE</b><span>${t.engine||""}</span></div>
+      <div class="tile"><b>STAT</b><span>${t.stat||""}</span></div>
+    </div>
+
+    <div class="sec">READ THIS FIRST</div>
+    ${block("WHO THEY ARE", "<p>"+(t.who||"")+"</p>", true)}
+    ${block("STAFF", staffRows(t.staff), true)}
+    ${block("KEY PLAYERS", bullets(t.keys), true)}
+    ${block("CARRY INTO NEXT WEEK", bullets(t.carry), true)}
+
+    <div class="sec">WEEK 1 TAPE</div>
+    ${block("OFFENSE", row("SCHEME", t.offscheme)+row("WHO MOVED IT", t.engine2)+row("WHERE IT BROKE", broke), true)}
+    ${block("DEFENSE", row("SCHEME", t.scheme)+row("BLITZ", t.blitz)+row("SIM", t.sim)+row("WHERE IT BROKE", t.def), true)}
+
+    <div class="sec">USE THIS</div>
+    ${block("THE BET", bullets(t.bet), true)}
+    ${block("DFS", bullets(t.dfs), true)}
+    ${block("NEXT BREAKDOWN STARTS HERE", bullets((t.next||"") + (t.howoff ? ". "+t.howoff : "")), true)}
+
+    <p><a class="full-link" href="${t.rev||"nfl.html"}">GAME REVIEW</a> · <a class="full-link" href="nfl.html">NFL</a></p>
+  </div>`;
 })();
 </script>
 </body></html>

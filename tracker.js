@@ -1,4 +1,4 @@
-const LEDGER_TODAY = "2026-09-14";
+const LEDGER_TODAY = "2026-09-15";
 function etDate(){
   try {
     return new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric", month:"2-digit", day:"2-digit"}).format(new Date());
@@ -68,18 +68,32 @@ function applyBet(data, seen, b){
   if (String(data.bets[i].status||"").toUpperCase() === "SETTLED") return;
   data.bets[i] = b;
 }
+function mergeNotes(data, extra){
+  if (!extra) return;
+  ["loops","fades"].forEach(function(k){
+    if (!extra[k]) return;
+    data[k] = data[k] || {};
+    Object.keys(extra[k]).forEach(function(sp){
+      data[k][sp] = data[k][sp] || [];
+      (extra[k][sp] || []).forEach(function(line){
+        if (data[k][sp].indexOf(line) < 0) data[k][sp].push(line);
+      });
+    });
+  });
+}
 async function loadLedger(){
   const r = await fetch("tracker.json?v=" + Date.now());
   const data = await r.json();
   data.bets = data.bets || [];
   const seen = {};
   data.bets.forEach(function(b){ if (b && b.id) seen[b.id]=true; });
-  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json","tracker-nfl-mnf.json"];
+  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json","tracker-nfl-mnf.json","tracker-mlb-914.json"];
   for (let i=0;i<shards.length;i++){
     try {
       const extra = await (await fetch(shards[i] + "?v=" + Date.now())).json();
       const more = extra.bets || extra || [];
       more.forEach(function(b){ applyBet(data, seen, b); });
+      mergeNotes(data, extra);
     } catch (e) {}
   }
   data.bets = data.bets.filter(keepTicket);

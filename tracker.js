@@ -52,8 +52,12 @@ function passFilter(b, filter){
 function pickLine(b){
   const close = String(b.close || "").trim();
   const pick = String(b.pick || "").trim();
-  if (close) return close;
-  return pick;
+  const t = String(b.type || "").toLowerCase();
+  if (t === "hr" || t === "td" || t === "prop") {
+    if (pick && close && pick !== close && close.indexOf(pick) < 0) return pick + " · " + close;
+    return pick || close;
+  }
+  return close || pick;
 }
 function applyBet(data, seen, b){
   if (!b || !b.id) return;
@@ -124,12 +128,20 @@ function renderBank(el, s){
   if(!el) return;
   el.innerHTML = `<div><b>SETTLED P/L</b><span>${money(s.pl)}</span></div><div><b>RECORD</b><span>${s.wins.length}-${s.losses.length}-${s.pushes.length}</span></div><div><b>ROI</b><span>${s.roi}</span></div><div><b>RISKED</b><span>$${s.risked}</span></div>`;
 }
+function ticketTitle(b){
+  const t = String(b.type || "").toLowerCase();
+  if (t === "hr" || t === "td" || t === "prop") return String(b.pick || b.game || "");
+  return b.game;
+}
 function flatRow(b){
   const conf = String(b.confidence || "LEAN").toUpperCase();
   const href = b.href || "#";
   const sc = scoreLabel(gameScore(b));
   const shown = sc.replace(/^FINAL\s*/i,"").replace(/^LIVE\s*/i,"");
-  return `<div class="g-row"><div class="g-main"><span class="g-name">${b.game}</span><span class="g-pick">${pickLine(b)}</span></div><div class="g-side"><span class="stamp ${conf.toLowerCase()}">${conf}</span><span class="g-score">${shown || (b.status||"")}</span><a href="${href}">GAME DETAIL</a></div></div>`;
+  const t = String(b.type || "").toLowerCase();
+  const title = ticketTitle(b);
+  const sub = (t === "hr" || t === "td" || t === "prop") ? (pickLine(b) + " · " + b.game) : pickLine(b);
+  return `<div class="g-row"><div class="g-main"><span class="g-name">${title}</span><span class="g-pick">${sub}</span></div><div class="g-side"><span class="stamp ${conf.toLowerCase()}">${conf}</span><span class="g-score">${shown || (b.status||"")}</span><a href="${href}">GAME DETAIL</a></div></div>`;
 }
 function flatGameList(rows){
   const seen = {}; const list = [];

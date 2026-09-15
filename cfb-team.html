@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Split -- CFB Identity</title>
+<link rel="stylesheet" href="dive.css"/>
+</head>
+<body>
+<div class="topnav">
+<a href="cfb.html">CFB</a>
+<a href="reviews.html">BET TRACKER</a>
+</div>
+<div id="one"><p class="note">Loading...</p></div>
+<script src="cfb-identities.js?v=1"></script>
+<script>
+(function(){
+  const raw = new URLSearchParams(location.search).get("t") || "";
+  const t = (window.CFB_IDENTITIES || {})[raw];
+  const box = document.getElementById("one");
+  if (!t){
+    box.innerHTML = "<div class='wrap'><p class='note'>AP Top 25 only. Pick a club from the CFB page.</p><p><a class='full-link' href='cfb.html'>CFB</a></p></div>";
+    return;
+  }
+  document.title = "The Split -- " + t.name;
+  function block(title, val){
+    return `<details class="block" open><summary>${title}</summary><div class="body"><p>${val}</p></div></details>`;
+  }
+  const empty = "Not filled. Top 25 shell only.";
+  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">#${t.rank} ${t.name.toUpperCase()}</div><div class="meta">${t.record} \u00b7 ${t.poll} \u00b7 identity not filled</div></header><div class="wrap">
+${block("WHO THEY ARE", empty)}
+${block("WHERE THE OFFENSE BROKE", empty)}
+${block("HOW THE OFFENSE WORKS", empty)}
+${block("WHO MOVED THE BALL", empty)}
+${block("HOW THE DEFENSE WORKS", empty)}
+${block("WHAT THEY SENT (BLITZ)", empty)}
+${block("WHAT THEY SHOWED (SIM PRESSURE)", empty)}
+${block("WHERE THE DEFENSE BROKE", empty)}
+${block("THE BET", empty)}
+${block("DFS ONLY", empty)}
+${block("NEXT BREAKDOWN STARTS HERE", empty)}
+<p><a class="full-link" href="cfb.html">CFB</a></p></div>`;
+})();
+</script>
+</body></html>

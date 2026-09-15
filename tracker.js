@@ -55,20 +55,31 @@ function pickLine(b){
   if (close) return close;
   return pick;
 }
+function applyBet(data, seen, b){
+  if (!b || !b.id) return;
+  if (!seen[b.id]){
+    data.bets.push(b);
+    seen[b.id] = true;
+    return;
+  }
+  if (String(b.status||"").toUpperCase() !== "SETTLED") return;
+  const i = data.bets.findIndex(function(x){ return x && x.id === b.id; });
+  if (i < 0) return;
+  if (String(data.bets[i].status||"").toUpperCase() === "SETTLED") return;
+  data.bets[i] = b;
+}
 async function loadLedger(){
   const r = await fetch("tracker.json?v=" + Date.now());
   const data = await r.json();
   data.bets = data.bets || [];
   const seen = {};
   data.bets.forEach(function(b){ if (b && b.id) seen[b.id]=true; });
-  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json"];
+  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json","tracker-nfl-mnf.json"];
   for (let i=0;i<shards.length;i++){
     try {
       const extra = await (await fetch(shards[i] + "?v=" + Date.now())).json();
       const more = extra.bets || extra || [];
-      more.forEach(function(b){
-        if (b && b.id && !seen[b.id]){ data.bets.push(b); seen[b.id]=true; }
-      });
+      more.forEach(function(b){ applyBet(data, seen, b); });
     } catch (e) {}
   }
   data.bets = data.bets.filter(keepTicket);

@@ -19,18 +19,18 @@
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
-<details class="subhead" open><summary>DEEP DIVES</summary>
+<details class="subhead"><summary>DEEP DIVES</summary>
 <div class="inner"><div id="mlb-cal"></div><div id="mlb-slate"></div></div></details>
-<details class="subhead" open><summary>REVIEW</summary>
+<details class="subhead"><summary>REVIEW</summary>
 <div class="inner"><div class="weeks" id="mlb-review-days"></div><div id="mlb-day-review"></div></div></details>
-<details class="subhead" open><summary>BETTING NOTES</summary>
+<details class="subhead"><summary>BETTING NOTES</summary>
 <div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
 <div class="inner" id="mlb-identities"></div></details>
 </div>
 <script src="mlb.js?v=11"></script>
-<script src="mlb-day-review.js?v=4"></script>
-<script src="mlb-identities.js?v=1"></script>
+<script src="mlb-day-review.js?v=5"></script>
+<script src="mlb-identities.js?v=2"></script>
 <script src="tracker.js?v=35"></script>
 <script src="notes.js?v=1"></script>
 <script src="stamp.js?v=6"></script>
@@ -40,5 +40,6 @@ loadLedger().then(function(data){
   if (window.splitStamp) splitStamp();
 });
 paintBettingNotes("MLB");
+if (window.closeAllTabs) closeAllTabs();
 </script>
 </body></html>

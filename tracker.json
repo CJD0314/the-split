@@ -1,6 +1,6 @@
 {
   "unit": 100,
-  "updated": "2026-09-14T21:42:00-04:00",
+  "updated": "2026-09-14T22:24:00-04:00",
   "today": "2026-09-14",
   "tagline": "The card. The number. The miss.",
   "confidence_key": "BET = fire a unit. LEAN = half unit or skip if tight. FADE = posted because every game needs a number; would not fire real money.",
@@ -14,13 +14,10 @@
       "Ugly home covers still cover. Steelers 20-13 cashed -6.5. Bengals covered -3.5 with Chase quiet."
     ],
     "CFB": [
-      "A 50-point FCS win is not a license to lay 35-plus the next week.",
-      "Fire 6-to-10 point ranked sides in real conference games. Alabama and BYU cashed.",
-      "A mid-teens home favorite against a Power opponent can still be a real number. Texas A&M 48-20.",
-      "Ohio State +1.5 cashed 24-23 after Texas erased 20. A late-lead dog still has a number.",
-      "Houston 77-6 covered -51.5. A 50-point FCS-style home smash can still cash when the opponent is FCS.",
-      "Tennessee -11.5 cashed 45-24 on the road. Ranked 10-12 point sides in real games stay live.",
-      "Utah -7 cashed 43-10. Single-digit home favorites against Power opponents are the repeatable number."
+      "Fire 6-to-14 point ranked sides in real Power or conference games. Alabama -10, BYU -7, Missouri -5.5, Texas A&M -14.5, Tennessee -11.5, Utah -7, Ohio State +1.5 all cashed.",
+      "A late-lead dog still has a number. Ohio State +1.5 cashed 24-23 after Texas erased 20.",
+      "Paycheck 28-plus can cash against FCS. Miami, Louisville, Virginia, Georgia, Notre Dame, SMU, Houston covered. Stamp stays FADE. We do not fire it.",
+      "LSU -10.5 in Week 1 was a real game (51-10 Clemson). That is not the same ticket as LSU -35.5 in Week 2."
     ],
     "MLB": [
       "A plus-money dog still needs the starter to keep it close after three innings.",
@@ -39,16 +36,12 @@
       "DEN at KC is still live. Do not write that review until the whistle."
     ],
     "CFB": [
-      "Do not treat a 50-point FCS win as a repeatable side.",
-      "Road 20-plus after a one-score opener is not a lay. Oregon lost 39-31 at Oklahoma State.",
-      "A 50-plus number can win the game and miss the spread. Indiana 55-0 missed -57.5.",
-      "Road 20-plus against an FBS host can stall. Penn State 27-9 missed -24.5.",
-      "A 28-point home favorite with pieces out is not free. Washington 16-14 missed -27.5.",
-      "Iowa 16-13 missed -14. Rivalry dogs keep ranked home favorites inside a touchdown.",
-      "Texas Tech 35-24 missed -25.5. A 25-point road number against an FBS host is not free.",
-      "USC 49-30 missed -21.5. Winning by 19 is not covering 21.",
-      "LSU 45-14 missed -35.5. Three picks and a 31-point win still miss a mid-30s number.",
-      "Ole Miss 41-9 missed -47.5. A 32-point win is not a 47-point number."
+      "Do not treat a 50-point FCS win as a repeatable fire. Week 2 landmines: Indiana 55-0 missed -57.5, Ole Miss 41-9 missed -47.5, LSU 45-14 missed -35.5.",
+      "Do not lay 20-plus on the road after a one-score opener. Oregon -23.5 died 39-31 at Oklahoma State.",
+      "A 50-0 G5 tape is not a road license. Oklahoma -5.5 never led at Michigan.",
+      "A 28-point home favorite with pieces out is a pass. Washington 16-14 missed -27.5.",
+      "Rivalry dogs keep ranked favorites inside a touchdown. Iowa 16-13 missed -14.",
+      "Winning is not covering. Penn State 27-9 missed -24.5. Texas Tech 35-24 missed -25.5. USC 49-30 missed -21.5."
     ],
     "MLB": [
       "Do not lay home juice worse than -200.",

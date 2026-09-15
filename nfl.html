@@ -16,7 +16,7 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">NFL</div>
-<div class="updated">LAST UPDATED: Mon Sep 14, 2026 10:05 p.m. ET</div>
+<div class="updated">LAST UPDATED: Mon Sep 14, 2026 10:17 p.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
@@ -51,7 +51,7 @@
 <script src="nfl-identities.js?v=4"></script>
 <script src="tracker.js?v=32"></script>
 <script src="notes.js?v=5"></script>
-<script src="stamp.js?v=3"></script>
+<script src="stamp.js?v=5"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="NFL";})}));

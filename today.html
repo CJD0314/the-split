@@ -277,11 +277,17 @@ function sportTodayHtmlLocal(sp, rows){
   if (sp === "MLB") return mlbByGame(rows);
   return flatGameList(rows);
 }
+function fireGames(rows){
+  const out = {};
+  (rows || []).forEach(function(b){ if (isFire(b) && b.game) out[b.game] = true; });
+  return out;
+}
 async function paintTodayCard(){
   const data = await loadLedger();
   const day = cardDate();
   const order = ["NFL","CFB","MLB"];
-  const allFire = (data.bets||[]).filter(function(b){ return b.date === day && isFire(b); });
+  const dayBets = (data.bets||[]).filter(function(b){ return b.date === day; });
+  const allFire = dayBets.filter(isFire);
   const unitsEl = document.getElementById("units");
   if (unitsEl){
     const units = allFire.filter(function(b){ return String(b.confidence||"").toUpperCase()==="BET"; })
@@ -293,20 +299,24 @@ async function paintTodayCard(){
   const tickets = document.getElementById("tickets");
   if (tickets){
     const live = order.map(function(sp){
-      const rows = allFire.filter(function(b){ return b.sport === sp; });
+      const rows = dayBets.filter(function(b){ return b.sport === sp && (isFire(b) || (isFade(b) && !isTdHr(b) && !isPlayerProp(b))); });
       if (!rows.length) return "";
-      return sportDrop(sp, countLine(rows) + sportTodayHtmlLocal(sp, rows), true);
+      return sportDrop(sp, countLine(rows.filter(isFire)) + sportTodayHtmlLocal(sp, rows), true);
     }).filter(Boolean);
     tickets.innerHTML = live.length ? live.join("") : `<p class="note">No BET or LEAN tickets dated ${day}.</p>`;
   }
   const fades = document.getElementById("fades");
   if (fades){
     const away = order.map(function(sp){
-      const rows = (data.bets||[]).filter(function(b){ return b.sport === sp && b.date === day && isFade(b) && !isTdHr(b) && !isPlayerProp(b); });
-      if (!rows.length) return "";
-      return sportDrop(sp, flatGameList(rows), true);
+      const rows = dayBets.filter(function(b){ return b.sport === sp; });
+      const live = fireGames(rows);
+      const only = rows.filter(function(b){
+        return isFade(b) && !isTdHr(b) && !isPlayerProp(b) && !live[b.game];
+      });
+      if (!only.length) return "";
+      return sportDrop(sp, flatGameList(only), true);
     }).filter(Boolean);
-    fades.innerHTML = away.length ? away.join("") : `<p class="note">No stay-away tickets dated ${day}.</p>`;
+    fades.innerHTML = away.length ? away.join("") : `<p class="note">No leftover stay-away games. Juice fades sit on the game card as FADE. Do not buy that number.</p>`;
   }
 }
 function keepOpen(){

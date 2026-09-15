@@ -19,14 +19,14 @@ async function paintBettingNotes(sport){
 var DFS_NOTES = {
   NFL: {
     keep: [
+      "Every week is a cheat sheet, then a review. Do not mix them.",
       "Hard-cap the chalk back. Field 35% means 8 of 50, not 20.",
-      "Pay the featured back in a run-identity offense. Henry and Swift were the slate.",
-      "Monday DEN-KC is a showdown, not the Sunday 50. Low total. Do not captain a TE."
+      "Pay the featured back who scores. Swift, Henry, Jeanty, Gibbs, Jefferson were the Sunday slate."
     ],
     fade: [
       "Yards are not fantasy. McCaffrey and Kincaid piled work and did not score.",
-      "Do not stack the two highest-owned players in the same lineup.",
-      "Do not mix one Bronco into a full Chiefs stack and call it unique."
+      "Do not chain WR1 TD to a dog side. Harrison missed. Cardinals +9.5 cashed.",
+      "Do not captain a TE in a total under 45. Monday DEN-KC is still that game."
     ]
   }
 };
@@ -35,8 +35,8 @@ function paintDfsNotes(sport){
   if (!box) return;
   var n = DFS_NOTES[sport] || {keep:[], fade:[]};
   box.innerHTML =
-    "<p class='note-head'>DFS notes move after the slate is final.</p>" +
+    "<p class='note-head'>Sheet first. Review after the slate is final.</p>" +
     (n.keep.length ? "<p class='note-lab'>KEEP DOING</p><ul class='notes'>" + noteList(n.keep) + "</ul>" : "") +
     (n.fade.length ? "<p class='note-lab'>STAY AWAY</p><ul class='notes'>" + noteList(n.fade) + "</ul>" : "") +
-    "<p><a class='full-link' href='nfl-dfs-week-1.html'>OPEN THE CHEAT SHEET</a></p>";
+    "<p><a class='full-link' href='nfl-dfs-week-1.html'>WEEK 1 CHEAT SHEET + REVIEW</a></p>";
 }

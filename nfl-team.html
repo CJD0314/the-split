@@ -7,20 +7,18 @@
 </head>
 <body>
 <div class="topnav">
-<a href="today.html">TODAY</a>
 <a href="nfl.html">NFL</a>
 <a href="nfl-offense-week-1.html">OFFENSE</a>
 <a href="nfl-defense-week-1.html">HOLES</a>
-<a href="nfl-schemes-week-1.html">SCHEMES</a>
 <a href="nfl-blitz-week-1.html">BLITZ</a>
 <a href="nfl-sim-pressure.html">SIM</a>
 </div>
 <div id="one"><p class="note">Loading identity...</p></div>
-<script src="nfl-id-a.js?v=1"></script>
+<script src="nfl-id-a.js?v=2"></script>
 <script src="nfl-id-b.js?v=1"></script>
-<script src="nfl-identities.js?v=5"></script>
-<script src="nfl-id-def.js?v=2"></script>
-<script src="nfl-id-off.js?v=1"></script>
+<script src="nfl-identities.js?v=6"></script>
+<script src="nfl-id-def.js?v=3"></script>
+<script src="nfl-id-off.js?v=2"></script>
 <script>
 (function(){
   const raw = new URLSearchParams(location.search).get("t") || "";
@@ -32,10 +30,29 @@
     return;
   }
   document.title = "The Split -- " + t.name;
-  const extra = function(title, val){
-    return val ? `<details class="block" open><summary>${title}</summary><div class="body"><p>${val}</p></div></details>` : "";
-  };
-  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">${t.name.toUpperCase()}</div><div class="meta">Identity book · Week 1 tape · feeds the next full breakdown</div></header><div class="wrap"><div class="market"><div class="tile"><b>WEEK 1</b><span>${t.w1||""}</span><span>${t.ticket||""}</span></div><div class="tile"><b>POINTS</b><span>FOR ${t.pf||"—"}</span><span>AGT ${t.pa||"—"}</span></div><div class="tile"><b>ENGINE</b><span>${t.engine||""}</span><span>${t.style||""}</span></div><div class="tile"><b>KEY STAT</b><span>${t.stat||""}</span></div></div><details class="block" open><summary>WHO THEY ARE ON THIS TAPE</summary><div class="body"><p>${t.who||""}</p></div></details>${extra("OFFENSIVE SCHEME", t.offscheme)}${extra("OFFENSIVE ENGINE", t.engine2)}${extra("OFFENSIVE HOLE", t.offhole)}${extra("HOW WE ATTACK / BET THE OFFENSE", t.howoff)}${extra("SCHEME (DEFENSE)", t.scheme)}${extra("BLITZ PACKAGE", t.blitz)}${extra("SIMULATED PRESSURE", t.sim)}${extra("DEFENSIVE HOLE ON THIS TAPE", t.def)}<details class="block" open><summary>HOW WE BET THEM</summary><div class="body"><p>${t.bet||""}</p></div></details><details class="block" open><summary>HOW WE PLAY THEM IN DFS</summary><div class="body"><p>${t.dfs||""}</p></div></details><details class="block" open><summary>USE THIS IN THE NEXT BREAKDOWN</summary><div class="body"><p>${t.next||""}</p></div></details><p><a class="full-link" href="${t.rev||"nfl.html"}">GAME REVIEW</a> · <a class="full-link" href="nfl-offense-week-1.html">OFFENSIVE TAPE</a> · <a class="full-link" href="nfl.html">NFL</a></p></div>`;
+  function block(title, val){
+    if (!val) return "";
+    return `<details class="block" open><summary>${title}</summary><div class="body"><p>${val}</p></div></details>`;
+  }
+  box.innerHTML = `<header><div class="brand">THE SPLIT</div><div class="week">${t.name.toUpperCase()}</div><div class="meta">${t.w1||""} \u00b7 ${t.ticket||""} \u00b7 FOR ${t.pf} / AGT ${t.pa}</div></header><div class="wrap">
+<div class="market">
+<div class="tile"><b>IDENTITY</b><span>${t.style||""}</span></div>
+<div class="tile"><b>ENGINE</b><span>${t.engine||""}</span></div>
+<div class="tile"><b>STAT</b><span>${t.stat||""}</span></div>
+</div>
+${block("WHO THEY ARE", t.who)}
+${block("HOW THE OFFENSE WORKS", t.offscheme)}
+${block("WHO MOVED THE BALL", t.engine2)}
+${block("WHERE THE OFFENSE BROKE", t.offhole)}
+${block("HOW THE DEFENSE WORKS", t.scheme)}
+${block("WHAT THEY SENT (BLITZ)", t.blitz)}
+${block("WHAT THEY SHOWED (SIM PRESSURE)", t.sim)}
+${block("WHERE THE DEFENSE BROKE", t.def)}
+${block("THE BET", t.bet)}
+${block("DFS ONLY", t.dfs)}
+${block("NEXT BREAKDOWN STARTS HERE", t.next)}
+${block("OFFENSE RULE FOR THE NEXT DIVE", t.howoff)}
+<p><a class="full-link" href="${t.rev||"nfl.html"}">GAME REVIEW</a> \u00b7 <a class="full-link" href="nfl.html">NFL</a></p></div>`;
 })();
 </script>
 </body></html>

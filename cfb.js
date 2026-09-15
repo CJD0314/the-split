@@ -76,26 +76,57 @@ function cfbCard(row){
   </div></div>`;
   return `<div class="g" style="flex-wrap:wrap">${imgs}<b>${title}</b>${link}${rev}<span>${when}</span>${tiles}</div>`;
 }
-function showCfb(week){
-  document.querySelectorAll("#cfb-week-btns button").forEach((b,i)=> b.classList.toggle("on", i+1===week));
-  const list = CFB[week];
+function cfbPickLabel(row){
+  return row[3] + (row[4] && row[4] !== "FINAL" ? " · " + row[4] : "");
+}
+function fillCfbPick(week){
+  const hold = document.getElementById("cfb-game-hold");
+  const pick = document.getElementById("cfb-game-pick");
   const box = document.getElementById("cfb-slate");
-  if (!box) return;
-  if (!list) { box.innerHTML = "<p class='note'>Top 25 slate posts when that week's AP games lock. Weeks 3-10 reserved.</p>"; return; }
-  let html="", last="";
-  for (const g of list){
-    if (g[0]!==last){ html += `<div class="day">${g[0]}</div>`; last=g[0]; }
-    html += cfbCard(g);
+  const list = CFB[week] || [];
+  if (!pick || !hold) return;
+  pick.innerHTML = '<option value="">Select a game</option>' +
+    list.map(function(g,i){ return '<option value="'+i+'">'+cfbPickLabel(g)+'</option>'; }).join("");
+  hold.style.display = "block";
+  if (box) box.innerHTML = "";
+  pick.onchange = function(){
+    if (!box) return;
+    const i = Number(pick.value);
+    if (pick.value === "" || !list[i]) { box.innerHTML = ""; return; }
+    box.innerHTML = cfbCard(list[i]);
+  };
+}
+function showCfb(week){
+  document.querySelectorAll("#cfb-week-btns button").forEach(function(b){
+    b.classList.toggle("on", b.textContent === "Week "+week);
+  });
+  const box = document.getElementById("cfb-slate");
+  if (!CFB[week]){
+    const hold = document.getElementById("cfb-game-hold");
+    if (hold) hold.style.display = "none";
+    if (box) box.innerHTML = "<p class='note'>That week posts when the AP slate locks.</p>";
+    return;
   }
-  box.innerHTML = html;
+  fillCfbPick(week);
 }
 const cfbBtns = document.getElementById("cfb-week-btns");
 if (cfbBtns) {
-  for (let i=1;i<=10;i++){
+  [1,2].forEach(function(i){
     const b=document.createElement("button");
     b.textContent="Week "+i;
-    b.onclick=()=>showCfb(i);
+    b.onclick=function(){
+      if (b.classList.contains("on")){
+        b.classList.remove("on");
+        const hold = document.getElementById("cfb-game-hold");
+        const pick = document.getElementById("cfb-game-pick");
+        const box = document.getElementById("cfb-slate");
+        if (hold) hold.style.display = "none";
+        if (pick) pick.value = "";
+        if (box) box.innerHTML = "";
+        return;
+      }
+      showCfb(i);
+    };
     cfbBtns.appendChild(b);
-  }
-  showCfb(CFB_WEEK);
+  });
 }

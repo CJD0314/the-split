@@ -25,38 +25,17 @@ function closeAllTabs(){
     d.removeAttribute("open");
   });
 }
-function stampText(){
-  return "LAST UPDATED: " + (window.SPLIT_UPDATED || "Mon Sep 14, 2026 10:17 p.m. ET");
-}
 function paintUpdated(){
-  var nodes = document.querySelectorAll(".updated");
-  if (!nodes.length){
-    var h = document.querySelector("header");
-    if (!h) return;
-    var d = document.createElement("div");
-    d.className = "updated";
-    h.appendChild(d);
-    nodes = document.querySelectorAll(".updated");
-  }
-  var text = stampText();
-  nodes.forEach(function(el){ el.textContent = text; });
-}
-function loadUpdated(done){
-  if (window.SPLIT_UPDATED){ done(); return; }
-  var s = document.createElement("script");
-  s.src = "updated.js";
-  s.onload = done;
-  s.onerror = done;
-  document.head.appendChild(s);
+  document.querySelectorAll(".updated").forEach(function(el){ el.remove(); });
 }
 function splitStamp(){
   splitNav();
-  loadUpdated(paintUpdated);
+  paintUpdated();
   return true;
 }
 (function(){
   splitNav();
-  loadUpdated(paintUpdated);
-  document.addEventListener("DOMContentLoaded", function(){ splitNav(); loadUpdated(paintUpdated); });
-  window.addEventListener("load", function(){ splitNav(); loadUpdated(paintUpdated); });
+  paintUpdated();
+  document.addEventListener("DOMContentLoaded", function(){ splitNav(); paintUpdated(); });
+  window.addEventListener("load", function(){ splitNav(); paintUpdated(); });
 })();

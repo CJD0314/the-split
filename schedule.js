@@ -60,14 +60,20 @@ function show(week){
   pick = document.getElementById("nfl-game-pick");
   if (!pick) return;
   pick.innerHTML = "";
+  const blank = document.createElement("option");
+  blank.value = "";
+  blank.textContent = "Select a game";
+  pick.appendChild(blank);
   list.forEach(function(g,i){
     const o = document.createElement("option");
     o.value = String(i);
     o.textContent = nflPickLabel(g);
     pick.appendChild(o);
   });
-  pick.onchange = function(){ paintNflGame(list, Number(pick.value)); };
-  paintNflGame(list, 0);
+  pick.onchange = function(){
+    paintNflGame(list, pick.value === "" ? -1 : Number(pick.value));
+  };
+  paintNflGame(list, -1);
 }
 const box = document.getElementById("week-btns");
 if (box) {

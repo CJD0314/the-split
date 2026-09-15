@@ -16,7 +16,7 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">NFL</div>
-<div class="updated">LAST UPDATED: Mon Sep 14, 2026 9:49 p.m. ET</div>
+<div class="updated">LAST UPDATED: Mon Sep 14, 2026 9:54 p.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
@@ -27,7 +27,18 @@
 <details class="subhead"><summary>BETTING NOTES</summary>
 <div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
 <details class="subhead"><summary>DFS CHEAT SHEET</summary>
-<div class="inner"><div class="weeks" id="dfs-week-btns"></div></div></details>
+<div class="inner">
+<div class="weeks" id="dfs-week-btns"></div>
+<div id="dfs-slate-hold" style="display:none">
+<p class="note-lab">SELECT A SLATE</p>
+<select id="dfs-slate-pick" class="game-pick" aria-label="Select a slate">
+<option value="">Select a slate</option>
+<option value="nfl-dfs-week-1.html">Main slate</option>
+<option value="nfl-dfs-week-1-snf.html">Sunday night</option>
+<option value="nfl-dfs-week-1-mnf.html">Monday night</option>
+</select>
+</div>
+</div></details>
 <details class="subhead"><summary>DFS NOTES</summary>
 <div class="inner" id="dfs-notes"></div></details>
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
@@ -39,7 +50,7 @@
 <script src="nfl-id-b.js?v=1"></script>
 <script src="nfl-identities.js?v=3"></script>
 <script src="tracker.js?v=32"></script>
-<script src="notes.js?v=3"></script>
+<script src="notes.js?v=4"></script>
 <script src="stamp.js?v=3"></script>
 <script>
 loadLedger().then(function(data){
@@ -49,12 +60,20 @@ paintBettingNotes("NFL");
 paintDfsNotes("NFL");
 (function(){
   const dfs = document.getElementById("dfs-week-btns");
-  if (!dfs) return;
+  const hold = document.getElementById("dfs-slate-hold");
+  const pick = document.getElementById("dfs-slate-pick");
+  if (!dfs || !hold || !pick) return;
   const b=document.createElement("button");
   b.textContent="Week 1";
-  b.classList.add("on");
-  b.onclick=function(){ location.href = "nfl-dfs-week-1.html"; };
+  b.onclick=function(){
+    b.classList.toggle("on");
+    hold.style.display = b.classList.contains("on") ? "block" : "none";
+    if (!b.classList.contains("on")) pick.value = "";
+  };
   dfs.appendChild(b);
+  pick.onchange=function(){
+    if (pick.value) location.href = pick.value;
+  };
 })();
 </script>
 </body></html>

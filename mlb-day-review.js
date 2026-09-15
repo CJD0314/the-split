@@ -9,6 +9,14 @@ const MLB_QUICK = {
     "Tigers -175 FADE still won; Greene HR missed again.",
     "Orioles +114 dead 5-0 after three. O'Hearn and Ohtani were not in the lineup.",
     "Glasnow 7 K in 4 IP. 7.5 over lost because the leash died, not the stuff."
+  ],
+  "2026-09-14": [
+    "Monday card 20-10, +$1,981. Nine of ten moneylines cashed.",
+    "Plus-money road dogs: White Sox +134, Tigers +119, Orioles +108.",
+    "Henderson eighth and Carroll ninth were the HR and the ML in the same swing.",
+    "Skubal 9 K, Williams 7, Detmers 8. Ace overs that finished five cashed.",
+    "Mize 0 K at Coors. Roupp 4 K in 4.1. Tong 6 K over six. Leash is the K ticket.",
+    "Ohtani, Ramirez, Riley, Vlad, Contreras missed. The homers were Tucker, Teoscar, Vargas, Okamoto, Yaz."
   ]
 };
 const MLB_DAY_NOTES = {
@@ -47,6 +55,31 @@ const MLB_DAY_NOTES = {
       "Confirm the lineup at first pitch or void the prop.",
       "A 7.5 K over and a road run line both need the starter to finish five."
     ]
+  },
+  "2026-09-14": {
+    held: [
+      "Plus-money road dogs that stayed in the game: White Sox +134 (7-3), Tigers +119 (6-5), Orioles +108 (2-1).",
+      "Judge HR and o1.5 TB cashed with Yankees -123. Same bat, two tickets.",
+      "Henderson HR in the eighth won the Orioles ML. Carroll walk-off won the Diamondbacks ML.",
+      "Skubal 9 K in 7 IP. Williams 7 K in 5 IP. Detmers 8 K in 6 IP. Alcantara 6 K in 5 IP.",
+      "Melton 3 K in 2.2 IP. Short-leash unders still cash.",
+      "Tatis and Raleigh homered. Coors and the other side of a pick-em both produced the bat."
+    ],
+    broke: [
+      "Braves +117 dead 7-3. Lopez lasted three. Plus-money needs the starter to keep it close after three.",
+      "Ohtani, Ramirez, Riley, Vlad, Contreras HR tickets all missed. Name is not the homer.",
+      "Tong u4.5 lost at 6 K over 6 IP. Peterson u5.5 lost at 7 K over 6 IP.",
+      "Roupp o4.5 died at 4 K in 4.1. Mize o4.5 died at 0 K in 5 IP at Coors.",
+      "Padres -199 cashed 8-7 at Coors. The juice is still a FADE even when it wins."
+    ],
+    next: [
+      "Fire a plus-money road dog only if the starter can keep it close after three innings.",
+      "Split the bat from the chalk ML. The homer can win the dog or cash while the favorite wins.",
+      "K overs need five innings. K unders need a hook by the fourth.",
+      "Do not buy pitcher K overs at Coors unless the stuff is elite.",
+      "Anytime HR is the bat that hits the ball, not the biggest name on the card.",
+      "Juice worse than -190 stays a FADE."
+    ]
   }
 };
 function mlbReviewDay(iso){
@@ -79,5 +112,5 @@ function mlbReviewDay(iso){
     b.onclick = function(){ mlbReviewDay(iso); };
     box.appendChild(b);
   });
-  mlbReviewDay(days[days.length-1] || "2026-09-12");
+  mlbReviewDay(days[days.length-1] || "2026-09-14");
 })();

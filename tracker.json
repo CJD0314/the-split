@@ -1,17 +1,17 @@
 {
   "unit": 100,
-  "updated": "2026-09-14T19:30:00-04:00",
+  "updated": "2026-09-14T21:42:00-04:00",
   "today": "2026-09-14",
   "tagline": "The card. The number. The miss.",
   "confidence_key": "BET = fire a unit. LEAN = half unit or skip if tight. FADE = posted because every game needs a number; would not fire real money.",
   "loops": {
     "NFL": [
-      "A backup safety on the injury report is not a reason to smash the other quarterback.",
-      "In a total under 45, take the dog and the running backs before you captain the quarterback.",
-      "49ers +3.5 cashed 27-7 in Melbourne. A travel-week favorite is fadeable when the dog can run.",
-      "Do not copy a quiet opener onto Sunday. Bears 59-37 and Swift three TDs after SEA 13-10.",
-      "Featured backs still score when the side dies: Irving, Jeanty, Jefferson, Bijan, Likely.",
-      "Large home numbers leaked: Saints +7.5, Cardinals +9.5, Commanders +5.5."
+      "Split the side from the scorer. Irving, Bijan, Jeanty, Jefferson, Likely, and Goedert cashed while the other number died or leaked.",
+      "Run identity is a real favorite. Bears -3, Ravens -3, Bills -1.5, and Jets +1.5 with Hall all cashed.",
+      "Large home chalk leaked. Saints +7.5, Cardinals +9.5, Commanders +5.5. Chargers -9.5 and Titans -1.5 died outright.",
+      "Travel-week favorite died. 49ers +3.5 won 27-7 in Melbourne.",
+      "A total under 45 is a dog number, not a quarterback stack. Patriots +3 pushed 13-10. Henry the TE did not score. Raridon did.",
+      "Ugly home covers still cover. Steelers 20-13 cashed -6.5. Bengals covered -3.5 with Chase quiet."
     ],
     "CFB": [
       "A 50-point FCS win is not a license to lay 35-plus the next week.",
@@ -30,13 +30,13 @@
   },
   "fades": {
     "NFL": [
-      "Do not captain a short-week home favorite just because the name is bigger.",
-      "Patriots +3 pushed SEA 13-10. A 3-point short-week opener is a number, not a smash.",
-      "Home chalk died Week 1: Chargers, Titans, Packers, Cowboys. A loud name is not a home lock.",
-      "Yards are not touchdowns. McCaffrey and Kincaid piled work and did not score.",
-      "A 7-point loss does not cash +6.5. Falcons lost 20-13.",
-      "Fat road dogs are not automatic. Browns +8.5 lost by 24.",
-      "Do not chain a WR1 TD onto a dog side you already like. Harrison missed. Cardinals +9.5 cashed."
+      "Yards are not touchdowns. McCaffrey 68-20-0. Kincaid 130 yards, 0 TD. Hunter Henry missed. Harrison missed on a side that cashed.",
+      "A fat road dog is not automatic. Browns +8.5 lost by 24. Falcons +6.5 lost 20-13.",
+      "Do not copy Wednesday's 13-10 onto Sunday. Bears-Panthers put up 96. Carolina scored 37 and still lost by 22.",
+      "Do not lay brand home or road juice. Cowboys -2.5 lost outright. Packers +1.5 died after Love threw for 387. Flores sent extra.",
+      "Do not buy Miami points against a featured home back. Never in the number after Q1.",
+      "Do not attach WR1 or TE TD to a dog you already like. Separate those tickets.",
+      "DEN at KC is still live. Do not write that review until the whistle."
     ],
     "CFB": [
       "Do not treat a 50-point FCS win as a repeatable side.",

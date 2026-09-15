@@ -16,12 +16,16 @@
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">NFL</div>
-<div class="updated">LAST UPDATED: Mon Sep 14, 2026 10:38 p.m. ET</div>
+<div class="updated">LAST UPDATED: Mon Sep 14, 2026 10:52 p.m. ET</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
 <details class="subhead"><summary>DEEP DIVES</summary>
-<div class="inner"><div class="weeks" id="week-btns"></div><div id="slate"></div></div></details>
+<div class="inner">
+<div class="weeks" id="week-btns"></div>
+<p class="note">Week 2 slate posts when the board is set.</p>
+<div id="slate"></div>
+</div></details>
 <details class="subhead"><summary>WEEK NOTES</summary>
 <div class="inner"><div class="weeks" id="nfl-review-btns"></div><div id="nfl-week-review"></div></div></details>
 <details class="subhead"><summary>BETTING NOTES</summary>
@@ -29,7 +33,7 @@
 <details class="subhead"><summary>DFS CHEAT SHEET</summary>
 <div class="inner">
 <div class="weeks" id="dfs-week-btns"></div>
-<div id="dfs-slate-hold" style="display:none">
+<div id="dfs-slate-hold">
 <p class="note-lab">SELECT A SLATE</p>
 <select id="dfs-slate-pick" class="game-pick" aria-label="Select a slate">
 <option value="">Select a slate</option>
@@ -44,12 +48,12 @@
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
 <div class="inner" id="team-identities"></div></details>
 </div>
-<script src="schedule.js?v=27"></script>
+<script src="schedule.js?v=28"></script>
 <script src="nfl-week-review.js?v=7"></script>
 <script src="nfl-id-a.js?v=1"></script>
 <script src="nfl-id-b.js?v=1"></script>
 <script src="nfl-identities.js?v=6"></script>
-<script src="tracker.js?v=32"></script>
+<script src="tracker.js?v=33"></script>
 <script src="notes.js?v=6"></script>
 <script src="stamp.js?v=5"></script>
 <script>
@@ -60,16 +64,11 @@ paintBettingNotes("NFL");
 paintDfsNotes("NFL");
 (function(){
   const dfs = document.getElementById("dfs-week-btns");
-  const hold = document.getElementById("dfs-slate-hold");
   const pick = document.getElementById("dfs-slate-pick");
-  if (!dfs || !hold || !pick) return;
+  if (!dfs || !pick) return;
   const b=document.createElement("button");
   b.textContent="Week 1";
-  b.onclick=function(){
-    b.classList.toggle("on");
-    hold.style.display = b.classList.contains("on") ? "block" : "none";
-    if (!b.classList.contains("on")) pick.value = "";
-  };
+  b.className="on";
   dfs.appendChild(b);
   pick.onchange=function(){
     if (pick.value) location.href = pick.value;

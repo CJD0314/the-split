@@ -20,13 +20,19 @@ const NFL_WEEK_NOTES = {
   }
 };
 function nflReviewWeek(week){
-  document.querySelectorAll("#nfl-review-btns button").forEach((b,i)=> b.classList.toggle("on", i+1===week));
+  document.querySelectorAll("#nfl-review-btns button").forEach(function(b){
+    b.classList.toggle("on", Number(b.getAttribute("data-week"))===week);
+  });
   const box = document.getElementById("nfl-week-review");
   if (!box) return;
-  const notes = NFL_WEEK_NOTES[week] || {held:[],broke:[],next:[]};
+  const notes = NFL_WEEK_NOTES[week];
+  if (!notes){
+    box.innerHTML = "<p class='note'>No notes posted for this week yet.</p>";
+    return;
+  }
   function bullets(arr, empty){
     if (!arr.length) return "<p class='note'>"+empty+"</p>";
-    return "<ul class='notes'>"+arr.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+    return "<ul class='notes'>"+arr.map(function(x){ return "<li>"+x+"</li>"; }).join("")+"</ul>";
   }
   box.innerHTML =
     "<p class='note'>WEEK "+week+" — quick notes from the tickets we graded. Full write-up is REVIEW on each game card.</p>" +
@@ -37,11 +43,13 @@ function nflReviewWeek(week){
 (function(){
   const btns = document.getElementById("nfl-review-btns");
   if (!btns) return;
-  for (let i=1;i<=18;i++){
+  const weeks = Object.keys(NFL_WEEK_NOTES).map(Number).sort(function(a,b){ return a-b; });
+  weeks.forEach(function(i){
     const b=document.createElement("button");
     b.textContent="Week "+i;
+    b.setAttribute("data-week", String(i));
     b.onclick=function(){ nflReviewWeek(i); };
     btns.appendChild(b);
-  }
-  nflReviewWeek(typeof CURRENT_WEEK === "number" ? CURRENT_WEEK : 1);
+  });
+  nflReviewWeek(weeks[weeks.length-1] || 1);
 })();

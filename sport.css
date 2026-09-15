@@ -28,6 +28,7 @@ ul.notes{margin:0;padding-left:1.15em}ul.notes li{margin:10px 0;font-size:16px;l
 .weeks{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:8px 0}
 .weeks button{padding:7px 4px;border-radius:7px;border:1px solid var(--line);background:#0e141c;color:var(--muted);font-weight:700;font-size:13px;cursor:pointer}
 .weeks button.on{border-color:var(--ok);color:var(--ok)}
+.game-pick{display:block;width:100%;margin:8px 0 12px;padding:12px 10px;border-radius:10px;border:1px solid var(--line);background:#0e141c;color:#f3f7fb;font-size:15px;font-weight:700;line-height:1.4}
 .day{color:var(--muted);font-size:12px;letter-spacing:.1em;margin:10px 0 4px;font-weight:700}
 .g{display:flex;align-items:center;gap:8px;background:#0e141c;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;flex-wrap:wrap}
 .g img{width:16px !important;height:16px !important;max-width:16px !important;object-fit:contain;flex:0 0 16px}

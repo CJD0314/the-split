@@ -25,18 +25,38 @@ function nflCard(g){
   const rev = review ? `<a class="full-link" href="${review}">REVIEW</a>` : "";
   return `<div class="g" style="flex-wrap:wrap"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${title}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a>${rev}<span>${when}</span>${tiles}</div>`;
 }
+function nflPickLabel(g){
+  return g[4] + " · " + g[5] + " · " + g[9];
+}
+function paintNflGame(list, idx){
+  const slate = document.getElementById("slate");
+  if (!slate) return;
+  const g = list[idx];
+  if (!g){ slate.innerHTML = "<p class='note'>Pick a game.</p>"; return; }
+  slate.innerHTML = "<div class='day'>"+g[1]+"</div>" + nflCard(g);
+}
 function show(week){
-  document.querySelectorAll("#week-btns button").forEach((b)=>{
+  document.querySelectorAll("#week-btns button").forEach(function(b){
     b.classList.toggle("on", Number(b.dataset.w)===week);
   });
-  const list = GAMES.filter(g=>g[0]===week);
-  let html="", last="";
-  for (const g of list){
-    if (g[1]!==last){ html += `<div class="day">${g[1]}</div>`; last=g[1]; }
-    html += nflCard(g);
+  const list = GAMES.filter(function(g){ return g[0]===week; });
+  const wrap = document.getElementById("week-btns");
+  let pick = document.getElementById("nfl-game-pick");
+  if (!pick){
+    pick = document.createElement("select");
+    pick.id = "nfl-game-pick";
+    pick.className = "game-pick";
+    if (wrap && wrap.parentNode) wrap.parentNode.insertBefore(pick, wrap.nextSibling);
   }
-  const slate = document.getElementById("slate");
-  if (slate) slate.innerHTML = html || "<p class='note'>No games listed.</p>";
+  pick.innerHTML = "";
+  list.forEach(function(g,i){
+    const o = document.createElement("option");
+    o.value = String(i);
+    o.textContent = nflPickLabel(g);
+    pick.appendChild(o);
+  });
+  pick.onchange = function(){ paintNflGame(list, Number(pick.value)); };
+  paintNflGame(list, 0);
 }
 const box = document.getElementById("week-btns");
 if (box) {
@@ -44,7 +64,7 @@ if (box) {
     const b=document.createElement("button");
     b.textContent="Week "+i;
     b.dataset.w = i;
-    b.onclick=()=>show(i);
+    b.onclick=function(){ show(i); };
     box.appendChild(b);
   });
   show(CURRENT_WEEK);

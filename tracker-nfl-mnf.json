@@ -1,0 +1,6 @@
+{
+  "bets": [
+    {"id":"nfl-w1-den-kc-side","sport":"NFL","date":"2026-09-14","game":"DEN at KC","type":"side","pick":"Broncos +2.5","close":"DEN +2.5 (-112)","stake":112,"to_win":100,"status":"SETTLED","result":"LOSS","pl":-112,"final":"KC 31-10","confidence":"LEAN","href":"nfl-week-1-den-kc-review.html"},
+    {"id":"nfl-w1-den-kc-td","sport":"NFL","date":"2026-09-14","game":"DEN at KC","type":"td","pick":"Xavier Worthy anytime TD","close":"+165","stake":100,"to_win":165,"status":"SETTLED","result":"LOSS","pl":-100,"final":"KC 31-10","confidence":"LEAN","href":"nfl-week-1-den-kc-review.html"}
+  ]
+}

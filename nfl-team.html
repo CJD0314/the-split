@@ -5,7 +5,6 @@
 <title>The Split -- Team Identity</title>
 <link rel="stylesheet" href="dive.css"/>
 <style>
-.id-lab{color:var(--gold);font-size:11px;letter-spacing:.12em;font-weight:800;margin:12px 0 4px}
 .id-row{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);align-items:start}
 .id-row:last-child{border-bottom:0}
 .id-k{color:var(--muted);font-size:11px;letter-spacing:.08em;font-weight:800;padding-top:2px}
@@ -13,6 +12,9 @@
 .id-list{margin:0;padding-left:1.1em}
 .id-list li{margin:8px 0;font-size:16px;line-height:1.5}
 .sec{color:var(--gold);font-size:12px;letter-spacing:.14em;font-weight:800;margin:18px 0 6px}
+.res{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:16px;font-weight:700}
+.res:last-child{border-bottom:0}
+.cover-WIN{color:#3dd68c}.cover-LOSS{color:#ff8a8a}.cover-PUSH,.cover-OPEN{color:var(--gold)}
 @media(max-width:520px){.id-row{grid-template-columns:64px 1fr}.market{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -28,6 +30,7 @@
 <script src="nfl-id-def.js?v=3"></script>
 <script src="nfl-id-off.js?v=3"></script>
 <script src="nfl-id-book.js?v=2"></script>
+<script src="nfl-id-meta.js?v=1"></script>
 <script>
 (function(){
   const raw = new URLSearchParams(location.search).get("t") || "";
@@ -39,13 +42,9 @@
     return;
   }
   document.title = "The Split -- " + t.name;
-
   function bits(s){
     if (!s) return [];
-    return String(s).split(/\.\s+/).map(function(x){
-      x = x.replace(/\.$/,"").trim();
-      return x;
-    }).filter(function(x){ return x && x.length > 2; });
+    return String(s).split(/\.\s+/).map(function(x){ return x.replace(/\.$/,"").trim(); }).filter(function(x){ return x && x.length > 2; });
   }
   function bullets(s){
     const a = bits(s);
@@ -53,14 +52,13 @@
     return "<ul class='id-list'>" + a.map(function(x){ return "<li>"+x+"</li>"; }).join("") + "</ul>";
   }
   function row(k, v){
-    if (!v) return "";
+    if (v == null || v === "") return "";
     return "<div class='id-row'><div class='id-k'>"+k+"</div><div class='id-v'>"+v+"</div></div>";
   }
   function staffRows(s){
     if (!s) return "";
-    const parts = String(s).split(/\.\s+/);
     let html = "";
-    parts.forEach(function(p){
+    String(s).split(/\.\s+/).forEach(function(p){
       p = p.replace(/\.$/,"").trim();
       if (!p) return;
       let lab = "NOTE";
@@ -75,20 +73,26 @@
     if (!inner) return "";
     return `<details class="block"${open ? " open" : ""}><summary>${title}</summary><div class="body">${inner}</div></details>`;
   }
-
+  function rk(n){ return (n == null || n === "—") ? "—" : "#"+n; }
+  const results = (t.results||[]).map(function(g){
+    return "<div class='res'><span>W"+g.wk+" · "+g.line+"</span><span>"+g.spread+" <span class='cover-"+g.cover+"'>"+g.cover+"</span></span></div>";
+  }).join("");
   const broke = t.broke || t.offhole || "";
   box.innerHTML = `<header>
     <div class="brand">THE SPLIT</div>
     <div class="week">${t.name.toUpperCase()}</div>
-    <div class="meta">${t.w1||""} &nbsp;·&nbsp; ${t.ticket||""}</div>
+    <div class="meta">${t.rec||""} · ${t.div||""} · DIV ${t.divrec||"0-0"}</div>
   </header>
   <div class="wrap">
     <div class="market">
-      <div class="tile"><b>FOR / AGT</b><span>${t.pf||"—"} / ${t.pa||"—"}</span></div>
-      <div class="tile"><b>IDENTITY</b><span>${t.style||""}</span></div>
-      <div class="tile"><b>ENGINE</b><span>${t.engine||""}</span></div>
-      <div class="tile"><b>STAT</b><span>${t.stat||""}</span></div>
+      <div class="tile"><b>POWER</b><span>${rk(t.power)}</span></div>
+      <div class="tile"><b>OFFENSE</b><span>${rk(t.offR)}</span></div>
+      <div class="tile"><b>DEFENSE</b><span>${rk(t.defR)}</span></div>
+      <div class="tile"><b>DIFF</b><span>${rk(t.diffR)}</span></div>
     </div>
+    <p class="note">${window.NFL_META && window.NFL_META.note ? window.NFL_META.note : ""}</p>
+
+    ${block("RESULTS", results || "<p>No games logged.</p>", true)}
 
     <div class="sec">READ THIS FIRST</div>
     ${block("WHO THEY ARE", "<p>"+(t.who||"")+"</p>", true)}

@@ -26,7 +26,7 @@ function nflCard(g){
   return `<div class="g" style="flex-wrap:wrap"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${title}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a>${rev}<span>${when}</span>${tiles}</div>`;
 }
 function nflPickLabel(g){
-  return g[4] + " · " + g[5] + " · " + g[9];
+  return g[4] + " · " + g[5];
 }
 function paintNflGame(list, idx){
   const slate = document.getElementById("slate");

@@ -49,6 +49,12 @@ function passFilter(b, filter){
   if (filter === "FADE") return c === "FADE";
   return true;
 }
+function pickLine(b){
+  const close = String(b.close || "").trim();
+  const pick = String(b.pick || "").trim();
+  if (close) return close;
+  return pick;
+}
 async function loadLedger(){
   const r = await fetch("tracker.json?v=" + Date.now());
   const data = await r.json();
@@ -98,7 +104,7 @@ function flatRow(b){
   const href = b.href || "#";
   const sc = scoreLabel(gameScore(b));
   const shown = sc.replace(/^FINAL\s*/i,"").replace(/^LIVE\s*/i,"");
-  return `<div class="g-row"><div class="g-main"><span class="g-name">${b.game}</span><span class="g-pick">${b.pick} · ${b.close || ""}</span></div><div class="g-side"><span class="stamp ${conf.toLowerCase()}">${conf}</span><span class="g-score">${shown || (b.status||"")}</span><a href="${href}">GAME DETAIL</a></div></div>`;
+  return `<div class="g-row"><div class="g-main"><span class="g-name">${b.game}</span><span class="g-pick">${pickLine(b)}</span></div><div class="g-side"><span class="stamp ${conf.toLowerCase()}">${conf}</span><span class="g-score">${shown || (b.status||"")}</span><a href="${href}">GAME DETAIL</a></div></div>`;
 }
 function flatGameList(rows){
   const seen = {}; const list = [];
@@ -109,7 +115,7 @@ function mlbBuckets(rows){
   const side = rows.filter(b => !isTdHr(b) && !isPlayerProp(b));
   const hr = rows.filter(b => String(b.type||"").toLowerCase()==="hr");
   const prop = rows.filter(isPlayerProp);
-  return sportDrop("SIDE", side.map(flatRow).join(""), false) + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false) + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
+  return sportDrop("SIDE", side.map(flatRow).join(""), true) + sportDrop("HR BEST BETS", hr.map(flatRow).join(""), false) + sportDrop("BEST PLAYER PROP", prop.map(flatRow).join(""), false);
 }
 function sportDrop(title, html, open){
   return `<details class="block" ${open?"open":""}><summary>${title}</summary><div class="body">${html || `<p class="note">Nothing posted.</p>`}</div></details>`;
@@ -170,7 +176,7 @@ async function renderToday(){
   const live = order.map(sp => {
     const rows = (data.bets||[]).filter(b => b.sport === sp && b.date === day && isFire(b));
     if (!rows.length) return "";
-    return sportDrop(sp, sportTodayHtml(sp, rows), false);
+    return sportDrop(sp, sportTodayHtml(sp, rows), true);
   }).filter(Boolean);
   if (tickets) tickets.innerHTML = live.length ? live.join("") : `<p class="note">No BET or LEAN tickets dated ${day}.</p>`;
   const fades = document.getElementById("fades");

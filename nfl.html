@@ -15,14 +15,14 @@
 </div>
 <header>
 <h1>THE SPLIT</h1>
-<div class="sub">NFL</div>
+<div class="sub">NFL WEEK 2</div>
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
-<details class="subhead"><summary>DEEP DIVES</summary>
+<details class="subhead" open><summary>DEEP DIVES</summary>
 <div class="inner">
 <div class="weeks" id="week-btns"></div>
-<p class="note">Week 2 slate posts when the board is set.</p>
+<p class="note">Week 2 board is open. Lines are current consensus as of Tue morning. Full breakdowns post game by game starting with Thursday night.</p>
 <div id="slate"></div>
 </div></details>
 <details class="subhead"><summary>WEEK NOTES</summary>
@@ -36,9 +36,9 @@
 <p class="note-lab">SELECT A SLATE</p>
 <select id="dfs-slate-pick" class="game-pick" aria-label="Select a slate">
 <option value="">Select a slate</option>
-<option value="nfl-dfs-week-1.html">Main slate</option>
-<option value="nfl-dfs-week-1-snf.html">Sunday night</option>
-<option value="nfl-dfs-week-1-mnf.html">Monday night</option>
+<option value="nfl-dfs-week-1.html">Week 1 main</option>
+<option value="nfl-dfs-week-1-snf.html">Week 1 Sunday night</option>
+<option value="nfl-dfs-week-1-mnf.html">Week 1 Monday night</option>
 </select>
 </div>
 </div></details>
@@ -47,12 +47,12 @@
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
 <div class="inner" id="team-identities"></div></details>
 </div>
-<script src="schedule.js?v=29"></script>
+<script src="schedule.js?v=30"></script>
 <script src="nfl-week-review.js?v=8"></script>
 <script src="nfl-id-a.js?v=1"></script>
 <script src="nfl-id-b.js?v=1"></script>
 <script src="nfl-identities.js?v=6"></script>
-<script src="tracker.js?v=34"></script>
+<script src="tracker.js?v=39"></script>
 <script src="notes.js?v=6"></script>
 <script src="stamp.js?v=6"></script>
 <script>
@@ -65,10 +65,16 @@ paintDfsNotes("NFL");
   const dfs = document.getElementById("dfs-week-btns");
   const pick = document.getElementById("dfs-slate-pick");
   if (!dfs || !pick) return;
-  const b=document.createElement("button");
-  b.textContent="Week 1";
-  b.className="on";
-  dfs.appendChild(b);
+  [1,2].forEach(function(w,i){
+    const b=document.createElement("button");
+    b.textContent="Week "+w;
+    if (w===1) b.className="on";
+    b.onclick=function(){
+      dfs.querySelectorAll("button").forEach(function(x){ x.classList.remove("on"); });
+      b.classList.add("on");
+    };
+    dfs.appendChild(b);
+  });
   pick.onchange=function(){
     if (pick.value) location.href = pick.value;
   };

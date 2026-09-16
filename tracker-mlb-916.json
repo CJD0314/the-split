@@ -1,0 +1,37 @@
+{
+  "loops": {
+    "MLB": [
+      "Tuesday units: DET +114 cashed 10-1. CWS +108 died 7-6. Net +14 on the two BETs.",
+      "Plus-money dogs that already won the series keep the script: DET again, BAL and ATL cashed again.",
+      "Do not repeat a BET just because it was a unit yesterday. CWS faces Messick 2.51 tonight. That is LEAN or pass.",
+      "Wednesday units from the tape: DET +114 vs Scherzer 6.38, SF +138 after they just won 10-3 and Liberatore is 5-14.",
+      "Coors: fade the visitor juice, take the total. COL 9-3 over SD. SD -200 fade was right."
+    ]
+  },
+  "fades": {
+    "MLB": [
+      "Do not lay LAD -219 (Snell) or PHI -200 (Wheeler). Same juice rule as Tuesday.",
+      "Do not buy CLE -163 as a smash. Messick is good. The number is not a unit on Cleveland.",
+      "Do not lay mid juice on the road after a one-run loss. SEA -175 died 1-2. ARI -156 died in extras.",
+      "STL -169 died 10-3. Modest home chalk is not automatic the night after a 2-1."
+    ]
+  },
+  "bets": [
+    {"id":"mlb-916-cws-cle","sport":"MLB","date":"2026-09-16","game":"CWS at CLE","type":"ml","pick":"White Sox ML","booked":"CWS +135","close":"CWS +135","stake":100,"to_win":135,"confidence":"LEAN","href":"mlb-2026-09-16-cws-cle.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-sf-stl","sport":"MLB","date":"2026-09-16","game":"SF at STL","type":"ml","pick":"Giants ML","booked":"SF +138","close":"SF +138","stake":100,"to_win":138,"confidence":"BET","href":"mlb-2026-09-16-sf-stl.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-nyy-min","sport":"MLB","date":"2026-09-16","game":"NYY at MIN","type":"ml","pick":"Yankees ML","booked":"NYY -163","close":"NYY -163","stake":163,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-16-nyy-min.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-det-tor","sport":"MLB","date":"2026-09-16","game":"DET at TOR","type":"ml","pick":"Tigers ML","booked":"DET +114","close":"DET +114","stake":100,"to_win":114,"confidence":"BET","href":"mlb-2026-09-16-det-tor.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-lad-cin","sport":"MLB","date":"2026-09-16","game":"LAD at CIN","type":"ml","pick":"Dodgers ML","booked":"LAD -219","close":"LAD -219","stake":219,"to_win":100,"confidence":"FADE","href":"mlb-2026-09-16-lad-cin.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-mil-pit","sport":"MLB","date":"2026-09-16","game":"MIL at PIT","type":"ml","pick":"Brewers ML","booked":"MIL -124","close":"MIL -124","stake":124,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-16-mil-pit.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-ath-tb","sport":"MLB","date":"2026-09-16","game":"ATH at TB","type":"ml","pick":"Rays ML","booked":"TB -186","close":"TB -186","stake":186,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-16-ath-tb.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-phi-wsh","sport":"MLB","date":"2026-09-16","game":"PHI at WSH","type":"ml","pick":"Phillies ML","booked":"PHI -200","close":"PHI -200","stake":200,"to_win":100,"confidence":"FADE","href":"mlb-2026-09-16-phi-wsh.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-bal-nym","sport":"MLB","date":"2026-09-16","game":"BAL at NYM","type":"ml","pick":"Orioles ML","booked":"BAL +118","close":"BAL +118","stake":100,"to_win":118,"confidence":"LEAN","href":"mlb-2026-09-16-bal-nym.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-atl-chc","sport":"MLB","date":"2026-09-16","game":"ATL at CHC","type":"ml","pick":"Cubs ML","booked":"CHC -160","close":"CHC -160","stake":160,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-16-atl-chc.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-bos-tex","sport":"MLB","date":"2026-09-16","game":"BOS at TEX","type":"ml","pick":"Rangers ML","booked":"TEX -111","close":"TEX -111","stake":111,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-16-bos-tex.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-kc-hou","sport":"MLB","date":"2026-09-16","game":"KC at HOU","type":"ml","pick":"Astros ML","booked":"HOU -163","close":"HOU -163","stake":163,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-16-kc-hou.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-sd-col","sport":"MLB","date":"2026-09-16","game":"SD at COL","type":"total","pick":"Over 11.5","booked":"o11.5","close":"o11.5","stake":110,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-16-sd-col.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-sd-col-fade","sport":"MLB","date":"2026-09-16","game":"SD at COL","type":"ml","pick":"Padres ML","booked":"SD -172","close":"SD -172","stake":172,"to_win":100,"confidence":"FADE","href":"mlb-2026-09-16-sd-col.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-sea-laa","sport":"MLB","date":"2026-09-16","game":"SEA at LAA","type":"ml","pick":"Mariners ML","booked":"SEA -141","close":"SEA -141","stake":141,"to_win":100,"confidence":"LEAN","href":"mlb-2026-09-16-sea-laa.html","status":"OPEN","result":"","pl":0},
+    {"id":"mlb-916-mia-ari","sport":"MLB","date":"2026-09-16","game":"MIA at ARI","type":"ml","pick":"Marlins ML","booked":"MIA +114","close":"MIA +114","stake":100,"to_win":114,"confidence":"LEAN","href":"mlb-2026-09-16-mia-ari.html","status":"OPEN","result":"","pl":0}
+  ]
+}

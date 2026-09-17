@@ -2,36 +2,29 @@
 <html lang="en"><head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- Today</title>
-<link rel="stylesheet" href="dive.css"/>
+<link rel="stylesheet" href="sport.css?v=13"/>
 <style>
-.topnav{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.topnav a.on{color:#3dd68c}
-.card-lab{color:#93a3b5;font-size:11px;letter-spacing:.16em;font-weight:800;margin-top:8px}
-.card-date{color:#3dd68c;font-size:18px;font-weight:800;letter-spacing:.08em;margin:2px 0 8px}
-.g-row{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #2a3644}
-.g-main{min-width:160px}
-.g-name{display:block;font-weight:800;font-size:14px}
-.g-pick{display:block;color:#e8eef5;font-size:13px;margin-top:2px}
-.g-when{display:block;color:#93a3b5;font-size:11px;margin-top:2px}
-.g-side{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.g-score{color:#93a3b5;font-size:11px}
-.g-row a{color:#d4a017;font-weight:800;text-decoration:underline;font-size:11px}
+.card-date{color:#3dd68c;font-size:15px;font-weight:800;letter-spacing:.08em;margin:4px 0 0}
+.unit{background:#0e141c;border:1px solid #3dd68c;border-radius:12px;padding:12px;margin:8px 0}
+.unit .who{font-size:18px;font-weight:800;line-height:1.2}
+.unit .num{color:#3dd68c;font-size:16px;font-weight:800;margin-top:4px}
+.unit .meta{color:#93a3b5;font-size:12px;margin-top:4px}
+.unit a{color:#d4a017;font-weight:800;font-size:12px}
+.slate{background:#0e141c;border:1px solid #2a3644;border-radius:12px;padding:12px;margin:8px 0}
+.slate-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.slate-h b{font-size:15px}
+.slate-h .when{color:#93a3b5;font-size:12px}
+.tick{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 0;border-top:1px solid #2a3644}
+.tick .line{font-weight:800;font-size:14px}
+.tick .kind{color:#93a3b5;font-size:11px;letter-spacing:.08em;font-weight:800;margin-right:6px}
 .stamp{display:inline-block;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em}
 .stamp.bet{background:#0d2a1c;color:#3dd68c}
 .stamp.lean{background:#3d2a00;color:#d4a017}
 .stamp.fade{background:#3a1212;color:#ff6b6b}
-.stamp.win{background:#0d2a1c;color:#3dd68c}
-.stamp.loss{background:#3a1212;color:#ff6b6b}
-.stamp.push{background:#3d2a00;color:#d4a017}
-.ok{color:#3dd68c;font-weight:800}
-.loss{color:#ff6b6b;font-weight:800}
-.push{color:#d4a017;font-weight:800}
-.count{color:#93a3b5;font-size:12px;margin:0 0 10px}
-.g-pack{border:1px solid #2a3644;border-radius:10px;padding:10px 12px;margin:10px 0}
-.g-pack-h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline;margin-bottom:4px}
-.g-pack-h b{font-size:14px}
-.g-pack .g-row:last-child{border-bottom:0;padding-bottom:0}
-</style></head>
+.count{color:#93a3b5;font-size:12px;margin:0 0 8px}
+.slate a{color:#d4a017;font-weight:800;font-size:12px}
+</style>
+</head>
 <body>
 <div class="topnav">
 <a class="on" href="today.html">TODAY</a>
@@ -42,43 +35,37 @@
 </div>
 <header>
 <div class="brand">THE SPLIT</div>
-<div class="week">TODAY</div>
-<div class="card-lab">CARD DATE</div>
-<div class="card-date" id="card-date">TUE SEP 15, 2026</div>
+<div class="sub">TODAY</div>
+<div class="card-date" id="card-date"></div>
 </header>
 <div class="wrap">
-<details class="block" id="units-block" open><summary>UNITS — BET ONLY</summary>
-<div class="body" id="units"><p class="note">Loading units...</p></div></details>
-<details class="block" id="tickets-block" open><summary>TODAY'S TICKETS</summary>
-<div class="body" id="tickets"><p class="note">Loading ledger...</p></div></details>
-<details class="block" id="away-block"><summary>STAY AWAY GAMES</summary>
-<div class="body" id="fades"></div></details>
+<details class="block" id="units-block" open>
+<summary>UNITS</summary>
+<div class="body" id="units"><p class="note">Loading…</p></div>
+</details>
+<details class="block" id="tickets-block" open>
+<summary>SLATE</summary>
+<div class="body" id="tickets"><p class="note">Loading…</p></div>
+</details>
+<details class="block" id="away-block">
+<summary>STAY AWAY</summary>
+<div class="body" id="fades"></div>
+</details>
 </div>
-<script src="cfb-rank.js"></script>
-<script src="scores.js?v=9"></script>
-<script src="tracker.js?v=39"></script>
+<script src="tracker.js?v=40"></script>
 <script src="stamp.js?v=6"></script>
 <script>
 const KICK = {
-  "ATL at PIT":"1:00 p.m. ET", "TB at CIN":"1:00 p.m. ET", "CHI at CAR":"1:00 p.m. ET",
-  "NO at DET":"1:00 p.m. ET", "BAL at IND":"1:00 p.m. ET", "BUF at HOU":"1:00 p.m. ET",
-  "NYJ at TEN":"1:00 p.m. ET", "CLE at JAC":"1:00 p.m. ET", "CLE at JAX":"1:00 p.m. ET",
-  "ARI at LAC":"4:25 p.m. ET", "GB at MIN":"4:25 p.m. ET", "MIA at LV":"4:25 p.m. ET",
-  "WSH at PHI":"4:25 p.m. ET", "DAL at NYG":"8:20 p.m. ET", "DEN at KC":"8:15 p.m. ET",
-  "NE at SEA":"8:15 p.m. ET", "SF at LAR":"8:15 p.m. ET",
-  "CWS at CLE":"6:40 p.m. ET", "CHW at CLE":"6:40 p.m. ET", "LAD at CIN":"6:40 p.m. ET",
-  "DET at TOR":"7:07 p.m. ET", "BAL at NYM":"7:10 p.m. ET",
-  "NYY at MIN":"7:40 p.m. ET", "ATL at CHC":"7:40 p.m. ET",
-  "SF at STL":"7:45 p.m. ET", "SD at COL":"8:40 p.m. ET",
-  "SEA at LAA":"9:38 p.m. ET", "MIA at ARI":"9:40 p.m. ET",
-  "ATH at TB":"6:40 p.m. ET", "MIL at PIT":"6:40 p.m. ET",
-  "PHI at WSH":"6:45 p.m. ET", "BOS at TEX":"8:05 p.m. ET",
-  "KC at HOU":"8:10 p.m. ET",
-  "COL at DET":"1:10 p.m. ET", "NYM at NYY":"1:35 p.m. ET", "LAA at WSH":"1:35 p.m. ET",
-  "KC at BOS":"1:35 p.m. ET", "PHI at ATL":"1:35 p.m. ET", "BAL at TOR":"1:37 p.m. ET",
-  "LAD at MIA":"1:40 p.m. ET", "HOU at TB":"1:40 p.m. ET", "CIN at MIL":"2:10 p.m. ET",
-  "CLE at MIN":"2:10 p.m. ET", "CHW at STL":"2:15 p.m. ET", "PIT at CHC":"2:20 p.m. ET",
-  "SEA at ATH":"4:05 p.m. ET", "TEX at ARI":"4:10 p.m. ET", "SD at SF":"7:20 p.m. ET"
+  "DET at BUF":"8:15 p.m. ET",
+  "MIL at PIT":"12:35 p.m. ET",
+  "LAD at CIN":"12:40 p.m. ET",
+  "ATH at TB":"1:10 p.m. ET",
+  "SD at COL":"3:10 p.m. ET",
+  "PHI at NYM":"7:15 p.m. ET",
+  "KC at HOU":"7:15 p.m. ET",
+  "DET at CWS":"7:40 p.m. ET",
+  "BOS at TEX":"8:05 p.m. ET",
+  "MIN at LAA":"9:38 p.m. ET"
 };
 function kickMin(game){
   const t = KICK[game] || "";
@@ -89,250 +76,134 @@ function kickMin(game){
   if (/a/i.test(m[3]) && h === 12) h = 0;
   return h * 60 + min;
 }
-function gameScore(b){
-  const map = window.SCORES || {};
-  const raw = map[(b.date || "") + "|" + b.game] || map[b.game] || b.final || "";
-  if (/\d+:\d+/.test(raw) && !/final|live|inning|qtr/i.test(raw)) return "";
-  return raw;
-}
-function parseFinal(sc){
-  const s = String(sc || "");
-  if (!/final/i.test(s)) return null;
-  const m = s.match(/FINAL\s+([A-Z0-9&]+)\s+(\d+)\s*-\s*(\d+)/i);
-  if (!m) return null;
-  return { winner: m[1].toUpperCase(), hi: Number(m[2]), lo: Number(m[3]) };
-}
-function gameTeams(game){
-  const p = String(game || "").split(/\s+at\s+/i);
-  return { away: (p[0] || "").trim().toUpperCase(), home: (p[1] || "").trim().toUpperCase() };
-}
-function teamScores(b){
-  const f = parseFinal(gameScore(b));
-  if (!f) return null;
-  const t = gameTeams(b.game);
-  if (!t.away || !t.home) return null;
-  const loser = f.winner === t.home ? t.away : (f.winner === t.away ? t.home : "");
-  if (!loser) return null;
-  const out = {};
-  out[f.winner] = f.hi;
-  out[loser] = f.lo;
-  return out;
-}
-function pickBits(b){
-  const t = String(b.type || "").toLowerCase();
-  const src = [b.close, b.booked, b.pick].filter(Boolean).join(" ");
-  if (t === "total") {
-    const tot = String(src).match(/\b([ou])\s*(\d+(?:\.\d+)?)/i);
-    if (tot) return { kind: "total", side: tot[1].toLowerCase(), line: Number(tot[2]) };
-  }
-  const spr = String(src).match(/\b([A-Z]{2,4})\s+([+-]\d+(?:\.\d+)?)\b/);
-  if (spr) {
-    const n = Number(spr[2]);
-    if (Math.abs(n) < 80) return { kind: (t === "ml" ? "ml" : "spread"), team: spr[1].toUpperCase(), line: n };
-  }
-  const ml = String(src).match(/\b([A-Z]{2,4})\s+([+-]\d{3,})\b/);
-  if (ml || t === "ml") {
-    const team = ml ? ml[1].toUpperCase() : null;
-    return { kind: "ml", team: team };
-  }
-  return null;
-}
-function gradeTicket(b){
-  const settled = String(b.result || "").toUpperCase();
-  if (settled === "WIN" || settled === "LOSS" || settled === "PUSH") return settled;
-  const t = String(b.type || "").toLowerCase();
-  if (t === "hr" || t === "td" || t === "prop") return "";
-  const scores = teamScores(b);
-  if (!scores) return "";
-  const bits = pickBits(b);
-  if (!bits) return "";
-  const total = Object.values(scores).reduce((a,n)=>a+n,0);
-  if (bits.kind === "total") {
-    if (bits.side === "o") {
-      if (total > bits.line) return "WIN";
-      if (total < bits.line) return "LOSS";
-      return "PUSH";
-    }
-    if (total < bits.line) return "WIN";
-    if (total > bits.line) return "LOSS";
-    return "PUSH";
-  }
-  if (!bits.team || scores[bits.team] == null) return "";
-  const mine = scores[bits.team];
-  const theirs = Object.keys(scores).filter(k => k !== bits.team).map(k => scores[k])[0];
-  if (theirs == null) return "";
-  if (bits.kind === "ml" || bits.line == null) {
-    if (mine > theirs) return "WIN";
-    if (mine < theirs) return "LOSS";
-    return "PUSH";
-  }
-  const adj = mine + bits.line;
-  if (adj > theirs) return "WIN";
-  if (adj < theirs) return "LOSS";
-  return "PUSH";
-}
-function resultStamp(res){
-  if (!res) return "";
-  const r = String(res).toUpperCase();
-  const cls = r === "WIN" ? "win" : r === "LOSS" ? "loss" : "push";
-  return `<span class="stamp ${cls}">${r}</span>`;
-}
-function pickLine(b){
-  const close = String(b.close || "").trim();
-  const pick = String(b.pick || "").trim();
-  const t = String(b.type || "").toLowerCase();
-  if (t === "hr" || t === "td" || t === "prop") {
-    if (pick && close && pick !== close && close.indexOf(pick) < 0) return pick + " · " + close;
-    return pick || close;
-  }
-  return close || pick;
-}
-function rowTitle(b){
-  const t = String(b.type || "").toLowerCase();
-  if (t === "hr" || t === "td" || t === "prop") return String(b.pick || b.game || "");
-  if (b.sport === "CFB" && window.rankCfbGame) return window.rankCfbGame(b.game);
-  return b.game;
-}
-function flatRow(b){
-  const conf = String(b.confidence || "LEAN").toUpperCase();
-  const href = b.href || "#";
-  const kick = KICK[b.game] || "";
-  const live = gameScore(b);
-  const grade = gradeTicket(b);
-  const t = String(b.type || "").toLowerCase();
-  const name = rowTitle(b);
-  const when = (t === "hr" || t === "td" || t === "prop")
-    ? (b.game + (kick ? " · " + kick : ""))
-    : (kick || "Time TBD");
-  const scoreTxt = live || b.status || "OPEN";
-  return `<div class="g-row">
-    <div class="g-main">
-      <span class="g-name">${name}</span>
-      <span class="g-pick">${pickLine(b)}</span>
-      <span class="g-when">${when}</span>
-    </div>
-    <div class="g-side">
-      <span class="stamp ${conf.toLowerCase()}">${conf}</span>
-      ${resultStamp(grade)}
-      <span class="g-score">${scoreTxt}</span>
-      <a href="${href}">GAME DETAIL</a>
-    </div>
-  </div>`;
-}
 function prettyCard(iso){
   const p = (iso || "").split("-");
   if (p.length !== 3) return iso || "";
   const d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
   return d.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric", year:"numeric"}).toUpperCase();
 }
-function flatGameList(rows){
-  const list = [];
-  const seen = {};
-  (rows || []).slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); }).forEach(function(b){
-    if (seen[b.game]) return;
-    seen[b.game] = true;
-    list.push(b);
-  });
-  return list.map(flatRow).join("") || `<p class="note">Nothing posted.</p>`;
+function confOf(b){ return String(b.confidence || "LEAN").toUpperCase(); }
+function typeOf(b){ return String(b.type || "ml").toLowerCase(); }
+function kindLabel(b){
+  const t = typeOf(b);
+  if (t === "hr") return "HR";
+  if (t === "td") return "TD";
+  if (t === "prop") return "PROP";
+  if (t === "total") return "TOTAL";
+  if (t === "ml") return "ML";
+  return "SIDE";
+}
+function lineOf(b){
+  const close = String(b.close || "").trim();
+  const pick = String(b.pick || "").trim();
+  const t = typeOf(b);
+  if (t === "hr" || t === "td" || t === "prop") {
+    if (pick && close && pick !== close && close.indexOf(pick) < 0) return pick + " · " + close;
+    return pick || close;
+  }
+  return close || pick;
 }
 function typeRank(b){
-  const t = String(b.type||"").toLowerCase();
+  const t = typeOf(b);
   if (t === "ml" || t === "spread") return 0;
   if (t === "total") return 1;
   if (t === "hr" || t === "td") return 2;
   return 3;
 }
 function confRank(b){
-  const c = String(b.confidence||"").toUpperCase();
+  const c = confOf(b);
   if (c === "BET") return 0;
   if (c === "LEAN") return 1;
   return 2;
 }
-function packGame(game, rows){
+function unitCard(b){
+  const kick = KICK[b.game] || "";
+  const href = b.href || "#";
+  return `<div class="unit">
+    <div class="who">${b.game}</div>
+    <div class="num">${lineOf(b)}</div>
+    <div class="meta">${kick || "Time TBD"} · $100 to win $${b.to_win || "—"}</div>
+    <a href="${href}">FULL BREAKDOWN</a>
+  </div>`;
+}
+function tickLine(b){
+  return `<div class="tick">
+    <div><span class="kind">${kindLabel(b)}</span><span class="line">${lineOf(b)}</span></div>
+    <span class="stamp ${confOf(b).toLowerCase()}">${confOf(b)}</span>
+  </div>`;
+}
+function slateCard(game, rows){
   const kick = KICK[game] || "";
   const href = (rows.find(function(b){ return b.href; }) || {}).href || "#";
-  const inner = rows.slice().sort(function(a,b){
+  const ticks = rows.slice().sort(function(a,b){
     const tr = typeRank(a) - typeRank(b);
     if (tr) return tr;
     return confRank(a) - confRank(b);
-  }).map(flatRow).join("");
-  return `<div class="g-pack"><div class="g-pack-h"><b>${game}</b><span class="g-when">${kick || ""}</span><a href="${href}">FULL BREAKDOWN</a></div>${inner}</div>`;
+  }).map(tickLine).join("");
+  return `<div class="slate">
+    <div class="slate-h"><b>${game}</b><span class="when">${kick}</span><a href="${href}">BREAKDOWN</a></div>
+    ${ticks}
+  </div>`;
 }
-function mlbByGame(rows){
+function groupGames(rows){
   const map = {};
   (rows || []).forEach(function(b){
     if (!b.game) return;
     map[b.game] = map[b.game] || [];
     map[b.game].push(b);
   });
-  const games = Object.keys(map).sort(function(a,b){ return kickMin(a) - kickMin(b); });
-  return games.map(function(g){ return packGame(g, map[g]); }).join("") || `<p class="note">Nothing posted.</p>`;
+  return Object.keys(map).sort(function(a,b){ return kickMin(a) - kickMin(b); })
+    .map(function(g){ return slateCard(g, map[g]); }).join("");
 }
-function countLine(rows){
-  const bet = rows.filter(function(b){ return String(b.confidence||"").toUpperCase()==="BET"; }).length;
-  const lean = rows.filter(function(b){ return String(b.confidence||"").toUpperCase()==="LEAN"; }).length;
-  return `<p class="count">${bet} BET · ${lean} LEAN · first pitch order</p>`;
-}
-function sportTodayHtmlLocal(sp, rows){
-  if (sp === "MLB") return mlbByGame(rows);
-  return flatGameList(rows);
-}
-function fireGames(rows){
-  const out = {};
-  (rows || []).forEach(function(b){ if (isFire(b) && b.game) out[b.game] = true; });
-  return out;
+function section(sp, html){
+  if (!html) return "";
+  return `<div class="day">${sp}</div>${html}`;
 }
 async function paintTodayCard(){
   const data = await loadLedger();
   const day = cardDate();
-  const order = ["NFL","CFB","MLB"];
-  const dayBets = (data.bets||[]).filter(function(b){ return b.date === day; });
-  const allFire = dayBets.filter(isFire);
+  const dateEl = document.getElementById("card-date");
+  if (dateEl) dateEl.textContent = prettyCard(day);
+
+  const dayBets = (data.bets || []).filter(function(b){ return b.date === day; });
+  const units = dayBets.filter(function(b){
+    return confOf(b) === "BET" && (typeOf(b) === "ml" || typeOf(b) === "spread" || !b.type);
+  }).slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
+
   const unitsEl = document.getElementById("units");
   if (unitsEl){
-    const units = allFire.filter(function(b){ return String(b.confidence||"").toUpperCase()==="BET"; })
-      .slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
     unitsEl.innerHTML = units.length
-      ? `<p class="count">${units.length} unit${units.length===1?"":"s"} on this card. Everything else is a lean.</p>` + units.map(flatRow).join("")
-      : `<p class="note">No BET tickets dated ${day}. Do not force a unit.</p>`;
+      ? `<p class="count">${units.length} unit${units.length===1?"":"s"}. Leans live on the slate.</p>` + units.map(unitCard).join("")
+      : `<p class="note">No BET tickets dated ${day}.</p>`;
   }
+
   const tickets = document.getElementById("tickets");
   if (tickets){
-    const live = order.map(function(sp){
-      const rows = dayBets.filter(function(b){ return b.sport === sp && (isFire(b) || (isFade(b) && !isTdHr(b) && !isPlayerProp(b))); });
+    const order = ["NFL","CFB","MLB"];
+    const html = order.map(function(sp){
+      const rows = dayBets.filter(function(b){ return b.sport === sp && (isFire(b) || isFade(b)); });
       if (!rows.length) return "";
-      return sportDrop(sp, countLine(rows.filter(isFire)) + sportTodayHtmlLocal(sp, rows), true);
+      const bets = rows.filter(function(b){ return confOf(b)==="BET"; }).length;
+      const leans = rows.filter(function(b){ return confOf(b)==="LEAN"; }).length;
+      return section(sp, `<p class="count">${bets} BET · ${leans} LEAN</p>` + groupGames(rows));
     }).filter(Boolean);
-    tickets.innerHTML = live.length ? live.join("") : `<p class="note">No BET or LEAN tickets dated ${day}.</p>`;
+    tickets.innerHTML = html.length ? html.join("") : `<p class="note">No tickets dated ${day}.</p>`;
   }
+
   const fades = document.getElementById("fades");
   if (fades){
-    const away = order.map(function(sp){
-      const rows = dayBets.filter(function(b){ return b.sport === sp; });
-      const live = fireGames(rows);
-      const only = rows.filter(function(b){
-        return isFade(b) && !isTdHr(b) && !isPlayerProp(b) && !live[b.game];
-      });
-      if (!only.length) return "";
-      return sportDrop(sp, flatGameList(only), true);
-    }).filter(Boolean);
-    fades.innerHTML = away.length ? away.join("") : `<p class="note">No leftover stay-away games. Juice fades sit on the game card as FADE. Do not buy that number.</p>`;
+    const fireGames = {};
+    dayBets.filter(isFire).forEach(function(b){ if (b.game) fireGames[b.game] = true; });
+    const only = dayBets.filter(function(b){
+      return isFade(b) && !isTdHr(b) && !isPlayerProp(b) && !fireGames[b.game];
+    });
+    fades.innerHTML = only.length
+      ? groupGames(only)
+      : `<p class="note">Juice fades sit on the slate card. Nothing extra to hide.</p>`;
   }
-}
-function keepOpen(){
-  ["units-block","tickets-block"].forEach(function(id){
-    const el = document.getElementById(id);
-    if (el) el.setAttribute("open", "");
-  });
-}
-renderToday = async function(){
-  await paintTodayCard();
-  const el = document.getElementById("card-date");
-  if (el) el.textContent = prettyCard(cardDate());
   if (window.splitStamp) splitStamp();
-  keepOpen();
-};
-renderToday();
-keepOpen();
+}
+renderToday = paintTodayCard;
+paintTodayCard();
 </script>
 </body></html>

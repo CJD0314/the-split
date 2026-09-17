@@ -43,7 +43,7 @@ function nflCard(g){
   const live = (w===CURRENT_WEEK && /THU/i.test(day)) ? `<span class="live-tag">LIVE</span>` : "";
   const rev = review ? `<a class="g-btn" href="${review}">REVIEW</a>` : "";
   return `<article class="g-card">
-    <div class="g-head"><img src="${LOGO(a)}" alt=""><img src="${LOGO(h)}" alt=""><div><b>${title}${live}</b><span>${when}</span></div></div>
+    <div class="g-head"><img src="${LOGO(a)}" alt=""><img src="${LOGO(h)}" alt=""><div><b>${title}</b><span>${when}${live}</span></div></div>
     <div class="g-actions"><a class="g-btn g-btn-on" href="${href}">FULL BREAKDOWN</a>${rev}</div>
     <div class="mini"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>MOVE</b><span>${stamp}</span></div></div>
   </article>`;

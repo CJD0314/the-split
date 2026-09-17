@@ -28,7 +28,7 @@
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
 <div class="inner" id="mlb-identities"></div></details>
 </div>
-<script src="mlb.js?v=15"></script>
+<script src="mlb.js?v=16"></script>
 <script src="mlb-day-review.js?v=6"></script>
 <script src="mlb-identities.js?v=4"></script>
 <script src="tracker.js?v=39"></script>
@@ -38,11 +38,6 @@
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="MLB";})}));
   if (window.splitStamp) splitStamp();
-});
-paintBettingNotes("MLB");
-if (window.closeAllTabs) closeAllTabs();
-document.querySelectorAll("details.subhead").forEach(function(d){
-  if (d.querySelector("summary") && /DEEP DIVES/i.test(d.querySelector("summary").textContent||"")) d.open = true;
 });
 </script>
 </body></html>

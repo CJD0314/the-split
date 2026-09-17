@@ -5,7 +5,8 @@
       "Do not copy yesterday's unit. DET vs Scherzer was the lesson from Tuesday 10-1, not a second stamp.",
       "Plus-money that already won the series: SF +138, KC +138, MIA +115, BAL 7-1.",
       "CIN +183 smashed LAD after the Yamamoto night. Fade the juice, take the home dog the next day.",
-      "NYY died 5-4 in 13. Mid-road juice after an 8-1 is not a unit."
+      "NYY died 5-4 in 13. Mid-road juice after an 8-1 is not a unit.",
+      "Thursday units: CIN +145 and KC +128. DET +108 stays LEAN after 1-5."
     ]
   },
   "fades": {
@@ -27,6 +28,10 @@
     {"id":"mlb-916-mia-ari","sport":"MLB","date":"2026-09-16","game":"MIA at ARI","type":"ml","pick":"Marlins ML","booked":"MIA +115","close":"MIA +115","stake":100,"to_win":115,"confidence":"LEAN","href":"mlb-2026-09-16-mia-ari-review.html","status":"SETTLED","result":"WIN","pl":115,"final":"MIA 4-3"},
     {"id":"mlb-917-cin-lad","sport":"MLB","date":"2026-09-17","game":"LAD at CIN","type":"ml","pick":"Reds ML","booked":"CIN +145","close":"CIN +145","stake":100,"to_win":145,"confidence":"BET","href":"mlb-2026-09-17-lad-cin.html","status":"OPEN","result":"","pl":0,"final":""},
     {"id":"mlb-917-kc-hou","sport":"MLB","date":"2026-09-17","game":"KC at HOU","type":"ml","pick":"Royals ML","booked":"KC +128","close":"KC +128","stake":100,"to_win":128,"confidence":"BET","href":"mlb-2026-09-17-kc-hou.html","status":"OPEN","result":"","pl":0,"final":""},
-    {"id":"mlb-917-tb-fade","sport":"MLB","date":"2026-09-17","game":"ATH at TB","type":"ml","pick":"Rays ML","booked":"TB -289","close":"TB -289","stake":0,"to_win":0,"confidence":"FADE","href":"mlb-2026-09-17-ath-tb.html","status":"OPEN","result":"","pl":0,"final":""}
+    {"id":"mlb-917-tb-fade","sport":"MLB","date":"2026-09-17","game":"ATH at TB","type":"ml","pick":"Rays ML","booked":"TB -289","close":"TB -289","stake":0,"to_win":0,"confidence":"FADE","href":"mlb-2026-09-17-ath-tb.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-det-cws","sport":"MLB","date":"2026-09-17","game":"DET at CWS","type":"ml","pick":"Tigers ML","booked":"DET +108","close":"DET +108","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-det-cws.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-phi-nym","sport":"MLB","date":"2026-09-17","game":"PHI at NYM","type":"ml","pick":"Phillies ML","booked":"PHI +118","close":"PHI +118","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-phi-nym.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-sd-col-fade","sport":"MLB","date":"2026-09-17","game":"SD at COL","type":"ml","pick":"Padres ML","booked":"SD -168","close":"SD -168","stake":0,"to_win":0,"confidence":"FADE","href":"mlb-2026-09-17-sd-col.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-pit-lean","sport":"MLB","date":"2026-09-17","game":"MIL at PIT","type":"ml","pick":"Pirates ML","booked":"PIT +120","close":"PIT +120","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-mil-pit.html","status":"OPEN","result":"","pl":0,"final":""}
   ]
 }

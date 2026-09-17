@@ -18,7 +18,7 @@ const GAMES = [
 [1,"SUN 4:25","wsh","phi","Commanders at Eagles","FINAL PHI 24-22","WSH +5.5 / PHI -5.5","44.5","PHI -245 / WSH +200","WIN · Commanders +5.5","nfl-week-1-wsh-phi.html","nfl-week-1-wsh-phi-review.html"],
 [1,"SNF","dal","nyg","Cowboys at Giants","FINAL NYG 28-20","DAL -2.5 / NYG +2.5","47.5","DAL -148 / NYG +124","LOSS · Cowboys -2.5","nfl-week-1-dal-nyg.html","nfl-week-1-game-review.html#dal-nyg"],
 [1,"MON SEPT 14","den","kc","Broncos at Chiefs","FINAL KC 31-10","DEN +2.5 / KC -2.5","43.5","KC -135 / DEN +115","LOSS · Broncos +2.5","nfl-week-1-den-kc.html","nfl-week-1-den-kc-review.html"],
-[2,"THU 8:15 Prime","det","buf","Lions at Bills","Highmark · 8:15 p.m. ET","DET +4.5 / BUF -4.5","54.5","BUF -238 / DET +195","OPEN · Lions +4.5","nfl-week-2-det-buf.html",""],
+[2,"THU 8:15 Prime","det","buf","Lions at Bills","Highmark · 8:15 p.m. ET","DET +5.5 / BUF -5.5","54.5","BUF -238 / DET +195","OPEN · Lions +5.5","nfl-week-2-det-buf.html",""],
 [2,"SUN 1:00 FOX","car","atl","Panthers at Falcons","Mercedes-Benz · 1:00 p.m. ET","CAR -1.5 / ATL +1.5","44.5","CAR -122 / ATL +102","OPEN · CAR -1.5","nfl-week-2-car-atl.html",""],
 [2,"SUN 1:00 FOX","min","chi","Vikings at Bears","Soldier Field · 1:00 p.m. ET","MIN +5.5 / CHI -5.5","49.5","CHI -240 / MIN +198","OPEN · CHI -5.5","nfl-week-2-min-chi.html",""],
 [2,"SUN 1:00 FOX","phi","ten","Eagles at Titans","Nissan · 1:00 p.m. ET","PHI -7 / TEN +7","39.5","PHI -340 / TEN +270","OPEN · PHI -7","nfl-week-2-phi-ten.html",""],

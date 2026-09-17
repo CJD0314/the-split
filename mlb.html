@@ -3,7 +3,14 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- MLB</title>
-<link rel="stylesheet" href="sport.css?v=5"/>
+<link rel="stylesheet" href="sport.css?v=13"/>
+<style>
+#mlb-cal .weeks{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+#mlb-cal button{min-width:0;padding:8px 0}
+#mlb-cal button.has{color:#f3f7fb;font-weight:800}
+#mlb-cal button.today{border-color:#3dd68c;color:#3dd68c}
+#mlb-cal button.on{border-color:#3dd68c;color:#3dd68c;background:#0d2a1c}
+</style>
 </head>
 <body>
 <div class="topnav">
@@ -28,16 +35,21 @@
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
 <div class="inner" id="mlb-identities"></div></details>
 </div>
-<script src="mlb.js?v=16"></script>
+<script src="mlb.js?v=17"></script>
 <script src="mlb-day-review.js?v=6"></script>
 <script src="mlb-identities.js?v=4"></script>
-<script src="tracker.js?v=39"></script>
+<script src="tracker.js?v=40"></script>
 <script src="notes.js?v=1"></script>
 <script src="stamp.js?v=6"></script>
 <script>
 loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="MLB";})}));
   if (window.splitStamp) splitStamp();
+});
+paintBettingNotes("MLB");
+if (window.closeAllTabs) closeAllTabs();
+document.querySelectorAll("details.subhead").forEach(function(d){
+  if (d.querySelector("summary") && /DEEP DIVES/i.test(d.querySelector("summary").textContent||"")) d.open = true;
 });
 </script>
 </body></html>

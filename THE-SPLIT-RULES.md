@@ -1,26 +1,38 @@
-# THE SPLIT -- locked template
-Source of truth: nfl-week-1-sf-lar.html as of 2026-09-09 night, plus Friday CFB boards (miz-ku / lou-vill / uva-norf) for college.
-Every future dive copies that page. NFL and college football use the same breakdown.
+# THE SPLIT — upload rules
 
-Must match:
-- One HOME header on a dive. REVIEW is its own page after the game is final.
-- Brand, week, centered logos, full names, time / venue / network
-- Four centered tiles: SPREAD / TOTAL / MONEYLINE / MOVE
-- SPREAD, TOTAL, MONEYLINE each show Current: and Open: in the same large white type
-- MOVE is ONLY open-to-current line movement. Nothing about players, coaches, injuries, TV, or narratives.
-- MONEYLINE lists the price. Write "heavy" only if the favorite is worse than -600.
-- TEAM BREAKDOWN uses .tb-row. ONE heading spans both teams.
-- After the game: REVIEW page. Correct / incorrect / missed / get better. Betting lessons only. No shop notes.
+Never ship a stub, wrapper, iframe, or `filename (1).html` as the live page.
 
-## LAST UPDATED
-One file: updated.js. That is the site clock.
-stamp.js paints LAST UPDATED on every page that loads it (TODAY, NFL, CFB, MLB, BET TRACKER, identities, DFS sheets).
-Every content commit must rewrite updated.js to the minute of that commit:
-LAST UPDATED: Ddd Mon DD, YYYY h:mm a.m./p.m. ET
-Do not leave a stale stamp on a hub after you touch tracker, notes, identities, or a dive.
+## File names
+- Home: `index.html` only. Do not leave a redirect sitting on `index.html`.
+- NFL dive: `nfl-week-X-away-home.html` (away first, home second). Example: `nfl-week-1-ne-sea.html`.
+- Results: `results.html`.
+- If a download creates `file (1).html`, copy that content onto the real name, then delete the `(1)` file.
 
-## BET TRACKER
-$100 unit. DraftKings close. Kickoff freezes pick, close, stake.
+## Every NFL primetime dive (TNF / SNF / MNF) must include, in this order
+1. One header bar: TODAY · NFL · BET TRACKER. Not sticky-frozen stacked bars. No iframe.
+2. THE SPLIT / NFL WEEK N · night / both logos / full team names / time · stadium · network. No version stamp in the header.
+3. Four DK tiles: SPREAD, TOTAL, MONEYLINE, SITE/WX — current + opening. Source: DraftKings.
+4. FROM LAST WEEK — two results, one lesson.
+5. TEAM BREAKDOWN — both teams. HC, OC, DC. Write `(calls plays)` when true. Identity tonight. One defensive tell.
+6. INACTIVES — table only. Official list at T-90.
+7. SCRIPT — score band + why the number moved.
+8. 10,000-GAME SIMULATOR — recipe + side power + total power, four result tiles plus margin buckets, full DK pool minus zeros, `$11,400` salaries, DK points that add up to team totals, board props, three bullets max, empty after-game residual row. Final rerun at T-90 inactives.
+9. SHOWDOWN — CPT, two cores, one fade. No second salary table.
+10. BEST BET last — one table, stamps only.
 
-## LEARNING LOOP
-Settled tickets write on-field rules into playbook.json. Next board cites the rule. No shop process on the public site.
+Do not ship standalone DK SALARIES, WR VS CB, or LINEUP ENTRY REVIEW on primetime pages. Those notes fold into TEAM BREAKDOWN and SHOWDOWN.
+
+## Upload checklist (do this every commit)
+- [ ] Live filename is the canonical name, not `(1)`.
+- [ ] Page is one HTML file. No iframe wrapping another HTML file.
+- [ ] Only one header.
+- [ ] All ten sections above are present with real notes, not placeholders.
+- [ ] Results ledger matches the dive’s closing number.
+- [ ] After push, open the live URL and confirm the page is the long version.
+
+## Do not
+- Redirect `index.html` to `index (1).html`.
+- Wrap the dive in an iframe to “add a header.”
+- Overwrite a 15kb+ dive with a 2kb stub.
+- Ask the user to restate these rules on the next update.
+- Treat "update" as the full close-yesterday / board-today pass in BET-STANDARD.md. Do not ask which tab.

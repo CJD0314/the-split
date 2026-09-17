@@ -10,12 +10,15 @@ function href11(id){ return "mlb-2026-09-11-"+id+".html"; }
 function href12(id){ return "mlb-2026-09-12-"+id+".html"; }
 function href14(id){ return "mlb-2026-09-14-"+id+".html"; }
 function href15(id){ return "mlb-2026-09-15-"+id+".html"; }
+function href16(id){ return "mlb-2026-09-16-"+id+".html"; }
+function href17(id){ return "mlb-2026-09-17-"+id+".html"; }
+function rev16(id){ return "mlb-2026-09-16-"+id+"-review.html"; }
 function rev11(id){ return "mlb-2026-09-11-"+id+"-review.html"; }
 function rev12(id){ return "mlb-2026-09-12-"+id+"-review.html"; }
 function ledgerRev(iso, title){ return "mlb-review.html?date="+iso+"&game="+encodeURIComponent(title); }
 function mlbReviewHref(link, review, title, iso){
   if (review) return review;
-  return ledgerRev(iso, title);
+  return "";
 }
 const MLB_GAMES = {
 "2026-09-11":[
@@ -75,25 +78,47 @@ const MLB_GAMES = {
 ["kc","hou","KC at HOU","8:10 p.m. ET","Daikin Park","HOU -1.5 / KC +1.5","8","HOU -153 / KC +147","Open HOU -155",href15("kc-hou"),""],
 ["sd","col","SD at COL","8:40 p.m. ET","Coors","SD -1.5 / COL +1.5","11.5","SD -200 / COL +168","Open SD -199",href15("sd-col"),""],
 ["sea","laa","SEA at LAA","9:38 p.m. ET","Angel Stadium","SEA -1.5 / LAA +1.5","8","SEA -175 / LAA +136","Open SEA -170",href15("sea-laa"),""],
-["mia","ari","MIA at ARI","9:40 p.m. ET","Chase Field","ARI -1.5 / MIA +1.5","8.5","ARI -156 / MIA +123","Open ARI -156",href15("mia-ari"),""]
+["mia","ari","MIA at ARI","9:40 p.m. ET","Chase Field","ARI -1.5 / MIA +1.5","8.5","ARI -156 / MIA +123","Open ARI -156",href15("mia-ari"),"mlb-2026-09-15-mia-ari-review.html"]
+],
+"2026-09-16":[
+["chw","cle","CWS at CLE","FINAL","CLE 6-3","CLE -1.5 / CWS +1.5","8.5","CLE -163 / CWS +138","Messick night",href16("cws-cle"),rev16("cws-cle")],
+["sf","stl","SF at STL","FINAL","SF 6-5 /10","STL -1.5 / SF +1.5","8","STL -163 / SF +138","SF +138 cashed",href16("sf-stl"),rev16("sf-stl")],
+["nyy","min","NYY at MIN","FINAL","MIN 5-4 /13","NYY -1.5 / MIN +1.5","8","NYY -167 / MIN +144","MIN +144 cashed",href16("nyy-min"),rev16("nyy-min")],
+["det","tor","DET at TOR","FINAL","TOR 5-1","TOR -1.5 / DET +1.5","8.5","TOR -137 / DET +114","DET +114 died",href16("det-tor"),rev16("det-tor")],
+["oak","tb","ATH at TB","FINAL","TB 4-3","TB -1.5 / ATH +1.5","8","TB -192 / ATH +160","TB -192 fade",href16("ath-tb"),rev16("ath-tb")],
+["lad","cin","LAD at CIN","FINAL","CIN 6-2","LAD -1.5 / CIN +1.5","8.5","LAD -219 / CIN +183","CIN +183 cashed",href16("lad-cin"),rev16("lad-cin")],
+["mil","pit","MIL at PIT","FINAL","MIL 5-4","MIL -1.5 / PIT +1.5","7.5","MIL -135 / PIT +114","One-run chalk",href16("mil-pit"),rev16("mil-pit")],
+["phi","wsh","PHI at WSH","FINAL","PHI 3-0","PHI -1.5 / WSH +1.5","8","PHI -201 / WSH +168","PHI -201 fade miss",href16("phi-wsh"),rev16("phi-wsh")],
+["bal","nym","BAL at NYM","FINAL","BAL 7-1","BAL -103 / NYM -118","8","BAL -103 / NYM -118","BAL 7-1",href16("bal-nym"),rev16("bal-nym")],
+["atl","chc","ATL at CHC","FINAL","CHC 8-4","CHC -1.5 / ATL +1.5","8.5","CHC -168 / ATL +142","ATL died",href16("atl-chc"),rev16("atl-chc")],
+["bos","tex","BOS at TEX","FINAL","TEX 7-3","BOS -110 / TEX -110","8.5","TEX -110 / BOS -110","Eovaldi cover",href16("bos-tex"),rev16("bos-tex")],
+["kc","hou","KC at HOU","FINAL","KC 5-2","HOU -1.5 / KC +1.5","8","HOU -163 / KC +138","KC +138 cashed",href16("kc-hou"),rev16("kc-hou")],
+["sd","col","SD at COL","FINAL","SD 9-3","SD -1.5 / COL +1.5","11.5","SD -173 / COL +145","SD juice fade won",href16("sd-col"),rev16("sd-col")],
+["sea","laa","SEA at LAA","FINAL","SEA 7-2","SEA -137 / LAA +116","8","SEA -137 / LAA +116","SEA -137 cashed",href16("sea-laa"),rev16("sea-laa")],
+["mia","ari","MIA at ARI","FINAL","MIA 4-3","ARI -1.5 / MIA +1.5","8.5","ARI -138 / MIA +115","MIA +115 cashed",href16("mia-ari"),rev16("mia-ari")]
+],
+"2026-09-17":[
+["mil","pit","MIL at PIT","12:35 p.m. ET","PNC Park","MIL -1.5 / PIT +1.5","7.5","MIL -142 / PIT +120","Open PIT +120",href17("mil-pit"),""],
+["lad","cin","LAD at CIN","12:40 p.m. ET","GABP","LAD -1.5 / CIN +1.5","8.5","LAD -172 / CIN +145","Open CIN +145",href17("lad-cin"),""],
+["oak","tb","ATH at TB","1:10 p.m. ET","Tropicana","TB -1.5 / ATH +1.5","8","TB -289 / ATH +230","Open TB -289",href17("ath-tb"),""],
+["sd","col","SD at COL","3:10 p.m. ET","Coors","SD -1.5 / COL +1.5","11.5","SD -168 / COL +142","Open SD -168",href17("sd-col"),""],
+["phi","nym","PHI at NYM","7:15 p.m. ET","Citi Field","NYM -1.5 / PHI +1.5","8","NYM -139 / PHI +118","Open PHI +118",href17("phi-nym"),""],
+["kc","hou","KC at HOU","7:15 p.m. ET","Daikin Park","HOU -1.5 / KC +1.5","8","HOU -150 / KC +128","Open KC +128",href17("kc-hou"),""],
+["det","cws","DET at CWS","7:40 p.m. ET","Rate Field","CWS -1.5 / DET +1.5","8.5","CWS -129 / DET +108","Open DET +108",href17("det-cws"),""],
+["bos","tex","BOS at TEX","8:05 p.m. ET","Globe Life","BOS -141 / TEX +120","8.5","BOS -141 / TEX +120","Open TEX +120",href17("bos-tex"),""],
+["min","laa","MIN at LAA","9:38 p.m. ET","Angel Stadium","MIN -133 / LAA +112","8.5","MIN -133 / LAA +112","Open LAA +112",href17("min-laa"),""]
 ]
 };
 const MLB_POSTED = {
-"2026-09-15|ATH at TB":{side:"TB -1.5",stamp:"LEAN",hr:"Junior Caminero HR +260",prop:"Griffin Jax o4.5 K",from:"Rays took three from Houston. -232 ML is still a fade. Run line is the ticket."},
-"2026-09-15|CWS at CLE":{side:"CWS +108",stamp:"BET",hr:"Miguel Vargas HR +320",prop:"Foster Griffin o4.5 K",from:"Monday CWS +134 cashed 7-3 on a six-run sixth. Vargas homered. Ramirez did not. Same plus-money script."},
-"2026-09-15|LAD at CIN":{side:"LAD -246",stamp:"FADE",hr:"Sal Stewart HR +280",prop:"Yamamoto o7.5 K",from:"Monday Skubal went seven scoreless at -214. That juice cashed and is still a fade. Tonight is worse."},
-"2026-09-15|MIL at PIT":{side:"MIL -264",stamp:"FADE",hr:"Brandon Lowe HR +340",prop:"Misiorowski o8.5 K",from:"A 20-0 club does not make -260 a good price. K over is the ticket."},
-"2026-09-15|PHI at WSH":{side:"WSH +178",stamp:"LEAN",hr:"Kyle Schwarber HR +240",prop:"Sanchez o6.5 K",from:"PHI -219 is fade juice. Schwarber is the Phillie. Split the bat from the chalk."},
-"2026-09-15|DET at TOR":{side:"DET +114",stamp:"BET",hr:"Kazuma Okamoto HR +300",prop:"Drew Anderson u4.5 K",from:"Monday DET +119 cashed 6-5. Okamoto homered. Vlad did not. Same dog."},
-"2026-09-15|BAL at NYM":{side:"BAL +108",stamp:"LEAN",hr:"Pete Alonso HR +270",prop:"Sean Manaea o5.5 K",from:"Monday BAL +108 won 2-1 on Henderson in the eighth. Fire the dog only if Baz keeps it a pitchers' game."},
-"2026-09-15|ATL at CHC":{side:"ATL +117",stamp:"LEAN",hr:"Pete Crow-Armstrong HR +250",prop:"Kevin Gausman o5.5 K",from:"Monday ATL +117 died 7-3 because Lopez lasted three. Perez at 3.08 is why this stays LEAN, not BET."},
-"2026-09-15|NYY at MIN":{side:"NYY -176",stamp:"LEAN",hr:"Ben Rice HR +260",prop:"Max Fried o4.5 K",from:"Monday NYY -123 cashed 8-3. Rice is the club HR lead. Judge is 18 after the rib."},
-"2026-09-15|SF at STL":{side:"STL -169",stamp:"LEAN",hr:"Rafael Devers HR +280",prop:"Blade Tidwell u4.5 K",from:"Monday STL -140 won 2-1 with zero homers. Modest home juice. Devers is a Giant."},
-"2026-09-15|BOS at TEX":{side:"BOS -130",stamp:"LEAN",hr:"Willson Contreras HR +320",prop:"Patrick Sandoval u5.5 K",from:"Texas home covers with deGrom or Eovaldi. Bradford is not that start. Contreras is in Boston."},
-"2026-09-15|KC at HOU":{side:"HOU -153",stamp:"FADE",hr:"Yordan Alvarez HR +240",prop:"Hunter Brown o5.5 K",from:"Houston lost three at Tropicana. First place is not a smash favorite. Alvarez is the ticket."},
-"2026-09-15|SD at COL":{side:"SD -200",stamp:"FADE",hr:"Fernando Tatis Jr HR +260",prop:"Over 11.5",from:"Monday SD -199 won 8-7. Mize had 0 K. Juice still fades. Do not buy K overs at Coors."},
-"2026-09-15|SEA at LAA":{side:"SEA -175",stamp:"LEAN",hr:"Cal Raleigh HR +290",prop:"Logan Gilbert o6.5 K",from:"Monday LAA -105 won 6-4. Raleigh still homered. Split the catcher from the ML."},
-"2026-09-15|MIA at ARI":{side:"ARI -156",stamp:"LEAN",hr:"Corbin Carroll HR +300",prop:"Michael Soroka o4.5 K",from:"Monday ARI -133 won 8-7 on a Carroll walk-off. Same late-homer script."}
+"2026-09-17|LAD at CIN":{side:"CIN +145",stamp:"BET",hr:"Sal Stewart HR +280",prop:"Singer u4.5 K",from:"Just beat LAD 6-2 as a plus-money home club."},
+"2026-09-17|KC at HOU":{side:"KC +128",stamp:"BET",hr:"Bobby Witt Jr HR +320",prop:"Stay on the side",from:"KC 5-2 last night. Tired HOU home chalk."},
+"2026-09-17|ATH at TB":{side:"TB -289",stamp:"FADE",hr:"Junior Caminero HR +250",prop:"ATH +1.5",from:"Worse than -190 is never a BET."},
+"2026-09-17|MIL at PIT":{side:"PIT +120",stamp:"LEAN",hr:"Bryan Reynolds HR +320",prop:"PIT starter u4.5 K",from:"MIL won 5-4. Do not buy the juice again."},
+"2026-09-17|DET at CWS":{side:"DET +108",stamp:"LEAN",hr:"Riley Greene HR +310",prop:"DET +108",from:"Do not upgrade DET after 1-5."},
+"2026-09-17|PHI at NYM":{side:"PHI +118",stamp:"LEAN",hr:"Kyle Schwarber HR +240",prop:"PHI +118",from:"Yesterday they were -201 fade. Today they are plus. LEAN only."},
+"2026-09-17|SD at COL":{side:"SD -168",stamp:"FADE",hr:"Hunter Goodman HR +260",prop:"Over 11.5",from:"Visitor juice at Coors stays a fade."},
+"2026-09-17|BOS at TEX":{side:"TEX +120",stamp:"LEAN",hr:"Wyatt Langford HR +300",prop:"TEX +120",from:"Eovaldi night just cashed 7-3."},
+"2026-09-17|MIN at LAA":{side:"LAA +112",stamp:"LEAN",hr:"Mike Trout HR +280",prop:"LAA +112",from:"MIN just beat NYY in 13. Do not smash the road chalk."}
 };
 let mlbSelected = MLB_TODAY;
 function mlbStamp(s){
@@ -115,7 +140,7 @@ function mlbCard(g, iso){
     <img src="${MLB_LOGO(a)}"><img src="${MLB_LOGO(h)}">
     <b>${title}</b>
     <a class="full-link" href="${link}">FULL BREAKDOWN</a>
-    <a class="full-link" href="${revHref}">REVIEW</a>
+    ${revHref ? `<a class="full-link" href="${revHref}">REVIEW</a>` : ""}
     <span>${t} ${n||""}</span>
     <div class="dive-box" style="width:100%"><div class="mini">
       <div><b>SPREAD</b><span>${spread||"--"}</span></div>
@@ -129,8 +154,6 @@ function paintCal(){
   document.querySelectorAll("#mlb-cal button[data-day]").forEach(b=>{
     const iso = b.dataset.day;
     b.classList.toggle("on", iso===mlbSelected);
-    if (iso===MLB_TODAY && mlbSelected!==MLB_TODAY) b.style.boxShadow = "0 0 0 2px #d4a017";
-    else b.style.boxShadow = "";
   });
 }
 function mlbDrawCal(){
@@ -145,14 +168,15 @@ function mlbDrawCal(){
     <b>${names[m]} ${y}</b>
     <button type="button" id="mlb-next">></button>
   </div>`;
-  html += "<div class='weeks' style='grid-template-columns:repeat(7,1fr);margin-bottom:8px'>"+dow.map(d=>`<div class='note' style='text-align:center;font-size:10px'>${d}</div>`).join("")+"</div>";
-  html += "<div class='weeks' style='grid-template-columns:repeat(7,1fr)'>";
+  html += "<div class='weeks'>"+dow.map(d=>`<div class='note' style='text-align:center;font-size:10px'>${d}</div>`).join("")+"</div>";
+  html += "<div class='weeks'>";
   for (let i=0;i<start.getDay();i++) html += "<div></div>";
   const dim = daysInMonth(y,m);
   for (let d=1;d<=dim;d++){
     const iso = y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
-    const has = MLB_GAMES[iso] ? " font-weight:800" : "";
-    html += `<button data-day="${iso}" style="${has}">${d}</button>`;
+    const has = MLB_GAMES[iso] ? " has" : "";
+    const today = iso === MLB_TODAY ? " today" : "";
+    html += `<button data-day="${iso}" class="${(has+today).trim()}">${d}</button>`;
   }
   html += "</div>";
   cal.innerHTML = html;
@@ -170,5 +194,12 @@ function mlbShow(iso){
   if (!list.length){ box.innerHTML = `<div class="day">${iso}</div><p class='note'>No slate stored for this date yet.</p>`; return; }
   box.innerHTML = `<div class="day">${iso}</div>` + list.map(function(g){ return mlbCard(g, iso); }).join("");
 }
+function mlbOpenDay(){
+  if (MLB_GAMES[MLB_TODAY]) return MLB_TODAY;
+  const days = Object.keys(MLB_GAMES).sort();
+  const future = days.filter(function(d){ return d >= MLB_TODAY; });
+  if (future.length) return future[0];
+  return days.length ? days[days.length - 1] : MLB_TODAY;
+}
 mlbDrawCal();
-mlbShow(Object.keys(MLB_GAMES).indexOf(MLB_TODAY) >= 0 ? MLB_TODAY : "2026-09-15");
+mlbShow(mlbOpenDay());

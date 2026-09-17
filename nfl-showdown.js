@@ -43,22 +43,25 @@ const NFL_SHOWDOWN = [
     id: "den-kc",
     title: "BRONCOS AT CHIEFS",
     when: "Week 1 \u00b7 Monday night \u00b7 KC 31-10",
-    you: "CE409 lineup not in file",
-    youLine: "The uploaded Monday CSV is a copy of Sunday night. Same entries, same Dart/Dak scores. Re-export the MNF contest if you want your exact rank here.",
-    winLine: "CPT Walker \u00b7 Mahomes stack \u00b7 Engram / Chiefs DST as the cheap pieces",
-    winScore: "Walker 55.65 CPT",
-    cash: "blowout",
+    you: "266 / 1,106 \u00b7 89.7 pts",
+    youLine: "CPT Rice \u00b7 Walker \u00b7 Mahomes \u00b7 Harvey \u00b7 Butker \u00b7 Mims",
+    winLine: "CPT Walker \u00b7 Mahomes \u00b7 Rice \u00b7 Kelce \u00b7 Chiefs DST \u00b7 Engram",
+    winScore: "124.6",
+    cash: "cash ~92.7",
     rows: [
-      ["Kenneth Walker", "37.1 / 55.7 CPT", "~15% CPT", "Optimal captain. 173 rush, 2 TD in KC debut"],
-      ["Mahomes", "22.7 / 34.0 CPT", "~20% CPT", "Second-best CPT. Flex in the winning stack"],
-      ["Evan Engram", "14.3 / 21.5 CPT", "cheap", "Punter who got the work"],
-      ["Chiefs DST", "11.0 / 16.5 CPT", "~1% CPT", "Worked because it was 31-10, not 54 points"],
-      ["Kelce", "10.1 / 15.2 CPT", "~31% flex", "Fine flex. Not the lever"],
-      ["Rashee Rice", "9.9 / 14.9 CPT", "~12% CPT", "Chalk WR, not the blowout ticket"],
-      ["Bo Nix", "7.4 / 11.2 CPT", "~15% CPT", "Maye trap. Losing QB in a 31-10"],
-      ["Waddle", "1.2 / 1.8 CPT", "~32% flex", "Brown/Pickens trap. Dead"]
+      ["Kenneth Walker", "37.1 / 55.7 CPT", "44% / 17%", "Optimal CPT. You had him in FLEX"],
+      ["Mahomes", "22.7 / 34.0 CPT", "51% / 10%", "You had him. Correct flex"],
+      ["Evan Engram", "14.3 / 21.5 CPT", "19% / 1%", "Winning punter"],
+      ["Chiefs DST", "12.0 / 18.0 CPT", "9% / 0.5%", "Winning cheap piece"],
+      ["Kelce", "10.1 / 15.2 CPT", "36% / 5%", "In the winning stack"],
+      ["Rashee Rice", "9.9 / 14.9 CPT", "32% / 9%", "Your CPT. 14.9 vs Walker 55.7"],
+      ["RJ Harvey", "8.1 flex", "15%", "Fine. Not the miss"],
+      ["Butker", "7.0 flex", "27%", "Dead kicker salary"],
+      ["Mims", "0 flex", "7%", "Your punter. Zero"],
+      ["Bo Nix", "7.4 / 11.2 CPT", "60% / 24%", "Field CPT poison"],
+      ["Waddle", "1.2 / 1.8 CPT", "41% / 12%", "Field WR poison"]
     ],
-    miss: "Same three rules: captain the player who scored (Walker), not the expensive losing QB (Nix). Fade the 30% WR on the buried script (Waddle). Cheap work (Engram / KC DST) over names."
+    miss: "Walker was already in the lineup. Captaining Rice instead of Walker is a 40-point hole. Mims 0 and Butker 7 vs Engram 14 and Chiefs DST 12."
   }
 ];
 
@@ -79,7 +82,7 @@ function paintShowdown(){
     "</article>";
   }).join("");
   box.innerHTML =
-    "<p class='note'>DraftKings captain showdowns. Handle CE409. Three Week 1 primetime slates. Monday file was a duplicate of Sunday \u2014 box is graded from the KC 31-10 tape until you re-export MNF.</p>"+
+    "<p class='note'>DraftKings captain showdowns. Handle CE409. Three Week 1 primetime slates.</p>"+
     cards+
     "<article class='g-card'>"+
       "<p class='note-lab'>RULES THAT PAID</p>"+
@@ -88,7 +91,7 @@ function paintShowdown(){
         "<li>The 3% back who got the work beats the 17% name. Singletary over Demercado. Hollins over Kiner.</li>"+
         "<li>Chalk WR on the wrong script dies. Pickens 40% / 5.8. Brown 38% / 5.6.</li>"+
         "<li>Do not captain a DST on a 54.5 total. Seahawks CPT only worked in a 13-10.</li>"+
-        "<li>Monday: Walker 55.7 CPT won the slate. Nix 7.4 and Waddle 1.2 were the field. Same Maye / Brown miss.</li>"+
+        "<li>Monday: you had Walker in FLEX and captained Rice. That single swap is 40 points. 266th of 1,106 at 89.7. Cash was 92.7.</li>"+
         "<li>Tonight: Allen, St. Brown, or Gibbs as CPT. Goff is the Maye/Nix trap. Allen + Kincaid or Gibbs + St. Brown / LaPorta is the stack.</li>"+
       "</ul>"+
     "</article>";

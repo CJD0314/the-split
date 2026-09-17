@@ -38,6 +38,27 @@ const NFL_SHOWDOWN = [
       ["Pickens", "5.8 / 8.7 CPT", "40% / 6%", "Chalk WR, dead weight"]
     ],
     miss: "Right core four. Lost first to a 3% back. Demercado 0.7 vs Singletary 13.8."
+  },
+  {
+    id: "den-kc",
+    title: "BRONCOS AT CHIEFS",
+    when: "Week 1 \u00b7 Monday night \u00b7 KC 31-10",
+    you: "CE409 lineup not in file",
+    youLine: "The uploaded Monday CSV is a copy of Sunday night. Same entries, same Dart/Dak scores. Re-export the MNF contest if you want your exact rank here.",
+    winLine: "CPT Walker \u00b7 Mahomes stack \u00b7 Engram / Chiefs DST as the cheap pieces",
+    winScore: "Walker 55.65 CPT",
+    cash: "blowout",
+    rows: [
+      ["Kenneth Walker", "37.1 / 55.7 CPT", "~15% CPT", "Optimal captain. 173 rush, 2 TD in KC debut"],
+      ["Mahomes", "22.7 / 34.0 CPT", "~20% CPT", "Second-best CPT. Flex in the winning stack"],
+      ["Evan Engram", "14.3 / 21.5 CPT", "cheap", "Punter who got the work"],
+      ["Chiefs DST", "11.0 / 16.5 CPT", "~1% CPT", "Worked because it was 31-10, not 54 points"],
+      ["Kelce", "10.1 / 15.2 CPT", "~31% flex", "Fine flex. Not the lever"],
+      ["Rashee Rice", "9.9 / 14.9 CPT", "~12% CPT", "Chalk WR, not the blowout ticket"],
+      ["Bo Nix", "7.4 / 11.2 CPT", "~15% CPT", "Maye trap. Losing QB in a 31-10"],
+      ["Waddle", "1.2 / 1.8 CPT", "~32% flex", "Brown/Pickens trap. Dead"]
+    ],
+    miss: "Same three rules: captain the player who scored (Walker), not the expensive losing QB (Nix). Fade the 30% WR on the buried script (Waddle). Cheap work (Engram / KC DST) over names."
   }
 ];
 
@@ -58,7 +79,7 @@ function paintShowdown(){
     "</article>";
   }).join("");
   box.innerHTML =
-    "<p class='note'>DraftKings captain showdowns. Handle CE409. Two Week 1 primetime slates. Apply this before TNF.</p>"+
+    "<p class='note'>DraftKings captain showdowns. Handle CE409. Three Week 1 primetime slates. Monday file was a duplicate of Sunday \u2014 box is graded from the KC 31-10 tape until you re-export MNF.</p>"+
     cards+
     "<article class='g-card'>"+
       "<p class='note-lab'>RULES THAT PAID</p>"+
@@ -67,7 +88,8 @@ function paintShowdown(){
         "<li>The 3% back who got the work beats the 17% name. Singletary over Demercado. Hollins over Kiner.</li>"+
         "<li>Chalk WR on the wrong script dies. Pickens 40% / 5.8. Brown 38% / 5.6.</li>"+
         "<li>Do not captain a DST on a 54.5 total. Seahawks CPT only worked in a 13-10.</li>"+
-        "<li>Tonight: Allen, St. Brown, or Gibbs as CPT. Goff is the Maye trap. Allen + Kincaid or Gibbs + St. Brown / LaPorta is the stack.</li>"+
+        "<li>Monday: Walker 55.7 CPT won the slate. Nix 7.4 and Waddle 1.2 were the field. Same Maye / Brown miss.</li>"+
+        "<li>Tonight: Allen, St. Brown, or Gibbs as CPT. Goff is the Maye/Nix trap. Allen + Kincaid or Gibbs + St. Brown / LaPorta is the stack.</li>"+
       "</ul>"+
     "</article>";
 }

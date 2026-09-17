@@ -1,4 +1,4 @@
-const LEDGER_TODAY = "2026-09-16";
+const LEDGER_TODAY = "2026-09-15";
 function etDate(){
   try {
     return new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric", month:"2-digit", day:"2-digit"}).format(new Date());
@@ -91,7 +91,7 @@ async function loadLedger(){
   data.bets = data.bets || [];
   const seen = {};
   data.bets.forEach(function(b){ if (b && b.id) seen[b.id]=true; });
-  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json","tracker-nfl-mnf.json","tracker-mlb-914.json","tracker-mlb-915.json","tracker-mlb-916.json"];
+  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json","tracker-nfl-mnf.json","tracker-mlb-914.json","tracker-mlb-915.json","tracker-cfb-w3.json"];
   for (let i=0;i<shards.length;i++){
     try {
       const extra = await (await fetch(shards[i] + "?v=" + Date.now())).json();

@@ -1,0 +1,26 @@
+{
+  "bets": [
+    {"id":"cfb-w3-hou-ttu","sport":"CFB","date":"2026-09-18","game":"HOU at TTU","type":"side","pick":"Houston +7.5","booked":"HOU +7.5 (-110)","close":"HOU +7.5 (-110)","stake":110,"to_win":100,"confidence":"BET","href":"cfb-week-3-hou-ttu.html","status":"OPEN","result":"","pl":0},
+    {"id":"cfb-w3-syr-pitt","sport":"CFB","date":"2026-09-17","game":"SYR at PITT","type":"side","pick":"Pittsburgh -10.5","booked":"PITT -10.5 (-110)","close":"PITT -10.5 (-110)","stake":0,"to_win":0,"confidence":"LEAN","href":"cfb-week-3-syr-pitt.html","status":"OPEN","result":"","pl":0},
+    {"id":"cfb-w3-uk-tamu","sport":"CFB","date":"2026-09-19","game":"UK at TAMU","type":"side","pick":"Texas A&M -16.5","booked":"TAMU -16.5 (-110)","close":"TAMU -16.5 (-110)","stake":0,"to_win":0,"confidence":"LEAN","href":"cfb-week-3-uk-tamu.html","status":"OPEN","result":"","pl":0},
+    {"id":"cfb-w3-smu-lou","sport":"CFB","date":"2026-09-19","game":"SMU at LOU","type":"side","pick":"SMU +1.5","booked":"SMU +1.5 (+100)","close":"SMU +1.5 (+100)","stake":0,"to_win":0,"confidence":"LEAN","href":"cfb-week-3-smu-lou.html","status":"OPEN","result":"","pl":0},
+    {"id":"cfb-w3-lsu-miss","sport":"CFB","date":"2026-09-19","game":"LSU at MISS","type":"side","pick":"LSU -3","booked":"LSU -3 (-110)","close":"LSU -3 (-110)","stake":0,"to_win":0,"confidence":"LEAN","href":"cfb-week-3-lsu-miss.html","status":"OPEN","result":"","pl":0},
+    {"id":"cfb-w3-wvu-uva","sport":"CFB","date":"2026-09-19","game":"WVU vs UVA","type":"side","pick":"West Virginia +10.5","booked":"WVU +10.5 (-110)","close":"WVU +10.5 (-110)","stake":0,"to_win":0,"confidence":"LEAN","href":"cfb-week-3-wvu-uva.html","status":"OPEN","result":"","pl":0},
+    {"id":"cfb-w3-mia-wake","sport":"CFB","date":"2026-09-18","game":"MIA at WAKE","type":"side","pick":"Miami -20.5","booked":"MIA -20.5","close":"MIA -20.5","stake":0,"to_win":0,"confidence":"FADE","href":"cfb-week-3-mia-wake.html","status":"OPEN","result":"","pl":0},
+    {"id":"cfb-w3-fsu-ala","sport":"CFB","date":"2026-09-19","game":"FSU at ALA","type":"side","pick":"Alabama -19.5","booked":"ALA -19.5","close":"ALA -19.5","stake":0,"to_win":0,"confidence":"FADE","href":"cfb-week-3-fsu-ala.html","status":"OPEN","result":"","pl":0},
+    {"id":"cfb-w3-byu-csu","sport":"CFB","date":"2026-09-19","game":"BYU at CSU","type":"side","pick":"BYU -17.5","booked":"BYU -17.5","close":"BYU -17.5","stake":0,"to_win":0,"confidence":"FADE","href":"cfb-week-3-byu-csu.html","status":"OPEN","result":"","pl":0}
+  ],
+  "loops": {
+    "CFB": [
+      "Week 3 unit is Houston +7.5. Texas Tech opened -12.5, now -7.5, and needed the fourth quarter at Oregon State.",
+      "Fire 6-to-14 ranked sides in real games. Do not copy those covers onto 19.5 or 28-plus the next week."
+    ]
+  },
+  "fades": {
+    "CFB": [
+      "20-plus on the road is a fade. Miami -20.5, Georgia -24.5, USC -23.5.",
+      "28-plus anywhere is a fade. Indiana already missed -57.5. Do not lay 44.5 against Western Kentucky.",
+      "BYU -17.5 on the road is close enough to the 20-plus road fade. Do not lay it."
+    ]
+  }
+}

@@ -16,13 +16,13 @@
   .logos img { width:88px; height:88px; object-fit:contain; }
   h1 { font-size:26px; margin:8px 0 6px; font-weight:800; }
   .meta { color:var(--muted); font-size:14px; }
-  .market { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0; }
-  .tile { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; }
-  .tile b { display:block; color:var(--muted); font-size:11px; letter-spacing:.1em; }
-  .tile span { font-size:18px; font-weight:800; }
-  .tile small { display:block; color:var(--muted); margin-top:6px; font-size:12px; }
+  .market { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:18px 0; }
+  .tile { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 10px; min-height:96px; }
+  .tile b { display:block; color:var(--muted); font-size:11px; letter-spacing:.1em; margin-bottom:4px; }
+  .tile span { display:block; font-size:20px; font-weight:800; line-height:1.15; }
+  .tile small { display:block; color:var(--muted); margin-top:6px; font-size:12px; line-height:1.35; }
   .src { color:var(--gold); font-size:11px; letter-spacing:.08em; }
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .grid2 { display:grid; grid-template-columns:1fr; gap:12px; }
   details.block { background:var(--panel); border:1px solid var(--line); border-radius:14px; margin:12px 0; }
   details.block > summary { list-style:none; cursor:pointer; padding:16px 18px; font-size:16px; font-weight:800; letter-spacing:.08em; }
   details.block > summary::-webkit-details-marker { display:none; }
@@ -44,8 +44,8 @@
   .fade { background:#c44; color:#fff; }
   .topnav { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; padding:12px 16px; border-bottom:1px solid var(--line); background:#0b0f14; position:sticky; top:0; z-index:20; }
   .topnav a { color:var(--gold); text-decoration:none; font-weight:800; font-size:13px; letter-spacing:.08em; }
-  @media (max-width:800px){ .market,.grid2{grid-template-columns:1fr 1fr;} .brand{font-size:26px;} h1{font-size:20px;} }
-  @media (max-width:520px){ .market,.grid2{grid-template-columns:1fr;} }
+  @media (min-width:900px){ .market{grid-template-columns:repeat(4,1fr);} .grid2{grid-template-columns:1fr 1fr;} }
+  @media (max-width:800px){ .brand{font-size:26px;} h1{font-size:20px;} .tile span{font-size:18px;} }
 </style>
 </head>
 <body>
@@ -66,149 +66,82 @@
 </header>
 <div class="wrap">
   <div class="market">
-    <div class="tile"><b>SPREAD</b><span>BUF -4.5 (-118)</span><small>DET +4.5 (-102)<br>Open: BUF -3<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>TOTAL</b><span>54.5 (o-118 / u-102)</span><small>Open: 52.5<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>MONEYLINE</b><span>BUF -238 / DET +195</span><small>Open: BUF -165 / DET +140<br><span class="src">DRAFTKINGS</span></small></div>
-    <div class="tile"><b>MOVE</b><span>Bills -1.5</span><small>Opened -3 / 52.5. Public on BUF.<br><span class="src">DRAFTKINGS</span></small></div>
+    <div class="tile"><b>SPREAD</b><span>BUF -5.5</span><small>DET +5.5<br>Open -3.5<br><span class="src">DRAFTKINGS</span></small></div>
+    <div class="tile"><b>TOTAL</b><span>54.5</span><small>Open 52.5<br><span class="src">DRAFTKINGS</span></small></div>
+    <div class="tile"><b>MONEYLINE</b><span>BUF -250</span><small>DET +205<br>Open -196 / +164<br><span class="src">DRAFTKINGS</span></small></div>
+    <div class="tile"><b>SITE / WX</b><span>69° · 3 mph</span><small>New Highmark grass<br><span class="src">ORCHARD PARK</span></small></div>
   </div>
-  <details class="block" open><summary>FROM LAST WEEK</summary><div class="body"><ul>
-    <li><b>Lions 31, Saints 30 OT.</b> Detroit led 21-0 and needed Gibbs and St. Brown in overtime after Shough threw for 410 and Olave went 10-182. Gibbs 29-156-2. Goff 26-of-39 for 206, both scores to St. Brown (10-67-2 on 14 targets).</li>
-    <li><b>Bills 36, Texans 31.</b> Allen 20-of-29 for 334, two pass TD, six rushes for 23 and two rushing scores. Kincaid 5-130. D.J. Moore 5-100-1. Cook 13-57-0. Leonhard allowed 31 in his first regular-season call sheet.</li>
-    <li><b>Lesson:</b> do not buy Buffalo moneyline juice worse than -190 just because Allen dropped 36 on the road. Both defenses already leaked 30. The number that moved is the spread, not the script.</li>
+  <details class="block"><summary>FROM LAST WEEK</summary><div class="body"><ul>
+    <li><b>Lions 31, Saints 30 OT.</b> Detroit led 21-0 and needed Gibbs and St. Brown in OT after Shough threw for 410. Gibbs 29-156-2. Goff 206, both scores to St. Brown (10-67-2 on 14 targets).</li>
+    <li><b>Bills 36, Texans 31.</b> Allen 20-of-29 for 334, two pass TD, six rushes for 23 and two rushing scores. Kincaid 5-130. D.J. Moore 5-100-1. Cook 13-57-0.</li>
+    <li><b>Lesson:</b> do not buy Buffalo moneyline juice worse than -190. BUF is -250. Both defenses already leaked 30. The number that moved is the spread, not the script.</li>
   </ul></div></details>
-  <details class="block" open><summary>TEAM BREAKDOWN</summary><div class="body grid2">
+  <details class="block"><summary>TEAM BREAKDOWN</summary><div class="body grid2">
     <div>
       <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/det.png" alt="" /><div><b>DETROIT LIONS</b><div class="note">Road dog · 1-0 · implied ~25</div></div></div>
-      <h3>STAFF</h3>
       <ul>
-        <li><b>HC Dan Campbell</b> — fourth-down aggression, heavy personnel, wants Gibbs on schedule so Goff is not in obvious passing downs outdoors.</li>
-        <li><b>OC Drew Petzing (calls plays)</b> — first year in Detroit after three seasons calling Arizona. Five heavy-personnel looks in the opener, including a tackle swap that put Sewell on the right for the first score.</li>
-        <li><b>DC Kelvin Sheppard (calls plays)</b> — 4-3 front. Week 1 plan died once New Orleans climbed out of 21-0. Has to keep Allen in the pocket.</li>
-      </ul>
-      <h3>IDENTITY TONIGHT</h3>
-      <ul>
-        <li>Gibbs is the offense. Montgomery is in Houston. If the patched line holds, Detroit hands it to Gibbs until Buffalo tackles in space.</li>
-        <li>Goff was a checkdown machine (5.3 YPA). That lives if St. Brown keeps a 14-target share.</li>
-        <li>Three starting linemen gone: Cade Mays (wrist, October), Mahogany (hip, OUT), Blake Miller (knee, OUT). Scruggs-Bartch-Borom with Sewell the grown-up.</li>
-      </ul>
-      <h3>OFFENSE</h3>
-      <ul>
-        <li><b>QB:</b> Jared Goff. Dobbs backup.</li>
-        <li><b>RB:</b> Jahmyr Gibbs. Vaki / Saylors. No Montgomery.</li>
-        <li><b>WR/TE:</b> St. Brown volume. Jameson Williams vertical. TeSlaa WR3. LaPorta vs Bills LBs.</li>
-      </ul>
-      <h3>DEFENSE</h3>
-      <ul>
-        <li>Hutchinson is the edge they need on Allen. Reed (foot) questionable. Allowed 410 pass yards after leading 21-0.</li>
+        <li>Gibbs is the offense. Montgomery is gone. Mahogany and Miller OUT. Mays already on IR. Scruggs-Bartch-Borom with Sewell.</li>
+        <li>Goff was 5.3 YPA. Lives if St. Brown keeps a 14-target share.</li>
+        <li>Reed Q. Allowed 410 pass yards after leading 21-0.</li>
       </ul>
     </div>
     <div>
-      <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="" /><div><b>BUFFALO BILLS</b><div class="note">Home favorite · 1-0 · implied ~29.5 · first regular-season game in the new building</div></div></div>
-      <h3>STAFF</h3>
+      <div class="team-head"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="" /><div><b>BUFFALO BILLS</b><div class="note">Home favorite · 1-0 · implied ~29.5</div></div></div>
       <ul>
-        <li><b>HC Joe Brady (calls plays on offense)</b> — first-year HC, same call sheet he used as OC. Opening his own building on national television.</li>
-        <li><b>OC Pete Carmichael</b> — Payton lieutenant. Brady still calls it.</li>
-        <li><b>DC Jim Leonhard (calls plays)</b> — flipped McDermott 4-3 to a 3-4. Allowed 31 in Houston. Bernard expected to play.</li>
-      </ul>
-      <h3>IDENTITY TONIGHT</h3>
-      <ul>
-        <li>Allen is the closer. Two rushing scores on six carries, only 23 rush yards. The rush-yard prop is the trap. Passing volume is the game.</li>
-        <li>Cook bottled (13-57). Ty Johnson questionable (hamstring).</li>
-        <li>New Highmark. Home-crowd juice is real. First-game slop on a short week is also real.</li>
-      </ul>
-      <h3>OFFENSE</h3>
-      <ul>
-        <li><b>QB:</b> Josh Allen. <b>RB:</b> Cook / Ray Davis.</li>
-        <li><b>WR/TE:</b> D.J. Moore 5-100-1. Kincaid 5-130. Shakir underneath. Palmer hit the 34-yard go-ahead. Coleman is the sit.</li>
-      </ul>
-      <h3>DEFENSE</h3>
-      <ul>
-        <li>Benford on St. Brown. Bishop (knee/groin) questionable. Sanders (knee/illness) interior question.</li>
+        <li>Joe Brady HC/play-caller. First regular-season game in the new building.</li>
+        <li>Allen is the closer. Rush-yard prop is the trap (23 yards last week). Passing volume is the game.</li>
+        <li>Bishop, Ty Johnson, Sanders Q. Bernard and Chubb play.</li>
       </ul>
     </div>
   </div></details>
-  <details class="block" open><summary>INACTIVES</summary><div class="body">
-    <p class="note">Official NFL.com kickoff inactives post about 90 minutes before kick. Wednesday designations. Impact 1–10 if they sit.</p>
+  <details class="block"><summary>INACTIVES</summary><div class="body">
+    <p class="note">Final report is in. Official inactives still post about 90 minutes before kick.</p>
     <table>
-      <tr><th>Player</th><th>Team</th><th>Depth</th><th>Impact</th><th>Why</th></tr>
-      <tr><td>Blake Miller</td><td>DET</td><td>Starting RT</td><td>8</td><td>Knee. OUT. Larry Borom starts.</td></tr>
-      <tr><td>Christian Mahogany</td><td>DET</td><td>Starting LG</td><td>8</td><td>Hip. OUT. Ben Bartch starts.</td></tr>
-      <tr><td>Cade Mays</td><td>DET</td><td>Starting C</td><td>7</td><td>Wrist. Out into October. Juice Scruggs starts.</td></tr>
-      <tr><td>D.J. Reed</td><td>DET</td><td>Starting CB</td><td>6</td><td>Foot. Questionable. Changes the Moore plan if he sits.</td></tr>
-      <tr><td>Cole Bishop</td><td>BUF</td><td>Starting S</td><td>6</td><td>Knee/groin. Questionable. Safety help over St. Brown.</td></tr>
-      <tr><td>Ty Johnson</td><td>BUF</td><td>RB3</td><td>4</td><td>Hamstring. Questionable.</td></tr>
-      <tr><td>T.J. Sanders</td><td>BUF</td><td>Interior DL</td><td>4</td><td>Knee/illness. Questionable.</td></tr>
-      <tr><td>Terrel Bernard</td><td>BUF</td><td>Starting ILB</td><td>3</td><td>Calf. No designation. Expected to play.</td></tr>
+      <tr><th>Player</th><th>Team</th><th>Status</th></tr>
+      <tr><td>Blake Miller</td><td>DET</td><td>OUT · RT · Borom starts</td></tr>
+      <tr><td>Christian Mahogany</td><td>DET</td><td>OUT · LG · Bartch starts</td></tr>
+      <tr><td>Cade Mays</td><td>DET</td><td>IR · Scruggs at center</td></tr>
+      <tr><td>D.J. Reed</td><td>DET</td><td>Q · foot</td></tr>
+      <tr><td>Cole Bishop</td><td>BUF</td><td>Q · knee/groin</td></tr>
+      <tr><td>Ty Johnson</td><td>BUF</td><td>Q · hamstring</td></tr>
+      <tr><td>T.J. Sanders</td><td>BUF</td><td>Q · knee</td></tr>
     </table>
   </div></details>
-  <details class="block" open><summary>SCRIPT</summary><div class="body">
-    <div class="callout">Most likely band: <b>Bills 30–34, Lions 24–31</b>. One-score game in a 54.5 total. Not a Buffalo cover-by-two-scores script.</div>
+  <details class="block"><summary>SCRIPT</summary><div class="body">
+    <div class="callout">Most likely band: <b>Bills 30–34, Lions 24–31</b>. One-score game in a 54.5 total. Not a two-score cover.</div>
     <ul>
-      <li>Both Week 1 tapes printed 30-point defenses. A 54.5 total admits that. -4.5 is a lot to ask of a home favorite that just won by five on the road.</li>
-      <li>Public hammered Buffalo after Allen’s 36-point night. DK moved from BUF -3 / 52.5 to -4.5 / 54.5. BUF -238 is fade juice.</li>
-      <li>Detroit’s line is why the number moved. Petzing will live in Gibbs early. If the 29-carry script holds, Detroit stays inside a field goal.</li>
-      <li>Brady’s first home game in a new building is a real edge for the first two drives. It is not a 10-point edge through four quarters.</li>
-      <li>Allen will throw. Take the passing-yard over before the rush-yard over — 23 rush yards last week even with two rushing scores.</li>
+      <li>Both Week 1 defenses leaked 30-plus. That is why the total is 54.5 and why -5.5 is a lot to ask.</li>
+      <li>Public moved Buffalo from -3.5 / 52.5 to -5.5 / 54.5. ML is -250. Fade that juice.</li>
+      <li>Detroit’s line is why the number moved. Gibbs early so Goff is not in 3rd-and-8 behind Borom.</li>
     </ul>
   </div></details>
-  <details class="block" open><summary>WR VS CB</summary><div class="body">
-    <table>
-      <tr><th>Receiver</th><th>Cover</th><th>Notes</th></tr>
-      <tr><td>Amon-Ra St. Brown</td><td>Christian Benford</td><td>14 targets, 10 catches, two scores, 67 yards. Over 7.5 receptions is the published TNF number.</td></tr>
-      <tr><td>D.J. Moore</td><td>D.J. Reed / Ya-Sin</td><td>5-100-1 in his Bills debut. Reed is questionable. If he sits, Moore vs a short-week CB2 is the Buffalo explosive.</td></tr>
-      <tr><td>Jameson Williams</td><td>Bills CB2 + safety</td><td>The vertical Goff did not hit last week (5.3 YPA). Live if Bishop sits.</td></tr>
-      <tr><td>Dalton Kincaid</td><td>Jack Campbell / safeties</td><td>5-130 vs Houston. Over 54.5 rec yards is the number we want.</td></tr>
-      <tr><td>Khalil Shakir</td><td>Nickel</td><td>4-50. Chain-mover. Not a captain.</td></tr>
-      <tr><td>Sam LaPorta</td><td>Bernard / ILB</td><td>Petzing play-action valve. Cheaper than Kincaid.</td></tr>
-      <tr><td>Josh Palmer / Keon Coleman</td><td>DET CB2</td><td>Palmer hit the 34-yard go-ahead. Coleman is the sit.</td></tr>
-    </table>
+  <details class="block"><summary>1,000-GAME SIMULATOR</summary><div class="body">
+    <p class="note">1,000 runs off the market, then a small DET line ding and a small BUF home add. Scores snap to football numbers.</p>
+    <div class="market">
+      <div class="tile"><b>MEAN</b><span>BUF 30–DET 24</span><small>Median total 54</small></div>
+      <div class="tile"><b>DET +5.5</b><span>48.6%</span><small>BUF covers 51.4%</small></div>
+      <div class="tile"><b>OVER 54.5</b><span>48.5%</span><small>Under 51.5%</small></div>
+      <div class="tile"><b>ONE-SCORE</b><span>54.9%</span><small>Margin 8 or fewer</small></div>
+    </div>
+    <ul>
+      <li>Bills win 732 / Lions win 223 / tie 45. +205 is not a buy. The lean is the hook.</li>
+      <li>Bills by 14+ only 217 times. -5.5 is not a blowout number.</li>
+      <li>Allen over 250.5 hit 563. Gibbs over 89.5 hit 457. St. Brown ATD 484 — +110 is fair.</li>
+      <li>Expected: mean sits on 54, Buffalo wins more than it covers, one-score is the majority.</li>
+      <li>Stuck out: +5.5 is a coin flip. Detroit’s floor (16 or fewer) showed up 18%. 28–28 was a common box.</li>
+    </ul>
+    <div class="callout">Sim agrees with the card: <b>LEAN Lions +5.5</b>, fade Bills ML, lean Allen pass over. Do not upgrade to a unit.</div>
   </div></details>
-  <details class="block"><summary>DK SALARIES</summary><div class="body">
-    <p class="note">DraftKings Showdown pricing compiled Wednesday night. CPT = 1.5× FLEX. Confirm tags in the lobby before lock.</p>
+  <details class="block"><summary>BEST BET</summary><div class="body">
+    <div class="callout"><b>LIONS +5.5</b> <span class="stamp lean">LEAN</span><br>Spread held at -5.5. Moneyline is BUF -250.</div>
+    <p>The 1,000-run sim has Detroit covering 48.6% — a coin flip on a number that moved a point and a half. That is a lean, not a unit. BUF -250 is fade juice.</p>
     <table>
-      <tr><th>Player</th><th>Team</th><th>Pos</th><th>FLEX</th><th>CPT</th></tr>
-      <tr><td>Jahmyr Gibbs</td><td>DET</td><td>RB</td><td>$12,000</td><td>$18,000</td></tr>
-      <tr><td>Josh Allen</td><td>BUF</td><td>QB</td><td>$11,400</td><td>$17,100</td></tr>
-      <tr><td>Amon-Ra St. Brown</td><td>DET</td><td>WR</td><td>$10,400</td><td>$15,600</td></tr>
-      <tr><td>Jared Goff</td><td>DET</td><td>QB</td><td>$9,600</td><td>$14,400</td></tr>
-      <tr><td>James Cook III</td><td>BUF</td><td>RB</td><td>$9,400</td><td>$14,100</td></tr>
-      <tr><td>D.J. Moore</td><td>BUF</td><td>WR</td><td>$7,800</td><td>$11,700</td></tr>
-      <tr><td>Jameson Williams</td><td>DET</td><td>WR</td><td>$7,400</td><td>$11,100</td></tr>
-      <tr><td>Dalton Kincaid</td><td>BUF</td><td>TE</td><td>$6,800</td><td>$10,200</td></tr>
-      <tr><td>Khalil Shakir</td><td>BUF</td><td>WR</td><td>$6,400</td><td>$9,600</td></tr>
-      <tr><td>Sam LaPorta</td><td>DET</td><td>TE</td><td>$5,400</td><td>$8,100</td></tr>
-      <tr><td>Tyler Bass</td><td>BUF</td><td>K</td><td>$5,000</td><td>$7,500</td></tr>
-      <tr><td>Jake Bates</td><td>DET</td><td>K</td><td>$4,800</td><td>$7,200</td></tr>
-      <tr><td>Josh Palmer</td><td>BUF</td><td>WR</td><td>$3,200</td><td>$4,800</td></tr>
-      <tr><td>Ray Davis</td><td>BUF</td><td>RB</td><td>$2,400</td><td>$3,600</td></tr>
-      <tr><td>Jacob Saylors</td><td>DET</td><td>RB</td><td>$1,400</td><td>$2,100</td></tr>
+      <tr><th>Type</th><th>Ticket</th><th>Stamp</th></tr>
+      <tr><td>SIDE</td><td>Lions +5.5</td><td>LEAN</td></tr>
+      <tr><td>TD</td><td>St. Brown anytime TD</td><td>LEAN</td></tr>
+      <tr><td>PROP</td><td>Allen over 250.5 pass</td><td>LEAN</td></tr>
+      <tr><td>STAY AWAY</td><td>Bills ML -250</td><td>FADE</td></tr>
     </table>
-    <p class="note">Allen CPT $17,100 + Gibbs $12,000 + St. Brown $10,400 = $39,500 before the last three. You cannot also pay Cook.</p>
-  </div></details>
-  <details class="block" open><summary>LINEUP ENTRY REVIEW</summary><div class="body">
-    <div class="callout"><b>LOCKED SE</b> CPT Allen $17,100 · Gibbs $12,000 · Kincaid $6,800 · LaPorta $5,400 · Bates $4,800 · Palmer $3,200 = <b>$49,300</b></div>
-    <table>
-      <tr><th>Lens</th><th>Grade</th><th>Note</th></tr>
-      <tr><td>Salary</td><td>A-</td><td>Legal. $700 unused. Confirm lobby tags.</td></tr>
-      <tr><td>Correlation</td><td>A-</td><td>Allen CPT + Kincaid is the Bills pass stack. Gibbs + LaPorta is the Detroit pair.</td></tr>
-      <tr><td>Script</td><td>A</td><td>Matches a 54.5 total and a one-score game.</td></tr>
-      <tr><td>Uniqueness</td><td>B</td><td>Allen CPT and Gibbs will be popular. Palmer and LaPorta are the separators.</td></tr>
-      <tr><td>Where it dies</td><td>—</td><td>St. Brown posts another 10-catch night and you left him off. Or Cook explodes in a new building.</td></tr>
-    </table>
-    <p>Do not captain a DST on a 54.5 total. Do not captain Goff outdoors on a patched line.</p>
-  </div></details>
-  <details class="block" open><summary>BEST BET</summary><div class="body">
-    <div class="callout"><b>LIONS +4.5 (-102)</b> <span class="stamp lean">LEAN</span> · DraftKings · $100 to win $98<br>Confirm the live number. Some books are already -5 / -5.5.</div>
-    <p>Two reasons that still stand if the rest of the slate vanishes: both defenses already allowed 30-plus, and the public hammered Buffalo from -3 to -4.5 without a new Allen injury. BUF -238 is fade juice.</p>
-    <h3>PRIMETIME CARD</h3>
-    <table>
-      <tr><th>Type</th><th>Ticket</th><th>Stamp</th><th>Why</th></tr>
-      <tr><td>SIDE</td><td>Lions +4.5 (-102)</td><td>LEAN</td><td>Number moved on public money. Both Week 1 games were one-score.</td></tr>
-      <tr><td>TD</td><td>St. Brown anytime TD (+110)</td><td>LEAN</td><td>Two scores on 14 targets. Gibbs anytime is -285 — that juice is not a BET.</td></tr>
-      <tr><td>PROP</td><td>Allen over 250.5 pass yards (-111)</td><td>LEAN</td><td>Published TNF number. He already cleared 334 against a better front. Rush-yard over is the trap.</td></tr>
-      <tr><td>STAY AWAY</td><td>Bills ML -238</td><td>FADE</td><td>Worse than -190. Never a BET.</td></tr>
-    </table>
-    <p class="note">Not a unit on the TD or the prop unless the live DK number is clearly off. Side is the only ticket we would still post if the rest of Thursday vanished.</p>
   </div></details>
 </div>
 </body>

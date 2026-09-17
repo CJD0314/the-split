@@ -18,7 +18,7 @@ const GAMES = [
 [1,"SUN 4:25","wsh","phi","Commanders at Eagles","FINAL PHI 24-22","WSH +5.5 / PHI -5.5","44.5","PHI -245 / WSH +200","WIN · Commanders +5.5","nfl-week-1-wsh-phi.html","nfl-week-1-wsh-phi-review.html"],
 [1,"SNF","dal","nyg","Cowboys at Giants","FINAL NYG 28-20","DAL -2.5 / NYG +2.5","47.5","DAL -148 / NYG +124","LOSS · Cowboys -2.5","nfl-week-1-dal-nyg.html","nfl-week-1-game-review.html#dal-nyg"],
 [1,"MON SEPT 14","den","kc","Broncos at Chiefs","FINAL KC 31-10","DEN +2.5 / KC -2.5","43.5","KC -135 / DEN +115","LOSS · Broncos +2.5","nfl-week-1-den-kc.html","nfl-week-1-den-kc-review.html"],
-[2,"THU 8:15 Prime","det","buf","Lions at Bills","Highmark · 8:15 p.m. ET","DET +4.5 / BUF -4.5","53.5","BUF -205 / DET +170","OPEN · BUF -4.5","nfl-week-2-det-buf.html",""],
+[2,"THU 8:15 Prime","det","buf","Lions at Bills","Highmark · 8:15 p.m. ET","DET +4.5 / BUF -4.5","54.5","BUF -238 / DET +195","OPEN · Lions +4.5","nfl-week-2-det-buf.html",""],
 [2,"SUN 1:00 FOX","car","atl","Panthers at Falcons","Mercedes-Benz · 1:00 p.m. ET","CAR -1.5 / ATL +1.5","44.5","CAR -122 / ATL +102","OPEN · CAR -1.5","nfl-week-2-car-atl.html",""],
 [2,"SUN 1:00 FOX","min","chi","Vikings at Bears","Soldier Field · 1:00 p.m. ET","MIN +5.5 / CHI -5.5","49.5","CHI -240 / MIN +198","OPEN · CHI -5.5","nfl-week-2-min-chi.html",""],
 [2,"SUN 1:00 FOX","phi","ten","Eagles at Titans","Nissan · 1:00 p.m. ET","PHI -7 / TEN +7","39.5","PHI -340 / TEN +270","OPEN · PHI -7","nfl-week-2-phi-ten.html",""],
@@ -35,21 +35,28 @@ const GAMES = [
 [2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","Arrowhead · 8:20 p.m. ET","IND +6.5 / KC -6.5","47.5","KC -290 / IND +235","OPEN · KC -6.5","nfl-week-2-ind-kc.html",""],
 [2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","SoFi · 8:15 p.m. ET","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","OPEN · LAR -7","nfl-week-2-nyg-lar.html",""]
 ];
+function shortWhen(day){
+  return String(day||"").replace(" Prime","").replace(" FOX","").replace(" CBS","").replace(" NBC","").replace(" ESPN","");
+}
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
-  const tiles = `<div class="dive-box" style="width:100%"><div class="mini"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>MOVE</b><span>${stamp}</span></div></div></div>`;
-  const rev = review ? `<a class="full-link" href="${review}">REVIEW</a>` : "";
-  return `<div class="g" style="flex-wrap:wrap"><img src="${LOGO(a)}"><img src="${LOGO(h)}"><b>${title}</b><a class="full-link" href="${href}">FULL BREAKDOWN</a>${rev}<span>${when}</span>${tiles}</div>`;
+  const live = (w===CURRENT_WEEK && /THU/i.test(day)) ? `<span class="live-tag">LIVE</span>` : "";
+  const rev = review ? `<a class="g-btn" href="${review}">REVIEW</a>` : "";
+  return `<article class="g-card">
+    <div class="g-head"><img src="${LOGO(a)}" alt=""><img src="${LOGO(h)}" alt=""><div><b>${title}${live}</b><span>${when}</span></div></div>
+    <div class="g-actions"><a class="g-btn g-btn-on" href="${href}">FULL BREAKDOWN</a>${rev}</div>
+    <div class="mini"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>MOVE</b><span>${stamp}</span></div></div>
+  </article>`;
 }
 function nflPickLabel(g){
-  return g[4] + " · " + g[5];
+  return shortWhen(g[1]) + " · " + g[4];
 }
 function paintNflGame(list, idx){
   const slate = document.getElementById("slate");
   if (!slate) return;
   const g = list[idx];
-  if (!g){ slate.innerHTML = "<p class='note'>Pick a game from the dropdown.</p>"; return; }
-  slate.innerHTML = "<div class='day'>"+g[1]+"</div>" + nflCard(g);
+  if (!g){ slate.innerHTML = "<p class='note'>Pick a game.</p>"; return; }
+  slate.innerHTML = nflCard(g);
 }
 function show(week){
   document.querySelectorAll("#week-btns button").forEach(function(b){
@@ -76,10 +83,6 @@ function show(week){
   pick = document.getElementById("nfl-game-pick");
   if (!pick) return;
   pick.innerHTML = "";
-  const blank = document.createElement("option");
-  blank.value = "";
-  blank.textContent = "Select a game";
-  pick.appendChild(blank);
   list.forEach(function(g,i){
     const o = document.createElement("option");
     o.value = String(i);
@@ -89,7 +92,8 @@ function show(week){
   pick.onchange = function(){
     paintNflGame(list, pick.value === "" ? -1 : Number(pick.value));
   };
-  paintNflGame(list, -1);
+  pick.value = "0";
+  paintNflGame(list, 0);
 }
 const box = document.getElementById("week-btns");
 if (box) {

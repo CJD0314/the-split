@@ -41,14 +41,15 @@ function watchChip(tag){
   const cls = /OUT|DNP|SIT/i.test(tag) ? "chip chip-out" : /Q|LIMITED|CONFIRM|WATCH|PROTOCOL|FRI/i.test(tag) ? "chip chip-q" : "chip chip-live";
   return `<span class="${cls}">${tag}</span>`;
 }
-function watchStamp(s){
-  const v = String(s||"LOOK").toUpperCase();
-  const cls = v==="KILL" ? "chip chip-out" : v==="WAIT" ? "chip chip-q" : "chip chip-live";
-  return `<span class="${cls}">${v}</span>`;
+function stampTally(rows){
+  const n = {LOOK:0,WAIT:0,KILL:0};
+  (rows||[]).forEach(function(p){ const s=String(p.stamp||"LOOK").toUpperCase(); n[s]=(n[s]||0)+1; });
+  return ["LOOK","WAIT","KILL"].filter(function(k){ return n[k]; }).map(function(k){ return n[k]+" "+k; }).join(" · ");
 }
 function watchCard(p){
   const logo = "https://a.espncdn.com/i/teamlogos/nfl/500/" + p.team + ".png";
-  return `<article class="watch">\n    <div class="watch-top"><img src="${logo}" alt=""><div><b>${p.name}</b><span>${p.game}${watchChip(p.tag)} ${watchStamp(p.stamp)}</span></div></div>\n    <div class="watch-prop"><b>PROP</b><span>${p.prop}</span></div>\n    <details class="why-fold"><summary>WHY</summary><p class="watch-why">${p.why} ${p.propWhy}</p></details>\n  </article>`;
+  const st = String(p.stamp||"LOOK").toUpperCase();
+  return `<article class="watch"><div class="watch-top"><img src="${logo}" alt=""><div><b>${p.name}</b><span>${p.game}${watchChip(p.tag)}</span></div></div><div class="mini"><div><b>STAMP</b><span>${st}</span></div><div><b>PROP</b><span>${p.prop}</span></div></div><details class="why-fold"><summary>WHY</summary><p class="watch-why">${p.why} ${p.propWhy}</p></details></article>`;
 }
 function paintNflWatch(week){
   const box = document.getElementById("nfl-watch");
@@ -59,7 +60,7 @@ function paintNflWatch(week){
   const blocks = [["QB", data.qb],["RB", data.rb],["WR", data.wr],["TE", data.te],["DEF", data.def]];
   box.innerHTML = `<p class="note">${data.note}</p>` + blocks.map(function(pair){
     const title = pair[0], rows = pair[1] || [];
-    return `<details class="block"><summary>${title} · ${rows.length}</summary><div class="body">${rows.map(watchCard).join("")}</div></details>`;
+    return `<details class="block"><summary>${title} · ${stampTally(rows)}</summary><div class="body">${rows.map(watchCard).join("")}</div></details>`;
   }).join("");
 }
 paintNflWatch(NFL_WATCH_WEEK);

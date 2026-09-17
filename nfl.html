@@ -3,23 +3,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- NFL</title>
-<link rel="stylesheet" href="sport.css?v=9"/>
-<style>
-.watch{background:#0e141c;border:1px solid #2a3644;border-radius:10px;padding:12px;margin:10px 0}
-.watch-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.watch-top img{width:28px;height:28px;object-fit:contain}
-.watch-top b{display:block;font-size:17px}
-.watch-top span{display:block;color:#d5deea;font-size:14px}
-.rk{flex:0 0 28px;height:28px;border-radius:50%;background:#e8b423;color:#111;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
-.watch-prop{margin:10px 0 4px;padding:8px 10px;background:#121820;border:1px solid #2a3644;border-radius:8px}
-.watch-prop b{display:block;color:#e8b423;font-size:11px;letter-spacing:.1em}
-.watch-prop span{display:block;font-weight:800;font-size:16px}
-.watch-why{color:#d5deea;font-size:15px;margin:6px 0 0}
-.block{background:#0e141c;border:1px solid #2a3644;border-radius:10px;margin:10px 0;overflow:hidden}
-.block>summary{list-style:none;cursor:pointer;padding:10px 12px;color:#e8b423;font-weight:800;letter-spacing:.08em}
-.block>summary::-webkit-details-marker{display:none}
-.block .body{padding:4px 12px 12px;border-top:1px solid #2a3644}
-</style>
+<link rel="stylesheet" href="sport.css?v=11"/>
 </head>
 <body>
 <div class="topnav">
@@ -27,7 +11,7 @@
 <a class="on" href="nfl.html">NFL</a>
 <a href="cfb.html">CFB</a>
 <a href="mlb.html">MLB</a>
-<a href="reviews.html">BET TRACKER</a>
+<a href="reviews.html">TRACKER</a>
 </div>
 <header>
 <h1>THE SPLIT</h1>
@@ -38,21 +22,22 @@
 <details class="subhead" open><summary>DEEP DIVES</summary>
 <div class="inner">
 <div class="weeks" id="week-btns"></div>
-<p class="note">Week 2 board is open. Thursday Night — Lions at Bills — full breakdown is live. Confirm the live DraftKings number before you bet it.</p>
+<p class="note">Thursday Night is live. Confirm the DraftKings number before you bet it.</p>
 <div id="slate"></div>
 </div></details>
-<details class="subhead" open><summary>WEEKLY WATCH</summary>
+<details class="subhead"><summary>WEEKLY WATCH</summary>
 <div class="inner">
-<p class="note">Top players this week by position, why they are on the list, and one prop each. Confirm the live DraftKings number. This is not a DFS sheet.</p>
+<p class="note">One prop each. Not a unit list.</p>
 <div id="nfl-watch"></div>
 </div></details>
 <details class="subhead"><summary>WEEK NOTES</summary>
 <div class="inner"><div class="weeks" id="nfl-review-btns"></div><div id="nfl-week-review"></div></div></details>
 <details class="subhead"><summary>BETTING NOTES</summary>
 <div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
-<details class="subhead"><summary>DFS CHEAT SHEET</summary>
+<details class="subhead"><summary>TEAM IDENTITIES</summary>
+<div class="inner" id="team-identities"></div></details>
+<details class="subhead"><summary>DFS</summary>
 <div class="inner">
-<div class="weeks" id="dfs-week-btns"></div>
 <div id="dfs-slate-hold">
 <p class="note-lab">SELECT A SLATE</p>
 <select id="dfs-slate-pick" class="game-pick" aria-label="Select a slate">
@@ -62,14 +47,11 @@
 <option value="nfl-dfs-week-1-mnf.html">Week 1 Monday night</option>
 </select>
 </div>
+<div id="dfs-notes"></div>
 </div></details>
-<details class="subhead"><summary>DFS NOTES</summary>
-<div class="inner" id="dfs-notes"></div></details>
-<details class="subhead"><summary>TEAM IDENTITIES</summary>
-<div class="inner" id="team-identities"></div></details>
 </div>
-<script src="schedule.js?v=31"></script>
-<script src="nfl-watch.js?v=2"></script>
+<script src="schedule.js?v=33"></script>
+<script src="nfl-watch.js?v=4"></script>
 <script src="nfl-week-review.js?v=8"></script>
 <script src="nfl-id-a.js?v=1"></script>
 <script src="nfl-id-b.js?v=1"></script>
@@ -84,22 +66,15 @@ loadLedger().then(function(data){
 paintBettingNotes("NFL");
 paintDfsNotes("NFL");
 (function(){
-  const dfs = document.getElementById("dfs-week-btns");
   const pick = document.getElementById("dfs-slate-pick");
-  if (!dfs || !pick) return;
-  [1,2].forEach(function(w){
-    const b=document.createElement("button");
-    b.textContent="Week "+w;
-    if (w===1) b.className="on";
-    b.onclick=function(){
-      dfs.querySelectorAll("button").forEach(function(x){ x.classList.remove("on"); });
-      b.classList.add("on");
-    };
-    dfs.appendChild(b);
+  if (pick) pick.onchange = function(){ if (pick.value) location.href = pick.value; };
+  const heads = document.querySelectorAll("details.subhead");
+  heads.forEach(function(d){
+    d.addEventListener("toggle", function(){
+      if (!d.open) return;
+      heads.forEach(function(other){ if (other !== d) other.open = false; });
+    });
   });
-  pick.onchange=function(){
-    if (pick.value) location.href = pick.value;
-  };
 })();
 </script>
 </body></html>

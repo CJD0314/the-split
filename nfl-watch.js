@@ -158,7 +158,8 @@ function watchCard(p, i){
   return `<article class="watch">
     <div class="watch-top"><span class="rk">${i+1}</span><img src="${logo}" alt=""><div><b>${p.name}</b><span>${p.game}${watchChip(p.tag)}</span></div></div>
     <div class="watch-prop"><b>PROP</b><span>${p.prop}</span></div>
-    <details class="why-fold"><summary>WHY</summary><p>${p.why}</p><p class="watch-why">${p.propWhy}</p></details>
+    <p class="watch-why"><b>WHY</b> ${p.why}</p>
+    <p class="watch-why">${p.propWhy}</p>
   </article>`;
 }
 

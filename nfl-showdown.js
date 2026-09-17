@@ -82,17 +82,43 @@ function paintShowdown(){
     "</article>";
   }).join("");
   box.innerHTML =
-    "<p class='note'>DraftKings captain showdowns. Handle CE409. Three Week 1 primetime slates.</p>"+
+    "<p class='note'>DraftKings captain showdowns. Handle CE409. Three Week 1 slates applied to tonight.</p>"+
+    "<article class='g-card'>"+
+      "<p class='note-lab'>TONIGHT \u00b7 DET AT BUF \u00b7 8:15 ET \u00b7 BUF -5.5 \u00b7 O/U 54.5-55.5</p>"+
+      "<p class='note-head'>LIONS AT BILLS</p>"+
+      "<p class='note'>Mahogany and Miller OUT. Reed Q. Ty Johnson Q. New Highmark. Both scored 31-plus in Week 1. Not a 13-10 slog and not a 31-10 bury job until someone proves it.</p>"+
+      "<p class='note-lab'>CAPTAIN</p>"+
+      "<ul class='notes'>"+
+        "<li><b>CPT Gibbs.</b> 29-156-2. Montgomery is gone. Same seat as Walker on Monday. If he is in the lineup he is the captain. Do not Rice-this and leave him in FLEX.</li>"+
+        "<li><b>CPT Allen.</b> 334-2 at Houston. Detroit just gave up 410. Live if Buffalo holds the script. Flex him if you captain Gibbs.</li>"+
+        "<li><b>CPT St. Brown.</b> 14 targets, OT winner. The JSN / Likely seat if you want off the two expensive backs. Stack Goff + St. Brown + LaPorta. One Bills bring-back.</li>"+
+        "<li><b>CPT Cook</b> only to save salary. Week 1 was 13-57-0. He is not Walker until he scores.</li>"+
+      "</ul>"+
+      "<p class='note-lab'>DO NOT</p>"+
+      "<ul class='notes'>"+
+        "<li>Do not CPT Goff. That is Maye and Nix.</li>"+
+        "<li>Do not CPT a DST. Total is 54-plus. Seahawks DST only paid in a 13-10.</li>"+
+        "<li>Do not CPT Kincaid off 130 yards and zero TDs. FLEX in a Bills stack, not the 1.5x.</li>"+
+        "<li>Do not CPT Jameson or DJ Moore as the whole identity. That is Waddle / Brown / Pickens when the script is wrong.</li>"+
+        "<li>Do not mash four Bills and two random Lions. Captain side gets the stack. One bring-back.</li>"+
+      "</ul>"+
+      "<p class='note-lab'>PUNTER</p>"+
+      "<ul class='notes'>"+
+        "<li>Live cheap: TeSlaa, Keon Coleman, Jake Bates, either kicker, Ray Davis only if Cook shrinks.</li>"+
+        "<li>Dead cheap: depth-chart stickers with no route. That was Demercado, Kiner, Mims.</li>"+
+      "</ul>"+
+      "<div class='sd-win'><b>CASH CORE</b>CPT Gibbs \u00b7 Allen \u00b7 St. Brown \u00b7 Cook or Kincaid \u00b7 one Lion \u00b7 punter<br>or CPT Allen \u00b7 Gibbs \u00b7 DJ Moore \u00b7 Kincaid \u00b7 one Lion \u00b7 punter</div>"+
+      "<div class='sd-you'><b>GPP LEVER</b>CPT St. Brown \u00b7 Goff \u00b7 Gibbs \u00b7 LaPorta \u00b7 Allen or Cook \u00b7 punter</div>"+
+    "</article>"+
     cards+
     "<article class='g-card'>"+
       "<p class='note-lab'>RULES THAT PAID</p>"+
       "<ul class='notes'>"+
-        "<li>Captain production, not salary. Dart and JSN paid. Dak and Maye as CPT did not.</li>"+
-        "<li>The 3% back who got the work beats the 17% name. Singletary over Demercado. Hollins over Kiner.</li>"+
-        "<li>Chalk WR on the wrong script dies. Pickens 40% / 5.8. Brown 38% / 5.6.</li>"+
-        "<li>Do not captain a DST on a 54.5 total. Seahawks CPT only worked in a 13-10.</li>"+
-        "<li>Monday: you had Walker in FLEX and captained Rice. That single swap is 40 points. 266th of 1,106 at 89.7. Cash was 92.7.</li>"+
-        "<li>Tonight: Allen, St. Brown, or Gibbs as CPT. Goff is the Maye/Nix trap. Allen + Kincaid or Gibbs + St. Brown / LaPorta is the stack.</li>"+
+        "<li>Captain production, not salary. Dart, JSN, Walker paid. Dak, Maye, Rice as CPT did not.</li>"+
+        "<li>The 3% back who got the work beats the 17% name. Singletary, Hollins, Engram.</li>"+
+        "<li>Chalk WR on the wrong script dies. Pickens, Brown, Waddle.</li>"+
+        "<li>Do not CPT a DST on a 54-point total.</li>"+
+        "<li>If the highest-scoring name is already in the lineup, he is the captain. Rice over Walker cost 40 points.</li>"+
       "</ul>"+
     "</article>";
 }

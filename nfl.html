@@ -38,17 +38,7 @@
 <div class="inner" id="team-identities"></div></details>
 <details class="subhead"><summary>DFS</summary>
 <div class="inner">
-<div id="dfs-slate-hold">
-<p class="note-lab">SELECT A SLATE</p>
-<select id="dfs-slate-pick" class="game-pick" aria-label="Select a slate">
-<option value="">Select a slate</option>
-<option value="nfl-dfs-week-1.html">Week 1 main</option>
-<option value="nfl-dfs-week-1-snf.html">Week 1 Sunday night</option>
-<option value="nfl-dfs-week-1-mnf.html">Week 1 Monday night</option>
-</select>
-</div>
-<div id="dfs-notes"></div>
-<details class="block"><summary>CAPTAIN SHOWDOWN REVIEW</summary>
+<details class="block" open><summary>CAPTAIN SHOWDOWN REVIEW</summary>
 <div class="body" id="showdown-box"><p class="note">Loading showdown review...</p></div>
 </details>
 </div></details>
@@ -68,10 +58,7 @@ loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="NFL";})}));
 });
 paintBettingNotes("NFL");
-paintDfsNotes("NFL");
 (function(){
-  const pick = document.getElementById("dfs-slate-pick");
-  if (pick) pick.onchange = function(){ if (pick.value) location.href = pick.value; };
   const heads = document.querySelectorAll("details.subhead");
   heads.forEach(function(d){
     d.addEventListener("toggle", function(){

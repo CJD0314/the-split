@@ -8,14 +8,18 @@
       "NYY died 5-4 in 13. Mid-road juice after an 8-1 is not a unit.",
       "Thursday units: CIN +145 and KC +128. DET +108 stays LEAN after 1-5.",
       "WEEK RULES: plus-money that already won the series can be a unit. Do not copy yesterday's unit. ML worse than -190 is never a BET. Visitor juice at Coors is a fade even when it cashes. HR names stay LEAN.",
-      "WEEK RULES: after a juice favorite dies, the home dog the next day is the ticket (CIN after LAD). A dog that just lost 1-5 is not a second stamp (DET)."
+      "WEEK RULES: after a juice favorite dies, the home dog the next day is the ticket (CIN after LAD). A dog that just lost 1-5 is not a second stamp (DET).",
+      "HR: name-only misses (Ohtani, Ramirez, Riley, Vlad, Contreras, Devers, Greene, Schwarber). Homers were Henderson late, Carroll walk-off, Judge when stacked, Tatis at Coors, Raleigh on the losing side, Vargas, Okamoto, Yaz, PCA.",
+      "K: overs cash only if the starter finishes five (Skubal, Williams, Detmers, Alcantara). Unders die on a full-leash kid (Tong 6). Coors kills K overs (Mize 0)."
     ]
   },
   "fades": {
     "MLB": [
       "LAD juice fade cashed (CIN 6-2). PHI -201 fade did not (PHI 3-0). Juice rule still stands.",
       "TB -192 won 4-3. Still not a BET. Thursday TB -289 is a harder fade.",
-      "SD -173 won 9-3 at Coors. Visitor juice at Coors stays a fade even when it cashes."
+      "SD -173 won 9-3 at Coors. Visitor juice at Coors stays a fade even when it cashes.",
+      "Do not glue a name HR to a unit side. Stewart is the GABP bat, not Ohtani. Goodman is the Coors bat, not Tatis on a repeat.",
+      "Do not buy a K over at Coors. The Coors prop is the total or the park HR."
     ]
   },
   "bets": [
@@ -29,11 +33,23 @@
     {"id":"mlb-916-kc-hou","sport":"MLB","date":"2026-09-16","game":"KC at HOU","type":"ml","pick":"Royals ML","booked":"KC +138","close":"KC +138","stake":100,"to_win":138,"confidence":"LEAN","href":"mlb-2026-09-16-kc-hou-review.html","status":"SETTLED","result":"WIN","pl":138,"final":"KC 5-2"},
     {"id":"mlb-916-mia-ari","sport":"MLB","date":"2026-09-16","game":"MIA at ARI","type":"ml","pick":"Marlins ML","booked":"MIA +115","close":"MIA +115","stake":100,"to_win":115,"confidence":"LEAN","href":"mlb-2026-09-16-mia-ari-review.html","status":"SETTLED","result":"WIN","pl":115,"final":"MIA 4-3"},
     {"id":"mlb-917-cin-lad","sport":"MLB","date":"2026-09-17","game":"LAD at CIN","type":"ml","pick":"Reds ML","booked":"CIN +145","close":"CIN +145","stake":100,"to_win":145,"confidence":"BET","href":"mlb-2026-09-17-lad-cin.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-cin-hr","sport":"MLB","date":"2026-09-17","game":"LAD at CIN","type":"hr","pick":"Sal Stewart HR","booked":"+280","close":"+280","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-lad-cin.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-cin-prop","sport":"MLB","date":"2026-09-17","game":"LAD at CIN","type":"prop","pick":"CIN starter u4.5 K","booked":"CIN u4.5 K","close":"CIN u4.5 K","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-lad-cin.html","status":"OPEN","result":"","pl":0,"final":""},
     {"id":"mlb-917-kc-hou","sport":"MLB","date":"2026-09-17","game":"KC at HOU","type":"ml","pick":"Royals ML","booked":"KC +128","close":"KC +128","stake":100,"to_win":128,"confidence":"BET","href":"mlb-2026-09-17-kc-hou.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-kc-hr","sport":"MLB","date":"2026-09-17","game":"KC at HOU","type":"hr","pick":"Bobby Witt Jr HR","booked":"+320","close":"+320","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-kc-hou.html","status":"OPEN","result":"","pl":0,"final":""},
     {"id":"mlb-917-tb-fade","sport":"MLB","date":"2026-09-17","game":"ATH at TB","type":"ml","pick":"Rays ML","booked":"TB -289","close":"TB -289","stake":0,"to_win":0,"confidence":"FADE","href":"mlb-2026-09-17-ath-tb.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-tb-hr","sport":"MLB","date":"2026-09-17","game":"ATH at TB","type":"hr","pick":"Junior Caminero HR","booked":"+250","close":"+250","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-ath-tb.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-tb-prop","sport":"MLB","date":"2026-09-17","game":"ATH at TB","type":"prop","pick":"Athletics +1.5","booked":"ATH +1.5","close":"ATH +1.5","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-ath-tb.html","status":"OPEN","result":"","pl":0,"final":""},
     {"id":"mlb-917-det-cws","sport":"MLB","date":"2026-09-17","game":"DET at CWS","type":"ml","pick":"Tigers ML","booked":"DET +108","close":"DET +108","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-det-cws.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-det-hr","sport":"MLB","date":"2026-09-17","game":"DET at CWS","type":"hr","pick":"Riley Greene HR","booked":"+310","close":"+310","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-det-cws.html","status":"OPEN","result":"","pl":0,"final":""},
     {"id":"mlb-917-phi-nym","sport":"MLB","date":"2026-09-17","game":"PHI at NYM","type":"ml","pick":"Phillies ML","booked":"PHI +118","close":"PHI +118","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-phi-nym.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-phi-hr","sport":"MLB","date":"2026-09-17","game":"PHI at NYM","type":"hr","pick":"Kyle Schwarber HR","booked":"+240","close":"+240","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-phi-nym.html","status":"OPEN","result":"","pl":0,"final":""},
     {"id":"mlb-917-sd-col-fade","sport":"MLB","date":"2026-09-17","game":"SD at COL","type":"ml","pick":"Padres ML","booked":"SD -168","close":"SD -168","stake":0,"to_win":0,"confidence":"FADE","href":"mlb-2026-09-17-sd-col.html","status":"OPEN","result":"","pl":0,"final":""},
-    {"id":"mlb-917-pit-lean","sport":"MLB","date":"2026-09-17","game":"MIL at PIT","type":"ml","pick":"Pirates ML","booked":"PIT +120","close":"PIT +120","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-mil-pit.html","status":"OPEN","result":"","pl":0,"final":""}
+    {"id":"mlb-917-col-hr","sport":"MLB","date":"2026-09-17","game":"SD at COL","type":"hr","pick":"Hunter Goodman HR","booked":"+260","close":"+260","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-sd-col.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-col-prop","sport":"MLB","date":"2026-09-17","game":"SD at COL","type":"prop","pick":"Over 11.5","booked":"o11.5","close":"o11.5","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-sd-col.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-pit-lean","sport":"MLB","date":"2026-09-17","game":"MIL at PIT","type":"ml","pick":"Pirates ML","booked":"PIT +120","close":"PIT +120","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-mil-pit.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-pit-hr","sport":"MLB","date":"2026-09-17","game":"MIL at PIT","type":"hr","pick":"Bryan Reynolds HR","booked":"+320","close":"+320","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-mil-pit.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-tex-hr","sport":"MLB","date":"2026-09-17","game":"BOS at TEX","type":"hr","pick":"Wyatt Langford HR","booked":"+300","close":"+300","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-bos-tex.html","status":"OPEN","result":"","pl":0,"final":""},
+    {"id":"mlb-917-laa-hr","sport":"MLB","date":"2026-09-17","game":"MIN at LAA","type":"hr","pick":"Mike Trout HR","booked":"+280","close":"+280","stake":0,"to_win":0,"confidence":"LEAN","href":"mlb-2026-09-17-min-laa.html","status":"OPEN","result":"","pl":0,"final":""}
   ]
 }

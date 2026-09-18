@@ -3,7 +3,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- College Football</title>
-<link rel="stylesheet" href="sport.css?v=12"/>
+<link rel="stylesheet" href="sport.css?v=17"/>
 </head>
 <body>
 <div class="topnav">
@@ -11,7 +11,7 @@
 <a href="nfl.html">NFL</a>
 <a class="on" href="cfb.html">CFB</a>
 <a href="mlb.html">MLB</a>
-<a href="reviews.html">BET TRACKER</a>
+<a href="reviews.html">TRACKER</a>
 </div>
 <header>
 <h1>THE SPLIT</h1>
@@ -19,27 +19,24 @@
 <div class="bank" id="sport-bank"></div>
 </header>
 <div class="wrap">
-<details class="subhead" open><summary>DEEP DIVES</summary>
+<details class="subhead" open><summary id="slate-head">WEEK 3</summary>
 <div class="inner">
 <div class="weeks" id="cfb-week-btns"></div>
-<p class="note">Week 2 is graded. Week 3 is the live card (Thu Sept 17 – Sat Sept 19). Side only on Top-25 games. One unit: Houston +7.5. Numbers 20-plus on the road and 28-plus anywhere stay FADE. Pick a game — the slate stays closed.</p>
-<div id="cfb-game-hold" style="display:none">
-<p class="note-lab">SELECT A GAME</p>
-<select id="cfb-game-pick" class="game-pick" aria-label="Select a game">
-<option value="">Select a game</option>
-</select>
-</div>
+<p class="note">Side only. One unit: Houston +7.5. Fade 20-plus on the road and 28-plus anywhere. Confirm the DraftKings number.</p>
 <div id="cfb-slate"></div>
 </div></details>
-<details class="subhead"><summary>WEEK NOTES</summary>
-<div class="inner"><div class="weeks" id="cfb-review-btns"></div><div id="cfb-week-review"></div></div></details>
 <details class="subhead"><summary>BETTING NOTES</summary>
-<div class="inner" id="betting-notes"><p class="note">Loading notes...</p></div></details>
+<div class="inner">
+<p class="note">Loops and fades from settled tickets. This is the week recap.</p>
+<div id="betting-notes"><p class="note">Loading notes...</p></div>
+</div></details>
 <details class="subhead"><summary>TEAM IDENTITIES</summary>
-<div class="inner" id="cfb-identities"></div></details>
+<div class="inner">
+<p class="note">Read these before the week is boarded. A pick that fights the identity needs a second reason.</p>
+<div id="cfb-identities"></div>
+</div></details>
 </div>
-<script src="cfb.js?v=14"></script>
-<script src="cfb-week-review.js?v=5"></script>
+<script src="cfb.js?v=15"></script>
 <script src="cfb-identities.js?v=4"></script>
 <script src="tracker.js?v=40"></script>
 <script src="notes.js?v=6"></script>
@@ -49,5 +46,14 @@ loadLedger().then(function(data){
   renderBank(document.getElementById("sport-bank"), summarize({bets:(data.bets||[]).filter(function(b){return b.sport==="CFB";})}));
 });
 paintBettingNotes("CFB");
+(function(){
+  const heads = document.querySelectorAll("details.subhead");
+  heads.forEach(function(d){
+    d.addEventListener("toggle", function(){
+      if (!d.open) return;
+      heads.forEach(function(other){ if (other !== d) other.open = false; });
+    });
+  });
+})();
 </script>
 </body></html>

@@ -91,7 +91,7 @@ async function loadLedger(){
   data.bets = data.bets || [];
   const seen = {};
   data.bets.forEach(function(b){ if (b && b.id) seen[b.id]=true; });
-  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json","tracker-nfl-mnf.json","tracker-mlb-914.json","tracker-mlb-915.json","tracker-mlb-916.json","tracker-cfb-w3.json"];
+  const shards = ["tracker-settled.json","tracker-settled-2.json","tracker-open.json","tracker-nfl-w1.json","tracker-nfl-mnf.json","tracker-nfl-tnf.json","tracker-mlb-914.json","tracker-mlb-915.json","tracker-mlb-916.json","tracker-cfb-w3.json"];
   for (let i=0;i<shards.length;i++){
     try {
       const extra = await (await fetch(shards[i] + "?v=" + Date.now())).json();

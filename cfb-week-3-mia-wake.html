@@ -39,7 +39,7 @@ img.logo-dark{
 <div><b>MONEYLINE</b><span>MIA -1450 / WAKE +850</span><span>Open MIA heavy</span></div>
 <div><b>SITE / WX</b><span>Winston-Salem, outdoor</span><span>~77° · wind 3 SE</span></div>
 </div>
-<p class="note">Confirm the DraftKings number. Side only.</p>
+<p class="note">Confirm the DraftKings number. Side only. Skill lines are an audit, not props.</p>
 
 <details class="block"><summary>FROM LAST WEEK</summary><div class="body">
 <ul>
@@ -72,9 +72,10 @@ img.logo-dark{
 <tr><td>MIA</td><td>Xavier Lucas, CB</td><td>OUT</td></tr>
 <tr><td>MIA</td><td>Romanas Frederique Jr., CB</td><td>OUT</td></tr>
 <tr><td>MIA</td><td>Mensah / Toney / Fletcher</td><td>No sit reported</td></tr>
-<tr><td>WAKE</td><td>Lopez / Hernandez</td><td>No sit reported</td></tr>
+<tr><td>WAKE</td><td>Gio Lopez, QB</td><td>Probable</td></tr>
+<tr><td>WAKE</td><td>Hernandez</td><td>No sit reported</td></tr>
 </table>
-<p class="note">Two Miami CBs out move the script. They do not turn -20.5 into a buy.</p>
+<p class="note">Two Miami CBs out move the script. Lopez probable stays in the sim. Neither turns -20.5 into a buy.</p>
 </div></details>
 
 <details class="block"><summary>SCRIPT</summary><div class="body">
@@ -98,12 +99,12 @@ img.logo-dark{
 </div></details>
 
 <details class="block"><summary>10,000-GAME SIMULATOR</summary><div class="body">
-<p class="note">10,000 draws. Total and margin drawn separately, then split into scores. Cover and totals fall out of the draws. Stamp is a rule overlay — the sim does not have to agree with it.</p>
+<p class="note">10,000 draws. Total and margin drawn separately, then split into scores. Skill yards are split from those team totals so they add up. Stamp is a rule overlay.</p>
 <p class="note-lab">RECIPE</p>
 <ul>
 <li>Mean margin: Miami by 16. SD ~14.</li>
 <li>Mean total: 53. SD ~12.</li>
-<li>Missing CBs: extra Wake points only in high-pace draws, not a flat haircut.</li>
+<li>Missing CBs: extra Wake points only in high-pace draws.</li>
 </ul>
 <div class="mini">
 <div><b>MIA WIN</b><span>87%</span></div>
@@ -123,19 +124,51 @@ img.logo-dark{
 <div><b>1H KILL</b><span>11%</span></div>
 <div><b>BAND</b><span>MIA 23–46 · WAKE 7–30</span></div>
 </div>
-<p class="note">Ones stay = Miami wins by 21+ and scores 34+. Derived from the scores. Cover 37% is what the draws produced vs 20.5. Fade still stands as the 20-plus road rule. Plus is still a PASS — 63% is a number edge, not a second written reason.</p>
+
+<p class="note-lab">SKILL LINES · MEAN · MUST ADD UP</p>
+<p class="note">Not props. Pass yards = rec yards. Rush yards = RB + QB. TDs = pass TD + rush TD.</p>
+<p class="note-lab">MIAMI</p>
+<table class="sd-table">
+<tr><th>PLAYER</th><th>PASS</th><th>RUSH</th><th>REC</th><th>TD</th></tr>
+<tr><td>Darian Mensah</td><td>254</td><td>19</td><td>—</td><td>2.8 pass / 0.3 rush</td></tr>
+<tr><td>Malachi Toney</td><td>—</td><td>—</td><td>81</td><td>1.0</td></tr>
+<tr><td>Cooper Barkate</td><td>—</td><td>—</td><td>56</td><td>0.6</td></tr>
+<tr><td>Daylyn Upshaw</td><td>—</td><td>—</td><td>35</td><td>0.4</td></tr>
+<tr><td>Elija Lofton</td><td>—</td><td>—</td><td>30</td><td>0.4</td></tr>
+<tr><td>Mark Fletcher Jr.</td><td>—</td><td>76</td><td>20</td><td>1.2</td></tr>
+<tr><td>CharMar Brown</td><td>—</td><td>29</td><td>—</td><td>—</td></tr>
+<tr><td>Other / leftovers</td><td>—</td><td>7</td><td>30</td><td>0.6</td></tr>
+<tr><td><b>TEAM</b></td><td><b>254</b></td><td><b>131</b></td><td><b>254</b></td><td><b>2.8 pass / 1.7 rush</b></td></tr>
+</table>
+<p class="note">Rec 81+56+35+30+20+30 = 252. Pass 254. Rush 19+76+29+7 = 131.</p>
+<p class="note-lab">WAKE FOREST</p>
+<table class="sd-table">
+<tr><th>PLAYER</th><th>PASS</th><th>RUSH</th><th>REC</th><th>TD</th></tr>
+<tr><td>Gio Lopez</td><td>144</td><td>32</td><td>—</td><td>1.1 pass / 0.5 rush</td></tr>
+<tr><td>Carlos Hernandez</td><td>—</td><td>—</td><td>49</td><td>0.4</td></tr>
+<tr><td>Antonio Meeks</td><td>—</td><td>—</td><td>32</td><td>0.2</td></tr>
+<tr><td>Kam Shanks</td><td>—</td><td>—</td><td>23</td><td>0.2</td></tr>
+<tr><td>TE / other</td><td>—</td><td>—</td><td>26</td><td>0.2</td></tr>
+<tr><td>Ty Clark III</td><td>—</td><td>38</td><td>—</td><td>—</td></tr>
+<tr><td>Deuce Lawrence</td><td>—</td><td>22</td><td>—</td><td>—</td></tr>
+<tr><td>RB rec / rush leftover</td><td>—</td><td>8</td><td>14</td><td>0.1</td></tr>
+<tr><td><b>TEAM</b></td><td><b>144</b></td><td><b>101</b></td><td><b>144</b></td><td><b>1.1 pass / 1.2 rush</b></td></tr>
+</table>
+<p class="note">Rec 49+32+23+26+14 = 144. Pass 144. Rush 32+38+22+8 = 100.</p>
 
 <p class="note-lab">WHAT WE EXPECTED</p>
 <ul>
 <li>Miami wins most of the time.</li>
 <li>Mean lands inside 20.5.</li>
 <li>Total mean under the board.</li>
+<li>Toney leads rec yards. He does not eat the whole 254.</li>
+<li>Lopez keep volume shows up as 32 rush yards, not as a second passing game.</li>
 </ul>
 <p class="note-lab">WHAT WE DID NOT EXPECT / WATCH</p>
 <ul>
-<li>Favorite cover only 37%. Wider than a coin, closer than a lock the other way.</li>
-<li>1H kill hits in about 1 in 9 sims. If you see 28 or +21 at half, the fade is already wrong.</li>
-<li>Wake 32+ is 8%.</li>
+<li>Favorite cover only 37%.</li>
+<li>1H kill in about 1 in 9 sims.</li>
+<li>Mensah under 200 pass with Miami still in the 30s — that is a run-script cover path, rare.</li>
 </ul>
 
 <p class="note-lab">MARGIN READ</p>

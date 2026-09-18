@@ -1,0 +1,53 @@
+{
+  "bets": [
+    {
+      "id": "nfl-w2-det-buf-allen-pass",
+      "sport": "NFL",
+      "date": "2026-09-17",
+      "game": "DET at BUF",
+      "type": "prop",
+      "pick": "Josh Allen over 250.5 pass",
+      "close": "Allen o250.5 pass (-120)",
+      "stake": 120,
+      "to_win": 100,
+      "status": "SETTLED",
+      "result": "LOSS",
+      "pl": -120,
+      "final": "BUF 41-31",
+      "confidence": "LEAN",
+      "href": "nfl-week-2-det-buf-review.html"
+    },
+    {
+      "id": "nfl-w2-det-buf-kincaid-rec",
+      "sport": "NFL",
+      "date": "2026-09-17",
+      "game": "DET at BUF",
+      "type": "prop",
+      "pick": "Dalton Kincaid over 54.5 rec",
+      "close": "Kincaid o54.5 rec (-115)",
+      "stake": 115,
+      "to_win": 100,
+      "status": "SETTLED",
+      "result": "WIN",
+      "pl": 100,
+      "final": "BUF 41-31",
+      "confidence": "LEAN",
+      "href": "nfl-week-2-det-buf-review.html"
+    }
+  ],
+  "loops": {
+    "NFL": [
+      "TNF DET@BUF: CPT the player who scores the game still paid. Allen 61.23 CPT. Winners used him.",
+      "TNF DET@BUF: Kincaid 7-95-1. Pairing volume in a 54-plus total is a live rec lean.",
+      "TNF DET@BUF: A 70-point game is both QBs. Goff 32.78 was in 13 of the top 20. Do not auto-cut the other QB when both defenses already leaked 30.",
+      "TNF DET@BUF: Gibbs fade was not the miss. He was in 0 of the top 20. Cook and LaPorta were."
+    ]
+  },
+  "fades": {
+    "NFL": [
+      "TNF DET@BUF: Do not fade a 14-target WR's yards after you already admitted the volume. St. Brown 142 vs 78.5 fade.",
+      "TNF DET@BUF: Kicker-as-punter dies in a six-TD game with zero field goals. Bass 5 DK.",
+      "TNF DET@BUF: Juice worse than -190 is still a fade even when the favorite covers."
+    ]
+  }
+}

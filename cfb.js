@@ -18,7 +18,8 @@ const CFB_OPEN = {
   "cfb-week-3-smu-lou.html": {sp:"LOU -1.5", tot:"56.5", ml:"LOU -118 / SMU +100", move:"held a pickem"},
   "cfb-week-3-lsu-miss.html": {sp:"MISS -1.5", tot:"57.5", ml:"MISS favored at open", move:"flipped to LSU -3"},
   "cfb-week-3-byu-csu.html": {sp:"BYU -18", tot:"52.5", ml:"BYU heavy", move:"held a two-score road number"},
-  "cfb-week-3-wvu-uva.html": {sp:"UVA -10.5", tot:"54.5", ml:"UVA -380 / WVU +300", move:"held 10.5 in Charlotte"}
+  "cfb-week-3-wvu-uva.html": {sp:"UVA -10.5", tot:"54.5", ml:"UVA -380 / WVU +300", move:"held 10.5 in Charlotte"},
+  "cfb-week-3-utsa-tex.html": {sp:"TEX -29.5", tot:"57.5", ml:"TEX -6500 / UTSA +2000", move:"TEX -29.5 to -30.5"}
 };
 const CFB = {
 1: [
@@ -48,7 +49,7 @@ const CFB = {
   ["SAT SEPT 19",252,36,"#11 BYU at Colorado State","7:30 p.m. ET CBS","BYU -17.5 / CSU +17.5","52.5","BYU -750 / CSU +520","cfb-week-3-byu-csu.html","","FADE · road 17.5"],
   ["SAT SEPT 19",277,258,"West Virginia vs #25 Virginia","7:30 p.m. ET ACCN","WVU +10.5 / UVA -10.5","53.5","UVA -380 / WVU +300","cfb-week-3-wvu-uva.html","","LEAN · WVU +10.5"],
   ["SAT SEPT 19",249,2633,"Kennesaw State at #15 Tennessee","7:45 p.m. ET SECN","KENN +35.5 / TENN -35.5","59.5","TENN heavy","cfb-week-3-kenn-tenn.html","","FADE · paycheck"],
-  ["SAT SEPT 19",2636,251,"UTSA at #1 Texas","8:00 p.m. ET SECN+","UTSA +30.5 / TEX -30.5","58.5","TEX heavy","cfb-week-3-utsa-tex.html","","FADE · 28-plus"]
+  ["SAT SEPT 19",2636,251,"UTSA at #1 Texas","8:00 p.m. ET SECN+","UTSA +30.5 / TEX -30.5","58.5","TEX -5000 / UTSA +2200","cfb-week-3-utsa-tex.html","","FADE · 30-plus"]
 ]
 };
 function reviewLink(href, review){

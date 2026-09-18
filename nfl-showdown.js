@@ -1,5 +1,44 @@
 const NFL_SHOWDOWN = [
   {
+    id: "det-buf",
+    title: "LIONS AT BILLS",
+    when: "Week 2 \u00b7 Thursday night",
+    final: "BUF 41-31",
+    field: "1,111",
+    youRank: "450",
+    youPts: "126.83",
+    cash: "did not cash",
+    winPts: "174.51",
+    youLine: "CPT Allen \u00b7 St. Brown \u00b7 Moore \u00b7 Kincaid \u00b7 Bass \u00b7 Davis",
+    winLine: "CPT Allen \u00b7 St. Brown \u00b7 Goff \u00b7 Kincaid \u00b7 Palmer \u00b7 Knox",
+    script: "Shootout. 72 points. Allen 5 TD. Goff 327-4. Not 29-24. Both QBs scored. Moore left at half. Bass kicked zero field goals.",
+    rows: [
+      ["Josh Allen", "40.82 / 61.23 CPT", "62.8% / 24.8%", "Correct captain. Winners used him"],
+      ["Amon-Ra St. Brown", "38.2 / 57.3 CPT", "30.9% / 4.4%", "The Lion. 9-142-2"],
+      ["Jared Goff", "32.78 / 49.17 CPT", "20.9% / 1.4%", "In 13 of top 20. The leave"],
+      ["James Cook", "23.9 / 35.85 CPT", "23.4% / 16.4%", "21-135-1. Not committee"],
+      ["Jahmyr Gibbs", "23.3 / 34.95 CPT", "53.2% / 11.1%", "0 of the top 20"],
+      ["Dalton Kincaid", "22.5 / 33.75 CPT", "37.4% / 12.2%", "7-95-1. Pairing cashed"],
+      ["Sam LaPorta", "17.2 / 25.8 CPT", "47.6% / 4.9%", "In 15 of top 20"],
+      ["Joshua Palmer", "11.3 flex", "17.1%", "Winning dart. 43-yard TD"],
+      ["Dawson Knox", "8.5 flex", "11.8%", "Winning punter TD"],
+      ["Tyler Bass", "5 flex", "24.5%", "Six TDs, 0 FG"],
+      ["DJ Moore", "-0.1 flex", "36.9%", "Shoulder. Gone at half"],
+      ["Ray Davis", "0 flex", "5.0%", "Your last slot. Zero"]
+    ],
+    paid: [
+      "Allen CPT + St. Brown + Kincaid was the live spine. You had all three.",
+      "Goff 32.78 in a 72-point game. Tied-second was Allen / St. Brown / Goff / Kincaid / LaPorta / $600.",
+      "Palmer 11.3 and Knox 8.5 beat Bass 5 and Davis 0."
+    ],
+    died: [
+      "Moore -0.1 and Bass 5 and Davis 0 are 5.0 combined vs Goff 32.8.",
+      "Gibbs 53% owned, 0 of the top 20. Fading him was not the miss.",
+      "St. Brown 78.5 rec fade died. He had 142."
+    ],
+    miss: "Right captain. Right Lion. Right TE. Dead on Goff, Moore injury, and the kicker. 450th of 1,111 at 126.83. Winner 174.51."
+  },
+  {
     id: "ne-sea",
     title: "PATRIOTS AT SEAHAWKS",
     when: "Week 1 \u00b7 Wed night",
@@ -16,23 +55,12 @@ const NFL_SHOWDOWN = [
       ["JSN", "29.2 / 43.8 CPT", "59% / 15%", "In every top-20 lineup"],
       ["Stevenson", "14.5 / 21.8 CPT", "51% / 22%", "In every top-20 lineup"],
       ["Maye", "12.8 / 19.2 CPT", "63% / 18%", "Flex only. Zero CPT in top 20"],
-      ["Seahawks DST", "13.0 / 19.5 CPT", "16% / 1%", "Worked in a slog. Not a 54-point CPT"],
-      ["A.J. Brown", "5.6 / 8.4 CPT", "38% / 9%", "0% of the top 20"],
-      ["Darnold", "0.5 / 0.8 CPT", "41% / 3%", "Field poison"],
       ["Hollins", "9.1 flex", "4%", "Winning punter"],
       ["Kiner", "1.1 flex", "3%", "Your punter"]
     ],
-    paid: [
-      "JSN as captain was 15% and 43.8. Every cash lineup had him.",
-      "Stevenson was in 100% of the top 20.",
-      "Hollins at 4% beat every name-brand leftover."
-    ],
-    died: [
-      "Maye captain was 18% of the field and 0% of the top 20.",
-      "A.J. Brown was 38% owned and 5.6 points.",
-      "Darnold was 41% owned and 0.5."
-    ],
-    miss: "Captained the expensive QB in a 13-10. Held the 38% WR. Used Kiner (1.1) instead of Hollins (9.1)."
+    paid: ["JSN as captain was 15% and 43.8.","Stevenson was in 100% of the top 20."],
+    died: ["Maye captain was 18% of the field and 0% of the top 20.","A.J. Brown was 38% owned and 5.6 points."],
+    miss: "Captained the expensive QB in a 13-10. Used Kiner (1.1) instead of Hollins (9.1)."
   },
   {
     id: "dal-nyg",
@@ -46,27 +74,16 @@ const NFL_SHOWDOWN = [
     winPts: "135.2",
     youLine: "CPT Javonte \u00b7 Lamb \u00b7 Dart \u00b7 Skattebo \u00b7 Likely \u00b7 Demercado",
     winLine: "CPT Dart \u00b7 Dak \u00b7 Javonte \u00b7 Skattebo \u00b7 Likely \u00b7 Singletary",
-    script: "Giants won. Dart and Likely were the unique finishers. Cowboys skill that piled yards without the script died.",
+    script: "Giants won. Dart and Likely were the unique finishers.",
     rows: [
       ["Likely", "27.8 / 41.7 CPT", "33% / 5.5%", "Highest score on the slate"],
       ["Dart", "26.6 / 39.9 CPT", "51% / 25%", "Correct cheap-QB captain"],
-      ["Javonte", "24.2 / 36.3 CPT", "40% / 23%", "Your CPT. Fine. Not the lever"],
-      ["Skattebo", "in both cores", "core", "Needed. You had him"],
       ["Singletary", "13.8 flex", "3.1%", "Winning punter"],
-      ["Demercado", "0.7 flex", "17%", "Your punter"],
-      ["Pickens", "5.8 / 8.7 CPT", "40% / 6%", "Chalk WR, dead weight"]
+      ["Demercado", "0.7 flex", "17%", "Your punter"]
     ],
-    paid: [
-      "Dart captain + Likely flex was the core that separated 1st from the pack.",
-      "Singletary at 3% was a 13-point punter.",
-      "You had the right four: Javonte, Lamb, Dart, Skattebo, Likely."
-    ],
-    died: [
-      "Demercado 0.7 vs Singletary 13.8 is the whole miss to first.",
-      "Pickens 40% owned, 5.8 points.",
-      "Dak as captain was salary, not production. Winner used him as flex."
-    ],
-    miss: "Right core. Lost first to a 3% back. Demercado 0.7 vs Singletary 13.8 is 13 points. Winner 135.2, you 120.9, 17th of 831."
+    paid: ["Dart captain + Likely flex separated 1st.","You had the right four besides the punter."],
+    died: ["Demercado 0.7 vs Singletary 13.8 is the miss to first."],
+    miss: "Right core. Lost first to a 3% back. 17th of 831."
   },
   {
     id: "den-kc",
@@ -80,34 +97,18 @@ const NFL_SHOWDOWN = [
     winPts: "124.6",
     youLine: "CPT Rice \u00b7 Walker \u00b7 Mahomes \u00b7 Harvey \u00b7 Butker \u00b7 Mims",
     winLine: "CPT Walker \u00b7 Mahomes \u00b7 Rice \u00b7 Kelce \u00b7 Chiefs DST \u00b7 Engram",
-    script: "Blowout. Walker 173 rush, 2 TD in his KC debut. 37.1 flex / 55.65 captain. Nix and Waddle were the field and they died.",
+    script: "Blowout. Walker 173 rush, 2 TD. Nix and Waddle died.",
     rows: [
       ["Kenneth Walker", "37.1 / 55.7 CPT", "44% / 17%", "Optimal CPT. You had him in FLEX"],
-      ["Mahomes", "22.7 / 34.0 CPT", "51% / 10%", "You had him. Correct flex"],
-      ["Evan Engram", "14.3 / 21.5 CPT", "19% / 1%", "Winning punter"],
-      ["Chiefs DST", "12.0 / 18.0 CPT", "9% / 0.5%", "Winning cheap piece"],
-      ["Kelce", "10.1 / 15.2 CPT", "36% / 5%", "In the winning stack"],
       ["Rashee Rice", "9.9 / 14.9 CPT", "32% / 9%", "Your CPT. 14.9 vs Walker 55.7"],
-      ["RJ Harvey", "8.1 flex", "15%", "Fine. Not the miss"],
-      ["Butker", "7.0 flex", "27%", "Dead kicker salary"],
-      ["Mims", "0 flex", "7%", "Your punter. Zero"],
-      ["Bo Nix", "7.4 / 11.2 CPT", "60% / 24%", "Field CPT poison"],
-      ["Waddle", "1.2 / 1.8 CPT", "41% / 12%", "Field WR poison"]
+      ["Evan Engram", "14.3 flex", "19% / 1%", "Winning punter"],
+      ["Mims", "0 flex", "7%", "Your punter. Zero"]
     ],
-    paid: [
-      "Walker captain was 17% and 55.7. First place was Walker + Mahomes + Rice + Kelce + Chiefs DST + Engram.",
-      "Engram 14.3 and Chiefs DST 12 were the cheap seats.",
-      "You already had Walker and Mahomes. The roster was close."
-    ],
-    died: [
-      "Rice captain 14.9 vs Walker captain 55.7 is a 40-point hole.",
-      "Mims 0 and Butker 7 vs Engram 14 and DST 12.",
-      "Nix 60% flex / 24% CPT scored 7.4. Waddle 41% scored 1.2."
-    ],
-    miss: "Walker was already in the lineup. Captaining Rice instead of Walker is 40 points. That swap alone is first place. 266th of 1,106 at 89.7. Cash was 92.7."
+    paid: ["Walker captain was 17% and 55.7.","You already had Walker and Mahomes."],
+    died: ["Rice captain 14.9 vs Walker captain 55.7 is a 40-point hole."],
+    miss: "Captaining Rice instead of Walker is 40 points. 266th of 1,106."
   }
 ];
-
 function sdRows(rows){
   return rows.map(function(r){
     return "<tr><td>"+r[0]+"</td><td>"+r[1]+"</td><td>"+r[2]+"</td><td>"+r[3]+"</td></tr>";
@@ -116,7 +117,6 @@ function sdRows(rows){
 function sdList(arr){
   return arr.map(function(x){ return "<li>"+x+"</li>"; }).join("");
 }
-
 function paintShowdown(){
   const box = document.getElementById("showdown-box");
   if (!box) return;
@@ -141,44 +141,17 @@ function paintShowdown(){
       "</div></details>";
   }).join("");
   box.innerHTML =
-    "<p class='note'>Handle CE409. Tonight is open. Week 1 slates are folded.</p>"+
-    "<article class='g-card'>"+
-      "<p class='note-lab'>TONIGHT \u00b7 DET AT BUF \u00b7 8:15 ET \u00b7 BUF -5.5 \u00b7 O/U 54.5-55.5</p>"+
-      "<p class='note-head'>LIONS AT BILLS</p>"+
-      "<p class='note'>Mahogany and Miller OUT. Reed Q. Ty Johnson Q. New Highmark. Both scored 31-plus in Week 1. Not a 13-10 slog and not a 31-10 bury job until someone proves it.</p>"+
-      "<p class='note-lab'>CAPTAIN</p>"+
-      "<ul class='notes'>"+
-        "<li><b>CPT Gibbs.</b> 29-156-2. Montgomery is gone. Same seat as Walker on Monday. If he is in the lineup he is the captain.</li>"+
-        "<li><b>CPT Allen.</b> 334-2 at Houston. Detroit just gave up 410. Flex him if you captain Gibbs.</li>"+
-        "<li><b>CPT St. Brown.</b> 14 targets, OT winner. The JSN / Likely seat. Stack Goff + St. Brown + LaPorta. One Bills bring-back.</li>"+
-        "<li><b>CPT Cook</b> only to save salary. Week 1 was 13-57-0. He is not Walker until he scores.</li>"+
-      "</ul>"+
-      "<p class='note-lab'>DO NOT</p>"+
-      "<ul class='notes'>"+
-        "<li>Do not CPT Goff. That is Maye and Nix.</li>"+
-        "<li>Do not CPT a DST. Total is 54-plus.</li>"+
-        "<li>Do not CPT Kincaid off 130 yards and zero TDs. FLEX only.</li>"+
-        "<li>Do not CPT Jameson or DJ Moore as the whole identity.</li>"+
-        "<li>Do not mash four Bills and two random Lions. Captain side gets the stack. One bring-back.</li>"+
-      "</ul>"+
-      "<p class='note-lab'>PUNTER</p>"+
-      "<ul class='notes'>"+
-        "<li>Live cheap: TeSlaa, Keon Coleman, Jake Bates, either kicker, Ray Davis only if Cook shrinks.</li>"+
-        "<li>Dead cheap: depth-chart stickers with no route. That was Demercado, Kiner, Mims.</li>"+
-      "</ul>"+
-      "<div class='sd-win'><b>CASH CORE</b>CPT Gibbs \u00b7 Allen \u00b7 St. Brown \u00b7 Cook or Kincaid \u00b7 one Lion \u00b7 punter<br>or CPT Allen \u00b7 Gibbs \u00b7 DJ Moore \u00b7 Kincaid \u00b7 one Lion \u00b7 punter</div>"+
-      "<div class='sd-you'><b>GPP LEVER</b>CPT St. Brown \u00b7 Goff \u00b7 Gibbs \u00b7 LaPorta \u00b7 Allen or Cook \u00b7 punter</div>"+
-    "</article>"+
-    "<p class='note-lab'>WEEK 1 REVIEWS</p>"+
+    "<p class='note'>Handle CE409. TNF is settled. Next board is SNF IND at KC.</p>"+
+    "<p class='note-lab'>SHOWDOWN REVIEWS</p>"+
     hist+
     "<article class='g-card'>"+
-      "<p class='note-lab'>RULES THAT PAID</p>"+
+      "<p class='note-lab'>RULES AFTER TNF</p>"+
       "<ul class='notes'>"+
-        "<li>Captain production, not salary. Dart, JSN, Walker paid. Dak, Maye, Rice as CPT did not.</li>"+
-        "<li>The 3% back who got the work beats the 17% name. Singletary, Hollins, Engram.</li>"+
-        "<li>Chalk WR on the wrong script dies. Pickens, Brown, Waddle.</li>"+
-        "<li>Do not CPT a DST on a 54-point total.</li>"+
-        "<li>If the highest-scoring name is already in the lineup, he is the captain. Rice over Walker cost 40 points.</li>"+
+        "<li>Captain production. Allen CPT paid. Gibbs CPT did not take the top 20.</li>"+
+        "<li>A 70-point game is both QBs. Do not auto-cut Goff next to Allen when both defenses already leaked 30.</li>"+
+        "<li>Kicker-as-punter needs field goals. Bass 5 in a six-TD game.</li>"+
+        "<li>Do not fade a 14-target WR's yards after you already admitted the volume.</li>"+
+        "<li>The 3% dart who scores (Palmer, Knox) still beats the 24% kicker.</li>"+
       "</ul>"+
     "</article>";
   const folds = box.querySelectorAll("details.sd-hist");

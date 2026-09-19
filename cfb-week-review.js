@@ -42,20 +42,19 @@ const CFB_WEEK_NOTES = {
   },
   3: {
     held: [
-      "Week 2 real numbers still rule the card. 6-to-14 ranked sides in conference or Power games. Houston +7.5 is that ticket after Texas Tech walked from -12.5.",
-      "Paycheck 28-plus and 20-plus road favorites stay posted as a side and stay FADE. Miami -20.5, Georgia -24.5, USC -23.5, Notre Dame -29.5, Texas -30.5, Indiana -44.5."
+      "Fade Miami -20.5. Final 33-20. Margin 13. Ones sat after 31-7. 20-plus road after an FCS smash held.",
+      "Bet Houston +7.5. Final Tech 28-26. Number walked 12.5 to 7.5 and the Oregon State tape both held."
     ],
     broke: [
-      "Nothing has kicked yet. These are carry-in rules, not grades."
+      "Fade Oregon -58.5. Final 84-0. Half 49-0. Ones never sat. 15% tail hit. Angry Power home vs 0-3 FCS is the landmine."
     ],
     missed: [
-      "Do not copy Alabama -10 or Texas A&M -14.5 onto 19.5 and 16.5 and call them the same fire. The number moved. The stamp moves with it."
+      "50-plus home fade used a half kill. Q1 28-0 already killed it. Next 50-plus: kill on a 21-0 first quarter, not only at half."
     ],
     next: [
-      "One unit: Houston +7.5. Market came off Texas Tech -12.5 and Tech needed the fourth quarter at Oregon State.",
-      "LEAN the real games: Pitt -10.5, Texas A&M -16.5, SMU +1.5, LSU -3, West Virginia +10.5 in Charlotte.",
-      "Do not lay 20-plus on the road. Do not lay 28-plus at home. Do not lay 17.5 on the road just because BYU covered 7 last week.",
-      "Ole Miss opened -1.5 and flipped to LSU -3. Take LSU -3 as a lean, not a unit. Return games are chaos."
+      "Keep fading 20-plus road. Keep firing 6-to-14 after the market walks toward the dog.",
+      "50-plus home after a loss: fade pregame, faster kill if Q1 is a track meet.",
+      "Saturday still: do not lay 20-plus road. Do not auto-bet the plus on Texas -30.5."
     ]
   }
 };

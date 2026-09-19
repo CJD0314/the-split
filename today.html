@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- Today</title>
-<link rel="stylesheet" href="sport.css?v=13"/>
+<link rel="stylesheet" href="sport.css?v=17"/>
 <style>
 .card-date{color:#3dd68c;font-size:15px;font-weight:800;letter-spacing:.08em;margin:4px 0 0}
 .unit{background:#0e141c;border:1px solid #3dd68c;border-radius:12px;padding:12px;margin:8px 0}
@@ -52,23 +52,37 @@
 <div class="body" id="fades"></div>
 </details>
 </div>
-<script src="tracker.js?v=40"></script>
+<script src="tracker.js?v=41"></script>
 <script src="stamp.js?v=6"></script>
 <script>
 const KICK = {
-  "DET at BUF":"8:15 p.m. ET",
-  "MIL at PIT":"12:35 p.m. ET",
-  "LAD at CIN":"12:40 p.m. ET",
-  "ATH at TB":"1:10 p.m. ET",
-  "SD at COL":"3:10 p.m. ET",
-  "PHI at NYM":"7:15 p.m. ET",
-  "KC at HOU":"7:15 p.m. ET",
-  "DET at CWS":"7:40 p.m. ET",
-  "BOS at TEX":"8:05 p.m. ET",
-  "MIN at LAA":"9:38 p.m. ET"
+  "UGA at ARK":"Noon ET",
+  "KENT at OSU":"Noon ET",
+  "BUFF at PSU":"Noon ET",
+  "UK at TAMU":"3:30 p.m. ET",
+  "FSU at ALA":"3:30 p.m. ET",
+  "USC at RUTG":"3:30 p.m. ET",
+  "SMU at LOU":"3:30 p.m. ET",
+  "USU at UTAH":"3:30 p.m. ET",
+  "UTEP at MICH":"3:30 p.m. ET",
+  "WKU at IU":"4:00 p.m. ET",
+  "UNI at IOWA":"4:00 p.m. ET",
+  "TROY at MIZ":"7:00 p.m. ET",
+  "LSU at MISS":"7:30 p.m. ET",
+  "MSU at ND":"7:30 p.m. ET",
+  "UNM at OU":"7:30 p.m. ET",
+  "BYU at CSU":"7:30 p.m. ET",
+  "WVU vs UVA":"7:30 p.m. ET",
+  "KENN at TENN":"7:45 p.m. ET",
+  "UTSA at TEX":"8:00 p.m. ET",
+  "HOU at TTU":"7:00 p.m. ET",
+  "MIA at WAKE":"7:00 p.m. ET",
+  "PORT at ORE":"10:15 p.m. ET",
+  "SYR at PITT":"7:30 p.m. ET"
 };
 function kickMin(game){
   const t = KICK[game] || "";
+  if (/noon/i.test(t)) return 12 * 60;
   const m = t.match(/(\d+):(\d+)\s*(a\.m\.|p\.m\.)/i);
   if (!m) return 9999;
   let h = Number(m[1]); const min = Number(m[2]);
@@ -105,7 +119,7 @@ function lineOf(b){
 }
 function typeRank(b){
   const t = typeOf(b);
-  if (t === "ml" || t === "spread") return 0;
+  if (t === "ml" || t === "spread" || t === "side") return 0;
   if (t === "total") return 1;
   if (t === "hr" || t === "td") return 2;
   return 3;
@@ -167,14 +181,14 @@ async function paintTodayCard(){
 
   const dayBets = (data.bets || []).filter(function(b){ return b.date === day; });
   const units = dayBets.filter(function(b){
-    return confOf(b) === "BET" && (typeOf(b) === "ml" || typeOf(b) === "spread" || !b.type);
+    return confOf(b) === "BET" && (typeOf(b) === "ml" || typeOf(b) === "spread" || typeOf(b) === "side" || !b.type);
   }).slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
 
   const unitsEl = document.getElementById("units");
   if (unitsEl){
     unitsEl.innerHTML = units.length
       ? `<p class="count">${units.length} unit${units.length===1?"":"s"}. Leans live on the slate.</p>` + units.map(unitCard).join("")
-      : `<p class="note">No BET tickets dated ${day}.</p>`;
+      : `<p class="note">No BET tickets dated ${day}. Leans and fades are on the slate.</p>`;
   }
 
   const tickets = document.getElementById("tickets");
@@ -185,7 +199,8 @@ async function paintTodayCard(){
       if (!rows.length) return "";
       const bets = rows.filter(function(b){ return confOf(b)==="BET"; }).length;
       const leans = rows.filter(function(b){ return confOf(b)==="LEAN"; }).length;
-      return section(sp, `<p class="count">${bets} BET · ${leans} LEAN</p>` + groupGames(rows));
+      const fades = rows.filter(function(b){ return confOf(b)==="FADE"; }).length;
+      return section(sp, `<p class="count">${bets} BET · ${leans} LEAN · ${fades} FADE</p>` + groupGames(rows));
     }).filter(Boolean);
     tickets.innerHTML = html.length ? html.join("") : `<p class="note">No tickets dated ${day}.</p>`;
   }

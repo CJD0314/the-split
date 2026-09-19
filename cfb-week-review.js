@@ -52,9 +52,11 @@ const CFB_WEEK_NOTES = {
       "50-plus home fade used a half kill. Q1 28-0 already killed it. Next 50-plus: kill on a 21-0 first quarter, not only at half."
     ],
     next: [
-      "Keep fading 20-plus road. Keep firing 6-to-14 after the market walks toward the dog.",
-      "50-plus home after a loss: fade pregame, faster kill if Q1 is a track meet.",
-      "Saturday still: do not lay 20-plus road. Do not auto-bet the plus on Texas -30.5."
+      "20-plus road = FADE. Kill is 1H (28 or +21). Miami template.",
+      "28-plus / 50-plus home paycheck = FADE. Kill is Q1 (21-0 or +21 and ones still sprinting). Oregon template. Do not wait for half.",
+      "Plus is PASS unless two written reasons. Houston +7.5 is the unit template. Cover percent is not a second reason.",
+      "Ones-sit is a score band, not a coach read. Do not bet that Sark sits them at Texas.",
+      "Do not tilt into betting 50-point pluses because Oregon covered 84-0."
     ]
   }
 };

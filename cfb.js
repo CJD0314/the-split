@@ -11,15 +11,16 @@ const CFB_OPEN = {
   "cfb-week-2-uva-norf.html": {sp:"not confirmed", tot:"not confirmed", ml:"not confirmed", move:"final"},
   "cfb-week-2-miz-ku.html": {sp:"not confirmed", tot:"not confirmed", ml:"not confirmed", move:"final"},
   "cfb-week-3-syr-pitt.html": {sp:"PITT -6.5", tot:"54.5", ml:"not confirmed", move:"PITT -6.5 to -10.5"},
-  "cfb-week-3-mia-wake.html": {sp:"MIA -19.5", tot:"50.5", ml:"MIA heavy", move:"held a 20-point road number"},
-  "cfb-week-3-hou-ttu.html": {sp:"TTU -12.5", tot:"not confirmed", ml:"not confirmed", move:"TTU -12.5 to -7.5"},
+  "cfb-week-3-mia-wake.html": {sp:"MIA -19.5", tot:"50.5", ml:"MIA heavy", move:"FADE WIN · 33-20"},
+  "cfb-week-3-hou-ttu.html": {sp:"TTU -12.5", tot:"not confirmed", ml:"not confirmed", move:"BET WIN · 28-26"},
   "cfb-week-3-uk-tamu.html": {sp:"TAMU -16.5", tot:"48.5", ml:"TAMU heavy", move:"held"},
   "cfb-week-3-fsu-ala.html": {sp:"ALA -19.5", tot:"52.5", ml:"ALA heavy", move:"held 19.5"},
   "cfb-week-3-smu-lou.html": {sp:"LOU -1.5", tot:"56.5", ml:"LOU -118 / SMU +100", move:"held a pickem"},
   "cfb-week-3-lsu-miss.html": {sp:"MISS -1.5", tot:"57.5", ml:"MISS favored at open", move:"flipped to LSU -3"},
   "cfb-week-3-byu-csu.html": {sp:"BYU -18", tot:"52.5", ml:"BYU heavy", move:"held a two-score road number"},
   "cfb-week-3-wvu-uva.html": {sp:"UVA -10.5", tot:"54.5", ml:"UVA -380 / WVU +300", move:"held 10.5 in Charlotte"},
-  "cfb-week-3-utsa-tex.html": {sp:"TEX -29.5", tot:"57.5", ml:"TEX -6500 / UTSA +2000", move:"TEX -29.5 to -30.5"}
+  "cfb-week-3-utsa-tex.html": {sp:"TEX -29.5", tot:"57.5", ml:"TEX -6500 / UTSA +2000", move:"TEX -29.5 to -30.5"},
+  "cfb-week-3-port-ore.html": {sp:"ORE -57.5", tot:"67.5", ml:"ORE heavy", move:"FADE LOSS · 84-0"}
 };
 const CFB = {
 1: [
@@ -28,9 +29,9 @@ const CFB = {
 2: [],
 3: [
   ["THU SEPT 17",183,221,"Syracuse at Pittsburgh","7:30 p.m. ET ESPN","PITT -10.5 / SYR +10.5","51.5","PITT -380 / SYR +300","cfb-week-3-syr-pitt.html","","LEAN · PITT -10.5"],
-  ["FRI SEPT 18",2390,154,"#5 Miami at Wake Forest","7:30 p.m. ET ESPN","MIA -20.5 / WAKE +20.5","55.5","MIA -1450 / WAKE +850","cfb-week-3-mia-wake.html","","FADE · 20-plus road"],
-  ["FRI SEPT 18",248,2641,"#22 Houston at #13 Texas Tech","8:00 p.m. ET FOX","HOU +7.5 / TTU -7.5","52.5","TTU -280 / HOU +230","cfb-week-3-hou-ttu.html","","BET · HOU +7.5"],
-  ["FRI SEPT 18",275,248,"Portland State at #21 Oregon","10:30 p.m. ET BTN","ORE -57.5 / PORT +57.5","67.5","ORE heavy","cfb-week-3-port-ore.html","","FADE · paycheck"],
+  ["FRI SEPT 18",2390,154,"Miami 33, Wake Forest 20","FINAL","MIA -20.5 / WAKE +20.5","55.5","MIA -1450 / WAKE +850","cfb-week-3-mia-wake.html","cfb-week-3-mia-wake-review.html","FADE WIN"],
+  ["FRI SEPT 18",248,2641,"Texas Tech 28, Houston 26","FINAL","HOU +7.5 / TTU -7.5","52.5","TTU -280 / HOU +230","cfb-week-3-hou-ttu.html","cfb-week-3-hou-ttu-review.html","BET WIN"],
+  ["FRI SEPT 18",275,248,"Oregon 84, Portland State 0","FINAL","ORE -58.5 / PORT +58.5","71.5","ORE heavy","cfb-week-3-port-ore.html","cfb-week-3-port-ore-review.html","FADE LOSS"],
   ["SAT SEPT 19",61,8,"#2 Georgia at Arkansas","Noon ET ABC","UGA -24.5 / ARK +24.5","54.5","UGA heavy","cfb-week-3-uga-ark.html","","FADE · 20-plus road"],
   ["SAT SEPT 19",2309,194,"Kent State at #6 Ohio State","Noon ET FOX","KENT +52.5 / OSU -52.5","59.5","OSU heavy","cfb-week-3-kent-osu.html","","FADE · paycheck"],
   ["SAT SEPT 19",2084,213,"Buffalo at #14 Penn State","Noon ET BTN","BUFF +41.5 / PSU -41.5","50.5","PSU heavy","cfb-week-3-buff-psu.html","","FADE · paycheck"],

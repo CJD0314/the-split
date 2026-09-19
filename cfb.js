@@ -10,7 +10,7 @@ const CFB_OPEN = {
   "cfb-week-2-lou-vill.html": {sp:"not confirmed", tot:"not confirmed", ml:"not confirmed", move:"final"},
   "cfb-week-2-uva-norf.html": {sp:"not confirmed", tot:"not confirmed", ml:"not confirmed", move:"final"},
   "cfb-week-2-miz-ku.html": {sp:"not confirmed", tot:"not confirmed", ml:"not confirmed", move:"final"},
-  "cfb-week-3-syr-pitt.html": {sp:"PITT -6.5", tot:"54.5", ml:"not confirmed", move:"PITT -6.5 to -10.5"},
+  "cfb-week-3-syr-pitt.html": {sp:"PITT -6.5", tot:"54.5", ml:"not confirmed", move:"LEAN WIN · 27-13"},
   "cfb-week-3-mia-wake.html": {sp:"MIA -19.5", tot:"50.5", ml:"MIA heavy", move:"FADE WIN · 33-20"},
   "cfb-week-3-hou-ttu.html": {sp:"TTU -12.5", tot:"not confirmed", ml:"not confirmed", move:"BET WIN · 28-26"},
   "cfb-week-3-uk-tamu.html": {sp:"TAMU -16.5", tot:"48.5", ml:"TAMU heavy", move:"held"},
@@ -28,7 +28,7 @@ const CFB = {
 ],
 2: [],
 3: [
-  ["THU SEPT 17",183,221,"Syracuse at Pittsburgh","7:30 p.m. ET ESPN","PITT -10.5 / SYR +10.5","51.5","PITT -380 / SYR +300","cfb-week-3-syr-pitt.html","","LEAN · PITT -10.5"],
+  ["THU SEPT 17",183,221,"Pitt 27, Syracuse 13","FINAL","PITT -10.5 / SYR +10.5","51.5","PITT -380 / SYR +300","cfb-week-3-syr-pitt.html","cfb-week-3-syr-pitt-review.html","LEAN WIN"],
   ["FRI SEPT 18",2390,154,"Miami 33, Wake Forest 20","FINAL","MIA -20.5 / WAKE +20.5","55.5","MIA -1450 / WAKE +850","cfb-week-3-mia-wake.html","cfb-week-3-mia-wake-review.html","FADE WIN"],
   ["FRI SEPT 18",248,2641,"Texas Tech 28, Houston 26","FINAL","HOU +7.5 / TTU -7.5","52.5","TTU -280 / HOU +230","cfb-week-3-hou-ttu.html","cfb-week-3-hou-ttu-review.html","BET WIN"],
   ["FRI SEPT 18",275,248,"Oregon 84, Portland State 0","FINAL","ORE -58.5 / PORT +58.5","71.5","ORE heavy","cfb-week-3-port-ore.html","cfb-week-3-port-ore-review.html","FADE LOSS"],
@@ -76,10 +76,10 @@ function cfbCard(row){
   const mv = src.move || move || "not confirmed";
   const line = String(spread||"").split(" / ")[0];
   const dive = (href && DIVE_READY[href])
-    ? '<a class="g-btn g-btn-on" href="'+href+'">FULL BREAKDOWN</a>'
+    ? '<a class="g-btn" href="'+href+'">FULL BREAKDOWN</a>'
     : (href ? '<a class="g-btn" href="'+href+'">GAME</a>' : "");
   const revHref = reviewLink(href, review);
-  const rev = revHref ? '<a class="g-btn" href="'+revHref+'">REVIEW</a>' : "";
+  const rev = revHref ? '<a class="g-btn g-btn-on" href="'+revHref+'">REVIEW</a>' : "";
   const actions = (dive || rev) ? '<div class="g-actions">'+dive+rev+'</div>' : "";
   return '<details class="g-card">'
     + '<summary class="g-head"><img src="'+CFB_LOGO(a)+'" alt=""><img src="'+CFB_LOGO(h)+'" alt="">'

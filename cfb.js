@@ -32,25 +32,25 @@ const CFB = {
   ["FRI SEPT 18",2390,154,"Miami 33, Wake Forest 20","FINAL","MIA -20.5 / WAKE +20.5","55.5","MIA -1450 / WAKE +850","cfb-week-3-mia-wake.html","cfb-week-3-mia-wake-review.html","FADE WIN"],
   ["FRI SEPT 18",248,2641,"Texas Tech 28, Houston 26","FINAL","HOU +7.5 / TTU -7.5","52.5","TTU -280 / HOU +230","cfb-week-3-hou-ttu.html","cfb-week-3-hou-ttu-review.html","BET WIN"],
   ["FRI SEPT 18",275,248,"Oregon 84, Portland State 0","FINAL","ORE -58.5 / PORT +58.5","71.5","ORE heavy","cfb-week-3-port-ore.html","cfb-week-3-port-ore-review.html","FADE LOSS"],
-  ["SAT SEPT 19",61,8,"#2 Georgia at Arkansas","Noon ET ABC","UGA -24.5 / ARK +24.5","54.5","UGA heavy","cfb-week-3-uga-ark.html","","FADE · 20-plus road"],
-  ["SAT SEPT 19",2309,194,"Kent State at #6 Ohio State","Noon ET FOX","KENT +52.5 / OSU -52.5","59.5","OSU heavy","cfb-week-3-kent-osu.html","","FADE · paycheck"],
-  ["SAT SEPT 19",2084,213,"Buffalo at #14 Penn State","Noon ET BTN","BUFF +41.5 / PSU -41.5","50.5","PSU heavy","cfb-week-3-buff-psu.html","","FADE · paycheck"],
-  ["SAT SEPT 19",96,245,"Kentucky at #9 Texas A&M","3:30 p.m. ET ESPN","UK +16.5 / TAMU -16.5","50.5","TAMU -700 / UK +500","cfb-week-3-uk-tamu.html","","LEAN · TAMU -16.5"],
-  ["SAT SEPT 19",52,333,"Florida State at #10 Alabama","3:30 p.m. ET ABC","FSU +19.5 / ALA -19.5","48.5","ALA heavy","cfb-week-3-fsu-ala.html","","FADE · 19.5 juice"],
-  ["SAT SEPT 19",30,164,"#12 USC at Rutgers","3:30 p.m. ET CBS","USC -23.5 / RUTG +23.5","59.5","USC heavy","cfb-week-3-usc-rutg.html","","FADE · 20-plus road"],
-  ["SAT SEPT 19",2567,97,"#16 SMU at #23 Louisville","3:30 p.m. ET ESPN2","SMU +1.5 / LOU -1.5","59.5","LOU -120 / SMU +100","cfb-week-3-smu-lou.html","","LEAN · SMU +1.5"],
-  ["SAT SEPT 19",328,254,"Utah State at #17 Utah","3:30 p.m. ET FOX","USU +28.5 / UTAH -28.5","56.5","UTAH heavy","cfb-week-3-usu-utah.html","","FADE · 28-plus"],
-  ["SAT SEPT 19",2638,130,"UTEP at #19 Michigan","3:30 p.m. ET BTN","UTEP +35.5 / MICH -35.5","49.5","MICH heavy","cfb-week-3-utep-mich.html","","FADE · paycheck"],
-  ["SAT SEPT 19",98,84,"W. Kentucky at #4 Indiana","4:00 p.m. ET Peacock","WKU +44.5 / IU -44.5","60.5","IU heavy","cfb-week-3-wku-iu.html","","FADE · paycheck"],
-  ["SAT SEPT 19",270,2294,"Northern Iowa at #18 Iowa","4:00 p.m. ET FS1","UNI +40.5 / IOWA -40.5","49.5","IOWA heavy","cfb-week-3-uni-iowa.html","","FADE · paycheck"],
-  ["SAT SEPT 19",2653,142,"Troy at #20 Missouri","7:00 p.m. ET SECN+","TROY +26.5 / MIZ -26.5","49.5","MIZ heavy","cfb-week-3-troy-miz.html","","FADE · 26-plus"],
-  ["SAT SEPT 19",99,145,"#7 LSU at #8 Ole Miss","7:30 p.m. ET ABC","LSU -3 / MISS +3","58.5","LSU -155 / MISS +130","cfb-week-3-lsu-miss.html","","LEAN · LSU -3"],
-  ["SAT SEPT 19",127,87,"Michigan State at #3 Notre Dame","7:30 p.m. ET NBC","MSU +29.5 / ND -29.5","52.5","ND heavy","cfb-week-3-msu-nd.html","","FADE · 28-plus"],
-  ["SAT SEPT 19",167,201,"New Mexico at #24 Oklahoma","7:30 p.m. ET ESPN2","UNM +22.5 / OU -22.5","46.5","OU heavy","cfb-week-3-unm-ou.html","","FADE · 20-plus"],
-  ["SAT SEPT 19",252,36,"#11 BYU at Colorado State","7:30 p.m. ET CBS","BYU -17.5 / CSU +17.5","52.5","BYU -750 / CSU +520","cfb-week-3-byu-csu.html","","FADE · road 17.5"],
-  ["SAT SEPT 19",277,258,"West Virginia vs #25 Virginia","7:30 p.m. ET ACCN","WVU +10.5 / UVA -10.5","53.5","UVA -380 / WVU +300","cfb-week-3-wvu-uva.html","","LEAN · WVU +10.5"],
-  ["SAT SEPT 19",249,2633,"Kennesaw State at #15 Tennessee","7:45 p.m. ET SECN","KENN +35.5 / TENN -35.5","59.5","TENN heavy","cfb-week-3-kenn-tenn.html","","FADE · paycheck"],
-  ["SAT SEPT 19",2636,251,"UTSA at #1 Texas","8:00 p.m. ET SECN+","UTSA +30.5 / TEX -30.5","58.5","TEX -5000 / UTSA +2200","cfb-week-3-utsa-tex.html","","FADE · 30-plus"]
+  ["SAT SEPT 19",61,8,"#2 Georgia at Arkansas","Noon ET · ABC","UGA -24.5 / ARK +24.5","54.5","UGA heavy","cfb-week-3-uga-ark.html","","FADE · 20-plus road"],
+  ["SAT SEPT 19",2309,194,"Kent State at #6 Ohio State","Noon ET · FOX","KENT +52.5 / OSU -52.5","59.5","OSU heavy","cfb-week-3-kent-osu.html","","FADE · paycheck"],
+  ["SAT SEPT 19",2084,213,"Buffalo at #14 Penn State","Noon ET · BTN","BUFF +41.5 / PSU -41.5","50.5","PSU heavy","cfb-week-3-buff-psu.html","","FADE · paycheck"],
+  ["SAT SEPT 19",96,245,"Kentucky at #9 Texas A&M","3:30 ET · ESPN","UK +16.5 / TAMU -16.5","50.5","TAMU -700 / UK +500","cfb-week-3-uk-tamu.html","","LEAN · TAMU -16.5"],
+  ["SAT SEPT 19",52,333,"Florida State at #10 Alabama","3:30 ET · ABC","FSU +19.5 / ALA -19.5","48.5","ALA heavy","cfb-week-3-fsu-ala.html","","FADE · 19.5 juice"],
+  ["SAT SEPT 19",30,164,"#12 USC at Rutgers","3:30 ET · CBS","USC -23.5 / RUTG +23.5","59.5","USC heavy","cfb-week-3-usc-rutg.html","","FADE · 20-plus road"],
+  ["SAT SEPT 19",2567,97,"#16 SMU at #23 Louisville","3:30 ET · ESPN2","SMU +1.5 / LOU -1.5","59.5","LOU -120 / SMU +100","cfb-week-3-smu-lou.html","","LEAN · SMU +1.5"],
+  ["SAT SEPT 19",328,254,"Utah State at #17 Utah","3:30 ET · FOX","USU +28.5 / UTAH -28.5","56.5","UTAH heavy","cfb-week-3-usu-utah.html","","FADE · 28-plus"],
+  ["SAT SEPT 19",2638,130,"UTEP at #19 Michigan","3:30 ET · BTN","UTEP +35.5 / MICH -35.5","49.5","MICH heavy","cfb-week-3-utep-mich.html","","FADE · paycheck"],
+  ["SAT SEPT 19",98,84,"W. Kentucky at #4 Indiana","4:00 ET · Peacock","WKU +44.5 / IU -44.5","60.5","IU heavy","cfb-week-3-wku-iu.html","","FADE · paycheck"],
+  ["SAT SEPT 19",246,229,"Northern Iowa at #18 Iowa","4:00 ET · FS1","UNI +38.5 / IOWA -38.5","49.5","IOWA heavy","cfb-week-3-uni-iowa.html","","FADE · paycheck"],
+  ["SAT SEPT 19",2653,142,"Troy at #20 Missouri","7:00 ET · SECN+","TROY +27.5 / MIZ -27.5","50.5","MIZ heavy","cfb-week-3-troy-miz.html","","FADE · 28-plus"],
+  ["SAT SEPT 19",99,145,"#7 LSU at #8 Ole Miss","7:30 ET · ABC","LSU -3 / MISS +3","58.5","LSU -155 / MISS +130","cfb-week-3-lsu-miss.html","","LEAN · LSU -3"],
+  ["SAT SEPT 19",127,87,"Michigan State at #3 Notre Dame","7:30 ET · NBC","MSU +29 / ND -29","52.5","ND heavy","cfb-week-3-msu-nd.html","","FADE · 28-plus"],
+  ["SAT SEPT 19",167,201,"New Mexico at #24 Oklahoma","7:30 ET · ESPN2","UNM +21.5 / OU -21.5","45.5","OU heavy","cfb-week-3-unm-ou.html","","FADE · 20-plus"],
+  ["SAT SEPT 19",252,36,"#11 BYU at Colorado State","7:30 ET · CBS","BYU -17.5 / CSU +17.5","52.5","BYU -1100 / CSU +760","cfb-week-3-byu-csu.html","","FADE · road 17.5"],
+  ["SAT SEPT 19",277,258,"West Virginia vs #25 Virginia","7:30 ET · ACCN","WVU +10.5 / UVA -10.5","53.5","UVA -420 / WVU +320","cfb-week-3-wvu-uva.html","","LEAN · WVU +10.5"],
+  ["SAT SEPT 19",338,2633,"Kennesaw State at #15 Tennessee","7:45 ET · SECN","KENN +35.5 / TENN -35.5","60.5","TENN heavy","cfb-week-3-kenn-tenn.html","","FADE · paycheck"],
+  ["SAT SEPT 19",2636,251,"UTSA at #1 Texas","8:00 ET · SECN+","UTSA +30.5 / TEX -30.5","58.5","TEX -5000 / UTSA +2200","cfb-week-3-utsa-tex.html","","FADE · 30-plus"]
 ]
 };
 function reviewLink(href, review){
@@ -67,6 +67,26 @@ const DIVE_READY = {
   "cfb-week-3-troy-miz.html":1,"cfb-week-3-msu-nd.html":1,"cfb-week-3-unm-ou.html":1,
   "cfb-week-3-kenn-tenn.html":1,"cfb-week-3-utsa-tex.html":1
 };
+function kickSort(when, day){
+  const d = String(day||"").toUpperCase();
+  let base = 0;
+  if (d.indexOf("THU") === 0) base = 0;
+  else if (d.indexOf("FRI") === 0) base = 10000;
+  else if (d.indexOf("SAT") === 0) base = 20000;
+  else if (d.indexOf("SUN") === 0) base = 30000;
+  else base = 40000;
+  const w = String(when||"").toUpperCase();
+  if (w.indexOf("FINAL") === 0) return base;
+  if (w.indexOf("NOON") === 0) return base + 12*60;
+  const m = w.match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/);
+  if (!m) return base + 9999;
+  let h = parseInt(m[1],10);
+  const min = parseInt(m[2],10);
+  const ap = m[3] || "PM";
+  if (ap === "PM" && h < 12) h += 12;
+  if (ap === "AM" && h === 12) h = 0;
+  return base + h*60 + min;
+}
 function cfbCard(row){
   const [day,a,h,title,when,spread,total,ml,href,review,move] = row;
   const src = CFB_OPEN[href] || {};
@@ -83,8 +103,8 @@ function cfbCard(row){
   const actions = (dive || rev) ? '<div class="g-actions">'+dive+rev+'</div>' : "";
   return '<details class="g-card">'
     + '<summary class="g-head"><img src="'+CFB_LOGO(a)+'" alt=""><img src="'+CFB_LOGO(h)+'" alt="">'
-    + '<div class="g-copy"><b>'+title+'</b><span class="g-meta">'+line+' \u00b7 '+mv+'</span></div></summary>'
-    + '<div class="g-more"><p class="note">'+day+' \u00b7 '+when+'</p>'+actions
+    + '<div class="g-copy"><b>'+title+'</b><span class="g-meta">'+when+' · '+line+' · '+mv+'</span></div></summary>'
+    + '<div class="g-more"><p class="note">'+day+' · '+when+'</p>'+actions
     + '<div class="mini">'
     + '<div><b>SPREAD</b><span>'+spread+'</span><span>Open '+openSp+'</span></div>'
     + '<div><b>TOTAL</b><span>'+(total||"--")+'</span><span>Open '+openTot+'</span></div>'
@@ -100,7 +120,9 @@ function paintCfbWeek(week){
   if (head) head.textContent = "WEEK " + week;
   const box = document.getElementById("cfb-slate");
   if (!box) return;
-  const list = CFB[week] || [];
+  const list = (CFB[week] || []).slice().sort(function(a,b){
+    return kickSort(a[4], a[0]) - kickSort(b[4], b[0]);
+  });
   if (!list.length){
     box.innerHTML = "<p class='note'>That week posts when the AP slate locks.</p>";
     return;

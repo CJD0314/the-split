@@ -34,21 +34,7 @@ function paintClassicDfs(){
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>DK salaries checked 9/20. McLaurin $5,200. Tuten $5,600. Optimizer wins if it disagrees.</p>"+
-      "<p class='note-lab'>1 P.M. INACTIVES · SKILL</p>"+
-      "<ul class='notes'>"+li([
-        "NO: Kendre Miller. Olave and Johnson are active.",
-        "BAL: Zay Flowers. Madubuike.",
-        "NE: AJ Brown (IR). Doubs and Henry and Maye are active.",
-        "PIT: Michael Pittman. Joey Porter Jr.",
-        "ATL: Tua. Penix. Bijan is active. Rush starts.",
-        "CHI / MIN: Kyler Murray. Jauan Jennings. Jordan Mason.",
-        "HOU: Nico Collins. Clowney.",
-        "GB: Jacobs (exempt). Hargrave. Watson and Love are active.",
-        "NYJ: Minkah. Omar Cooper IR. Hall is active.",
-        "PHI: Greenard. Elijah Moore. Saquon and Goedert are active.",
-        "CIN: Burrow is active. Nico is the Texans out."
-      ])+"</ul>"+
+      "<p class='note'>Set MAX % in the optimizer to the Cap column. Doubs 14 (9%). Without the reverse rule he will print at 80% as the cheap WR.</p>"+
       "<p class='note-lab'>QB · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
@@ -73,12 +59,12 @@ function paintClassicDfs(){
       "<p class='note-lab'>WR</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Emeka Egbuka","$6,400","14.6","5.0%","40","TB. Mayfield."],
-        ["Christian Watson","$6,200","15.6","11.3%","20","GB. Love."],
-        ["Chris Olave","$7,200","15.6","8.5%","35","NO. Shough."],
-        ["Romeo Doubs","$5,000","11.2","2.7%","14","NE. Maye."],
-        ["Terry McLaurin","$5,200","12.9","10.8%","20","WSH. Daniels."],
-        ["CeeDee Lamb","$7,300","19.4","20.1%","12","DAL. Dak copies."],
+        ["Emeka Egbuka","$6,400","14.6","5.0%","40","TB. Mayfield only."],
+        ["Christian Watson","$6,200","15.6","11.3%","20","GB. Love only."],
+        ["Chris Olave","$7,200","15.6","8.5%","35","NO. Shough only."],
+        ["Romeo Doubs","$5,000","11.2","2.7%","14","NE. Maye only. Cap 9%."],
+        ["Terry McLaurin","$5,200","12.9","10.8%","20","WSH. Daniels only."],
+        ["CeeDee Lamb","$7,300","19.4","20.1%","12","DAL. Dak only."],
         ["Ja'Marr Chase","$7,600","18.0","18.4%","8","CIN."],
         ["Justin Jefferson","$7,800","20.2","15.9%","8","MIN."]
       ])+"</table>"+
@@ -88,7 +74,7 @@ function paintClassicDfs(){
         ["Juwan Johnson","$3,900","11.5","6.5%","50","NO. Shough."],
         ["Dallas Goedert","$4,800","11.7","3.9%","45","PHI."],
         ["Trey McBride","$6,900","16.7","12.0%","40","ARI."],
-        ["Hunter Henry","$4,000","9.0","4.5%","15","NE."]
+        ["Hunter Henry","$4,000","9.0","4.5%","15","NE. Maye game."]
       ])+"</table>"+
       "<p class='note-lab'>DST · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
@@ -101,21 +87,29 @@ function paintClassicDfs(){
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>Group + Manual. Caps live in PLAYER POOL. Trust DK salaries in the optimizer over this table.</p>"+
+      "<p class='note'>Set Max Exposure to the Cap %. One-way QB→WR does not cap the cheap WR. Use both directions.</p>"+
       "<p class='note-lab'>FORCE · IF AT LEAST 1 → THEN AT LEAST 1</p>"+
       "<table class='sd-table'><tr><th>If</th><th>Then</th></tr>"+
       "<tr><td>Mayfield</td><td>Egbuka</td></tr>"+
+      "<tr><td>Egbuka</td><td>Mayfield</td></tr>"+
       "<tr><td>Shough</td><td>Olave + Johnson</td></tr>"+
+      "<tr><td>Olave</td><td>Shough</td></tr>"+
       "<tr><td>Daniels</td><td>McLaurin</td></tr>"+
+      "<tr><td>McLaurin</td><td>Daniels</td></tr>"+
       "<tr><td>Love</td><td>Watson</td></tr>"+
+      "<tr><td>Watson</td><td>Love</td></tr>"+
       "<tr><td>Maye</td><td>Doubs</td></tr>"+
+      "<tr><td>Doubs</td><td>Maye</td></tr>"+
       "<tr><td>Dak</td><td>Lamb</td></tr>"+
+      "<tr><td>Lamb</td><td>Dak</td></tr>"+
       "</table>"+
       "<p class='note-lab'>NEVER · IF AT LEAST 1 → THEN NO MORE THAN 0</p>"+
       "<table class='sd-table'><tr><th>If</th><th>No more than 0</th></tr>"+
       "<tr><td>Shough</td><td>Ravens DST</td></tr>"+
       "<tr><td>Bijan</td><td>Chase + Jefferson</td></tr>"+
-      "</table>";
+      "</table>"+
+      "<p class='note-lab'>MAX EXPOSURE IN THE BUILDER</p>"+
+      "<p class='note'>Maye 9. Doubs 9. Daniels 13. McLaurin 13. Love 13. Watson 13. Mayfield 27. Egbuka 27. Shough 21. Olave 23. Dak 8. Lamb 8.</p>";
   }
 }
 paintClassicDfs();

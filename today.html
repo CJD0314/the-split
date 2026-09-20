@@ -2,27 +2,32 @@
 <html lang="en"><head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Split -- Today</title>
-<link rel="stylesheet" href="sport.css?v=17"/>
+<link rel="stylesheet" href="sport.css?v=18"/>
 <style>
-.card-date{color:#3dd68c;font-size:15px;font-weight:800;letter-spacing:.08em;margin:4px 0 0}
-.unit{background:#0e141c;border:1px solid #3dd68c;border-radius:12px;padding:12px;margin:8px 0}
-.unit .who{font-size:18px;font-weight:800;line-height:1.2}
-.unit .num{color:#3dd68c;font-size:16px;font-weight:800;margin-top:4px}
-.unit .meta{color:#93a3b5;font-size:12px;margin-top:4px}
-.unit a{color:#d4a017;font-weight:800;font-size:12px}
-.slate{background:#0e141c;border:1px solid #2a3644;border-radius:12px;padding:12px;margin:8px 0}
-.slate-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
-.slate-h b{font-size:15px}
-.slate-h .when{color:#93a3b5;font-size:12px}
-.tick{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 0;border-top:1px solid #2a3644}
-.tick .line{font-weight:800;font-size:14px}
-.tick .kind{color:#93a3b5;font-size:11px;letter-spacing:.08em;font-weight:800;margin-right:6px}
-.stamp{display:inline-block;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em}
+.card-date{color:#3dd68c;font-size:13px;font-weight:800;letter-spacing:.1em;margin:2px 0 0}
+.window{margin:14px 0 6px;color:#93a3b5;font-size:11px;font-weight:800;letter-spacing:.14em}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:center;background:#0e141c;border:1px solid #2a3644;border-radius:12px;padding:12px;margin:8px 0}
+.row .game{font-size:16px;font-weight:800;line-height:1.2}
+.row .pick{font-size:15px;font-weight:800;color:#f3f7fb;margin-top:3px}
+.row .fade-line{color:#ff8a8a;font-size:12px;font-weight:700;margin-top:3px}
+.row .meta{color:#93a3b5;font-size:12px;margin-top:4px}
+.row .right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.row a{color:#d4a017;font-weight:800;font-size:11px;letter-spacing:.06em;text-decoration:none}
+.stamp{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em}
 .stamp.bet{background:#0d2a1c;color:#3dd68c}
 .stamp.lean{background:#3d2a00;color:#d4a017}
 .stamp.fade{background:#3a1212;color:#ff6b6b}
-.count{color:#93a3b5;font-size:12px;margin:0 0 8px}
-.slate a{color:#d4a017;font-weight:800;font-size:12px}
+.stamp.pass{background:#1a2230;color:#93a3b5}
+.count{color:#93a3b5;font-size:13px;margin:0 0 10px}
+.unit{background:#0e141c;border:1px solid #3dd68c;border-radius:12px;padding:12px;margin:8px 0}
+.unit .who{font-size:18px;font-weight:800}
+.unit .num{color:#3dd68c;font-size:16px;font-weight:800;margin-top:4px}
+.unit .meta{color:#93a3b5;font-size:12px;margin-top:4px}
+.unit a{color:#d4a017;font-weight:800;font-size:12px}
+@media(max-width:520px){
+  .row{grid-template-columns:1fr;padding:12px}
+  .row .right{flex-direction:row;justify-content:space-between;align-items:center;text-align:left}
+}
 </style>
 </head>
 <body>
@@ -39,7 +44,7 @@
 <div class="card-date" id="card-date"></div>
 </header>
 <div class="wrap">
-<details class="block" id="units-block" open>
+<details class="block" id="units-block">
 <summary>UNITS</summary>
 <div class="body" id="units"><p class="note">Loading…</p></div>
 </details>
@@ -72,8 +77,9 @@ const KICK = {
   "IND at KC":"8:20 p.m. ET",
   "NYG at LAR":"Mon 8:15 p.m. ET"
 };
+function kickOf(game){ return KICK[game] || "Time TBD"; }
 function kickMin(game){
-  const t = KICK[game] || "";
+  const t = kickOf(game);
   if (/noon/i.test(t)) return 12 * 60;
   if (/^Mon/i.test(t)) return 99 * 60;
   const m = t.match(/(\d+):(\d+)\s*(a\.m\.|p\.m\.)/i);
@@ -83,6 +89,15 @@ function kickMin(game){
   if (/a/i.test(m[3]) && h === 12) h = 0;
   return h * 60 + min;
 }
+function windowLabel(game){
+  const t = kickOf(game);
+  if (/^Mon/i.test(t)) return "MONDAY NIGHT";
+  if (/1:00/.test(t)) return "1:00 P.M. ET";
+  if (/4:05/.test(t)) return "4:05 P.M. ET";
+  if (/4:25/.test(t)) return "4:25 P.M. ET";
+  if (/8:20/.test(t)) return "SUNDAY NIGHT";
+  return t.toUpperCase();
+}
 function prettyCard(iso){
   const p = (iso || "").split("-");
   if (p.length !== 3) return iso || "";
@@ -91,15 +106,6 @@ function prettyCard(iso){
 }
 function confOf(b){ return String(b.confidence || "LEAN").toUpperCase(); }
 function typeOf(b){ return String(b.type || "ml").toLowerCase(); }
-function kindLabel(b){
-  const t = typeOf(b);
-  if (t === "hr") return "HR";
-  if (t === "td") return "TD";
-  if (t === "prop") return "PROP";
-  if (t === "total") return "TOTAL";
-  if (t === "ml") return "ML";
-  return "SIDE";
-}
 function lineOf(b){
   const close = String(b.close || "").trim();
   const pick = String(b.pick || "").trim();
@@ -110,61 +116,60 @@ function lineOf(b){
   }
   return close || pick;
 }
-function typeRank(b){
-  const t = typeOf(b);
-  if (t === "ml" || t === "spread" || t === "side") return 0;
-  if (t === "total") return 1;
-  if (t === "hr" || t === "td") return 2;
-  return 3;
+function mainTicket(rows){
+  const fire = rows.filter(function(b){ return confOf(b)==="BET" || confOf(b)==="LEAN"; });
+  const side = fire.filter(function(b){ return typeOf(b)!=="ml" || typeOf(b)==="spread" || typeOf(b)==="side"; });
+  return side[0] || fire[0] || rows[0];
 }
-function confRank(b){
-  const c = confOf(b);
-  if (c === "BET") return 0;
-  if (c === "LEAN") return 1;
-  return 2;
+function fadeTicket(rows){
+  return rows.find(function(b){ return confOf(b)==="FADE"; });
 }
 function unitCard(b){
-  const kick = KICK[b.game] || "";
   const href = b.href || "#";
   return `<div class="unit">
     <div class="who">${b.game}</div>
     <div class="num">${lineOf(b)}</div>
-    <div class="meta">${kick || "Time TBD"} · $100 to win $${b.to_win || "—"}</div>
+    <div class="meta">${kickOf(b.game)} · $100 to win $${b.to_win || "—"}</div>
     <a href="${href}">FULL BREAKDOWN</a>
   </div>`;
 }
-function tickLine(b){
-  return `<div class="tick">
-    <div><span class="kind">${kindLabel(b)}</span><span class="line">${lineOf(b)}</span></div>
-    <span class="stamp ${confOf(b).toLowerCase()}">${confOf(b)}</span>
-  </div>`;
-}
-function slateCard(game, rows){
-  const kick = KICK[game] || "";
+function gameRow(game, rows){
+  const main = mainTicket(rows);
+  const fade = fadeTicket(rows);
   const href = (rows.find(function(b){ return b.href; }) || {}).href || "#";
-  const ticks = rows.slice().sort(function(a,b){
-    const tr = typeRank(a) - typeRank(b);
-    if (tr) return tr;
-    return confRank(a) - confRank(b);
-  }).map(tickLine).join("");
-  return `<div class="slate">
-    <div class="slate-h"><b>${game}</b><span class="when">${kick}</span><a href="${href}">BREAKDOWN</a></div>
-    ${ticks}
+  const stamp = confOf(main);
+  const fadeHtml = (fade && fade !== main) ? `<div class="fade-line">Stay away ${lineOf(fade)}</div>` : "";
+  return `<div class="row">
+    <div>
+      <div class="game">${game}</div>
+      <div class="pick">${lineOf(main)}</div>
+      ${fadeHtml}
+    </div>
+    <div class="right">
+      <span class="stamp ${stamp.toLowerCase()}">${stamp}</span>
+      <a href="${href}">BREAKDOWN</a>
+    </div>
   </div>`;
 }
-function groupGames(rows){
+function groupWindows(rows){
   const map = {};
   (rows || []).forEach(function(b){
     if (!b.game) return;
     map[b.game] = map[b.game] || [];
     map[b.game].push(b);
   });
-  return Object.keys(map).sort(function(a,b){ return kickMin(a) - kickMin(b); })
-    .map(function(g){ return slateCard(g, map[g]); }).join("");
-}
-function section(sp, html){
-  if (!html) return "";
-  return `<div class="day">${sp}</div>${html}`;
+  const games = Object.keys(map).sort(function(a,b){ return kickMin(a) - kickMin(b); });
+  let last = "";
+  let html = "";
+  games.forEach(function(g){
+    const win = windowLabel(g);
+    if (win !== last){
+      html += `<div class="window">${win}</div>`;
+      last = win;
+    }
+    html += gameRow(g, map[g]);
+  });
+  return html;
 }
 async function paintTodayCard(){
   const data = await loadLedger();
@@ -178,10 +183,15 @@ async function paintTodayCard(){
   }).slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
 
   const unitsEl = document.getElementById("units");
+  const unitsBlock = document.getElementById("units-block");
   if (unitsEl){
-    unitsEl.innerHTML = units.length
-      ? `<p class="count">${units.length} unit${units.length===1?"":"s"}. Leans live on the slate.</p>` + units.map(unitCard).join("")
-      : `<p class="note">No BET tickets dated ${day}. Leans and fades are on the slate.</p>`;
+    if (units.length){
+      unitsBlock.open = true;
+      unitsEl.innerHTML = `<p class="count">${units.length} unit${units.length===1?"":"s"}</p>` + units.map(unitCard).join("");
+    } else {
+      unitsBlock.open = false;
+      unitsEl.innerHTML = `<p class="note">No units today. Leans are on the slate.</p>`;
+    }
   }
 
   const tickets = document.getElementById("tickets");
@@ -190,10 +200,10 @@ async function paintTodayCard(){
     const html = order.map(function(sp){
       const rows = dayBets.filter(function(b){ return b.sport === sp && (isFire(b) || isFade(b)); });
       if (!rows.length) return "";
-      const bets = rows.filter(function(b){ return confOf(b)==="BET"; }).length;
-      const leans = rows.filter(function(b){ return confOf(b)==="LEAN"; }).length;
-      const fades = rows.filter(function(b){ return confOf(b)==="FADE"; }).length;
-      return section(sp, `<p class="count">${bets} BET · ${leans} LEAN · ${fades} FADE</p>` + groupGames(rows));
+      const games = {};
+      rows.forEach(function(b){ if (b.game) games[b.game] = true; });
+      const n = Object.keys(games).length;
+      return `<p class="count">${sp} · ${n} game${n===1?"":"s"}</p>` + groupWindows(rows);
     }).filter(Boolean);
     tickets.innerHTML = html.length ? html.join("") : `<p class="note">No tickets dated ${day}.</p>`;
   }
@@ -206,8 +216,8 @@ async function paintTodayCard(){
       return isFade(b) && !isTdHr(b) && !isPlayerProp(b) && !fireGames[b.game];
     });
     fades.innerHTML = only.length
-      ? groupGames(only)
-      : `<p class="note">Juice fades sit on the slate card. Nothing extra to hide.</p>`;
+      ? groupWindows(only)
+      : `<p class="note">Juice fades sit under each lean. Nothing extra to hide.</p>`;
   }
   if (window.splitStamp) splitStamp();
 }

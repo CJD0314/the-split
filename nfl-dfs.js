@@ -34,60 +34,62 @@ function paintClassicDfs(){
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>Set MAX % in the optimizer to the Cap column. Doubs 14 (9%). Without the reverse rule he will print at 80% as the cheap WR.</p>"+
+      "<p class='note'>Stack WRs only with their QB. FLEX WRs fill the third receiver so we are not Chase + Jefferson on every ticket.</p>"+
       "<p class='note-lab'>QB · 150 / 150</p>"+
-      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
-      rows([
-        ["Baker Mayfield","$5,600","18.6","3.9%","40","TB. Stack Egbuka."],
-        ["Tyler Shough","$5,300","17.8","4.6%","32","NO. Stack Olave + Johnson."],
-        ["Jayden Daniels","$6,300","20.5","6.8%","20","WSH. Stack McLaurin."],
-        ["Jordan Love","$5,900","18.8","6.2%","20","GB. Stack Watson."],
-        ["Drake Maye","$6,100","18.3","4.1%","14","NE. Stack Doubs."],
-        ["Dak Prescott","$6,400","21.3","10.9%","12","DAL. Stack Lamb."],
-        ["Lamar Jackson","$7,300","21.6","5.3%","12","BAL. Flowers OUT."]
-      ])+"</table>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Cap</th><th>Role</th></tr>"+
+      "<tr><td>Baker Mayfield</td><td>$5,600</td><td>"+capLabel(40)+"</td><td>TB. Egbuka.</td></tr>"+
+      "<tr><td>Tyler Shough</td><td>$5,300</td><td>"+capLabel(32)+"</td><td>NO. Olave + Johnson.</td></tr>"+
+      "<tr><td>Jayden Daniels</td><td>$6,300</td><td>"+capLabel(20)+"</td><td>WSH. McLaurin.</td></tr>"+
+      "<tr><td>Jordan Love</td><td>$5,900</td><td>"+capLabel(20)+"</td><td>GB. Watson.</td></tr>"+
+      "<tr><td>Drake Maye</td><td>$6,100</td><td>"+capLabel(14)+"</td><td>NE. Doubs.</td></tr>"+
+      "<tr><td>Dak Prescott</td><td>$6,400</td><td>"+capLabel(12)+"</td><td>DAL. Lamb.</td></tr>"+
+      "<tr><td>Lamar Jackson</td><td>$7,300</td><td>"+capLabel(12)+"</td><td>BAL. No stack WR.</td></tr>"+
+      "</table>"+
       "<p class='note-lab'>RB</p>"+
-      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
-      rows([
-        ["Bijan Robinson","$8,200","23.0","31.9%","60","ATL."],
-        ["Bucky Irving","$6,100","17.2","12.1%","45","TB."],
-        ["Breece Hall","$6,200","17.0","8.0%","40","NYJ."],
-        ["Saquon Barkley","$7,000","18.1","9.1%","30","PHI."],
-        ["Bhayshul Tuten","$5,600","13.5","1.5%","20","JAX."],
-        ["Javonte Williams","$6,400","19.0","23.8%","12","DAL. Dak copies only."]
-      ])+"</table>"+
-      "<p class='note-lab'>WR</p>"+
-      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
-      rows([
-        ["Emeka Egbuka","$6,400","14.6","5.0%","40","TB. Mayfield only."],
-        ["Christian Watson","$6,200","15.6","11.3%","20","GB. Love only."],
-        ["Chris Olave","$7,200","15.6","8.5%","35","NO. Shough only."],
-        ["Romeo Doubs","$5,000","11.2","2.7%","14","NE. Maye only. Cap 9%."],
-        ["Terry McLaurin","$5,200","12.9","10.8%","20","WSH. Daniels only."],
-        ["CeeDee Lamb","$7,300","19.4","20.1%","12","DAL. Dak only."],
-        ["Ja'Marr Chase","$7,600","18.0","18.4%","8","CIN."],
-        ["Justin Jefferson","$7,800","20.2","15.9%","8","MIN."]
-      ])+"</table>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Cap</th><th>Role</th></tr>"+
+      "<tr><td>Bijan Robinson</td><td>$8,200</td><td>"+capLabel(60)+"</td><td>ATL.</td></tr>"+
+      "<tr><td>Bucky Irving</td><td>$6,100</td><td>"+capLabel(45)+"</td><td>TB.</td></tr>"+
+      "<tr><td>Breece Hall</td><td>$6,200</td><td>"+capLabel(40)+"</td><td>NYJ.</td></tr>"+
+      "<tr><td>Saquon Barkley</td><td>$7,000</td><td>"+capLabel(30)+"</td><td>PHI.</td></tr>"+
+      "<tr><td>Bhayshul Tuten</td><td>$5,600</td><td>"+capLabel(20)+"</td><td>JAX.</td></tr>"+
+      "<tr><td>Javonte Williams</td><td>$6,400</td><td>"+capLabel(12)+"</td><td>DAL. Dak only.</td></tr>"+
+      "</table>"+
+      "<p class='note-lab'>WR · STACK</p>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Cap</th><th>Role</th></tr>"+
+      "<tr><td>Emeka Egbuka</td><td>$6,400</td><td>"+capLabel(40)+"</td><td>Mayfield only.</td></tr>"+
+      "<tr><td>Chris Olave</td><td>$7,200</td><td>"+capLabel(32)+"</td><td>Shough only.</td></tr>"+
+      "<tr><td>Terry McLaurin</td><td>$5,200</td><td>"+capLabel(20)+"</td><td>Daniels only.</td></tr>"+
+      "<tr><td>Christian Watson</td><td>$6,200</td><td>"+capLabel(20)+"</td><td>Love only.</td></tr>"+
+      "<tr><td>Romeo Doubs</td><td>$5,000</td><td>"+capLabel(14)+"</td><td>Maye only.</td></tr>"+
+      "<tr><td>CeeDee Lamb</td><td>$7,300</td><td>"+capLabel(12)+"</td><td>Dak only.</td></tr>"+
+      "</table>"+
+      "<p class='note-lab'>WR · FLEX ONLY</p>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Cap</th><th>Role</th></tr>"+
+      "<tr><td>Matthew Golden</td><td>$4,700</td><td>"+capLabel(25)+"</td><td>GB. Cheap third WR.</td></tr>"+
+      "<tr><td>Jalen Coker</td><td>$5,100</td><td>"+capLabel(20)+"</td><td>CAR. Week 1 tape.</td></tr>"+
+      "<tr><td>Garrett Wilson</td><td>$6,000</td><td>"+capLabel(20)+"</td><td>NYJ.</td></tr>"+
+      "<tr><td>George Pickens</td><td>$6,300</td><td>"+capLabel(15)+"</td><td>DAL. Not a Dak force.</td></tr>"+
+      "<tr><td>Ja'Marr Chase</td><td>$7,600</td><td>"+capLabel(8)+"</td><td>CIN. Dead chalk tax.</td></tr>"+
+      "<tr><td>Justin Jefferson</td><td>$7,800</td><td>"+capLabel(8)+"</td><td>MIN. Dead chalk tax.</td></tr>"+
+      "</table>"+
       "<p class='note-lab'>TE · 150 / 150</p>"+
-      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
-      rows([
-        ["Juwan Johnson","$3,900","11.5","6.5%","50","NO. Shough."],
-        ["Dallas Goedert","$4,800","11.7","3.9%","45","PHI."],
-        ["Trey McBride","$6,900","16.7","12.0%","40","ARI."],
-        ["Hunter Henry","$4,000","9.0","4.5%","15","NE. Maye game."]
-      ])+"</table>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Cap</th><th>Role</th></tr>"+
+      "<tr><td>Juwan Johnson</td><td>$3,900</td><td>"+capLabel(50)+"</td><td>NO. Force with Shough. OK elsewhere.</td></tr>"+
+      "<tr><td>Dallas Goedert</td><td>$4,800</td><td>"+capLabel(45)+"</td><td>PHI.</td></tr>"+
+      "<tr><td>Trey McBride</td><td>$6,900</td><td>"+capLabel(40)+"</td><td>ARI.</td></tr>"+
+      "<tr><td>Hunter Henry</td><td>$4,000</td><td>"+capLabel(15)+"</td><td>NE.</td></tr>"+
+      "</table>"+
       "<p class='note-lab'>DST · 150 / 150</p>"+
-      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
-      rows([
-        ["Eagles","$3,700","8.3","7.4%","50","vs TEN."],
-        ["Buccaneers","$3,600","8.5","11.9%","45","vs CLE."],
-        ["Seahawks","$3,500","7.9","7.0%","35","4:25."],
-        ["Punt DST","$3,300","—","—","20","Ravens. Not with Shough."]
-      ])+"</table>";
+      "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Cap</th><th>Role</th></tr>"+
+      "<tr><td>Eagles</td><td>$3,700</td><td>"+capLabel(50)+"</td><td>vs TEN.</td></tr>"+
+      "<tr><td>Buccaneers</td><td>$3,600</td><td>"+capLabel(45)+"</td><td>vs CLE.</td></tr>"+
+      "<tr><td>Seahawks</td><td>$3,500</td><td>"+capLabel(35)+"</td><td>4:25.</td></tr>"+
+      "<tr><td>Ravens</td><td>$3,300</td><td>"+capLabel(20)+"</td><td>Punt. Not with Shough.</td></tr>"+
+      "</table>";
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>Set Max Exposure to the Cap %. One-way QB→WR does not cap the cheap WR. Use both directions.</p>"+
+      "<p class='note'>Set Max Exposure to Cap %. Stack WRs are locked to their QB. FLEX WRs are not.</p>"+
       "<p class='note-lab'>FORCE · IF AT LEAST 1 → THEN AT LEAST 1</p>"+
       "<table class='sd-table'><tr><th>If</th><th>Then</th></tr>"+
       "<tr><td>Mayfield</td><td>Egbuka</td></tr>"+
@@ -102,14 +104,14 @@ function paintClassicDfs(){
       "<tr><td>Doubs</td><td>Maye</td></tr>"+
       "<tr><td>Dak</td><td>Lamb</td></tr>"+
       "<tr><td>Lamb</td><td>Dak</td></tr>"+
+      "<tr><td>Javonte</td><td>Dak</td></tr>"+
       "</table>"+
-      "<p class='note-lab'>NEVER · IF AT LEAST 1 → THEN NO MORE THAN 0</p>"+
+      "<p class='note-lab'>NEVER</p>"+
       "<table class='sd-table'><tr><th>If</th><th>No more than 0</th></tr>"+
       "<tr><td>Shough</td><td>Ravens DST</td></tr>"+
       "<tr><td>Bijan</td><td>Chase + Jefferson</td></tr>"+
       "</table>"+
-      "<p class='note-lab'>MAX EXPOSURE IN THE BUILDER</p>"+
-      "<p class='note'>Maye 9. Doubs 9. Daniels 13. McLaurin 13. Love 13. Watson 13. Mayfield 27. Egbuka 27. Shough 21. Olave 23. Dak 8. Lamb 8.</p>";
+      "<p class='note'>Do not force Golden / Coker / Wilson / Pickens to a QB. Max them. That is how 150 unique exists.</p>";
   }
 }
 paintClassicDfs();

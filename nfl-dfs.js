@@ -33,85 +33,67 @@ function paintClassicDfs(){
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>1 p.m. main. 416.1k. 150 max. Salary is live DK. Proj / own from our sheet. Cap is count of 150 and percent.</p>"+
+      "<p class='note'>Tight pool. 25 names. 416.1k. 150 max. If he is not in these tables he is not in the 150 unless the note says he replaces a sit.</p>"+
       "<p class='note-lab'>QB</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Baker Mayfield","$5,600","18.6","3.9%","32","Cheap pocket A. CLE game can hit 30."],
-        ["Tyler Shough","$5,300","17.8","4.6%","28","Cheap pocket B. Behind at Baltimore."],
-        ["Jayden Daniels","$6,300","20.5","6.8%","18","Mid stack. Better unique than Dak."],
-        ["Jordan Love","$5,900","18.8","6.2%","18","Spike only. Bring Doubs, not Golden as the leave."],
-        ["Dak Prescott","$6,400","21.3","10.9%","12","SE copies. Not 40."],
-        ["Malik Willis","$5,200","16.5","1.9%","8","Thinner cheap."],
-        ["Drew Lock","$4,900","15.8","1.7%","4","Thinner cheap."],
-        ["Lamar Jackson","$7,300","21.6","5.3%","6","Chalk bag."],
-        ["Jalen Hurts","$6,700","20.6","3.8%","5","Chalk bag."],
-        ["Joe Burrow","$6,600","19.2","3.6%","4","Chalk bag."],
-        ["Bo Nix","$5,700","18.1","5.7%","8","Second mid bag."],
-        ["Drake Maye","$6,100","18.3","4.1%","7","Second mid bag."]
+        ["Baker Mayfield","$5,600","18.6","3.9%","40","Pocket A. CLE game can hit 30."],
+        ["Tyler Shough","$5,300","17.8","4.6%","32","Pocket B. Behind at Baltimore."],
+        ["Jayden Daniels","$6,300","20.5","6.8%","20","Mid stack. Better unique than Dak."],
+        ["Jordan Love","$5,900","18.8","6.2%","20","Spike. Bring Doubs."],
+        ["Dak Prescott","$6,400","21.3","10.9%","12","SE copies only."],
+        ["Malik Willis","$5,200","16.5","1.9%","14","Thin cheap leftover."],
+        ["Lamar Jackson","$7,300","21.6","5.3%","12","One chalk QB. Not Hurts. Not Burrow."]
       ])+"</table>"+
       "<p class='note-lab'>RB</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Bijan Robinson","$8,200","23.0","31.9%","60","Sheet chalk. Necessary for some builds. Never 90."],
+        ["Bijan Robinson","$8,200","23.0","31.9%","60","Necessary chalk. Never 90."],
         ["Bucky Irving","$6,100","17.2","12.1%","45","Mayfield game. Pair with Egbuka."],
-        ["Breece Hall","$6,200","17.0","8.0%","40","Right volume. Own is fair."],
-        ["Saquon Barkley","$7,000","18.1","9.1%","35","PHI-TEN. Not 90."],
-        ["Derrick Henry","$7,200","21.6","20.3%","30","Own is heavy. Only with Shough or no Lamar."],
-        ["De'Von Achane","$6,700","18.1","11.5%","25","Willis game."],
-        ["Ashton Jeanty","$6,800","16.7","11.9%","25","Secondary."],
-        ["Bhayshul Tuten","$4,400","13.5","1.5%","20","Leverage back. Coker-shaped own."],
-        ["Javonte Williams","$6,400","19.0","23.8%","15","SE only. Field already has him."],
-        ["CMC","$8,000","22.5","19.7%","15","Sit the 15 if he sits."],
-        ["Aaron Jones","$5,100","16.3","19.0%","10","Own > value. Thin."]
+        ["Breece Hall","$6,200","17.0","8.0%","40","Right volume."],
+        ["Saquon Barkley","$7,000","18.1","9.1%","30","PHI-TEN."],
+        ["Bhayshul Tuten","$4,400","13.5","1.5%","20","Leverage back."]
       ])+"</table>"+
       "<p class='note-lab'>WR</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
         ["Emeka Egbuka","$6,400","14.6","5.0%","40","Coker 1. Mayfield pocket."],
-        ["Romeo Doubs","$5,000","11.2","2.7%","30","Coker 2. Golden is 11% own — field, not leverage."],
+        ["Romeo Doubs","$5,000","11.2","2.7%","30","Coker 2. Love spike."],
         ["Chris Olave","$7,200","15.6","8.5%","35","Right chalk. Shough bring-back."],
-        ["DeVonta Smith","$6,800","15.8","7.3%","25","If Hurts is in the 15."],
-        ["Jaylen Waddle","$6,500","14.2","6.3%","25","Mims OUT."],
-        ["Luther Burden III","$5,700","13.3","5.2%","20","Leave. Not a CHI core."],
-        ["Tee Higgins","$6,100","13.2","6.1%","20","Not Chase."],
-        ["Carnell Tate","$4,200","11.6","1.8%","15","Thin Coker if Egbuka saturates."],
-        ["Dontayvion Wicks","$4,300","9.5","1.3%","12","Thinner Packers leave."],
-        ["CeeDee Lamb","$7,300","19.4","20.1%","15","SE stack only."],
-        ["Ja'Marr Chase","$7,600","18.0","18.4%","15","Dead chalk. Cap."],
-        ["Justin Jefferson","$7,800","20.2","15.9%","15","Dead chalk. Cap."],
-        ["George Pickens","$6,300","17.8","18.3%","12","Owned like Lamb."],
-        ["Matthew Golden","$4,700","10.7","11.4%","10","Love spike only. Not a Coker."]
+        ["Jaylen Waddle","$6,500","14.2","6.3%","20","Mims OUT."],
+        ["CeeDee Lamb","$7,300","19.4","20.1%","8","SE tax. Not a GPP core."],
+        ["Ja'Marr Chase","$7,600","18.0","18.4%","8","Dead chalk tax."],
+        ["Justin Jefferson","$7,800","20.2","15.9%","8","Dead chalk tax."]
       ])+"</table>"+
       "<p class='note-lab'>TE</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Trey McBride","$6,900","16.7","12.0%","30","Fair own. Lock / Brissett game."],
         ["Juwan Johnson","$3,900","11.5","6.5%","25","Shough stack."],
-        ["Dallas Goedert","$4,800","11.7","3.9%","20","Last week's winner TE. Low own again."],
-        ["Hunter Henry","$4,000","9.0","4.5%","15","Maye bag."],
-        ["Mark Andrews","$4,400","13.1","20.0%","8","Mayer trap. Fade."],
-        ["Dalton Schultz","$3,200","9.5","16.7%","0","Off the pool."]
+        ["Dallas Goedert","$4,800","11.7","3.9%","20","Low own. Winner TE last week."],
+        ["Trey McBride","$6,900","16.7","12.0%","20","Fair own. Not 40."]
       ])+"</table>"+
       "<p class='note-lab'>DST</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Buccaneers","$3,600","8.5","11.9%","25","Mayfield game. Own is already up."],
-        ["Eagles","$3,700","8.3","7.4%","20","TEN game."],
-        ["Seahawks","$3,500","7.9","7.0%","15","Lock start. Do not 40-max."],
-        ["49ers","$3,800","7.5","9.0%","15","Willis game. Do not 40-max."],
-        ["Ravens","$3,300","7.5","9.0%","12","Only without Shough."]
+        ["Eagles","$3,700","8.3","7.4%","25","TEN game."],
+        ["Buccaneers","$3,600","8.5","11.9%","20","Mayfield game. Own already up."],
+        ["Seahawks","$3,500","7.9","7.0%","15","Lock start."]
       ])+"</table>"+
-      "<p class='note-lab'>OFF THE POOL</p>"+
+      "<p class='note-lab'>ONLY IF A CORE SITS</p>"+
       "<ul class='notes'>"+li([
-        "CHI stack off 59. Caleb can be in the 15 chalk bag. Odunze / Swift are not core.",
-        "Nico Collins. OUT.",
-        "Zay Flowers. OUT.",
-        "Brock Bowers. OUT.",
-        "A.J. Brown. 0 on the sheet.",
-        "Schultz. Andrews as a core. Golden as leverage."
+        "Egbuka out: Carnell Tate takes the Coker seat. Cap stays 40. Do not move it to Chase.",
+        "Doubs out: Wicks takes the Coker seat. Cap stays 30. Do not move it to Golden.",
+        "Shough stack needs a run game: Henry only with Shough and no Lamar.",
+        "Hurts in a one-off: DeVonta Smith only in those lineups.",
+        "Willis sits: Lock. Same 14 cap. Not both."
       ])+"</ul>"+
-      "<p class='note'>Confirm T-90. If Egbuka or Doubs is inactive, Tate and Wicks take the Coker seats. Caps do not move up on Bijan or Chase to fill the hole.</p>";
+      "<p class='note-lab'>OFF THE 150</p>"+
+      "<ul class='notes'>"+li([
+        "CHI. Odunze. Swift. Caleb is not the chalk QB.",
+        "Nico Collins. Zay Flowers. Brock Bowers. A.J. Brown.",
+        "Andrews. Schultz. Golden as leverage. Pickens. Javonte as a GPP core. CMC unless he is confirmed in and you burn the 15 SE copies."
+      ])+"</ul>"+
+      "<p class='note'>T-90. Caps do not climb on Bijan or Chase to fill a hole.</p>";
   }
 }
 paintClassicDfs();

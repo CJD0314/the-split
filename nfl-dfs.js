@@ -87,51 +87,42 @@ function paintClassicDfs(){
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>Roster-checked. Doubs = NE. Waddle = DEN / Nix. Willis = MIA. Do not stack across those teams.</p>"+
-      "<p class='note-lab'>FORCE IF QB IS IN</p>"+
+      "<p class='note'>Group + Manual. Skip anything the optimizer already knows: one QB, one DST, players who are out, players not in the pool.</p>"+
+      "<p class='note-lab'>FORCE · IF AT LEAST 1 → THEN AT LEAST 1</p>"+
+      "<table class='sd-table'><tr><th>If</th><th>Then</th></tr>"+
+      "<tr><td>Mayfield</td><td>Egbuka</td></tr>"+
+      "<tr><td>Shough</td><td>Olave</td></tr>"+
+      "<tr><td>Shough</td><td>Johnson</td></tr>"+
+      "<tr><td>Daniels</td><td>McLaurin</td></tr>"+
+      "<tr><td>Love</td><td>Watson</td></tr>"+
+      "<tr><td>Maye</td><td>Doubs</td></tr>"+
+      "<tr><td>Dak</td><td>Lamb</td></tr>"+
+      "</table>"+
+      "<p class='note-lab'>NEVER · IF AT LEAST 1 → THEN NO MORE THAN 0</p>"+
+      "<table class='sd-table'><tr><th>If</th><th>No more than 0</th></tr>"+
+      "<tr><td>Love</td><td>Doubs</td></tr>"+
+      "<tr><td>Maye</td><td>Watson</td></tr>"+
+      "<tr><td>Lamar</td><td>Andrews</td></tr>"+
+      "<tr><td>Shough</td><td>Ravens DST</td></tr>"+
+      "<tr><td>Bijan</td><td>Chase</td></tr>"+
+      "<tr><td>Bijan</td><td>Jefferson</td></tr>"+
+      "</table>"+
+      "<p class='note-lab'>MAX %</p>"+
+      "<table class='sd-table'><tr><th>Pos</th><th>Caps</th></tr>"+
+      "<tr><td>QB</td><td>Mayfield 27 · Shough 21 · Daniels 13 · Love 13 · Maye 9 · Dak 8 · Lamar 8</td></tr>"+
+      "<tr><td>RB</td><td>Bijan 40 · Irving 30 · Hall 27 · Saquon 20 · Tuten 13 · Javonte 8</td></tr>"+
+      "<tr><td>WR</td><td>Egbuka 27 · Olave 23 · Watson 13 · McLaurin 13 · Doubs 9 · Lamb 8 · Chase 5 · Jefferson 5</td></tr>"+
+      "<tr><td>TE</td><td>Johnson 33 · Goedert 30 · McBride 27 · Henry 10</td></tr>"+
+      "<tr><td>DST</td><td>Eagles 33 · Bucs 30 · Seahawks 23 · Ravens 13</td></tr>"+
+      "</table>"+
+      "<p class='note-lab'>SIT</p>"+
       "<ul class='notes'>"+li([
-        "If Mayfield → Egbuka (TB).",
-        "If Shough → Olave and Johnson (NO). If Olave sits, Shough still needs Johnson plus Vele — do not keep 32 unstacked Shough.",
-        "If Daniels → McLaurin (WSH). If McLaurin sits, Daniels to 0.",
-        "If Love → Watson (GB). Not Doubs. Not Golden as the only WR.",
-        "If Maye → Doubs (NE).",
-        "If Dak → Lamb (DAL)."
+        "Olave sits → Shough still needs Johnson. Do not dump the 21 onto Chase.",
+        "Watson sits → Golden only inside the Love 13.",
+        "Doubs sits → Maye to 0.",
+        "McLaurin sits → Daniels to 0."
       ])+"</ul>"+
-      "<p class='note-lab'>NEVER TOGETHER</p>"+
-      "<ul class='notes'>"+li([
-        "Love + Doubs.",
-        "Maye + Watson.",
-        "Willis + Waddle. Different teams.",
-        "Lamar + Andrews.",
-        "Lamar + Derrick Henry as the only BAL skill — pick one Baltimore bag.",
-        "Shough + Ravens DST.",
-        "Dak + Daniels.",
-        "Bijan + Chase + Jefferson. If Bijan is on, one of Chase / Jefferson max.",
-        "Andrews anywhere. Schultz anywhere. Nico. Flowers. AJ Brown."
-      ])+"</ul>"+
-      "<p class='note-lab'>MAX EXPOSURE</p>"+
-      "<ul class='notes'>"+li([
-        "Mayfield 27. Shough 21. Daniels 13. Love 13. Maye 9. Dak 8. Lamar 8.",
-        "Bijan 40. Irving 30. Hall 27. Saquon 20. Tuten 13. Javonte 8.",
-        "Egbuka 27. Watson 13. Olave 23. Doubs 9. McLaurin 13. Lamb 8. Chase 5. Jefferson 5.",
-        "Johnson 33. Goedert 30. McBride 27. Hunter Henry 10.",
-        "Eagles 33. Bucs 30. Seahawks 23. Ravens 13."
-      ])+"</ul>"+
-      "<p class='note-lab'>SIT / OUT</p>"+
-      "<ul class='notes'>"+li([
-        "OUT: Nico Collins. Zay Flowers. AJ Brown (IR). Sam Darnold. Tua (ATL inactive). Penix. Kyler Murray.",
-        "DOUBTFUL: Brock Bowers. Treat as out until active.",
-        "QUESTIONABLE: Olave hamstring. Burrow back. If Olave out, do not move his 23 onto Chase.",
-        "Watson out → Golden only inside the Love 20.",
-        "Doubs out → Maye to 0.",
-        "McLaurin out → Daniels to 0."
-      ])+"</ul>"+
-      "<p class='note-lab'>OFF THE 150</p>"+
-      "<ul class='notes'>"+li([
-        "Willis + Waddle. Waddle only exists with Nix. Nix is not in this pool, so Waddle is not in this pool.",
-        "CHI. Caleb. Odunze. Swift.",
-        "Golden as leverage. Pickens as a GPP core. CMC unless confirmed SE copies."
-      ])+"</ul>";
+      "<p class='note'>Not a rule: two QBs. Out players. Waddle / Willis / Nix. Global same-team.</p>";
   }
 }
 paintClassicDfs();

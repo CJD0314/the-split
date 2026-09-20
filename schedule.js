@@ -19,7 +19,7 @@ const GAMES = [
 [1,"SNF","dal","nyg","Cowboys at Giants","FINAL NYG 28-20","DAL -2.5 / NYG +2.5","47.5","DAL -148 / NYG +124","LOSS · Cowboys -2.5","nfl-week-1-dal-nyg.html","nfl-week-1-game-review.html#dal-nyg"],
 [1,"MON SEPT 14","den","kc","Broncos at Chiefs","FINAL KC 31-10","DEN +2.5 / KC -2.5","43.5","KC -135 / DEN +115","LOSS · Broncos +2.5","nfl-week-1-den-kc.html","nfl-week-1-den-kc-review.html"],
 [2,"THU 8:15 Prime","det","buf","Lions at Bills","FINAL BUF 41-31","DET +5.5 / BUF -5.5","54.5","BUF -250 / DET +205","PASS · spread","nfl-week-2-det-buf.html","nfl-week-2-det-buf-review.html"],
-[2,"SUN 1:00 FOX","car","atl","Panthers at Falcons","Mercedes-Benz · 1:00 p.m. ET","CAR -1.5 / ATL +1.5","44.5","CAR -122 / ATL +102","OPEN · CAR -1.5","nfl-week-2-car-atl.html",""],
+[2,"SUN 1:00 FOX","car","atl","Panthers at Falcons","Mercedes-Benz · 1:00 p.m. ET","CAR -2.5 / ATL +2.5","43.5","CAR -151 / ATL +127","PASS · spread","nfl-week-2-car-atl.html",""],
 [2,"SUN 1:00 FOX","min","chi","Vikings at Bears","Soldier Field · 1:00 p.m. ET","MIN +5.5 / CHI -5.5","49.5","CHI -240 / MIN +198","OPEN · CHI -5.5","nfl-week-2-min-chi.html",""],
 [2,"SUN 1:00 FOX","phi","ten","Eagles at Titans","Nissan · 1:00 p.m. ET","PHI -7 / TEN +7","39.5","PHI -340 / TEN +270","OPEN · PHI -7","nfl-week-2-phi-ten.html",""],
 [2,"SUN 1:00 CBS","pit","ne","Steelers at Patriots","Gillette · 1:00 p.m. ET","PIT +5.5 / NE -5.5","41.5","NE -240 / PIT +198","OPEN · NE -5.5","nfl-week-2-pit-ne.html",""],
@@ -38,7 +38,7 @@ const GAMES = [
 function shortWhen(day){
   return String(day||"").replace(" Prime","").replace(" FOX","").replace(" CBS","").replace(" NBC","").replace(" ESPN","");
 }
-const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1};
+const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1};
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
   const isLive = (w===CURRENT_WEEK && /THU/i.test(day) && !/^FINAL/i.test(String(when)));

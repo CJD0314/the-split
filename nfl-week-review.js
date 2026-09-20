@@ -28,6 +28,29 @@ const NFL_WEEK_NOTES = {
       "Vs Flores or any stacked-pressure look: ask if the line lives under 2.50 before you buy the QB side.",
       "A new featured back on a short home favorite is the script. Do not fade that club with a dog ticket."
     ]
+  },
+  2: {
+    held: [
+      "No Sunday unit. MIN-CHI 9-3 and PIT-NE 20-3 are why.",
+      "Home 6-to-14 dogs: TEN +7, NYJ +3.5, CLE +7.5, NO +8.5, CIN +2.5. Four of those cashed. PIT +5.5 was the miss.",
+      "Juice home numbers died. BAL -8.5, TB -7.5, HOU -2.5, CHI -4.5, ATL after the walk.",
+      "n=1 boxes died. Henry 68 not 144. Chicago 3 not 59. Walker 173 is still cut tonight."
+    ],
+    broke: [
+      "PIT +5.5. A front is not a covering offense on the road. Pittsburgh scored 3.",
+      "CAR-ATL was 34-3, not 24-20. PASS the side still correct. Script was not.",
+      "Ravens DST as a DFS punt. Baltimore lost at home 24-17."
+    ],
+    missed: [
+      "Maye 208 and Doubs 96. That force printed. Keep it.",
+      "Irving 89 in a Bucs loss. Featured back lived without the side.",
+      "Under 43.5 CAR-ATL cashed. Atlanta did not score a touchdown."
+    ],
+    next: [
+      "Do not copy last week's box onto this week's number.",
+      "Ravens DST is cap, not a core.",
+      "SNF still locks CPT Mahomes. Afternoon tape does not move Arrowhead."
+    ]
   }
 };
 function nflReviewWeek(week){

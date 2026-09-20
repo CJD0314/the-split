@@ -24,7 +24,7 @@ const GAMES = [
 [2,"SUN 1:00 FOX","phi","ten","Eagles at Titans","Nissan · 1:00 p.m. ET","PHI -7 / TEN +7","39.5","PHI -337 / TEN +270","LEAN · TEN +7","nfl-week-2-phi-ten.html",""],
 [2,"SUN 1:00 CBS","pit","ne","Steelers at Patriots","Gillette · 1:00 p.m. ET","PIT +5.5 / NE -5.5","41.5","NE -240 / PIT +200","LEAN · PIT +5.5","nfl-week-2-pit-ne.html",""],
 [2,"SUN 1:00 FOX","gb","nyj","Packers at Jets","MetLife · 1:00 p.m. ET","GB -3.5 / NYJ +3.5","44.5","GB -185 / NYJ +153","LEAN · NYJ +3.5","nfl-week-2-gb-nyj.html",""],
-[2,"SUN 1:00 CBS","cle","tb","Browns at Buccaneers","Raymond James · 1:00 p.m. ET","CLE +8.5 / TB -8.5","40.5","TB -410 / CLE +320","OPEN · TB -8.5","nfl-week-2-cle-tb.html",""],
+[2,"SUN 1:00 CBS","cle","tb","Browns at Buccaneers","Raymond James · 1:00 p.m. ET","CLE +7.5 / TB -7.5","41.5","TB -388 / CLE +330","LEAN · CLE +7.5","nfl-week-2-cle-tb.html",""],
 [2,"SUN 1:00 CBS","no","bal","Saints at Ravens","M&T Bank · 1:00 p.m. ET","NO +8.5 / BAL -8.5","47.5","BAL -410 / NO +320","OPEN · BAL -8.5","nfl-week-2-no-bal.html",""],
 [2,"SUN 1:00 CBS","cin","hou","Bengals at Texans","NRG · 1:00 p.m. ET","CIN +3 / HOU -3","46.5","HOU -155 / CIN +130","OPEN · HOU -3","nfl-week-2-cin-hou.html",""],
 [2,"SUN 4:05 CBS","jax","den","Jaguars at Broncos","Empower Field · 4:05 p.m. ET","JAX +3 / DEN -3","44.5","DEN -155 / JAX +130","OPEN · DEN -3","nfl-week-2-jax-den.html",""],
@@ -38,7 +38,7 @@ const GAMES = [
 function shortWhen(day){
   return String(day||"").replace(" Prime","").replace(" FOX","").replace(" CBS","").replace(" NBC","").replace(" ESPN","");
 }
-const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1,"nfl-week-2-min-chi.html":1,"nfl-week-2-phi-ten.html":1,"nfl-week-2-pit-ne.html":1,"nfl-week-2-gb-nyj.html":1};
+const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1,"nfl-week-2-min-chi.html":1,"nfl-week-2-phi-ten.html":1,"nfl-week-2-pit-ne.html":1,"nfl-week-2-gb-nyj.html":1,"nfl-week-2-cle-tb.html":1};
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
   const isLive = (w===CURRENT_WEEK && /THU/i.test(day) && !/^FINAL/i.test(String(when)));

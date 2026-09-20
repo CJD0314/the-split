@@ -34,60 +34,74 @@ function paintClassicDfs(){
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>Checked Week 2 rosters. Doubs is NE. Waddle is DEN. Willis is MIA. Tua is ATL and inactive. Olave is Q (hamstring).</p>"+
+      "<p class='note'>1 p.m. T-90 is in. Pool stacks that play: Egbuka, Olave, Johnson, Watson, Doubs, Maye, Love, Shough, Mayfield. Olave is active.</p>"+
+      "<p class='note-lab'>1 P.M. INACTIVES · SKILL</p>"+
+      "<ul class='notes'>"+li([
+        "NO: Kendre Miller. Olave and Johnson are active.",
+        "BAL: Zay Flowers. Madubuike.",
+        "NE: AJ Brown (IR). Doubs and Henry and Maye are active.",
+        "PIT: Michael Pittman. Joey Porter Jr.",
+        "ATL: Tua. Penix. Bijan is active. Rush starts.",
+        "CHI / MIN: Kyler Murray. Jauan Jennings. Jordan Mason.",
+        "HOU: Nico Collins. Clowney.",
+        "GB: Jacobs (exempt). Hargrave. Watson and Love are active.",
+        "NYJ: Minkah. Omar Cooper IR. Hall is active.",
+        "PHI: Greenard. Elijah Moore. Saquon and Goedert are active.",
+        "CIN: Burrow is active. Nico is the Texans out."
+      ])+"</ul>"+
       "<p class='note-lab'>QB · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Baker Mayfield","$5,600","18.6","3.9%","40","TB. Stack Egbuka."],
-        ["Tyler Shough","$5,300","17.8","4.6%","32","NO. Stack Olave + Johnson."],
-        ["Jayden Daniels","$6,300","20.5","6.8%","20","WSH. Stack McLaurin."],
-        ["Jordan Love","$5,900","18.8","6.2%","20","GB. Stack Watson."],
-        ["Drake Maye","$6,100","18.3","4.1%","14","NE. Stack Doubs."],
-        ["Dak Prescott","$6,400","21.3","10.9%","12","DAL. Stack Lamb."],
+        ["Baker Mayfield","$5,600","18.6","3.9%","40","TB. Stack Egbuka. Active."],
+        ["Tyler Shough","$5,300","17.8","4.6%","32","NO. Stack Olave + Johnson. Both active."],
+        ["Jayden Daniels","$6,300","20.5","6.8%","20","WSH. 4:25. Stack McLaurin."],
+        ["Jordan Love","$5,900","18.8","6.2%","20","GB. Stack Watson. Both active."],
+        ["Drake Maye","$6,100","18.3","4.1%","14","NE. Stack Doubs. Both active."],
+        ["Dak Prescott","$6,400","21.3","10.9%","12","DAL. 4:25. Stack Lamb."],
         ["Lamar Jackson","$7,300","21.6","5.3%","12","BAL. Flowers OUT."]
       ])+"</table>"+
       "<p class='note-lab'>RB</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Bijan Robinson","$8,200","23.0","31.9%","60","ATL. Rush starts."],
+        ["Bijan Robinson","$8,200","23.0","31.9%","60","ATL. Active. Rush starts."],
         ["Bucky Irving","$6,100","17.2","12.1%","45","TB. Mayfield stack."],
-        ["Breece Hall","$6,200","17.0","8.0%","40","NYJ."],
-        ["Saquon Barkley","$7,000","18.1","9.1%","30","PHI."],
-        ["Bhayshul Tuten","$4,400","13.5","1.5%","20","JAX."],
-        ["Javonte Williams","$6,400","19.0","23.8%","12","DAL. Dak copies only."]
+        ["Breece Hall","$6,200","17.0","8.0%","40","NYJ. Active."],
+        ["Saquon Barkley","$7,000","18.1","9.1%","30","PHI. Active."],
+        ["Bhayshul Tuten","$4,400","13.5","1.5%","20","JAX. 4:05."],
+        ["Javonte Williams","$6,400","19.0","23.8%","12","DAL. 4:25. Dak copies only."]
       ])+"</table>"+
       "<p class='note-lab'>WR</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Emeka Egbuka","$6,400","14.6","5.0%","40","TB. Mayfield."],
-        ["Christian Watson","$6,200","15.6","11.3%","20","GB. Love."],
-        ["Chris Olave","$7,200","15.6","8.5%","35","NO. Shough. Q hamstring."],
-        ["Romeo Doubs","$5,000","11.2","2.7%","14","NE. Maye."],
-        ["Terry McLaurin","$5,400","12.9","10.8%","20","WSH. Daniels."],
-        ["CeeDee Lamb","$7,300","19.4","20.1%","12","DAL. Dak copies."],
-        ["Ja'Marr Chase","$7,600","18.0","18.4%","8","CIN. Dead chalk tax."],
-        ["Justin Jefferson","$7,800","20.2","15.9%","8","MIN. Dead chalk tax."]
+        ["Emeka Egbuka","$6,400","14.6","5.0%","40","TB. Mayfield. Active."],
+        ["Christian Watson","$6,200","15.6","11.3%","20","GB. Love. Active."],
+        ["Chris Olave","$7,200","15.6","8.5%","35","NO. Shough. Active."],
+        ["Romeo Doubs","$5,000","11.2","2.7%","14","NE. Maye. Active."],
+        ["Terry McLaurin","$5,400","12.9","10.8%","20","WSH. 4:25."],
+        ["CeeDee Lamb","$7,300","19.4","20.1%","12","DAL. 4:25."],
+        ["Ja'Marr Chase","$7,600","18.0","18.4%","8","CIN. Active."],
+        ["Justin Jefferson","$7,800","20.2","15.9%","8","MIN. Active. Jennings out."]
       ])+"</table>"+
       "<p class='note-lab'>TE · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Juwan Johnson","$3,900","11.5","6.5%","50","NO. Shough."],
-        ["Dallas Goedert","$4,800","11.7","3.9%","45","PHI."],
-        ["Trey McBride","$6,900","16.7","12.0%","40","ARI."],
-        ["Hunter Henry","$4,000","9.0","4.5%","15","NE. Maye game."]
+        ["Juwan Johnson","$3,900","11.5","6.5%","50","NO. Shough. Active."],
+        ["Dallas Goedert","$4,800","11.7","3.9%","45","PHI. Active."],
+        ["Trey McBride","$6,900","16.7","12.0%","40","ARI. 4:25."],
+        ["Hunter Henry","$4,000","9.0","4.5%","15","NE. Active."]
       ])+"</table>"+
       "<p class='note-lab'>DST · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Eagles","$3,700","8.3","7.4%","50","vs TEN."],
+        ["Eagles","$3,700","8.3","7.4%","50","vs TEN. Greenard out."],
         ["Buccaneers","$3,600","8.5","11.9%","45","vs CLE."],
-        ["Seahawks","$3,500","7.9","7.0%","35","Lock starts."],
-        ["Punt DST","$3,300","—","—","20","Ravens only without Shough."]
+        ["Seahawks","$3,500","7.9","7.0%","35","4:25. Lock starts."],
+        ["Punt DST","$3,300","—","—","20","Ravens. Flowers out. Not with Shough."]
       ])+"</table>";
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>Group + Manual. Caps live in PLAYER POOL.</p>"+
+      "<p class='note'>Group + Manual. Caps live in PLAYER POOL. 1 p.m. stacks are active. Leave the Olave force on.</p>"+
       "<p class='note-lab'>FORCE · IF AT LEAST 1 → THEN AT LEAST 1</p>"+
       "<table class='sd-table'><tr><th>If</th><th>Then</th></tr>"+
       "<tr><td>Mayfield</td><td>Egbuka</td></tr>"+

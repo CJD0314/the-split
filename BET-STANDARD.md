@@ -45,13 +45,29 @@ Do not bet this number. TODAY lists it under STAY AWAY. A FADE is not an automat
 - Tired chalk (club coming off a three-game road beating with no rest edge).
 - Pitcher K overs at Coors.
 - Name-only HR with no park, wind, or recent contact.
-- CFB 28-35 point maintenance numbers and 20-plus road favorites one week after a one-score opener.
+- CFB 20-plus road (Miami / USC). CFB 16-plus road juice (BYU). CFB 28-plus home split: cupcake until Q1 kill, Power/lookahead through the game.
 
 ### How to stamp before posting
 1. If the moneyline is worse than -190, or a written stay-away rule hits, stamp FADE. Do not buy that number.
 2. If two separate reasons still hold and the price is better than -190, stamp BET. That is a unit.
 3. If there is one clean reason, stamp LEAN. That is not a unit.
 4. If you cannot say the reason in one sentence, do not post the ticket.
+
+### CFB PROCESS · after Sunday 9/20 (Week 3 tape)
+- Stamp before the 10k. Sim may only veto. Cover % is never a second reason.
+- Side only. No props. No DFS.
+- 20-plus road = FADE (Miami 33-20, USC 42-35). 1H kill: 28 or +21 at half. Georgia 45-17 is n=1. Keep the rule.
+- 16-plus road juice (BYU -17.5) is close enough to fade. Half-point covers do not create a fire zone.
+- Split the 28-plus home fade:
+  - FCS/MAC/G5 cupcake and no ranked game next week: fade only until the Q1 kill. 21-0 or +21 after one quarter and ones still sprinting = fade dead. Walk away. Oregon 84-0, Ohio State 59-3, Iowa 55-0.
+  - Power visitor or a real lookahead next week: fade through the game unless the Q1 kill trips. Indiana 38-0, Notre Dame 27-10, Tennessee 42-9, Texas 30-6, Missouri 27-17.
+- Ones-sit is a score band, not a coach read.
+- 6-to-14 stays 6-to-14. 16-plus home favorite is FADE or PASS, not LEAN, unless two new reasons exist that are not last week's cover. TAMU -16.5 lost.
+- Plus is PASS unless two written reasons (Houston +7.5: walk and common-opponent tape). One plus lean per weekend unless the second plus has two reasons of its own. Do not copy Houston onto SMU +1.5.
+- Return / rivalry / ranked-on-ranked coins stay LEAN at best, and only with one sentence that is not "the line flipped." LSU -3 failed that test.
+- Do not start betting 50-point pluses because Oregon or Iowa covered.
+- Closeout same night: final → settle the ledger id → individual REVIEW page → REVIEW button live.
+- Every final gets a REVIEW page and a REVIEW button on the CFB card.
 
 Tuesday 9/15 application: BET is CWS +108 and DET +114 only. BAL +108 and ATL +117 stay LEAN. TB -232, LAD -246, MIL -264, PHI -219, SD -200, tired HOU ML stay FADE.
 
@@ -114,8 +130,8 @@ Pull live DraftKings. If you cannot see DK, write `not confirmed`. Never invent 
 **CFB**
 - Top-25 sides only. No TD. No player prop unless told.
 - New week button when that week's first kick is this week. Default the tab to the live week.
-- Numbers 28-35 and 20-plus road favorites after a one-score opener are FADE juice, still posted as a side.
-- Dive or `cfb-game.html?g=` plus a review path so REVIEW is never 404.
+- Use the Sunday 9/20 CFB PROCESS block. Do not flatten 28-plus home into one fade.
+- Dive plus a review path so REVIEW is never 404.
 - Cache-bust `cfb.js`.
 
 **TODAY**

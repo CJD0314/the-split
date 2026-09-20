@@ -1,7 +1,12 @@
 function li(arr){ return arr.map(function(x){ return "<li>"+x+"</li>"; }).join(""); }
+function capLabel(n){
+  const x = Number(n);
+  if (!isFinite(x)) return n;
+  return x + " (" + Math.round(x / 150 * 100) + "%)";
+}
 function rows(list){
   return list.map(function(r){
-    return "<tr><td>"+r[0]+"</td><td>"+r[1]+"</td><td>"+r[2]+"</td><td>"+r[3]+"</td><td>"+r[4]+"</td></tr>";
+    return "<tr><td>"+r[0]+"</td><td>"+r[1]+"</td><td>"+r[2]+"</td><td>"+capLabel(r[3])+"</td><td>"+r[4]+"</td></tr>";
   }).join("");
 }
 function paintClassicDfs(){
@@ -21,14 +26,14 @@ function paintClassicDfs(){
     gpp.innerHTML =
       "<p class='note'>Week 1 tape stays here. This week's names live in PLAYER POOL. Field this week is 416.1k on the 1 p.m. main. Not last week's 831k. Not SNF.</p>"+
       "<ul class='notes'>"+li([
-        "No QB over 40 of 150. No RB over 90. Bijan cap is 60 after the sheet.",
-        "SE stack cap 15.",
+        "No QB over 40 of 150 (27%). No RB over 90 (60%). Bijan cap is 60 (40%) after the sheet.",
+        "SE stack cap 15 (10%).",
         "Shared QB + WR1 + RB1 + DST counts as one build."
       ])+"</ul>";
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>1 p.m. main. 416.1k. 150 max. Proj / own from our sheet. Caps are of 150 lineups.</p>"+
+      "<p class='note'>1 p.m. main. 416.1k. 150 max. Proj / own from our sheet. Cap is count of 150 and percent.</p>"+
       "<p class='note-lab'>QB</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([

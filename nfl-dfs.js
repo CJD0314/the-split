@@ -34,17 +34,18 @@ function paintClassicDfs(){
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>1 p.m. main. 416.1k. 150 max. Salary is live DK. Proj / own from our sheet. Optimizer rules sit in RULES.</p>"+
+      "<p class='note'>1 p.m. main. 416.1k. 150 max. Doubs is NE, not GB. Love stacks Watson. Doubs stacks Maye.</p>"+
       "<p class='note-lab'>QB · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
         ["Baker Mayfield","$5,600","18.6","3.9%","40","Pocket A. Stack Egbuka."],
         ["Tyler Shough","$5,300","17.8","4.6%","32","Pocket B. Stack Olave + Johnson."],
         ["Jayden Daniels","$6,300","20.5","6.8%","20","Stack McLaurin."],
-        ["Jordan Love","$5,900","18.8","6.2%","20","Spike. Stack Doubs."],
+        ["Jordan Love","$5,900","18.8","6.2%","20","Spike. Stack Watson. Not Doubs."],
+        ["Drake Maye","$6,100","18.3","4.1%","14","Doubs stack. AJ Brown IR."],
         ["Dak Prescott","$6,400","21.3","10.9%","12","SE stack with Lamb."],
-        ["Malik Willis","$5,200","16.5","1.9%","14","Stack Waddle."],
-        ["Lamar Jackson","$7,300","21.6","5.3%","12","One chalk QB. No Andrews."]
+        ["Malik Willis","$5,200","16.5","1.9%","8","Stack Waddle."],
+        ["Lamar Jackson","$7,300","21.6","5.3%","4","Thin chalk. No Andrews."]
       ])+"</table>"+
       "<p class='note-lab'>RB</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
@@ -60,9 +61,10 @@ function paintClassicDfs(){
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
         ["Emeka Egbuka","$6,400","14.6","5.0%","40","Coker 1. Mayfield stack."],
-        ["Romeo Doubs","$5,000","11.2","2.7%","30","Coker 2. Love stack."],
+        ["Christian Watson","$6,200","15.6","11.3%","20","Love stack. GB WR1."],
         ["Chris Olave","$7,200","15.6","8.5%","35","Shough stack."],
-        ["Jaylen Waddle","$6,500","14.2","6.3%","20","Willis stack. Mims OUT."],
+        ["Romeo Doubs","$5,000","11.2","2.7%","14","NE. Maye stack. Not Love."],
+        ["Jaylen Waddle","$6,500","14.2","6.3%","8","Willis stack. Mims OUT."],
         ["Terry McLaurin","$5,400","12.9","10.8%","20","Daniels stack."],
         ["CeeDee Lamb","$7,300","19.4","20.1%","12","Dak copies. Same cap as Dak."],
         ["Ja'Marr Chase","$7,600","18.0","18.4%","8","Dead chalk tax."],
@@ -74,7 +76,7 @@ function paintClassicDfs(){
         ["Juwan Johnson","$3,900","11.5","6.5%","50","Shough stack. Salary relief."],
         ["Dallas Goedert","$4,800","11.7","3.9%","45","Low own."],
         ["Trey McBride","$6,900","16.7","12.0%","40","Fair own."],
-        ["Punt TE","$4,000","—","—","15","Hunter Henry. Not Andrews. Not Schultz."]
+        ["Hunter Henry","$4,000","9.0","4.5%","15","Maye / Doubs game. Not Andrews. Not Schultz."]
       ])+"</table>"+
       "<p class='note-lab'>DST · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
@@ -87,33 +89,35 @@ function paintClassicDfs(){
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>Plug these into the optimizer. Max % is of 150. Force-if and never-together first. Then exposures.</p>"+
+      "<p class='note'>Plug these into the optimizer. Doubs is Patriots. Do not force Doubs with Love.</p>"+
       "<p class='note-lab'>FORCE IF QB IS IN</p>"+
       "<ul class='notes'>"+li([
         "If Mayfield → Egbuka.",
         "If Shough → Olave and Johnson.",
         "If Daniels → McLaurin. If McLaurin sits, Daniels exposure to 0.",
-        "If Love → Doubs.",
+        "If Love → Christian Watson. Not Doubs. Not Golden as the only WR.",
+        "If Maye → Doubs.",
         "If Dak → Lamb.",
         "If Willis → Waddle."
       ])+"</ul>"+
       "<p class='note-lab'>NEVER TOGETHER</p>"+
       "<ul class='notes'>"+li([
+        "Love + Doubs.",
+        "Maye + Watson.",
         "Lamar + Andrews.",
-        "Lamar + Henry.",
+        "Lamar + Henry (Derrick).",
         "Shough + Ravens DST.",
-        "Shough + Henry + Lamar.",
+        "Shough + Derrick Henry + Lamar.",
         "Dak + Daniels.",
         "Willis + Lock.",
         "Bijan + Chase + Jefferson. If Bijan is on, one of Chase / Jefferson max.",
-        "Andrews anywhere. Schultz anywhere.",
-        "Golden as the Love stack if Doubs is in."
+        "Andrews anywhere. Schultz anywhere."
       ])+"</ul>"+
       "<p class='note-lab'>MAX EXPOSURE</p>"+
       "<ul class='notes'>"+li([
-        "Mayfield 27. Shough 21. Daniels 13. Love 13. Dak 8. Willis 9. Lamar 8.",
+        "Mayfield 27. Shough 21. Daniels 13. Love 13. Maye 9. Dak 8. Willis 5. Lamar 3.",
         "Bijan 40. Irving 30. Hall 27. Saquon 20. Tuten 13. Javonte 8.",
-        "Egbuka 27. Doubs 20. Olave 23. Waddle 13. McLaurin 13. Lamb 8. Chase 5. Jefferson 5.",
+        "Egbuka 27. Watson 13. Olave 23. Doubs 9. Waddle 5. McLaurin 13. Lamb 8. Chase 5. Jefferson 5.",
         "Johnson 33. Goedert 30. McBride 27. Hunter Henry 10.",
         "Eagles 33. Bucs 30. Seahawks 23. Ravens 13."
       ])+"</ul>"+
@@ -122,20 +126,23 @@ function paintClassicDfs(){
         "Two lineups that share QB + stack WR + RB1 + DST count as one. Change two of those four.",
         "Mayfield 40: vary second back, second WR, TE, DST. Bucs DST cannot ride all 40.",
         "Shough 32: second back Tuten or Hall. No Ravens.",
+        "Love 20: Watson. Second WR is Egbuka or Olave, not Doubs.",
+        "Maye 14: Doubs. Hunter Henry can ride this game.",
         "Dak 12 is the SE stack with Lamb + Javonte. Do not build a 13th."
       ])+"</ul>"+
       "<p class='note-lab'>SIT SWAPS</p>"+
       "<ul class='notes'>"+li([
-        "Egbuka out → Tate. Cap stays 27. Do not move it to Chase.",
-        "Doubs out → Wicks. Cap stays 20. Do not move it to Golden.",
+        "Egbuka out → Tate. Cap stays 27.",
+        "Watson out → Golden only in the Love 20. Cap stays 13. Do not add Doubs.",
+        "Doubs out → Maye to 0.",
         "McLaurin out → Daniels to 0.",
-        "Willis out → Lock. Same 9. Not both."
+        "Willis out → Lock. Same 5. Not both."
       ])+"</ul>"+
       "<p class='note-lab'>EXCLUDE</p>"+
       "<ul class='notes'>"+li([
         "CHI. Caleb. Odunze. Swift.",
         "Nico Collins. Zay Flowers. Brock Bowers. A.J. Brown.",
-        "Andrews. Schultz. Golden as leverage. Pickens as a GPP core. CMC unless confirmed and you burn the SE bag."
+        "Andrews. Schultz. Doubs with Love. Pickens as a GPP core. CMC unless confirmed and you burn the SE bag."
       ])+"</ul>";
   }
 }

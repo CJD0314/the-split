@@ -13,6 +13,7 @@ function paintClassicDfs(){
   const se = document.getElementById("dfs-se-box");
   const gpp = document.getElementById("dfs-gpp-box");
   const pool = document.getElementById("dfs-pool-box");
+  const rules = document.getElementById("dfs-rules-box");
   if (se){
     se.innerHTML =
       "<p class='note'>Handle CE409. One lineup. Script first. GPP cannot copy this ticket more than 15 times.</p>"+
@@ -24,27 +25,16 @@ function paintClassicDfs(){
   }
   if (gpp){
     gpp.innerHTML =
-      "<p class='note'>Week 1 tape stays here. This week's names live in PLAYER POOL. Field this week is 416.1k on the 1 p.m. main. Not last week's 831k. Not SNF.</p>"+
+      "<p class='note'>Week 1 tape stays here. This week's names live under WEEK 2. Field is 416.1k on the 1 p.m. main. Not SNF.</p>"+
       "<ul class='notes'>"+li([
-        "No QB over 40 of 150 (27%). No RB over 90 (60%). Bijan cap is 60 (40%) after the sheet.",
+        "No QB over 40 of 150 (27%). No RB over 90 (60%). Bijan cap is 60 (40%).",
         "SE stack cap 15 (10%).",
-        "Two lineups that share QB + stack WR + RB1 + DST count as one build. Change two of those four or it does not count toward 150."
+        "Two lineups that share QB + stack WR + RB1 + DST count as one build."
       ])+"</ul>";
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>Tight pool. 416.1k. 150 max. QB + TE + DST caps each sum to 150. 150 unique means 150 lineups that do not share QB + stack WR + RB1 + DST.</p>"+
-      "<p class='note-lab'>150 UNIQUE</p>"+
-      "<ul class='notes'>"+li([
-        "Mayfield 40: Egbuka + Irving. Vary the second back (Hall / Tuten / Saquon / Bijan), the second WR (Doubs / Waddle), TE, and DST. Bucs DST cannot be in all 40.",
-        "Shough 32: Olave + Johnson. Second back is Tuten or Hall, not Henry unless Lamar is out of that lineup. No Ravens DST.",
-        "Daniels 20: McLaurin is the stack WR. Without him this cap cannot be filled. Bring one Dallas piece max.",
-        "Love 20: Doubs is the stack WR. Second WR is Waddle or Egbuka, not Golden.",
-        "Dak 12: Lamb + Javonte. That is the SE stack. Do not build a 13th.",
-        "Willis 14: Waddle. Second back Tuten or Hall.",
-        "Lamar 12: no Andrews. Second back is not Henry if Shough is also in the 150 that way — pick one Baltimore skill bag per lineup.",
-        "Bijan at $8,200 does not fit with Chase and Jefferson in the same lineup. If Bijan is in, one dead-chalk WR max."
-      ])+"</ul>"+
+      "<p class='note'>1 p.m. main. 416.1k. 150 max. Salary is live DK. Proj / own from our sheet. Optimizer rules sit in RULES.</p>"+
       "<p class='note-lab'>QB · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
@@ -73,7 +63,7 @@ function paintClassicDfs(){
         ["Romeo Doubs","$5,000","11.2","2.7%","30","Coker 2. Love stack."],
         ["Chris Olave","$7,200","15.6","8.5%","35","Shough stack."],
         ["Jaylen Waddle","$6,500","14.2","6.3%","20","Willis stack. Mims OUT."],
-        ["Terry McLaurin","$5,400","12.9","10.8%","20","Daniels stack. Required to fill the 20."],
+        ["Terry McLaurin","$5,400","12.9","10.8%","20","Daniels stack."],
         ["CeeDee Lamb","$7,300","19.4","20.1%","12","Dak copies. Same cap as Dak."],
         ["Ja'Marr Chase","$7,600","18.0","18.4%","8","Dead chalk tax."],
         ["Justin Jefferson","$7,800","20.2","15.9%","8","Dead chalk tax."]
@@ -81,7 +71,7 @@ function paintClassicDfs(){
       "<p class='note-lab'>TE · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Juwan Johnson","$3,900","11.5","6.5%","50","Shough stack. Also salary relief."],
+        ["Juwan Johnson","$3,900","11.5","6.5%","50","Shough stack. Salary relief."],
         ["Dallas Goedert","$4,800","11.7","3.9%","45","Low own."],
         ["Trey McBride","$6,900","16.7","12.0%","40","Fair own."],
         ["Punt TE","$4,000","—","—","15","Hunter Henry. Not Andrews. Not Schultz."]
@@ -93,21 +83,60 @@ function paintClassicDfs(){
         ["Buccaneers","$3,600","8.5","11.9%","45","Mayfield game. Not all 40 Mayfield lineups."],
         ["Seahawks","$3,500","7.9","7.0%","35","Lock start."],
         ["Punt DST","$3,300","—","—","20","Ravens only without Shough."]
-      ])+"</table>"+
-      "<p class='note-lab'>ONLY IF A CORE SITS</p>"+
+      ])+"</table>";
+  }
+  if (rules){
+    rules.innerHTML =
+      "<p class='note'>Plug these into the optimizer. Max % is of 150. Force-if and never-together first. Then exposures.</p>"+
+      "<p class='note-lab'>FORCE IF QB IS IN</p>"+
       "<ul class='notes'>"+li([
-        "Egbuka out: Tate takes the 40. Do not move it to Chase.",
-        "Doubs out: Wicks takes the 30. Do not move it to Golden.",
-        "McLaurin out: cut Daniels to 0. Do not keep 20 unstacked Daniels.",
-        "Willis sits: Lock. Same 14. Not both."
+        "If Mayfield → Egbuka.",
+        "If Shough → Olave and Johnson.",
+        "If Daniels → McLaurin. If McLaurin sits, Daniels exposure to 0.",
+        "If Love → Doubs.",
+        "If Dak → Lamb.",
+        "If Willis → Waddle."
       ])+"</ul>"+
-      "<p class='note-lab'>OFF THE 150</p>"+
+      "<p class='note-lab'>NEVER TOGETHER</p>"+
       "<ul class='notes'>"+li([
-        "CHI. Odunze. Swift. Caleb.",
+        "Lamar + Andrews.",
+        "Lamar + Henry.",
+        "Shough + Ravens DST.",
+        "Shough + Henry + Lamar.",
+        "Dak + Daniels.",
+        "Willis + Lock.",
+        "Bijan + Chase + Jefferson. If Bijan is on, one of Chase / Jefferson max.",
+        "Andrews anywhere. Schultz anywhere.",
+        "Golden as the Love stack if Doubs is in."
+      ])+"</ul>"+
+      "<p class='note-lab'>MAX EXPOSURE</p>"+
+      "<ul class='notes'>"+li([
+        "Mayfield 27. Shough 21. Daniels 13. Love 13. Dak 8. Willis 9. Lamar 8.",
+        "Bijan 40. Irving 30. Hall 27. Saquon 20. Tuten 13. Javonte 8.",
+        "Egbuka 27. Doubs 20. Olave 23. Waddle 13. McLaurin 13. Lamb 8. Chase 5. Jefferson 5.",
+        "Johnson 33. Goedert 30. McBride 27. Hunter Henry 10.",
+        "Eagles 33. Bucs 30. Seahawks 23. Ravens 13."
+      ])+"</ul>"+
+      "<p class='note-lab'>150 UNIQUE</p>"+
+      "<ul class='notes'>"+li([
+        "Two lineups that share QB + stack WR + RB1 + DST count as one. Change two of those four.",
+        "Mayfield 40: vary second back, second WR, TE, DST. Bucs DST cannot ride all 40.",
+        "Shough 32: second back Tuten or Hall. No Ravens.",
+        "Dak 12 is the SE stack with Lamb + Javonte. Do not build a 13th."
+      ])+"</ul>"+
+      "<p class='note-lab'>SIT SWAPS</p>"+
+      "<ul class='notes'>"+li([
+        "Egbuka out → Tate. Cap stays 27. Do not move it to Chase.",
+        "Doubs out → Wicks. Cap stays 20. Do not move it to Golden.",
+        "McLaurin out → Daniels to 0.",
+        "Willis out → Lock. Same 9. Not both."
+      ])+"</ul>"+
+      "<p class='note-lab'>EXCLUDE</p>"+
+      "<ul class='notes'>"+li([
+        "CHI. Caleb. Odunze. Swift.",
         "Nico Collins. Zay Flowers. Brock Bowers. A.J. Brown.",
-        "Andrews. Schultz. Golden as leverage. Pickens as a GPP core. CMC unless confirmed and you burn SE copies."
-      ])+"</ul>"+
-      "<p class='note'>T-90. Caps do not climb on Bijan or Chase to fill a hole.</p>";
+        "Andrews. Schultz. Golden as leverage. Pickens as a GPP core. CMC unless confirmed and you burn the SE bag."
+      ])+"</ul>";
   }
 }
 paintClassicDfs();

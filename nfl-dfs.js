@@ -4,56 +4,67 @@ function paintClassicDfs(){
   const gpp = document.getElementById("dfs-gpp-box");
   if (se){
     se.innerHTML =
-      "<p class='note'>Handle CE409. One lineup. High-stake single entry on the main slate. Not a 20-line spray. Script first. Confirm inactives at T-90.</p>"+
+      "<p class='note'>Handle CE409. One lineup. High-stake single entry on the main slate. Script first. Confirm inactives at T-90.</p>"+
       "<p class='note-lab'>HOW THIS CONTEST IS WON</p>"+
       "<ul class='notes'>"+li([
         "One ticket. If the game script is wrong the lineup is dead. Do not build a GPP dart and hope.",
-        "Stack the game we already stamped as live. Week 2 that is not CAR-ATL or MIN-CHI. Those are PASS sides.",
+        "Stack the game we already stamped as live. Week 2 that is not CAR-ATL or MIN-CHI.",
         "QB + his WR1 or TE. Bring the other skill only if the 10k mean says both score.",
-        "Do not force a 50-percent RB because he was 23 last Thursday. Gibbs 50/50 in the Week 1 GPP. n=1.",
-        "DST from a dog we already like, or from a game that stays under. Not the chalk favorite DST off a 31-10."
+        "Do not force a 40-percent RB because he cashed last week. Gibbs was 43% of the Week 1 field.",
+        "DST from a dog we already like, or from a game that stays under."
       ])+"</ul>"+
       "<p class='note-lab'>WEEK 2 BOARD</p>"+
       "<ul class='notes'>"+li([
-        "Primary stack to study: CIN at HOU if Burrow is out there. Collins is OUT. That is the injury we already used on the side.",
-        "Second stack: WSH at DAL. 50.5 total. Both QBs can finish if it stays on script.",
+        "Primary stack: CIN at HOU. Collins OUT. Chase is the pass game.",
+        "Second stack: WSH at DAL. 50.5 total.",
         "SNF late pivot: IND at KC. Do not copy Walker 173 into the only lineup.",
-        "Fade as a single: CHI stack off 59. MIA at SF if you need the 13.5 dog, not the 49ers pieces at juice salaries."
-      ])+"</ul>"+
-      "<p class='note'>Lock after T-90. If a named piece sits, rebuild. Do not leave an inactive in the only lineup.</p>";
+        "Fade as a single: CHI off 59. 49ers pieces at juice salaries."
+      ])+"</ul>";
   }
   if (gpp){
     gpp.innerHTML =
-      "<p class='note'>Week 1 DK GPP. Field 831,028. Winner 274.0. CE409 entered 50 of 150. Best 28,421st at 194.8. Median 144.8. Worst 115.96.</p>"+
+      "<p class='note'>Week 1 DK GPP. Unique field 831,028. Winner 274.0. CE409 used 50. Best 28,421st at 194.8. Going forward the cap is 150.</p>"+
       "<div class='mini'>"+
         "<div><b>FIELD</b><span>831,028</span></div>"+
         "<div><b>1ST</b><span>274.0</span></div>"+
-        "<div><b>CE409 BEST</b><span>28,421</span></div>"+
-        "<div><b>ENTRIES</b><span>50 / 150</span></div>"+
+        "<div><b>TOP 100 QB</b><span>Young 45% / Shough 31%</span></div>"+
+        "<div><b>BURROW IN TOP 100</b><span>0</span></div>"+
       "</div>"+
-      "<div class='sd-win'><b>WINNER · 274.0</b>QB Love · RB Gibbs · RB Henry · FLEX Swift · TE Goedert · WR Watson · WR DJ Moore · WR Coker · DST Steelers</div>"+
-      "<div class='sd-you'><b>CE409 BEST · 194.8 · 28,421st</b>QB Lawrence · RB Gibbs · RB Chase Brown · FLEX Irving · TE Gesicki · WR Olave · WR P. Washington · WR Q. Johnston · DST Steelers</div>"+
-      "<p class='note-lab'>WHAT THE FIELD TAUGHT</p>"+
+      "<div class='sd-win'><b>WINNER · 274.0 · Love 1.7% field</b>Love · Gibbs · Henry · Swift · Goedert · Watson · DJ Moore · Coker · Steelers</div>"+
+      "<div class='sd-you'><b>WHAT ACTUALLY FILLED THE TOP 100</b>Bryce Young 45 · Tyler Shough 31 · Coker 92 · Olave 71 · Gibbs 76 · Swift · Henry · Goedert / Johnson · Steelers</div>"+
+      "<p class='note-lab'>HOW THE WINNING POOL WAS BUILT</p>"+
       "<ul class='notes'>"+li([
-        "Winner was Love + Packers pass game, not the expensive QBs we leaned. Lawrence 23 of our 50. Burrow 18. Love was the leave.",
-        "Gibbs was in all 50 of our lineups and in the winning lineup. That was not the miss. Correlation around him was.",
-        "Winning WRs were Watson, DJ Moore, Coker. Our 50 lived on Higgins 31, Chase 18, Olave 16.",
-        "Winning TE was Goedert. We spent Gesicki 19 and Johnson 16.",
-        "Steelers DST was in first. We used Jets 22 and Raiders 12."
+        "Field QB chalk was Burrow 11.3% and Herbert 10.2%. Both were 0% of the top 100. Winners left the expensive QB.",
+        "First place was Love at 1.7% field. That is a spike, not the cashing pool. The cashing pool was the two cheapest QBs who went off: Young 45 of top 100, Shough 31.",
+        "The leverage WR was Jalen Coker. 7.5% of the field. 95% of the top 20. 92% of the top 100. That is how a GPP is won. One mid-owned name in a game that broke.",
+        "Right chalk WR was Olave. 23.7% field, 71% of the top 100. Dead chalk WR was Chase. 28.3% field, 0% of the top 20 and top 100.",
+        "Gibbs was 43% of the field and 76% of the top 100. Necessary. Not sufficient. Winners paired him with Swift or Henry, not with Saquon / Hampton / Achane.",
+        "TE and DST were the leftover uniqueness. Goedert and Johnson beat Mayer volume. Steelers showed in first and in 9 of the top 20."
       ])+"</ul>"+
-      "<p class='note-lab'>RULES FOR THE 150-MAX</p>"+
+      "<p class='note-lab'>WHERE OUR 50 MISSED THE POOL</p>"+
       "<ul class='notes'>"+li([
-        "Core 8 to 12 unique builds. Do not make 50 almost-copies of Lawrence + Gibbs + Higgins.",
-        "One pocket of the field we already faded on the side can be a 3-line dart. Not 20.",
-        "Leave the chalk QB in 20 to 30 percent of the 150, not 80.",
-        "If a player is in 50 of 50, write why. Gibbs 50/50 last week is the example.",
-        "Punt DST and the third WR are where 274 separated from 195. Spend the uniqueness there."
+        "QB: Lawrence 23 and Burrow 18. Zero Young. Zero Shough. Zero Love.",
+        "WR: Higgins 31 and Chase 18. Those were the dead-chalk bucket. Olave 16 was the one right chalk we had.",
+        "RB: Gibbs 50 of 50 was correct ownership. The second back was Etienne / Brown / Lloyd, not Swift / Henry.",
+        "DST: Jets 22 and Raiders 12. Steelers were 3."
       ])+"</ul>"+
-      "<p class='note-lab'>WEEK 2 GPP NOTE</p>"+
+      "<p class='note-lab'>150-MAX POOL FROM NOW ON</p>"+
       "<ul class='notes'>"+li([
-        "Do not 150-max CHI pieces off 59. That is the Week 1 Love-spot in reverse.",
-        "If we 150-max anyone tonight, it is not Walker off 173 and it is not Dart off three scores.",
-        "Build off games we stamped live: CIN-HOU, WSH-DAL, late KC only as a pivot."
+        "QB split, not one pocket. 35 cheap-QB Game A. 35 cheap-QB Game B. 25 mid-price live stack. 15 chalk QB. 20 spike / 2% Love-type with the bring-back. 20 late SNF pivot.",
+        "One necessary RB can live in 80 to 100 of 150 if the 10k mean and the salary say so. Write why. Never 150 of 150 without a sentence.",
+        "Dead-chalk WR (this week analog to Chase) caps at 15 of 150.",
+        "Right-chalk WR (Olave analog) can live in 50 to 80.",
+        "Leverage WR (Coker analog) is the contest. Find two names under 12% projected own in games that can go 30. Put them in 40 to 70 combined.",
+        "Second RB is Swift/Henry, not the other 15% backs. 40 / 35 / 25 across three secondary backs.",
+        "DST: 50 on two cheap dogs we already like. 30 on the chalk sack DST. 20 unique.",
+        "Do not make 50 copies of one stack and call it 150. If two lineups share QB + WR1 + RB1 + DST, they count as one build."
+      ])+"</ul>"+
+      "<p class='note-lab'>WEEK 2 TRANSLATION</p>"+
+      "<ul class='notes'>"+li([
+        "Do not 80-max a juice QB off last week. That was Burrow.",
+        "Do not 150-max CHI pieces off 59. That is Love in reverse — the field will do it.",
+        "Do not 150-max Walker off 173 or Dart off three scores.",
+        "Look for this week's Coker: a second WR in a live cheap-QB game, not the WR1 the field already has."
       ])+"</ul>";
   }
 }

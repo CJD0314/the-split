@@ -25,7 +25,6 @@ const CFB_OPEN = {
   "cfb-week-3-kenn-tenn.html": {sp:"TENN -35.5", tot:"60.5", ml:"TENN heavy", move:"FADE WIN · 42-9"},
   "cfb-week-3-utsa-tex.html": {sp:"TEX -29.5", tot:"57.5", ml:"TEX heavy", move:"FADE WIN · 30-6"}
 };
-const SAT_REV = "cfb-week-3-sat-review.html";
 const CFB = {
 1: [
   ["THU SEPT 3",254,16,"#21 Utah 66, Idaho 14","FINAL","UTAH -38.5","52.5","UTAH heavy","cfb-game.html?g=utah-idaho","cfb-review.html?g=utah-idaho","Cashed"]
@@ -36,29 +35,30 @@ const CFB = {
   ["FRI SEPT 18",2390,154,"Miami 33, Wake Forest 20","FINAL","MIA -20.5 / WAKE +20.5","55.5","MIA -1450 / WAKE +850","cfb-week-3-mia-wake.html","cfb-week-3-mia-wake-review.html","FADE WIN"],
   ["FRI SEPT 18",248,2641,"Texas Tech 28, Houston 26","FINAL","HOU +7.5 / TTU -7.5","52.5","TTU -280 / HOU +230","cfb-week-3-hou-ttu.html","cfb-week-3-hou-ttu-review.html","BET WIN"],
   ["FRI SEPT 18",275,248,"Oregon 84, Portland State 0","FINAL","ORE -58.5 / PORT +58.5","71.5","ORE heavy","cfb-week-3-port-ore.html","cfb-week-3-port-ore-review.html","FADE LOSS"],
-  ["SAT SEPT 19",61,8,"Georgia 45, Arkansas 17","FINAL · Noon ET","UGA -24.5 / ARK +24.5","54.5","UGA heavy","cfb-week-3-uga-ark.html",SAT_REV,"FADE LOSS"],
-  ["SAT SEPT 19",2309,194,"Ohio State 59, Kent State 3","FINAL · Noon ET","KENT +52.5 / OSU -52.5","59.5","OSU heavy","cfb-week-3-kent-osu.html",SAT_REV,"FADE LOSS"],
-  ["SAT SEPT 19",2084,213,"Penn State 55, Buffalo 13","FINAL · Noon ET","BUFF +41.5 / PSU -41.5","50.5","PSU heavy","cfb-week-3-buff-psu.html",SAT_REV,"FADE LOSS"],
-  ["SAT SEPT 19",96,245,"Kentucky 31, Texas A&M 21","FINAL · 3:30 ET","UK +16.5 / TAMU -16.5","50.5","TAMU -700 / UK +500","cfb-week-3-uk-tamu.html",SAT_REV,"LEAN LOSS"],
-  ["SAT SEPT 19",52,333,"Alabama 50, Florida State 36","FINAL · 3:30 ET","FSU +19.5 / ALA -19.5","48.5","ALA heavy","cfb-week-3-fsu-ala.html",SAT_REV,"FADE WIN"],
-  ["SAT SEPT 19",30,164,"USC 42, Rutgers 35","FINAL · 3:30 ET","USC -23.5 / RUTG +23.5","59.5","USC heavy","cfb-week-3-usc-rutg.html",SAT_REV,"FADE WIN"],
-  ["SAT SEPT 19",2567,97,"Louisville 41, SMU 31","FINAL · 3:30 ET","SMU +1.5 / LOU -1.5","59.5","LOU -120 / SMU +100","cfb-week-3-smu-lou.html",SAT_REV,"LEAN LOSS"],
-  ["SAT SEPT 19",328,254,"Utah 33, Utah State 0","FINAL · 3:30 ET","USU +28.5 / UTAH -28.5","56.5","UTAH heavy","cfb-week-3-usu-utah.html",SAT_REV,"FADE LOSS"],
-  ["SAT SEPT 19",2638,130,"Michigan 52, UTEP 17","FINAL · 3:30 ET","UTEP +35.5 / MICH -35.5","49.5","MICH heavy","cfb-week-3-utep-mich.html",SAT_REV,"FADE LOSS"],
-  ["SAT SEPT 19",98,84,"Indiana 38, W. Kentucky 0","FINAL · 4:00 ET","WKU +44.5 / IU -44.5","60.5","IU heavy","cfb-week-3-wku-iu.html",SAT_REV,"FADE WIN"],
-  ["SAT SEPT 19",246,229,"Iowa 55, Northern Iowa 0","FINAL · 4:00 ET","UNI +38.5 / IOWA -38.5","49.5","IOWA heavy","cfb-week-3-uni-iowa.html",SAT_REV,"FADE LOSS"],
-  ["SAT SEPT 19",2653,142,"Missouri 27, Troy 17","FINAL · 7:00 ET","TROY +27.5 / MIZ -27.5","50.5","MIZ heavy","cfb-week-3-troy-miz.html",SAT_REV,"FADE WIN"],
-  ["SAT SEPT 19",99,145,"Ole Miss 32, LSU 24","FINAL · 7:30 ET","LSU -3 / MISS +3","58.5","LSU -155 / MISS +130","cfb-week-3-lsu-miss.html",SAT_REV,"LEAN LOSS"],
-  ["SAT SEPT 19",127,87,"Notre Dame 27, Michigan State 10","FINAL · 7:30 ET","MSU +29 / ND -29","52.5","ND heavy","cfb-week-3-msu-nd.html",SAT_REV,"FADE WIN"],
-  ["SAT SEPT 19",167,201,"Oklahoma 14, New Mexico 6","FINAL · 7:30 ET","UNM +21.5 / OU -21.5","45.5","OU heavy","cfb-week-3-unm-ou.html",SAT_REV,"FADE WIN"],
-  ["SAT SEPT 19",252,36,"BYU 41, Colorado State 23","FINAL · 7:30 ET","BYU -17.5 / CSU +17.5","52.5","BYU -1100 / CSU +760","cfb-week-3-byu-csu.html",SAT_REV,"FADE LOSS"],
-  ["SAT SEPT 19",277,258,"West Virginia 38, Virginia 27","FINAL · 7:30 ET","WVU +10.5 / UVA -10.5","53.5","UVA -420 / WVU +320","cfb-week-3-wvu-uva.html",SAT_REV,"LEAN WIN"],
-  ["SAT SEPT 19",338,2633,"Tennessee 42, Kennesaw State 9","FINAL · 7:45 ET","KENN +35.5 / TENN -35.5","60.5","TENN heavy","cfb-week-3-kenn-tenn.html",SAT_REV,"FADE WIN"],
-  ["SAT SEPT 19",2636,251,"Texas 30, UTSA 6","FINAL · 8:00 ET","UTSA +30.5 / TEX -30.5","58.5","TEX -5000 / UTSA +2200","cfb-week-3-utsa-tex.html",SAT_REV,"FADE WIN"]
+  ["SAT SEPT 19",61,8,"Georgia 45, Arkansas 17","FINAL · Noon ET","UGA -24.5 / ARK +24.5","54.5","UGA heavy","cfb-week-3-uga-ark.html","cfb-week-3-uga-ark-review.html","FADE LOSS"],
+  ["SAT SEPT 19",2309,194,"Ohio State 59, Kent State 3","FINAL · Noon ET","KENT +52.5 / OSU -52.5","59.5","OSU heavy","cfb-week-3-kent-osu.html","cfb-week-3-kent-osu-review.html","FADE LOSS"],
+  ["SAT SEPT 19",2084,213,"Penn State 55, Buffalo 13","FINAL · Noon ET","BUFF +41.5 / PSU -41.5","50.5","PSU heavy","cfb-week-3-buff-psu.html","cfb-week-3-buff-psu-review.html","FADE LOSS"],
+  ["SAT SEPT 19",96,245,"Kentucky 31, Texas A&M 21","FINAL · 3:30 ET","UK +16.5 / TAMU -16.5","50.5","TAMU -700 / UK +500","cfb-week-3-uk-tamu.html","cfb-week-3-uk-tamu-review.html","LEAN LOSS"],
+  ["SAT SEPT 19",52,333,"Alabama 50, Florida State 36","FINAL · 3:30 ET","FSU +19.5 / ALA -19.5","48.5","ALA heavy","cfb-week-3-fsu-ala.html","cfb-week-3-fsu-ala-review.html","FADE WIN"],
+  ["SAT SEPT 19",30,164,"USC 42, Rutgers 35","FINAL · 3:30 ET","USC -23.5 / RUTG +23.5","59.5","USC heavy","cfb-week-3-usc-rutg.html","cfb-week-3-usc-rutg-review.html","FADE WIN"],
+  ["SAT SEPT 19",2567,97,"Louisville 41, SMU 31","FINAL · 3:30 ET","SMU +1.5 / LOU -1.5","59.5","LOU -120 / SMU +100","cfb-week-3-smu-lou.html","cfb-week-3-smu-lou-review.html","LEAN LOSS"],
+  ["SAT SEPT 19",328,254,"Utah 33, Utah State 0","FINAL · 3:30 ET","USU +28.5 / UTAH -28.5","56.5","UTAH heavy","cfb-week-3-usu-utah.html","cfb-week-3-usu-utah-review.html","FADE LOSS"],
+  ["SAT SEPT 19",2638,130,"Michigan 52, UTEP 17","FINAL · 3:30 ET","UTEP +35.5 / MICH -35.5","49.5","MICH heavy","cfb-week-3-utep-mich.html","cfb-week-3-utep-mich-review.html","FADE LOSS"],
+  ["SAT SEPT 19",98,84,"Indiana 38, W. Kentucky 0","FINAL · 4:00 ET","WKU +44.5 / IU -44.5","60.5","IU heavy","cfb-week-3-wku-iu.html","cfb-week-3-wku-iu-review.html","FADE WIN"],
+  ["SAT SEPT 19",246,229,"Iowa 55, Northern Iowa 0","FINAL · 4:00 ET","UNI +38.5 / IOWA -38.5","49.5","IOWA heavy","cfb-week-3-uni-iowa.html","cfb-week-3-uni-iowa-review.html","FADE LOSS"],
+  ["SAT SEPT 19",2653,142,"Missouri 27, Troy 17","FINAL · 7:00 ET","TROY +27.5 / MIZ -27.5","50.5","MIZ heavy","cfb-week-3-troy-miz.html","cfb-week-3-troy-miz-review.html","FADE WIN"],
+  ["SAT SEPT 19",99,145,"Ole Miss 32, LSU 24","FINAL · 7:30 ET","LSU -3 / MISS +3","58.5","LSU -155 / MISS +130","cfb-week-3-lsu-miss.html","cfb-week-3-lsu-miss-review.html","LEAN LOSS"],
+  ["SAT SEPT 19",127,87,"Notre Dame 27, Michigan State 10","FINAL · 7:30 ET","MSU +29 / ND -29","52.5","ND heavy","cfb-week-3-msu-nd.html","cfb-week-3-msu-nd-review.html","FADE WIN"],
+  ["SAT SEPT 19",167,201,"Oklahoma 14, New Mexico 6","FINAL · 7:30 ET","UNM +21.5 / OU -21.5","45.5","OU heavy","cfb-week-3-unm-ou.html","cfb-week-3-unm-ou-review.html","FADE WIN"],
+  ["SAT SEPT 19",252,36,"BYU 41, Colorado State 23","FINAL · 7:30 ET","BYU -17.5 / CSU +17.5","52.5","BYU -1100 / CSU +760","cfb-week-3-byu-csu.html","cfb-week-3-byu-csu-review.html","FADE LOSS"],
+  ["SAT SEPT 19",277,258,"West Virginia 38, Virginia 27","FINAL · 7:30 ET","WVU +10.5 / UVA -10.5","53.5","UVA -420 / WVU +320","cfb-week-3-wvu-uva.html","cfb-week-3-wvu-uva-review.html","LEAN WIN"],
+  ["SAT SEPT 19",338,2633,"Tennessee 42, Kennesaw State 9","FINAL · 7:45 ET","KENN +35.5 / TENN -35.5","60.5","TENN heavy","cfb-week-3-kenn-tenn.html","cfb-week-3-kenn-tenn-review.html","FADE WIN"],
+  ["SAT SEPT 19",2636,251,"Texas 30, UTSA 6","FINAL · 8:00 ET","UTSA +30.5 / TEX -30.5","58.5","TEX -5000 / UTSA +2200","cfb-week-3-utsa-tex.html","cfb-week-3-utsa-tex-review.html","FADE WIN"]
 ]
 };
 function reviewLink(href, review){
   if (review) return review;
+  if (href && /cfb-week-3-/.test(href)) return href.replace(".html", "-review.html");
   return "";
 }
 const DIVE_READY = {

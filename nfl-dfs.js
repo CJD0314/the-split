@@ -74,7 +74,7 @@ function paintClassicDfs(){
         ["George Pickens","17.8","18.3%","12","Owned like Lamb."],
         ["Matthew Golden","10.7","11.4%","10","Love spike only. Not a Coker."]
       ])+"</table>"+
-      "<p class='note-lab'>TE / DST</p>"+
+      "<p class='note-lab'>TE</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
         ["Trey McBride","16.7","12.0%","30","Fair own. Lock / Brissett game."],
@@ -82,11 +82,16 @@ function paintClassicDfs(){
         ["Dallas Goedert","11.7","3.9%","20","Last week's winner TE. Low own again."],
         ["Hunter Henry","9.0","4.5%","15","Maye bag."],
         ["Mark Andrews","13.1","20.0%","8","Mayer trap. Fade."],
-        ["Dalton Schultz","9.5","16.7%","0","Off the pool."],
-        ["Buccaneers DST","8.5","11.9%","25","Mayfield game. Own is already up."],
-        ["Eagles DST","8.3","7.4%","20","TEN game."],
-        ["Seahawks / 49ers DST","7.9 / 7.5","7.0 / 9.0","15","Do not 40-max either."],
-        ["Ravens DST","7.5","9.0%","12","Only without Shough."]
+        ["Dalton Schultz","9.5","16.7%","0","Off the pool."]
+      ])+"</table>"+
+      "<p class='note-lab'>DST</p>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
+      rows([
+        ["Buccaneers","8.5","11.9%","25","Mayfield game. Own is already up."],
+        ["Eagles","8.3","7.4%","20","TEN game."],
+        ["Seahawks","7.9","7.0%","15","Lock start. Do not 40-max."],
+        ["49ers","7.5","9.0%","15","Willis game. Do not 40-max."],
+        ["Ravens","7.5","9.0%","12","Only without Shough."]
       ])+"</table>"+
       "<p class='note-lab'>OFF THE POOL</p>"+
       "<ul class='notes'>"+li([

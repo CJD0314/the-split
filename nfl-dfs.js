@@ -41,15 +41,15 @@ function paintClassicDfs(){
         ["Baker Mayfield","$5,600","18.6","3.9%","40","TB. Stack Egbuka."],
         ["Tyler Shough","$5,300","17.8","4.6%","32","NO. Stack Olave + Johnson."],
         ["Jayden Daniels","$6,300","20.5","6.8%","20","WSH. Stack McLaurin."],
-        ["Jordan Love","$5,900","18.8","6.2%","20","GB. Stack Watson. Not Doubs."],
-        ["Drake Maye","$6,100","18.3","4.1%","14","NE. Stack Doubs. AJ Brown IR."],
+        ["Jordan Love","$5,900","18.8","6.2%","20","GB. Stack Watson."],
+        ["Drake Maye","$6,100","18.3","4.1%","14","NE. Stack Doubs."],
         ["Dak Prescott","$6,400","21.3","10.9%","12","DAL. Stack Lamb."],
-        ["Lamar Jackson","$7,300","21.6","5.3%","12","BAL. No Andrews. Flowers OUT."]
+        ["Lamar Jackson","$7,300","21.6","5.3%","12","BAL. Flowers OUT."]
       ])+"</table>"+
       "<p class='note-lab'>RB</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Bijan Robinson","$8,200","23.0","31.9%","60","ATL. Rush starts. Tua inactive."],
+        ["Bijan Robinson","$8,200","23.0","31.9%","60","ATL. Rush starts."],
         ["Bucky Irving","$6,100","17.2","12.1%","45","TB. Mayfield stack."],
         ["Breece Hall","$6,200","17.0","8.0%","40","NYJ."],
         ["Saquon Barkley","$7,000","18.1","9.1%","30","PHI."],
@@ -62,7 +62,7 @@ function paintClassicDfs(){
         ["Emeka Egbuka","$6,400","14.6","5.0%","40","TB. Mayfield."],
         ["Christian Watson","$6,200","15.6","11.3%","20","GB. Love."],
         ["Chris Olave","$7,200","15.6","8.5%","35","NO. Shough. Q hamstring."],
-        ["Romeo Doubs","$5,000","11.2","2.7%","14","NE. Maye. Not GB."],
+        ["Romeo Doubs","$5,000","11.2","2.7%","14","NE. Maye."],
         ["Terry McLaurin","$5,400","12.9","10.8%","20","WSH. Daniels."],
         ["CeeDee Lamb","$7,300","19.4","20.1%","12","DAL. Dak copies."],
         ["Ja'Marr Chase","$7,600","18.0","18.4%","8","CIN. Dead chalk tax."],
@@ -71,28 +71,27 @@ function paintClassicDfs(){
       "<p class='note-lab'>TE · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Juwan Johnson","$3,900","11.5","6.5%","50","NO. Shough. Illness, practiced Friday."],
+        ["Juwan Johnson","$3,900","11.5","6.5%","50","NO. Shough."],
         ["Dallas Goedert","$4,800","11.7","3.9%","45","PHI."],
         ["Trey McBride","$6,900","16.7","12.0%","40","ARI."],
-        ["Hunter Henry","$4,000","9.0","4.5%","15","NE. Maye / Doubs. Not Andrews."]
+        ["Hunter Henry","$4,000","9.0","4.5%","15","NE. Maye game."]
       ])+"</table>"+
       "<p class='note-lab'>DST · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
         ["Eagles","$3,700","8.3","7.4%","50","vs TEN."],
-        ["Buccaneers","$3,600","8.5","11.9%","45","vs CLE. Not all 40 Mayfield."],
-        ["Seahawks","$3,500","7.9","7.0%","35","Lock starts. Darnold OUT."],
+        ["Buccaneers","$3,600","8.5","11.9%","45","vs CLE."],
+        ["Seahawks","$3,500","7.9","7.0%","35","Lock starts."],
         ["Punt DST","$3,300","—","—","20","Ravens only without Shough."]
       ])+"</table>";
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>Group + Manual. Skip anything the optimizer already knows: one QB, one DST, players who are out, players not in the pool.</p>"+
+      "<p class='note'>Group + Manual. Only rules the optimizer will not know on its own.</p>"+
       "<p class='note-lab'>FORCE · IF AT LEAST 1 → THEN AT LEAST 1</p>"+
       "<table class='sd-table'><tr><th>If</th><th>Then</th></tr>"+
       "<tr><td>Mayfield</td><td>Egbuka</td></tr>"+
-      "<tr><td>Shough</td><td>Olave</td></tr>"+
-      "<tr><td>Shough</td><td>Johnson</td></tr>"+
+      "<tr><td>Shough</td><td>Olave + Johnson</td></tr>"+
       "<tr><td>Daniels</td><td>McLaurin</td></tr>"+
       "<tr><td>Love</td><td>Watson</td></tr>"+
       "<tr><td>Maye</td><td>Doubs</td></tr>"+
@@ -100,12 +99,8 @@ function paintClassicDfs(){
       "</table>"+
       "<p class='note-lab'>NEVER · IF AT LEAST 1 → THEN NO MORE THAN 0</p>"+
       "<table class='sd-table'><tr><th>If</th><th>No more than 0</th></tr>"+
-      "<tr><td>Love</td><td>Doubs</td></tr>"+
-      "<tr><td>Maye</td><td>Watson</td></tr>"+
-      "<tr><td>Lamar</td><td>Andrews</td></tr>"+
       "<tr><td>Shough</td><td>Ravens DST</td></tr>"+
-      "<tr><td>Bijan</td><td>Chase</td></tr>"+
-      "<tr><td>Bijan</td><td>Jefferson</td></tr>"+
+      "<tr><td>Bijan</td><td>Chase + Jefferson</td></tr>"+
       "</table>"+
       "<p class='note-lab'>MAX %</p>"+
       "<table class='sd-table'><tr><th>Pos</th><th>Caps</th></tr>"+
@@ -115,14 +110,7 @@ function paintClassicDfs(){
       "<tr><td>TE</td><td>Johnson 33 · Goedert 30 · McBride 27 · Henry 10</td></tr>"+
       "<tr><td>DST</td><td>Eagles 33 · Bucs 30 · Seahawks 23 · Ravens 13</td></tr>"+
       "</table>"+
-      "<p class='note-lab'>SIT</p>"+
-      "<ul class='notes'>"+li([
-        "Olave sits → Shough still needs Johnson. Do not dump the 21 onto Chase.",
-        "Watson sits → Golden only inside the Love 13.",
-        "Doubs sits → Maye to 0.",
-        "McLaurin sits → Daniels to 0."
-      ])+"</ul>"+
-      "<p class='note'>Not a rule: two QBs. Out players. Waddle / Willis / Nix. Global same-team.</p>";
+      "<p class='note'>If the builder cannot take two names in Then, split Shough into two rules and Bijan into two rules.</p>";
   }
 }
 paintClassicDfs();

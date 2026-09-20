@@ -33,15 +33,15 @@ function paintClassicDfs(){
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>Tight pool. 25 names. 416.1k. 150 max. If he is not in these tables he is not in the 150 unless the note says he replaces a sit.</p>"+
-      "<p class='note-lab'>QB</p>"+
+      "<p class='note'>Tight pool. 416.1k. 150 max. QB + TE + DST caps each sum to 150 (100%). Every lineup plays one. RB and WR do not — you play two backs and three receivers plus FLEX.</p>"+
+      "<p class='note-lab'>QB · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
         ["Baker Mayfield","$5,600","18.6","3.9%","40","Pocket A. CLE game can hit 30."],
         ["Tyler Shough","$5,300","17.8","4.6%","32","Pocket B. Behind at Baltimore."],
         ["Jayden Daniels","$6,300","20.5","6.8%","20","Mid stack. Better unique than Dak."],
         ["Jordan Love","$5,900","18.8","6.2%","20","Spike. Bring Doubs."],
-        ["Dak Prescott","$6,400","21.3","10.9%","12","SE copies only."],
+        ["Dak Prescott","$6,400","21.3","10.9%","12","GPP cap for the single-entry stack."],
         ["Malik Willis","$5,200","16.5","1.9%","14","Thin cheap leftover."],
         ["Lamar Jackson","$7,300","21.6","5.3%","12","One chalk QB. Not Hurts. Not Burrow."]
       ])+"</table>"+
@@ -61,23 +61,25 @@ function paintClassicDfs(){
         ["Romeo Doubs","$5,000","11.2","2.7%","30","Coker 2. Love spike."],
         ["Chris Olave","$7,200","15.6","8.5%","35","Right chalk. Shough bring-back."],
         ["Jaylen Waddle","$6,500","14.2","6.3%","20","Mims OUT."],
-        ["CeeDee Lamb","$7,300","19.4","20.1%","8","SE tax. Not a GPP core."],
+        ["CeeDee Lamb","$7,300","19.4","20.1%","8","SE stack tax. Not a GPP core."],
         ["Ja'Marr Chase","$7,600","18.0","18.4%","8","Dead chalk tax."],
         ["Justin Jefferson","$7,800","20.2","15.9%","8","Dead chalk tax."]
       ])+"</table>"+
-      "<p class='note-lab'>TE</p>"+
+      "<p class='note-lab'>TE · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Juwan Johnson","$3,900","11.5","6.5%","25","Shough stack."],
-        ["Dallas Goedert","$4,800","11.7","3.9%","20","Low own. Winner TE last week."],
-        ["Trey McBride","$6,900","16.7","12.0%","20","Fair own. Not 40."]
+        ["Juwan Johnson","$3,900","11.5","6.5%","50","Shough stack."],
+        ["Dallas Goedert","$4,800","11.7","3.9%","45","Low own. Winner TE last week."],
+        ["Trey McBride","$6,900","16.7","12.0%","40","Fair own."],
+        ["Punt TE","$4,000","—","—","15","Hunter Henry. Not Andrews. Not Schultz."]
       ])+"</table>"+
-      "<p class='note-lab'>DST</p>"+
+      "<p class='note-lab'>DST · 150 / 150</p>"+
       "<table class='sd-table'><tr><th>Player</th><th>Sal</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
       rows([
-        ["Eagles","$3,700","8.3","7.4%","25","TEN game."],
-        ["Buccaneers","$3,600","8.5","11.9%","20","Mayfield game. Own already up."],
-        ["Seahawks","$3,500","7.9","7.0%","15","Lock start."]
+        ["Eagles","$3,700","8.3","7.4%","50","TEN game."],
+        ["Buccaneers","$3,600","8.5","11.9%","45","Mayfield game. Own already up."],
+        ["Seahawks","$3,500","7.9","7.0%","35","Lock start."],
+        ["Punt DST","$3,300","—","—","20","Ravens only without Shough. Not a fourth core."]
       ])+"</table>"+
       "<p class='note-lab'>ONLY IF A CORE SITS</p>"+
       "<ul class='notes'>"+li([

@@ -34,7 +34,7 @@ function paintClassicDfs(){
   }
   if (pool){
     pool.innerHTML =
-      "<p class='note'>1 p.m. T-90 is in. Pool stacks that play: Egbuka, Olave, Johnson, Watson, Doubs, Maye, Love, Shough, Mayfield. Olave is active.</p>"+
+      "<p class='note'>Salaries are DK. Tuten is $5,600 not $4,400. If the optimizer disagrees with this table, trust the optimizer.</p>"+
       "<p class='note-lab'>1 P.M. INACTIVES · SKILL</p>"+
       "<ul class='notes'>"+li([
         "NO: Kendre Miller. Olave and Johnson are active.",
@@ -67,7 +67,7 @@ function paintClassicDfs(){
         ["Bucky Irving","$6,100","17.2","12.1%","45","TB. Mayfield stack."],
         ["Breece Hall","$6,200","17.0","8.0%","40","NYJ. Active."],
         ["Saquon Barkley","$7,000","18.1","9.1%","30","PHI. Active."],
-        ["Bhayshul Tuten","$4,400","13.5","1.5%","20","JAX. 4:05."],
+        ["Bhayshul Tuten","$5,600","13.5","1.5%","20","JAX. 4:05. DK $5,600."],
         ["Javonte Williams","$6,400","19.0","23.8%","12","DAL. 4:25. Dak copies only."]
       ])+"</table>"+
       "<p class='note-lab'>WR</p>"+
@@ -101,7 +101,7 @@ function paintClassicDfs(){
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>Group + Manual. Caps live in PLAYER POOL. 1 p.m. stacks are active. Leave the Olave force on.</p>"+
+      "<p class='note'>Group + Manual. Caps live in PLAYER POOL. Trust DK salaries in the optimizer over this table.</p>"+
       "<p class='note-lab'>FORCE · IF AT LEAST 1 → THEN AT LEAST 1</p>"+
       "<table class='sd-table'><tr><th>If</th><th>Then</th></tr>"+
       "<tr><td>Mayfield</td><td>Egbuka</td></tr>"+

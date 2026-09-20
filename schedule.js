@@ -33,12 +33,12 @@ const GAMES = [
 [2,"SUN 4:25 FOX","mia","sf","Dolphins at 49ers","Levi's · 4:25 p.m. ET","MIA +13.5 / SF -13.5","45.5","SF -869 / MIA +646","LEAN · MIA +13.5","nfl-week-2-mia-sf.html",""],
 [2,"SUN 4:25 FOX","wsh","dal","Commanders at Cowboys","AT&T · 4:25 p.m. ET","WSH +4 / DAL -4","50.5","DAL -190 / WSH +170","LEAN · WSH +4","nfl-week-2-wsh-dal.html",""],
 [2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","Arrowhead · 8:20 p.m. ET","IND +6 / KC -6","46.5","KC -285 / IND +230","LEAN · IND +6","nfl-week-2-ind-kc.html",""],
-[2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","SoFi · 8:15 p.m. ET","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","OPEN · LAR -7","nfl-week-2-nyg-lar.html",""]
+[2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","SoFi · 8:15 p.m. ET","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","LEAN · NYG +7","nfl-week-2-nyg-lar.html",""]
 ];
 function shortWhen(day){
   return String(day||"").replace(" Prime","").replace(" FOX","").replace(" CBS","").replace(" NBC","").replace(" ESPN","");
 }
-const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1,"nfl-week-2-min-chi.html":1,"nfl-week-2-phi-ten.html":1,"nfl-week-2-pit-ne.html":1,"nfl-week-2-gb-nyj.html":1,"nfl-week-2-cle-tb.html":1,"nfl-week-2-no-bal.html":1,"nfl-week-2-cin-hou.html":1,"nfl-week-2-jax-den.html":1,"nfl-week-2-lv-lac.html":1,"nfl-week-2-sea-ari.html":1,"nfl-week-2-mia-sf.html":1,"nfl-week-2-wsh-dal.html":1,"nfl-week-2-ind-kc.html":1};
+const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1,"nfl-week-2-min-chi.html":1,"nfl-week-2-phi-ten.html":1,"nfl-week-2-pit-ne.html":1,"nfl-week-2-gb-nyj.html":1,"nfl-week-2-cle-tb.html":1,"nfl-week-2-no-bal.html":1,"nfl-week-2-cin-hou.html":1,"nfl-week-2-jax-den.html":1,"nfl-week-2-lv-lac.html":1,"nfl-week-2-sea-ari.html":1,"nfl-week-2-mia-sf.html":1,"nfl-week-2-wsh-dal.html":1,"nfl-week-2-ind-kc.html":1,"nfl-week-2-nyg-lar.html":1};
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
   const isLive = (w===CURRENT_WEEK && /THU/i.test(day) && !/^FINAL/i.test(String(when)));

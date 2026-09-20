@@ -1,55 +1,103 @@
 function li(arr){ return arr.map(function(x){ return "<li>"+x+"</li>"; }).join(""); }
+function rows(list){
+  return list.map(function(r){
+    return "<tr><td>"+r[0]+"</td><td>"+r[1]+"</td><td>"+r[2]+"</td><td>"+r[3]+"</td><td>"+r[4]+"</td></tr>";
+  }).join("");
+}
 function paintClassicDfs(){
   const se = document.getElementById("dfs-se-box");
   const gpp = document.getElementById("dfs-gpp-box");
+  const pool = document.getElementById("dfs-pool-box");
   if (se){
     se.innerHTML =
-      "<p class='note'>Handle CE409. One lineup. Script first. GPP is not allowed to copy this ticket 40 times.</p>"+
-      "<p class='note-lab'>WEEK 2 SINGLE ENTRY</p>"+
+      "<p class='note'>Handle CE409. One lineup. Script first. GPP cannot copy this ticket more than 15 times.</p>"+
       "<ul class='notes'>"+li([
-        "Stack WSH at DAL. 50.5. Dak + Lamb or Daniels + McLaurin. One bring-back, not both QBs.",
-        "If Burrow is active, Chase can be the WR. Collins is OUT. Do not add a Texans WR1 who is not playing.",
-        "No CHI. No Walker 173. No CMC if he is a game-time sit — sit the ticket.",
-        "DST from the dog in a game we think stays close. Not the 49ers."
-      ])+"</ul>"+
-      "<p class='note'>Lock after T-90. If a named piece sits, rebuild the only lineup.</p>";
+        "Stack WSH at DAL. Dak + Lamb or Daniels + McLaurin. One bring-back.",
+        "No CHI. No CMC if he is a sit. No Andrews. No Schultz.",
+        "Lock after T-90."
+      ])+"</ul>";
   }
   if (gpp){
     gpp.innerHTML =
-      "<p class='note'>Caps are live. Pool is named before the lean list. Field last week 831,028. We use 150.</p>"+
-      "<p class='note-lab'>HARD CAPS</p>"+
+      "<p class='note'>Week 1 tape stays here. This week's names live in PLAYER POOL. Field this week is 416.1k on the 1 p.m. main. Not last week's 831k. Not SNF.</p>"+
       "<ul class='notes'>"+li([
-        "No QB in more than 40 of 150.",
-        "No RB in more than 90 of 150.",
-        "If two lineups share QB + WR1 + RB1 + DST, they count as one build.",
-        "The single-entry stack cannot appear in more than 15 of the 150."
-      ])+"</ul>"+
-      "<p class='note-lab'>CHEAP QB POCKETS — 35 EACH</p>"+
-      "<ul class='notes'>"+li([
-        "A: Baker Mayfield $5,600 vs CLE. Game can hit 30. Bring Egbuka, not Godwin as the only WR.",
-        "B: Tyler Shough $5,300 at BAL. Cheap QB throwing from behind. Cap him at 35. Do not 80-copy last week's cashing QB."
-      ])+"</ul>"+
-      "<p class='note-lab'>THIS WEEK'S COKERS — 40 TO 70 COMBINED</p>"+
-      "<ul class='notes'>"+li([
-        "Matthew Golden. Not the Packers WR1 the field already has. Second WR in a game that can go 30. Why is salary and role, not GB +3.5.",
-        "Emeka Egbuka. Not Evans. Mayfield pocket. Same rule as Coker: mid/low own, not the WR the field slams."
-      ])+"</ul>"+
-      "<p class='note-lab'>REST OF THE 150</p>"+
-      "<ul class='notes'>"+li([
-        "Mid-price live stack 25: Dak or Daniels. That is the SE game. It does not get to 40.",
-        "Chalk QB 15: Lamar or Hurts. Fifteen. Not the old Burrow pile.",
-        "Spike 20: Love + Golden bring-back. Last week's 1.7% winner is allowed here. Not in the other 130.",
-        "Late SNF 20: Jones or Mahomes. No Walker 173 in all 20.",
-        "Dead-chalk WR cap 15: Chase and Jefferson live here, not in 80.",
-        "Right-chalk WR 50 to 80: Lamb or Hall/Saquon if used as FLEX volume — pick one, write why.",
-        "No CHI pieces. No 150-max CMC. Sit CMC tickets if he sits."
-      ])+"</ul>"+
-      "<p class='note-lab'>WHY THIS IS NOT THE LEAN LIST</p>"+
-      "<ul class='notes'>"+li([
-        "Mayfield and Shough are not our Sunday plus-money leans. That is the point.",
-        "Golden and Egbuka are not side stamps. They are second WRs in games that can break.",
-        "WSH-DAL stays the single-entry script. GPP only gets 15 copies of it."
+        "No QB over 40 of 150. No RB over 90. Bijan cap is 60 after the sheet.",
+        "SE stack cap 15.",
+        "Shared QB + WR1 + RB1 + DST counts as one build."
       ])+"</ul>";
+  }
+  if (pool){
+    pool.innerHTML =
+      "<p class='note'>1 p.m. main. 416.1k. 150 max. Proj / own from our sheet. Caps are of 150 lineups.</p>"+
+      "<p class='note-lab'>QB</p>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
+      rows([
+        ["Baker Mayfield","18.6","3.9%","32","Cheap pocket A. CLE game can hit 30."],
+        ["Tyler Shough","17.8","4.6%","28","Cheap pocket B. Behind at Baltimore."],
+        ["Jayden Daniels","20.5","6.8%","18","Mid stack. Better unique than Dak."],
+        ["Jordan Love","18.8","6.2%","18","Spike only. Bring Doubs, not Golden as the leave."],
+        ["Dak Prescott","21.3","10.9%","12","SE copies. Not 40."],
+        ["Malik Willis / Drew Lock","16.5 / 15.8","1.9 / 1.7","12","Thinner cheap. Steal from spike if needed."],
+        ["Lamar / Hurts / Burrow","21.6 / 20.6 / 19.2","5.3 / 3.8 / 3.6","15","Chalk QB bag. Combined."],
+        ["Bo Nix / Drake Maye","18.1 / 18.3","5.7 / 4.1","15","Second mid bag."]
+      ])+"</table>"+
+      "<p class='note-lab'>RB</p>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
+      rows([
+        ["Bijan Robinson","23.0","31.9%","60","Sheet chalk. Necessary for some builds. Never 90."],
+        ["Bucky Irving","17.2","12.1%","45","Mayfield game. Pair with Egbuka."],
+        ["Breece Hall","17.0","8.0%","40","Right volume. Own is fair."],
+        ["Saquon Barkley","18.1","9.1%","35","PHI-TEN. Not 90."],
+        ["Derrick Henry","21.6","20.3%","30","Own is heavy. Only with Shough or no Lamar."],
+        ["De'Von Achane","18.1","11.5%","25","Willis game."],
+        ["Ashton Jeanty","16.7","11.9%","25","Secondary."],
+        ["Bhayshul Tuten","13.5","1.5%","20","Leverage back. Coker-shaped own."],
+        ["Javonte Williams","19.0","23.8%","15","SE only. Field already has him."],
+        ["CMC","22.5","19.7%","15","Sit the 15 if he sits."],
+        ["Aaron Jones","16.3","19.0%","10","Own > value. Thin."]
+      ])+"</table>"+
+      "<p class='note-lab'>WR</p>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
+      rows([
+        ["Emeka Egbuka","14.6","5.0%","40","Coker 1. Mayfield pocket."],
+        ["Romeo Doubs","11.2","2.7%","30","Coker 2. Golden is 11% own — field, not leverage."],
+        ["Chris Olave","15.6","8.5%","35","Right chalk. Shough bring-back."],
+        ["DeVonta Smith","15.8","7.3%","25","If Hurts is in the 15."],
+        ["Jaylen Waddle","14.2","6.3%","25","Mims OUT."],
+        ["Luther Burden III","13.3","5.2%","20","Leave. Not a CHI core."],
+        ["Tee Higgins","13.2","6.1%","20","Not Chase."],
+        ["Carnell Tate","11.6","1.8%","15","Thin Coker if Egbuka saturates."],
+        ["Dontayvion Wicks","9.5","1.3%","12","Thinner Packers leave."],
+        ["CeeDee Lamb","19.4","20.1%","15","SE stack only."],
+        ["Ja'Marr Chase","18.0","18.4%","15","Dead chalk. Cap."],
+        ["Justin Jefferson","20.2","15.9%","15","Dead chalk. Cap."],
+        ["George Pickens","17.8","18.3%","12","Owned like Lamb."],
+        ["Matthew Golden","10.7","11.4%","10","Love spike only. Not a Coker."]
+      ])+"</table>"+
+      "<p class='note-lab'>TE / DST</p>"+
+      "<table class='sd-table'><tr><th>Player</th><th>Proj</th><th>Own</th><th>Cap</th><th>Role</th></tr>"+
+      rows([
+        ["Trey McBride","16.7","12.0%","30","Fair own. Lock / Brissett game."],
+        ["Juwan Johnson","11.5","6.5%","25","Shough stack."],
+        ["Dallas Goedert","11.7","3.9%","20","Last week's winner TE. Low own again."],
+        ["Hunter Henry","9.0","4.5%","15","Maye bag."],
+        ["Mark Andrews","13.1","20.0%","8","Mayer trap. Fade."],
+        ["Dalton Schultz","9.5","16.7%","0","Off the pool."],
+        ["Buccaneers DST","8.5","11.9%","25","Mayfield game. Own is already up."],
+        ["Eagles DST","8.3","7.4%","20","TEN game."],
+        ["Seahawks / 49ers DST","7.9 / 7.5","7.0 / 9.0","15","Do not 40-max either."],
+        ["Ravens DST","7.5","9.0%","12","Only without Shough."]
+      ])+"</table>"+
+      "<p class='note-lab'>OFF THE POOL</p>"+
+      "<ul class='notes'>"+li([
+        "CHI stack off 59. Caleb can be in the 15 chalk bag. Odunze / Swift are not core.",
+        "Nico Collins. OUT.",
+        "Zay Flowers. OUT.",
+        "Brock Bowers. OUT.",
+        "A.J. Brown. 0 on the sheet.",
+        "Schultz. Andrews as a core. Golden as leverage."
+      ])+"</ul>"+
+      "<p class='note'>Confirm T-90. If Egbuka or Doubs is inactive, Tate and Wicks take the Coker seats. Caps do not move up on Bijan or Chase to fill the hole.</p>";
   }
 }
 paintClassicDfs();

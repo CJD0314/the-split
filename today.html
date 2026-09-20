@@ -52,37 +52,30 @@
 <div class="body" id="fades"></div>
 </details>
 </div>
-<script src="tracker.js?v=41"></script>
+<script src="tracker.js?v=42"></script>
 <script src="stamp.js?v=6"></script>
 <script>
 const KICK = {
-  "UGA at ARK":"Noon ET",
-  "KENT at OSU":"Noon ET",
-  "BUFF at PSU":"Noon ET",
-  "UK at TAMU":"3:30 p.m. ET",
-  "FSU at ALA":"3:30 p.m. ET",
-  "USC at RUTG":"3:30 p.m. ET",
-  "SMU at LOU":"3:30 p.m. ET",
-  "USU at UTAH":"3:30 p.m. ET",
-  "UTEP at MICH":"3:30 p.m. ET",
-  "WKU at IU":"4:00 p.m. ET",
-  "UNI at IOWA":"4:00 p.m. ET",
-  "TROY at MIZ":"7:00 p.m. ET",
-  "LSU at MISS":"7:30 p.m. ET",
-  "MSU at ND":"7:30 p.m. ET",
-  "UNM at OU":"7:30 p.m. ET",
-  "BYU at CSU":"7:30 p.m. ET",
-  "WVU vs UVA":"7:30 p.m. ET",
-  "KENN at TENN":"7:45 p.m. ET",
-  "UTSA at TEX":"8:00 p.m. ET",
-  "HOU at TTU":"7:00 p.m. ET",
-  "MIA at WAKE":"7:00 p.m. ET",
-  "PORT at ORE":"10:15 p.m. ET",
-  "SYR at PITT":"7:30 p.m. ET"
+  "PHI at TEN":"1:00 p.m. ET",
+  "PIT at NE":"1:00 p.m. ET",
+  "GB at NYJ":"1:00 p.m. ET",
+  "CLE at TB":"1:00 p.m. ET",
+  "NO at BAL":"1:00 p.m. ET",
+  "CIN at HOU":"1:00 p.m. ET",
+  "CAR at ATL":"1:00 p.m. ET",
+  "MIN at CHI":"1:00 p.m. ET",
+  "JAX at DEN":"4:05 p.m. ET",
+  "LV at LAC":"4:05 p.m. ET",
+  "SEA at ARI":"4:25 p.m. ET",
+  "MIA at SF":"4:25 p.m. ET",
+  "WSH at DAL":"4:25 p.m. ET",
+  "IND at KC":"8:20 p.m. ET",
+  "NYG at LAR":"Mon 8:15 p.m. ET"
 };
 function kickMin(game){
   const t = KICK[game] || "";
   if (/noon/i.test(t)) return 12 * 60;
+  if (/^Mon/i.test(t)) return 99 * 60;
   const m = t.match(/(\d+):(\d+)\s*(a\.m\.|p\.m\.)/i);
   if (!m) return 9999;
   let h = Number(m[1]); const min = Number(m[2]);

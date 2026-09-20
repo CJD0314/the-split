@@ -4,34 +4,25 @@
 <title>The Split -- Today</title>
 <link rel="stylesheet" href="sport.css?v=18"/>
 <style>
-.card-date{color:#3dd68c;font-size:13px;font-weight:800;letter-spacing:.1em;margin:2px 0 0}
-.window{margin:14px 0 6px;color:#93a3b5;font-size:11px;font-weight:800;letter-spacing:.14em}
-.row{display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:center;background:#0e141c;border:1px solid #2a3644;border-radius:12px;padding:12px;margin:8px 0}
-.row .game{font-size:16px;font-weight:800;line-height:1.2}
-.row .pick{font-size:15px;font-weight:800;color:#f3f7fb;margin-top:3px}
-.row .fade-line{color:#ff8a8a;font-size:12px;font-weight:700;margin-top:3px}
-.row .right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.row a{color:#d4a017;font-weight:800;font-size:11px;letter-spacing:.06em;text-decoration:none}
-.stamp{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em}
+.card-date{color:#3dd68c;font-size:13px;font-weight:800;letter-spacing:.1em;margin:2px 0 8px}
+.window{margin:18px 0 8px;color:#d4a017;font-size:12px;font-weight:800;letter-spacing:.14em}
+.gsum{display:flex;justify-content:space-between;align-items:center;gap:10px;width:calc(100% - 28px)}
+.gsum .left{min-width:0}
+.gsum .gname{display:block;font-size:16px;font-weight:800;color:#f3f7fb;letter-spacing:0}
+.gsum .gline{display:block;font-size:13px;color:#d5deea;margin-top:3px;font-weight:700}
+.stamp{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;flex:0 0 auto}
 .stamp.bet{background:#0d2a1c;color:#3dd68c}
 .stamp.lean{background:#3d2a00;color:#d4a017}
 .stamp.fade{background:#3a1212;color:#ff6b6b}
 .stamp.pass{background:#1a2230;color:#93a3b5}
-.count{color:#93a3b5;font-size:13px;margin:0 0 10px}
+.kv{display:grid;grid-template-columns:72px 1fr;gap:6px 10px;margin:8px 0}
+.kv b{color:#93a3b5;font-size:11px;letter-spacing:.1em;padding-top:3px}
+.kv span{font-size:16px;font-weight:800;line-height:1.3}
+.kv .away{color:#ff8a8a;font-size:14px}
+.count{color:#93a3b5;font-size:13px;margin:0 0 8px}
 .unit{background:#0e141c;border:1px solid #3dd68c;border-radius:12px;padding:12px;margin:8px 0}
 .unit .who{font-size:18px;font-weight:800}
 .unit .num{color:#3dd68c;font-size:16px;font-weight:800;margin-top:4px}
-.unit .meta{color:#93a3b5;font-size:12px;margin-top:4px}
-.unit a{color:#d4a017;font-weight:800;font-size:12px}
-.prop-grid{display:grid;grid-template-columns:1fr;gap:8px;margin:8px 0}
-.prop-box{background:#161c24;border:1px solid #2a3644;border-radius:10px;padding:10px}
-.prop-box b{display:block;color:#93a3b5;font-size:10px;letter-spacing:.12em}
-.prop-box span{display:block;font-weight:800;font-size:15px;margin-top:4px}
-@media(max-width:520px){
-  .row{grid-template-columns:1fr;padding:12px}
-  .row .right{flex-direction:row;justify-content:space-between;align-items:center;text-align:left}
-}
-@media(min-width:640px){.prop-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -50,222 +41,92 @@
 <div class="wrap">
 <details class="block" id="units-block">
 <summary>UNITS</summary>
-<div class="body" id="units"><p class="note">Loading…</p></div>
+<div class="body" id="units"></div>
 </details>
 <details class="block" id="tickets-block" open>
-<summary>SLATE</summary>
+<summary>SUNDAY CARD</summary>
 <div class="body" id="tickets"><p class="note">Loading…</p></div>
-</details>
-<details class="block" id="props-block" open>
-<summary>PROPS + TD</summary>
-<div class="body" id="props"><p class="note">Loading…</p></div>
-</details>
-<details class="block" id="away-block">
-<summary>STAY AWAY</summary>
-<div class="body" id="fades"></div>
 </details>
 </div>
 <script src="tracker.js?v=42"></script>
 <script src="stamp.js?v=6"></script>
 <script>
 const KICK = {
-  "CAR at ATL":"1:00 p.m. ET",
-  "MIN at CHI":"1:00 p.m. ET",
-  "PHI at TEN":"1:00 p.m. ET",
-  "PIT at NE":"1:00 p.m. ET",
-  "GB at NYJ":"1:00 p.m. ET",
-  "CLE at TB":"1:00 p.m. ET",
-  "NO at BAL":"1:00 p.m. ET",
-  "CIN at HOU":"1:00 p.m. ET",
-  "JAX at DEN":"4:05 p.m. ET",
-  "LV at LAC":"4:05 p.m. ET",
-  "SEA at ARI":"4:25 p.m. ET",
-  "MIA at SF":"4:25 p.m. ET",
-  "WSH at DAL":"4:25 p.m. ET",
+  "CAR at ATL":"1:00 p.m. ET","MIN at CHI":"1:00 p.m. ET","PHI at TEN":"1:00 p.m. ET","PIT at NE":"1:00 p.m. ET",
+  "GB at NYJ":"1:00 p.m. ET","CLE at TB":"1:00 p.m. ET","NO at BAL":"1:00 p.m. ET","CIN at HOU":"1:00 p.m. ET",
+  "JAX at DEN":"4:05 p.m. ET","LV at LAC":"4:05 p.m. ET",
+  "SEA at ARI":"4:25 p.m. ET","MIA at SF":"4:25 p.m. ET","WSH at DAL":"4:25 p.m. ET",
   "IND at KC":"8:20 p.m. ET"
 };
-const PROPS = [
-  {game:"CAR at ATL",href:"nfl-week-2-car-atl.html",prop:"Bijan Robinson over 84.5 rush",td:"Bijan Robinson anytime TD",why:"10k still runs Atlanta through Bijan. Do not copy a Panthers box. Confirm live DK number."},
-  {game:"MIN at CHI",href:"nfl-week-2-min-chi.html",prop:"Justin Jefferson over 79.5 rec",td:"Justin Jefferson anytime TD",why:"PASS the spread. Jefferson is the only Minnesota skill line that survives a coin. Do not take a Bears name off 59."},
-  {game:"PHI at TEN",href:"nfl-week-2-phi-ten.html",prop:"Saquon Barkley over 74.5 rush",td:"Saquon Barkley anytime TD",why:"Titans leaked the run in Week 1. Mean keeps Saquon as the Eagles score even if we lean the points."},
-  {game:"PIT at NE",href:"nfl-week-2-pit-ne.html",prop:"Rhamondre Stevenson over 64.5 rush",td:"Rhamondre Stevenson anytime TD",why:"Low-scoring home script. Stevenson is the New England floor. Do not chase a Steelers pass over."},
-  {game:"GB at NYJ",href:"nfl-week-2-gb-nyj.html",prop:"Breece Hall over 69.5 rush",td:"Breece Hall anytime TD",why:"Jets +3.5 lives if Hall touches 18-plus. Packers allowed two rushing scores last week."},
-  {game:"CLE at TB",href:"nfl-week-2-cle-tb.html",prop:"Bucky Irving over 62.5 rush",td:"Bucky Irving anytime TD",why:"Rain. Mean 24-17 Tampa. Irving is the score that does not need Mayfield to go 300."},
-  {game:"NO at BAL",href:"nfl-week-2-no-bal.html",prop:"Derrick Henry over 79.5 rush",td:"Derrick Henry anytime TD",why:"Flowers OUT. 10k still scores Baltimore on Henry, not a second Lamar box. Lean the points. Take the back."},
-  {game:"CIN at HOU",href:"nfl-week-2-cin-hou.html",prop:"Ja'Marr Chase over 74.5 rec",td:"Ja'Marr Chase anytime TD",why:"Collins OUT. Cincinnati's pass game is Chase. Mean 24-23. Do not take a Texans WR1 who is not playing."},
-  {game:"JAX at DEN",href:"nfl-week-2-jax-den.html",prop:"Jaylen Waddle over 54.5 rec",td:"Travis Etienne anytime TD",why:"Mims OUT. Waddle is the Denver target. Etienne is the Jacksonville score in a 23-20 mean. Do not copy Denver 176."},
-  {game:"LV at LAC",href:"nfl-week-2-lv-lac.html",prop:"Ashton Jeanty over 64.5 rush",td:"Ashton Jeanty anytime TD",why:"Bowers doubtful. 10k runs Las Vegas through Jeanty. Chargers juice is the fade, not the Raiders back."},
-  {game:"SEA at ARI",href:"nfl-week-2-sea-ari.html",prop:"Jadarian Price over 54.5 rush",td:"Jadarian Price anytime TD",why:"Darnold OUT. Seattle's pass mean dies. Price is the piece that still scores if the line is 21-20."},
-  {game:"MIA at SF",href:"nfl-week-2-mia-sf.html",prop:"Christian McCaffrey over 64.5 rush",td:"Christian McCaffrey anytime TD",why:"Willis start. 27-16 mean. McCaffrey is the 49ers score that does not need Brock. If he sits, sit the ticket."},
-  {game:"WSH at DAL",href:"nfl-week-2-wsh-dal.html",prop:"CeeDee Lamb over 79.5 rec",td:"Javonte Williams anytime TD",why:"50.5 total. Lamb is the Dallas volume. Javonte is the home score. Luvu and Overshown are OUT."},
-  {game:"IND at KC",href:"nfl-week-2-ind-kc.html",prop:"Jonathan Taylor over 64.5 rush",td:"Jonathan Taylor anytime TD",why:"Walker mean is 72, not 173. Do not play the Chiefs rush over off Monday. Taylor is the Colts engine in a 27-20."}
+const CARD = [
+  {game:"CAR at ATL",href:"nfl-week-2-car-atl.html",side:"PASS the spread",stamp:"PASS",fade:"",prop:"Bijan Robinson over 84.5 rush",td:"Bijan Robinson anytime TD",why:"Coin side. Bijan is the Atlanta engine."},
+  {game:"MIN at CHI",href:"nfl-week-2-min-chi.html",side:"PASS the spread",stamp:"PASS",fade:"",prop:"Justin Jefferson over 79.5 rec",td:"Justin Jefferson anytime TD",why:"Coin side. Do not take a Bears name off 59."},
+  {game:"PHI at TEN",href:"nfl-week-2-phi-ten.html",side:"Titans +7",stamp:"LEAN",fade:"Eagles ML -337",prop:"Saquon Barkley over 74.5 rush",td:"Saquon Barkley anytime TD",why:"One reason on the dog. Saquon is the Eagles score."},
+  {game:"PIT at NE",href:"nfl-week-2-pit-ne.html",side:"Steelers +5.5",stamp:"LEAN",fade:"",prop:"Rhamondre Stevenson over 64.5 rush",td:"Rhamondre Stevenson anytime TD",why:"Low-scoring home script. Stevenson is the floor."},
+  {game:"GB at NYJ",href:"nfl-week-2-gb-nyj.html",side:"Jets +3.5",stamp:"LEAN",fade:"",prop:"Breece Hall over 69.5 rush",td:"Breece Hall anytime TD",why:"Jets live if Hall touches 18-plus."},
+  {game:"CLE at TB",href:"nfl-week-2-cle-tb.html",side:"Browns +7.5",stamp:"LEAN",fade:"Buccaneers ML -388",prop:"Bucky Irving over 62.5 rush",td:"Bucky Irving anytime TD",why:"Rain. Irving does not need Mayfield to go 300."},
+  {game:"NO at BAL",href:"nfl-week-2-no-bal.html",side:"Saints +8.5",stamp:"LEAN",fade:"Ravens ML -375",prop:"Derrick Henry over 79.5 rush",td:"Derrick Henry anytime TD",why:"Flowers OUT. Baltimore still scores on Henry."},
+  {game:"CIN at HOU",href:"nfl-week-2-cin-hou.html",side:"Bengals +2.5",stamp:"LEAN",fade:"",prop:"Ja'Marr Chase over 74.5 rec",td:"Ja'Marr Chase anytime TD",why:"Collins OUT. Cincinnati's pass game is Chase."},
+  {game:"JAX at DEN",href:"nfl-week-2-jax-den.html",side:"Jaguars +2.5",stamp:"LEAN",fade:"",prop:"Jaylen Waddle over 54.5 rec",td:"Travis Etienne anytime TD",why:"Mims OUT. Do not copy Denver 176."},
+  {game:"LV at LAC",href:"nfl-week-2-lv-lac.html",side:"Raiders +6.5",stamp:"LEAN",fade:"Chargers ML -264",prop:"Ashton Jeanty over 64.5 rush",td:"Ashton Jeanty anytime TD",why:"Bowers doubtful. Vegas runs through Jeanty."},
+  {game:"SEA at ARI",href:"nfl-week-2-sea-ari.html",side:"Cardinals +3.5",stamp:"LEAN",fade:"",prop:"Jadarian Price over 54.5 rush",td:"Jadarian Price anytime TD",why:"Darnold OUT. Price is the Seattle score that survives."},
+  {game:"MIA at SF",href:"nfl-week-2-mia-sf.html",side:"Dolphins +13.5",stamp:"LEAN",fade:"49ers ML -869",prop:"Christian McCaffrey over 64.5 rush",td:"Christian McCaffrey anytime TD",why:"Willis start. Sit both CMC tickets if he sits."},
+  {game:"WSH at DAL",href:"nfl-week-2-wsh-dal.html",side:"Commanders +4",stamp:"LEAN",fade:"",prop:"CeeDee Lamb over 79.5 rec",td:"Javonte Williams anytime TD",why:"50.5 total. Lamb volume, Javonte score."},
+  {game:"IND at KC",href:"nfl-week-2-ind-kc.html",side:"Colts +6",stamp:"LEAN",fade:"Chiefs ML -285",prop:"Jonathan Taylor over 64.5 rush",td:"Jonathan Taylor anytime TD",why:"Walker mean is 72, not 173. Taylor is the Colts engine."}
 ];
-function kickOf(game){ return KICK[game] || "Time TBD"; }
-function kickMin(game){
-  const t = kickOf(game);
-  if (/noon/i.test(t)) return 12 * 60;
-  if (/^Mon/i.test(t)) return 99 * 60;
-  const m = t.match(/(\d+):(\d+)\s*(a\.m\.|p\.m\.)/i);
+function kickOf(g){ return KICK[g] || ""; }
+function kickMin(g){
+  const t = kickOf(g);
+  const m = t.match(/(\d+):(\d+)/);
   if (!m) return 9999;
   let h = Number(m[1]); const min = Number(m[2]);
-  if (/p/i.test(m[3]) && h !== 12) h += 12;
-  if (/a/i.test(m[3]) && h === 12) h = 0;
+  if (h !== 12) h += 12;
   return h * 60 + min;
 }
-function windowLabel(game){
-  const t = kickOf(game);
-  if (/^Mon/i.test(t)) return "MONDAY NIGHT";
-  if (/1:00/.test(t)) return "1:00 P.M. ET";
-  if (/4:05/.test(t)) return "4:05 P.M. ET";
-  if (/4:25/.test(t)) return "4:25 P.M. ET";
-  if (/8:20/.test(t)) return "SUNDAY NIGHT";
-  return t.toUpperCase();
+function windowLabel(g){
+  const t = kickOf(g);
+  if (/1:00/.test(t)) return "1:00 ET";
+  if (/4:05/.test(t)) return "4:05 ET";
+  if (/4:25/.test(t)) return "4:25 ET";
+  if (/8:20/.test(t)) return "8:20 ET  SNF";
+  return t;
 }
 function prettyCard(iso){
   const p = (iso || "").split("-");
   if (p.length !== 3) return iso || "";
-  const d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
-  return d.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric", year:"numeric"}).toUpperCase();
+  return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2])).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toUpperCase();
 }
-function confOf(b){ return String(b.confidence || "LEAN").toUpperCase(); }
-function typeOf(b){ return String(b.type || "ml").toLowerCase(); }
-function lineOf(b){
-  const close = String(b.close || "").trim();
-  const pick = String(b.pick || "").trim();
-  const t = typeOf(b);
-  if (t === "hr" || t === "td" || t === "prop") {
-    if (pick && close && pick !== close && close.indexOf(pick) < 0) return pick + " · " + close;
-    return pick || close;
-  }
-  return close || pick;
-}
-function mainTicket(rows){
-  const fire = rows.filter(function(b){ return confOf(b)==="BET" || confOf(b)==="LEAN"; });
-  const side = fire.filter(function(b){ return typeOf(b)!=="ml" || typeOf(b)==="spread" || typeOf(b)==="side"; });
-  return side[0] || fire[0] || rows[0];
-}
-function fadeTicket(rows){
-  return rows.find(function(b){ return confOf(b)==="FADE"; });
-}
-function unitCard(b){
-  const href = b.href || "#";
-  return `<div class="unit">
-    <div class="who">${b.game}</div>
-    <div class="num">${lineOf(b)}</div>
-    <div class="meta">${kickOf(b.game)} · $100 to win $${b.to_win || "—"}</div>
-    <a href="${href}">FULL BREAKDOWN</a>
-  </div>`;
-}
-function gameRow(game, rows){
-  const main = mainTicket(rows);
-  const fade = fadeTicket(rows);
-  const href = (rows.find(function(b){ return b.href; }) || {}).href || "#";
-  const stamp = confOf(main);
-  const fadeHtml = (fade && fade !== main) ? `<div class="fade-line">Stay away ${lineOf(fade)}</div>` : "";
-  return `<div class="row">
-    <div>
-      <div class="game">${game}</div>
-      <div class="pick">${lineOf(main)}</div>
-      ${fadeHtml}
-    </div>
-    <div class="right">
-      <span class="stamp ${stamp.toLowerCase()}">${stamp}</span>
-      <a href="${href}">BREAKDOWN</a>
-    </div>
-  </div>`;
-}
-function groupWindows(rows){
-  const map = {};
-  (rows || []).forEach(function(b){
-    if (!b.game) return;
-    map[b.game] = map[b.game] || [];
-    map[b.game].push(b);
-  });
-  const games = Object.keys(map).sort(function(a,b){ return kickMin(a) - kickMin(b); });
-  let last = "";
-  let html = "";
-  games.forEach(function(g){
-    const win = windowLabel(g);
-    if (win !== last){
-      html += `<div class="window">${win}</div>`;
-      last = win;
-    }
-    html += gameRow(g, map[g]);
-  });
-  return html;
-}
-function paintProps(){
-  const box = document.getElementById("props");
-  if (!box) return;
-  const list = PROPS.slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
-  let last = "";
-  let html = `<p class="count">One prop and one TD per game. LEAN. Confirm the live DK number.</p>`;
-  list.forEach(function(g){
-    const win = windowLabel(g.game);
-    if (win !== last){
-      html += `<div class="window">${win}</div>`;
-      last = win;
-    }
-    html += `<details class="block"><summary>${g.game} · ${kickOf(g.game)}</summary><div class="body">
-      <div class="prop-grid">
-        <div class="prop-box"><b>PROP</b><span>${g.prop}</span></div>
-        <div class="prop-box"><b>TD</b><span>${g.td}</span></div>
+function gameCard(g){
+  const fade = g.fade ? `<b>AWAY</b><span class="away">${g.fade}</span>` : "";
+  return `<details class="block"><summary><span class="gsum"><span class="left"><span class="gname">${g.game}</span><span class="gline">${g.side}</span></span><span class="stamp ${g.stamp.toLowerCase()}">${g.stamp}</span></span></summary>
+    <div class="body">
+      <div class="kv">
+        <b>SIDE</b><span>${g.side}</span>
+        <b>PROP</b><span>${g.prop}</span>
+        <b>TD</b><span>${g.td}</span>
+        ${fade}
       </div>
       <p class="note">${g.why}</p>
       <a class="full-link" href="${g.href}">FULL BREAKDOWN</a>
     </div></details>`;
-  });
-  box.innerHTML = html;
 }
 async function paintTodayCard(){
-  const data = await loadLedger();
   const day = cardDate();
   const dateEl = document.getElementById("card-date");
   if (dateEl) dateEl.textContent = prettyCard(day);
-
-  const dayBets = (data.bets || []).filter(function(b){ return b.date === day; });
-  const units = dayBets.filter(function(b){
-    return confOf(b) === "BET" && (typeOf(b) === "ml" || typeOf(b) === "spread" || typeOf(b) === "side" || !b.type);
-  }).slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
-
-  const unitsEl = document.getElementById("units");
   const unitsBlock = document.getElementById("units-block");
-  if (unitsEl){
-    if (units.length){
-      unitsBlock.open = true;
-      unitsEl.innerHTML = `<p class="count">${units.length} unit${units.length===1?"":"s"}</p>` + units.map(unitCard).join("");
-    } else {
-      unitsBlock.open = false;
-      unitsEl.innerHTML = `<p class="note">No units today. Leans are on the slate.</p>`;
-    }
-  }
+  const unitsEl = document.getElementById("units");
+  unitsBlock.open = false;
+  unitsEl.innerHTML = `<p class="note">No units. Every ticket on this card is LEAN or PASS.</p>`;
 
-  const tickets = document.getElementById("tickets");
-  if (tickets){
-    const order = ["NFL","CFB","MLB"];
-    const html = order.map(function(sp){
-      const rows = dayBets.filter(function(b){ return b.sport === sp && (isFire(b) || isFade(b)); });
-      if (!rows.length) return "";
-      const games = {};
-      rows.forEach(function(b){ if (b.game) games[b.game] = true; });
-      const n = Object.keys(games).length;
-      return `<p class="count">${sp} · ${n} game${n===1?"":"s"}</p>` + groupWindows(rows);
-    }).filter(Boolean);
-    tickets.innerHTML = html.length ? html.join("") : `<p class="note">No tickets dated ${day}.</p>`;
-  }
-
-  const fades = document.getElementById("fades");
-  if (fades){
-    const fireGames = {};
-    dayBets.filter(isFire).forEach(function(b){ if (b.game) fireGames[b.game] = true; });
-    const only = dayBets.filter(function(b){
-      return isFade(b) && !isTdHr(b) && !isPlayerProp(b) && !fireGames[b.game];
-    });
-    fades.innerHTML = only.length
-      ? groupWindows(only)
-      : `<p class="note">Juice fades sit under each lean. Nothing extra to hide.</p>`;
-  }
-  paintProps();
+  const list = CARD.slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
+  let last = ""; let html = `<p class="count">Tap a game. Side, prop, and TD are inside. Confirm live DK.</p>`;
+  list.forEach(function(g){
+    const win = windowLabel(g.game);
+    if (win !== last){ html += `<div class="window">${win}</div>`; last = win; }
+    html += gameCard(g);
+  });
+  document.getElementById("tickets").innerHTML = html;
   if (window.splitStamp) splitStamp();
 }
 renderToday = paintTodayCard;

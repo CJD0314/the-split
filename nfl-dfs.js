@@ -87,7 +87,7 @@ function paintClassicDfs(){
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>Group + Manual. Only rules the optimizer will not know on its own.</p>"+
+      "<p class='note'>Group + Manual. Caps live in PLAYER POOL.</p>"+
       "<p class='note-lab'>FORCE · IF AT LEAST 1 → THEN AT LEAST 1</p>"+
       "<table class='sd-table'><tr><th>If</th><th>Then</th></tr>"+
       "<tr><td>Mayfield</td><td>Egbuka</td></tr>"+
@@ -101,16 +101,7 @@ function paintClassicDfs(){
       "<table class='sd-table'><tr><th>If</th><th>No more than 0</th></tr>"+
       "<tr><td>Shough</td><td>Ravens DST</td></tr>"+
       "<tr><td>Bijan</td><td>Chase + Jefferson</td></tr>"+
-      "</table>"+
-      "<p class='note-lab'>MAX %</p>"+
-      "<table class='sd-table'><tr><th>Pos</th><th>Caps</th></tr>"+
-      "<tr><td>QB</td><td>Mayfield 27 · Shough 21 · Daniels 13 · Love 13 · Maye 9 · Dak 8 · Lamar 8</td></tr>"+
-      "<tr><td>RB</td><td>Bijan 40 · Irving 30 · Hall 27 · Saquon 20 · Tuten 13 · Javonte 8</td></tr>"+
-      "<tr><td>WR</td><td>Egbuka 27 · Olave 23 · Watson 13 · McLaurin 13 · Doubs 9 · Lamb 8 · Chase 5 · Jefferson 5</td></tr>"+
-      "<tr><td>TE</td><td>Johnson 33 · Goedert 30 · McBride 27 · Henry 10</td></tr>"+
-      "<tr><td>DST</td><td>Eagles 33 · Bucs 30 · Seahawks 23 · Ravens 13</td></tr>"+
-      "</table>"+
-      "<p class='note'>If the builder cannot take two names in Then, split Shough into two rules and Bijan into two rules.</p>";
+      "</table>";
   }
 }
 paintClassicDfs();

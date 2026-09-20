@@ -10,7 +10,6 @@
 .row .game{font-size:16px;font-weight:800;line-height:1.2}
 .row .pick{font-size:15px;font-weight:800;color:#f3f7fb;margin-top:3px}
 .row .fade-line{color:#ff8a8a;font-size:12px;font-weight:700;margin-top:3px}
-.row .meta{color:#93a3b5;font-size:12px;margin-top:4px}
 .row .right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .row a{color:#d4a017;font-weight:800;font-size:11px;letter-spacing:.06em;text-decoration:none}
 .stamp{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em}
@@ -24,10 +23,15 @@
 .unit .num{color:#3dd68c;font-size:16px;font-weight:800;margin-top:4px}
 .unit .meta{color:#93a3b5;font-size:12px;margin-top:4px}
 .unit a{color:#d4a017;font-weight:800;font-size:12px}
+.prop-grid{display:grid;grid-template-columns:1fr;gap:8px;margin:8px 0}
+.prop-box{background:#161c24;border:1px solid #2a3644;border-radius:10px;padding:10px}
+.prop-box b{display:block;color:#93a3b5;font-size:10px;letter-spacing:.12em}
+.prop-box span{display:block;font-weight:800;font-size:15px;margin-top:4px}
 @media(max-width:520px){
   .row{grid-template-columns:1fr;padding:12px}
   .row .right{flex-direction:row;justify-content:space-between;align-items:center;text-align:left}
 }
+@media(min-width:640px){.prop-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -52,6 +56,10 @@
 <summary>SLATE</summary>
 <div class="body" id="tickets"><p class="note">Loading…</p></div>
 </details>
+<details class="block" id="props-block" open>
+<summary>PROPS + TD</summary>
+<div class="body" id="props"><p class="note">Loading…</p></div>
+</details>
 <details class="block" id="away-block">
 <summary>STAY AWAY</summary>
 <div class="body" id="fades"></div>
@@ -61,22 +69,37 @@
 <script src="stamp.js?v=6"></script>
 <script>
 const KICK = {
+  "CAR at ATL":"1:00 p.m. ET",
+  "MIN at CHI":"1:00 p.m. ET",
   "PHI at TEN":"1:00 p.m. ET",
   "PIT at NE":"1:00 p.m. ET",
   "GB at NYJ":"1:00 p.m. ET",
   "CLE at TB":"1:00 p.m. ET",
   "NO at BAL":"1:00 p.m. ET",
   "CIN at HOU":"1:00 p.m. ET",
-  "CAR at ATL":"1:00 p.m. ET",
-  "MIN at CHI":"1:00 p.m. ET",
   "JAX at DEN":"4:05 p.m. ET",
   "LV at LAC":"4:05 p.m. ET",
   "SEA at ARI":"4:25 p.m. ET",
   "MIA at SF":"4:25 p.m. ET",
   "WSH at DAL":"4:25 p.m. ET",
-  "IND at KC":"8:20 p.m. ET",
-  "NYG at LAR":"Mon 8:15 p.m. ET"
+  "IND at KC":"8:20 p.m. ET"
 };
+const PROPS = [
+  {game:"CAR at ATL",href:"nfl-week-2-car-atl.html",prop:"Bijan Robinson over 84.5 rush",td:"Bijan Robinson anytime TD",why:"10k still runs Atlanta through Bijan. Do not copy a Panthers box. Confirm live DK number."},
+  {game:"MIN at CHI",href:"nfl-week-2-min-chi.html",prop:"Justin Jefferson over 79.5 rec",td:"Justin Jefferson anytime TD",why:"PASS the spread. Jefferson is the only Minnesota skill line that survives a coin. Do not take a Bears name off 59."},
+  {game:"PHI at TEN",href:"nfl-week-2-phi-ten.html",prop:"Saquon Barkley over 74.5 rush",td:"Saquon Barkley anytime TD",why:"Titans leaked the run in Week 1. Mean keeps Saquon as the Eagles score even if we lean the points."},
+  {game:"PIT at NE",href:"nfl-week-2-pit-ne.html",prop:"Rhamondre Stevenson over 64.5 rush",td:"Rhamondre Stevenson anytime TD",why:"Low-scoring home script. Stevenson is the New England floor. Do not chase a Steelers pass over."},
+  {game:"GB at NYJ",href:"nfl-week-2-gb-nyj.html",prop:"Breece Hall over 69.5 rush",td:"Breece Hall anytime TD",why:"Jets +3.5 lives if Hall touches 18-plus. Packers allowed two rushing scores last week."},
+  {game:"CLE at TB",href:"nfl-week-2-cle-tb.html",prop:"Bucky Irving over 62.5 rush",td:"Bucky Irving anytime TD",why:"Rain. Mean 24-17 Tampa. Irving is the score that does not need Mayfield to go 300."},
+  {game:"NO at BAL",href:"nfl-week-2-no-bal.html",prop:"Derrick Henry over 79.5 rush",td:"Derrick Henry anytime TD",why:"Flowers OUT. 10k still scores Baltimore on Henry, not a second Lamar box. Lean the points. Take the back."},
+  {game:"CIN at HOU",href:"nfl-week-2-cin-hou.html",prop:"Ja'Marr Chase over 74.5 rec",td:"Ja'Marr Chase anytime TD",why:"Collins OUT. Cincinnati's pass game is Chase. Mean 24-23. Do not take a Texans WR1 who is not playing."},
+  {game:"JAX at DEN",href:"nfl-week-2-jax-den.html",prop:"Jaylen Waddle over 54.5 rec",td:"Travis Etienne anytime TD",why:"Mims OUT. Waddle is the Denver target. Etienne is the Jacksonville score in a 23-20 mean. Do not copy Denver 176."},
+  {game:"LV at LAC",href:"nfl-week-2-lv-lac.html",prop:"Ashton Jeanty over 64.5 rush",td:"Ashton Jeanty anytime TD",why:"Bowers doubtful. 10k runs Las Vegas through Jeanty. Chargers juice is the fade, not the Raiders back."},
+  {game:"SEA at ARI",href:"nfl-week-2-sea-ari.html",prop:"Jadarian Price over 54.5 rush",td:"Jadarian Price anytime TD",why:"Darnold OUT. Seattle's pass mean dies. Price is the piece that still scores if the line is 21-20."},
+  {game:"MIA at SF",href:"nfl-week-2-mia-sf.html",prop:"Christian McCaffrey over 64.5 rush",td:"Christian McCaffrey anytime TD",why:"Willis start. 27-16 mean. McCaffrey is the 49ers score that does not need Brock. If he sits, sit the ticket."},
+  {game:"WSH at DAL",href:"nfl-week-2-wsh-dal.html",prop:"CeeDee Lamb over 79.5 rec",td:"Javonte Williams anytime TD",why:"50.5 total. Lamb is the Dallas volume. Javonte is the home score. Luvu and Overshown are OUT."},
+  {game:"IND at KC",href:"nfl-week-2-ind-kc.html",prop:"Jonathan Taylor over 64.5 rush",td:"Jonathan Taylor anytime TD",why:"Walker mean is 72, not 173. Do not play the Chiefs rush over off Monday. Taylor is the Colts engine in a 27-20."}
+];
 function kickOf(game){ return KICK[game] || "Time TBD"; }
 function kickMin(game){
   const t = kickOf(game);
@@ -171,6 +194,29 @@ function groupWindows(rows){
   });
   return html;
 }
+function paintProps(){
+  const box = document.getElementById("props");
+  if (!box) return;
+  const list = PROPS.slice().sort(function(a,b){ return kickMin(a.game) - kickMin(b.game); });
+  let last = "";
+  let html = `<p class="count">One prop and one TD per game. LEAN. Confirm the live DK number.</p>`;
+  list.forEach(function(g){
+    const win = windowLabel(g.game);
+    if (win !== last){
+      html += `<div class="window">${win}</div>`;
+      last = win;
+    }
+    html += `<details class="block"><summary>${g.game} · ${kickOf(g.game)}</summary><div class="body">
+      <div class="prop-grid">
+        <div class="prop-box"><b>PROP</b><span>${g.prop}</span></div>
+        <div class="prop-box"><b>TD</b><span>${g.td}</span></div>
+      </div>
+      <p class="note">${g.why}</p>
+      <a class="full-link" href="${g.href}">FULL BREAKDOWN</a>
+    </div></details>`;
+  });
+  box.innerHTML = html;
+}
 async function paintTodayCard(){
   const data = await loadLedger();
   const day = cardDate();
@@ -219,6 +265,7 @@ async function paintTodayCard(){
       ? groupWindows(only)
       : `<p class="note">Juice fades sit under each lean. Nothing extra to hide.</p>`;
   }
+  paintProps();
   if (window.splitStamp) splitStamp();
 }
 renderToday = paintTodayCard;

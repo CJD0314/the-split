@@ -32,7 +32,7 @@ const GAMES = [
 [2,"SUN 4:25 FOX","sea","ari","Seahawks at Cardinals","State Farm · 4:25 p.m. ET","SEA -3.5 / ARI +3.5","41.5","SEA -205 / ARI +170","LEAN · ARI +3.5","nfl-week-2-sea-ari.html",""],
 [2,"SUN 4:25 FOX","mia","sf","Dolphins at 49ers","Levi's · 4:25 p.m. ET","MIA +13.5 / SF -13.5","45.5","SF -869 / MIA +646","LEAN · MIA +13.5","nfl-week-2-mia-sf.html",""],
 [2,"SUN 4:25 FOX","wsh","dal","Commanders at Cowboys","AT&T · 4:25 p.m. ET","WSH +4 / DAL -4","50.5","DAL -190 / WSH +170","LEAN · WSH +4","nfl-week-2-wsh-dal.html",""],
-[2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","Arrowhead · 8:20 p.m. ET","IND +6 / KC -6","46.5","KC -285 / IND +230","LEAN · IND +6","nfl-week-2-ind-kc.html",""],
+[2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","FINAL KC 33-30 OT","IND +6 / KC -6","46.5","KC -285 / IND +230","WIN · IND +6","nfl-week-2-ind-kc.html","nfl-week-2-ind-kc-review.html"],
 [2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","SoFi · 8:15 p.m. ET","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","LEAN · NYG +7","nfl-week-2-nyg-lar.html",""]
 ];
 function shortWhen(day){

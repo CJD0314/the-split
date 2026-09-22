@@ -27,11 +27,11 @@ const GAMES = [
 [2,"SUN 1:00 CBS","cle","tb","Browns at Buccaneers","FINAL CLE 23-19","CLE +7.5 / TB -7.5","41.5","TB -388 / CLE +330","WIN · CLE +7.5","nfl-week-2-cle-tb.html","nfl-week-2-cle-tb-review.html"],
 [2,"SUN 1:00 CBS","no","bal","Saints at Ravens","FINAL NO 24-17","NO +8.5 / BAL -8.5","45.5","BAL -375 / NO +295","WIN · NO +8.5","nfl-week-2-no-bal.html","nfl-week-2-no-bal-review.html"],
 [2,"SUN 1:00 CBS","cin","hou","Bengals at Texans","FINAL CIN 20-6","CIN +2.5 / HOU -2.5","45.5","HOU -151 / CIN +127","WIN · CIN +2.5","nfl-week-2-cin-hou.html","nfl-week-2-cin-hou-review.html"],
-[2,"SUN 4:05 CBS","jax","den","Jaguars at Broncos","Empower Field · 4:05 p.m. ET","JAX +2.5 / DEN -2.5","45.5","DEN -144 / JAX +130","LEAN · JAX +2.5","nfl-week-2-jax-den.html",""],
-[2,"SUN 4:05 CBS","lv","lac","Raiders at Chargers","SoFi · 4:05 p.m. ET","LV +6.5 / LAC -6.5","43.5","LAC -264 / LV +250","LEAN · LV +6.5","nfl-week-2-lv-lac.html",""],
-[2,"SUN 4:25 FOX","sea","ari","Seahawks at Cardinals","State Farm · 4:25 p.m. ET","SEA -3.5 / ARI +3.5","41.5","SEA -205 / ARI +170","LEAN · ARI +3.5","nfl-week-2-sea-ari.html",""],
-[2,"SUN 4:25 FOX","mia","sf","Dolphins at 49ers","Levi's · 4:25 p.m. ET","MIA +13.5 / SF -13.5","45.5","SF -869 / MIA +646","LEAN · MIA +13.5","nfl-week-2-mia-sf.html",""],
-[2,"SUN 4:25 FOX","wsh","dal","Commanders at Cowboys","AT&T · 4:25 p.m. ET","WSH +4 / DAL -4","50.5","DAL -190 / WSH +170","LEAN · WSH +4","nfl-week-2-wsh-dal.html",""],
+[2,"SUN 4:05 CBS","jax","den","Jaguars at Broncos","FINAL DEN 20-13","JAX +2.5 / DEN -2.5","45.5","DEN -144 / JAX +130","LOSS · JAX +2.5","nfl-week-2-jax-den.html",""],
+[2,"SUN 4:05 CBS","lv","lac","Raiders at Chargers","FINAL LV 26-14","LV +6.5 / LAC -6.5","43.5","LAC -264 / LV +250","WIN · LV +6.5","nfl-week-2-lv-lac.html",""],
+[2,"SUN 4:25 FOX","sea","ari","Seahawks at Cardinals","FINAL SEA 31-7","SEA -3.5 / ARI +3.5","41.5","SEA -205 / ARI +170","LOSS · ARI +3.5","nfl-week-2-sea-ari.html",""],
+[2,"SUN 4:25 FOX","mia","sf","Dolphins at 49ers","FINAL SF 35-13","MIA +13.5 / SF -13.5","45.5","SF -869 / MIA +646","LOSS · MIA +13.5","nfl-week-2-mia-sf.html",""],
+[2,"SUN 4:25 FOX","wsh","dal","Commanders at Cowboys","FINAL DAL 37-20","WSH +4 / DAL -4","50.5","DAL -190 / WSH +170","LOSS · WSH +4","nfl-week-2-wsh-dal.html",""],
 [2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","FINAL KC 33-30 OT","IND +6 / KC -6","46.5","KC -285 / IND +230","WIN · IND +6","nfl-week-2-ind-kc.html","nfl-week-2-ind-kc-review.html"],
 [2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","FINAL LAR 28-6","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","LOSS · NYG +7","nfl-week-2-nyg-lar.html","nfl-week-2-nyg-lar-review.html"]
 ];

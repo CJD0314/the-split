@@ -1,36 +1,39 @@
 {
   "bets": [
-    {"id":"nfl-w2-phi-ten-side","sport":"NFL","date":"2026-09-20","game":"PHI at TEN","type":"spread","pick":"Titans +7","close":"TEN +7 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-phi-ten.html"},
-    {"id":"nfl-w2-phi-ten-ml","sport":"NFL","date":"2026-09-20","game":"PHI at TEN","type":"ml","pick":"Eagles ML","close":"PHI -337","stake":337,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"FADE","href":"nfl-week-2-phi-ten.html"},
-    {"id":"nfl-w2-pit-ne-side","sport":"NFL","date":"2026-09-20","game":"PIT at NE","type":"spread","pick":"Steelers +5.5","close":"PIT +5.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-pit-ne.html"},
-    {"id":"nfl-w2-gb-nyj-side","sport":"NFL","date":"2026-09-20","game":"GB at NYJ","type":"spread","pick":"Jets +3.5","close":"NYJ +3.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-gb-nyj.html"},
-    {"id":"nfl-w2-cle-tb-side","sport":"NFL","date":"2026-09-20","game":"CLE at TB","type":"spread","pick":"Browns +7.5","close":"CLE +7.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-cle-tb.html"},
-    {"id":"nfl-w2-cle-tb-ml","sport":"NFL","date":"2026-09-20","game":"CLE at TB","type":"ml","pick":"Buccaneers ML","close":"TB -388","stake":388,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"FADE","href":"nfl-week-2-cle-tb.html"},
-    {"id":"nfl-w2-no-bal-side","sport":"NFL","date":"2026-09-20","game":"NO at BAL","type":"spread","pick":"Saints +8.5","close":"NO +8.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-no-bal.html"},
-    {"id":"nfl-w2-no-bal-ml","sport":"NFL","date":"2026-09-20","game":"NO at BAL","type":"ml","pick":"Ravens ML","close":"BAL -375","stake":375,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"FADE","href":"nfl-week-2-no-bal.html"},
-    {"id":"nfl-w2-cin-hou-side","sport":"NFL","date":"2026-09-20","game":"CIN at HOU","type":"spread","pick":"Bengals +2.5","close":"CIN +2.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-cin-hou.html"},
-    {"id":"nfl-w2-jax-den-side","sport":"NFL","date":"2026-09-20","game":"JAX at DEN","type":"spread","pick":"Jaguars +2.5","close":"JAX +2.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-jax-den.html"},
-    {"id":"nfl-w2-lv-lac-side","sport":"NFL","date":"2026-09-20","game":"LV at LAC","type":"spread","pick":"Raiders +6.5","close":"LV +6.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-lv-lac.html"},
-    {"id":"nfl-w2-lv-lac-ml","sport":"NFL","date":"2026-09-20","game":"LV at LAC","type":"ml","pick":"Chargers ML","close":"LAC -264","stake":264,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"FADE","href":"nfl-week-2-lv-lac.html"},
-    {"id":"nfl-w2-sea-ari-side","sport":"NFL","date":"2026-09-20","game":"SEA at ARI","type":"spread","pick":"Cardinals +3.5","close":"ARI +3.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-sea-ari.html"},
-    {"id":"nfl-w2-mia-sf-side","sport":"NFL","date":"2026-09-20","game":"MIA at SF","type":"spread","pick":"Dolphins +13.5","close":"MIA +13.5 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-mia-sf.html"},
-    {"id":"nfl-w2-mia-sf-ml","sport":"NFL","date":"2026-09-20","game":"MIA at SF","type":"ml","pick":"49ers ML","close":"SF -869","stake":869,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"FADE","href":"nfl-week-2-mia-sf.html"},
-    {"id":"nfl-w2-wsh-dal-side","sport":"NFL","date":"2026-09-20","game":"WSH at DAL","type":"spread","pick":"Commanders +4","close":"WSH +4 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-wsh-dal.html"},
-    {"id":"nfl-w2-ind-kc-side","sport":"NFL","date":"2026-09-20","game":"IND at KC","type":"spread","pick":"Colts +6","close":"IND +6 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-ind-kc.html"},
-    {"id":"nfl-w2-ind-kc-ml","sport":"NFL","date":"2026-09-20","game":"IND at KC","type":"ml","pick":"Chiefs ML","close":"KC -285","stake":285,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"FADE","href":"nfl-week-2-ind-kc.html"},
-    {"id":"nfl-w2-nyg-lar-side","sport":"NFL","date":"2026-09-21","game":"NYG at LAR","type":"spread","pick":"Giants +7","close":"NYG +7 (-110)","stake":110,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"LEAN","href":"nfl-week-2-nyg-lar.html"},
-    {"id":"nfl-w2-nyg-lar-ml","sport":"NFL","date":"2026-09-21","game":"NYG at LAR","type":"ml","pick":"Rams ML","close":"LAR -340","stake":340,"to_win":100,"status":"OPEN","result":"","pl":0,"confidence":"FADE","href":"nfl-week-2-nyg-lar.html"}
+    {"id":"nfl-w2-phi-ten-side","sport":"NFL","date":"2026-09-20","game":"PHI at TEN","type":"spread","pick":"Titans +7","close":"TEN +7 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"PHI 24-20","confidence":"LEAN","href":"nfl-week-2-phi-ten-review.html"},
+    {"id":"nfl-w2-phi-ten-ml","sport":"NFL","date":"2026-09-20","game":"PHI at TEN","type":"ml","pick":"Eagles ML","close":"PHI -337","stake":0,"to_win":0,"status":"SETTLED","result":"LEAVE","pl":0,"final":"PHI 24-20","confidence":"FADE","href":"nfl-week-2-phi-ten-review.html"},
+    {"id":"nfl-w2-pit-ne-side","sport":"NFL","date":"2026-09-20","game":"PIT at NE","type":"spread","pick":"Steelers +5.5","close":"PIT +5.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"LOSS","pl":-110,"final":"NE 20-3","confidence":"LEAN","href":"nfl-week-2-pit-ne-review.html"},
+    {"id":"nfl-w2-gb-nyj-side","sport":"NFL","date":"2026-09-20","game":"GB at NYJ","type":"spread","pick":"Jets +3.5","close":"NYJ +3.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"GB 20-17 OT","confidence":"LEAN","href":"nfl-week-2-gb-nyj-review.html"},
+    {"id":"nfl-w2-cle-tb-side","sport":"NFL","date":"2026-09-20","game":"CLE at TB","type":"spread","pick":"Browns +7.5","close":"CLE +7.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"CLE 23-19","confidence":"LEAN","href":"nfl-week-2-cle-tb-review.html"},
+    {"id":"nfl-w2-cle-tb-ml","sport":"NFL","date":"2026-09-20","game":"CLE at TB","type":"ml","pick":"Buccaneers ML","close":"TB -388","stake":0,"to_win":0,"status":"SETTLED","result":"LEAVE","pl":0,"final":"CLE 23-19","confidence":"FADE","href":"nfl-week-2-cle-tb-review.html"},
+    {"id":"nfl-w2-no-bal-side","sport":"NFL","date":"2026-09-20","game":"NO at BAL","type":"spread","pick":"Saints +8.5","close":"NO +8.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"NO 24-17","confidence":"LEAN","href":"nfl-week-2-no-bal-review.html"},
+    {"id":"nfl-w2-no-bal-ml","sport":"NFL","date":"2026-09-20","game":"NO at BAL","type":"ml","pick":"Ravens ML","close":"BAL -375","stake":0,"to_win":0,"status":"SETTLED","result":"LEAVE","pl":0,"final":"NO 24-17","confidence":"FADE","href":"nfl-week-2-no-bal-review.html"},
+    {"id":"nfl-w2-cin-hou-side","sport":"NFL","date":"2026-09-20","game":"CIN at HOU","type":"spread","pick":"Bengals +2.5","close":"CIN +2.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"CIN 20-6","confidence":"LEAN","href":"nfl-week-2-cin-hou-review.html"},
+    {"id":"nfl-w2-jax-den-side","sport":"NFL","date":"2026-09-20","game":"JAX at DEN","type":"spread","pick":"Jaguars +2.5","close":"JAX +2.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"LOSS","pl":-110,"final":"DEN 20-13","confidence":"LEAN","href":"nfl-week-2-jax-den.html"},
+    {"id":"nfl-w2-lv-lac-side","sport":"NFL","date":"2026-09-20","game":"LV at LAC","type":"spread","pick":"Raiders +6.5","close":"LV +6.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"LV 26-14","confidence":"LEAN","href":"nfl-week-2-lv-lac.html"},
+    {"id":"nfl-w2-lv-lac-ml","sport":"NFL","date":"2026-09-20","game":"LV at LAC","type":"ml","pick":"Chargers ML","close":"LAC -264","stake":0,"to_win":0,"status":"SETTLED","result":"LEAVE","pl":0,"final":"LV 26-14","confidence":"FADE","href":"nfl-week-2-lv-lac.html"},
+    {"id":"nfl-w2-sea-ari-side","sport":"NFL","date":"2026-09-20","game":"SEA at ARI","type":"spread","pick":"Cardinals +3.5","close":"ARI +3.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"LOSS","pl":-110,"final":"SEA 31-7","confidence":"LEAN","href":"nfl-week-2-sea-ari.html"},
+    {"id":"nfl-w2-mia-sf-side","sport":"NFL","date":"2026-09-20","game":"MIA at SF","type":"spread","pick":"Dolphins +13.5","close":"MIA +13.5 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"LOSS","pl":-110,"final":"SF 35-13","confidence":"LEAN","href":"nfl-week-2-mia-sf.html"},
+    {"id":"nfl-w2-mia-sf-ml","sport":"NFL","date":"2026-09-20","game":"MIA at SF","type":"ml","pick":"49ers ML","close":"SF -869","stake":0,"to_win":0,"status":"SETTLED","result":"LEAVE","pl":0,"final":"SF 35-13","confidence":"FADE","href":"nfl-week-2-mia-sf.html"},
+    {"id":"nfl-w2-wsh-dal-side","sport":"NFL","date":"2026-09-20","game":"WSH at DAL","type":"spread","pick":"Commanders +4","close":"WSH +4 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"LOSS","pl":-110,"final":"DAL 37-20","confidence":"LEAN","href":"nfl-week-2-wsh-dal.html"},
+    {"id":"nfl-w2-ind-kc-side","sport":"NFL","date":"2026-09-20","game":"IND at KC","type":"spread","pick":"Colts +6","close":"IND +6 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"WIN","pl":100,"final":"KC 33-30 OT","confidence":"LEAN","href":"nfl-week-2-ind-kc-review.html"},
+    {"id":"nfl-w2-ind-kc-ml","sport":"NFL","date":"2026-09-20","game":"IND at KC","type":"ml","pick":"Chiefs ML","close":"KC -285","stake":0,"to_win":0,"status":"SETTLED","result":"LEAVE","pl":0,"final":"KC 33-30 OT","confidence":"FADE","href":"nfl-week-2-ind-kc-review.html"},
+    {"id":"nfl-w2-nyg-lar-side","sport":"NFL","date":"2026-09-21","game":"NYG at LAR","type":"spread","pick":"Giants +7","close":"NYG +7 (-110)","stake":110,"to_win":100,"status":"SETTLED","result":"LOSS","pl":-110,"final":"LAR 28-6","confidence":"LEAN","href":"nfl-week-2-nyg-lar-review.html"},
+    {"id":"nfl-w2-nyg-lar-ml","sport":"NFL","date":"2026-09-21","game":"NYG at LAR","type":"ml","pick":"Rams ML","close":"LAR -340","stake":0,"to_win":0,"status":"SETTLED","result":"LEAVE","pl":0,"final":"LAR 28-6","confidence":"FADE","href":"nfl-week-2-nyg-lar-review.html"}
   ],
   "loops": {
     "NFL": [
       "Sun 9/20: no units. One-reason dogs only. CAR-ATL and MIN-CHI stay PASS.",
-      "Sun 9/20: Walker 173 and Dart 3 TD are n=1. Do not copy onto means."
+      "Sun 9/20: Walker 173 and Dart 3 TD are n=1. Do not copy onto means.",
+      "MNF 9/21: 10k one row per active DK skill. No slash TE lines. Ferguson missing was a ship bug.",
+      "MNF 9/21: last seats from 10k involvement. Cap is a ceiling. QB exit in Q1 kills the side and the bring-back."
     ]
   },
   "fades": {
     "NFL": [
       "Sun 9/20: ML worse than -190 is fade. PHI -337, TB -388, BAL -375, LAC -264, SF -869, KC -285.",
-      "Sun 9/20: laying 13.5 after Australia Thursday is not a unit. Lean the points."
+      "Sun 9/20: laying 13.5 after Australia Thursday is not a unit. Lean the points.",
+      "MNF 9/21: LAR -340 fade stands. They won 28-6. Juice is still not a buy."
     ]
   }
 }

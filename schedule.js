@@ -1,6 +1,6 @@
 const LOGO = c => "https://a.espncdn.com/i/teamlogos/nfl/500/" + c + ".png";
-const CURRENT_WEEK = 2;
-const BOARDED_WEEKS = [1,2];
+const CURRENT_WEEK = 3;
+const BOARDED_WEEKS = [1,2,3];
 const GAMES = [
 [1,"WED SEPT 9","ne","sea","Patriots at Seahawks","FINAL SEA 13-10","NE +3 / SEA -3","44.5","SEA -170 / NE +142","PUSH · Patriots +3","nfl-week-1-ne-sea.html","nfl-week-1-ne-sea-review.html"],
 [1,"THU SEPT 10","sf","lar","49ers at Rams","FINAL SF 27-7","SF +3.5 / LAR -3.5","48.5","LAR -198 / SF +164","WIN · 49ers +3.5","nfl-week-1-sf-lar.html","nfl-week-1-sf-lar-review.html"],
@@ -33,26 +33,42 @@ const GAMES = [
 [2,"SUN 4:25 FOX","mia","sf","Dolphins at 49ers","FINAL SF 35-13","MIA +13.5 / SF -13.5","45.5","SF -869 / MIA +646","LOSS · MIA +13.5","nfl-week-2-mia-sf.html",""],
 [2,"SUN 4:25 FOX","wsh","dal","Commanders at Cowboys","FINAL DAL 37-20","WSH +4 / DAL -4","50.5","DAL -190 / WSH +170","LOSS · WSH +4","nfl-week-2-wsh-dal.html",""],
 [2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","FINAL KC 33-30 OT","IND +6 / KC -6","46.5","KC -285 / IND +230","WIN · IND +6","nfl-week-2-ind-kc.html","nfl-week-2-ind-kc-review.html"],
-[2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","FINAL LAR 28-6","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","LOSS · NYG +7","nfl-week-2-nyg-lar.html","nfl-week-2-nyg-lar-review.html"]
+[2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","FINAL LAR 28-6","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","LOSS · NYG +7","nfl-week-2-nyg-lar.html","nfl-week-2-nyg-lar-review.html"],
+[3,"THU 8:15 Prime","atl","gb","Falcons at Packers","8:15 p.m. ET · Lambeau","ATL +4.5 / GB -4.5","43.5","GB -210 / ATL +180","PASS · T-90 first","nfl-week-3-atl-gb.html",""],
+[3,"SUN 1:00 FOX","lac","buf","Chargers at Bills","1:00 p.m. ET · Highmark","LAC +7 / BUF -7","50.5","BUF -320 / LAC +260","OPEN","",""],
+[3,"SUN 1:00 FOX","car","cle","Panthers at Browns","1:00 p.m. ET · Cleveland","CAR -2.5 / CLE +2.5","42.5","CAR -140 / CLE +120","OPEN","",""],
+[3,"SUN 1:00 FOX","nyj","det","Jets at Lions","1:00 p.m. ET · Ford Field","NYJ +6.5 / DET -6.5","47.5","DET -280 / NYJ +230","OPEN","",""],
+[3,"SUN 1:00 CBS","hou","ind","Texans at Colts","1:00 p.m. ET · Lucas Oil","HOU -2.5 / IND +2.5","43.5","HOU -140 / IND +120","OPEN","",""],
+[3,"SUN 1:00 CBS","kc","mia","Chiefs at Dolphins","1:00 p.m. ET · Hard Rock","KC -11.5 / MIA +11.5","45.5","KC -550 / MIA +400","OPEN","",""],
+[3,"SUN 1:00 CBS","ten","nyg","Titans at Giants","1:00 p.m. ET · MetLife","TEN +2.5 / NYG -2.5","39.5","NYG -140 / TEN +120","OPEN","",""],
+[3,"SUN 1:00 CBS","cin","pit","Bengals at Steelers","1:00 p.m. ET · Acrisure","CIN -3.5 / PIT +3.5","42.5","CIN -180 / PIT +155","OPEN","",""],
+[3,"SUN 1:00 FOX","sea","wsh","Seahawks at Commanders","1:00 p.m. ET · Landover","SEA -7 / WSH +7","40.5","SEA -340 / WSH +270","OPEN","",""],
+[3,"SUN 1:00 CBS","ne","jax","Patriots at Jaguars","1:00 p.m. ET · EverBank","NE +3 / JAX -3","45.5","JAX -155 / NE +130","OPEN","",""],
+[3,"SUN 4:05 FOX","ari","sf","Cardinals at 49ers","4:05 p.m. ET · Levi's","ARI +8.5 / SF -8.5","47.5","SF -400 / ARI +310","OPEN","",""],
+[3,"SUN 4:05 FOX","min","tb","Vikings at Buccaneers","4:05 p.m. ET · Raymond James","MIN -1.5 / TB +1.5","42.5","MIN -122 / TB +102","OPEN","",""],
+[3,"SUN 4:25 CBS","bal","dal","Ravens vs Cowboys","4:25 p.m. ET · Rio","BAL -3.5 / DAL +3.5","52.5","BAL -180 / DAL +155","OPEN","",""],
+[3,"SUN 4:25 CBS","lv","no","Raiders at Saints","4:25 p.m. ET · Dome","LV +3 / NO -3","43.5","NO -155 / LV +130","OPEN","",""],
+[3,"SNF 8:20 NBC","lar","den","Rams at Broncos","8:20 p.m. ET · Mile High","LAR -2.5 / DEN +2.5","45.5","LAR -140 / DEN +120","OPEN","",""],
+[3,"MNF 8:15","phi","chi","Eagles at Bears","8:15 p.m. ET · Soldier Field","PHI -4.5 / CHI +4.5","41.5","PHI -200 / CHI +170","OPEN","",""]
 ];
 function shortWhen(day){
   return String(day||"").replace(" Prime","").replace(" FOX","").replace(" CBS","").replace(" NBC","").replace(" ESPN","");
 }
-const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1,"nfl-week-2-min-chi.html":1,"nfl-week-2-phi-ten.html":1,"nfl-week-2-pit-ne.html":1,"nfl-week-2-gb-nyj.html":1,"nfl-week-2-cle-tb.html":1,"nfl-week-2-no-bal.html":1,"nfl-week-2-cin-hou.html":1,"nfl-week-2-jax-den.html":1,"nfl-week-2-lv-lac.html":1,"nfl-week-2-sea-ari.html":1,"nfl-week-2-mia-sf.html":1,"nfl-week-2-wsh-dal.html":1,"nfl-week-2-ind-kc.html":1,"nfl-week-2-nyg-lar.html":1};
+const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1,"nfl-week-2-min-chi.html":1,"nfl-week-2-phi-ten.html":1,"nfl-week-2-pit-ne.html":1,"nfl-week-2-gb-nyj.html":1,"nfl-week-2-cle-tb.html":1,"nfl-week-2-no-bal.html":1,"nfl-week-2-cin-hou.html":1,"nfl-week-2-jax-den.html":1,"nfl-week-2-lv-lac.html":1,"nfl-week-2-sea-ari.html":1,"nfl-week-2-mia-sf.html":1,"nfl-week-2-wsh-dal.html":1,"nfl-week-2-ind-kc.html":1,"nfl-week-2-nyg-lar.html":1,"nfl-week-3-atl-gb.html":1};
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
   const isLive = (w===CURRENT_WEEK && /THU/i.test(day) && !/^FINAL/i.test(String(when)));
-  const live = isLive ? `<span class=\"live-tag\">LIVE</span>` : "";
-  const dive = DIVE_READY[href] ? `<a class=\"g-btn g-btn-on\" href=\"${href}\">FULL BREAKDOWN</a>` : "";
-  const rev = review ? `<a class=\"g-btn\" href=\"${review}\">REVIEW</a>` : "";
-  const actions = (dive || rev) ? `<div class=\"g-actions\">${dive}${rev}</div>` : "";
+  const live = isLive ? `<span class="live-tag">LIVE</span>` : "";
+  const dive = DIVE_READY[href] ? `<a class="g-btn g-btn-on" href="${href}">FULL BREAKDOWN</a>` : "";
+  const rev = review ? `<a class="g-btn" href="${review}">REVIEW</a>` : "";
+  const actions = (dive || rev) ? `<div class="g-actions">${dive}${rev}</div>` : "";
   const line = String(spread).split(" / ")[0];
-  return `<details class=\"g-card\"${isLive ? " open" : ""}>
-    <summary class=\"g-head\"><img src=\"${LOGO(a)}\" alt=\"\"><img src=\"${LOGO(h)}\" alt=\"\"><div class=\"g-copy\"><b>${title}</b><span class=\"g-meta\">${line} · ${stamp}${live}</span></div></summary>
-    <div class=\"g-more\">
-      <p class=\"note\">${when}</p>
+  return `<details class="g-card"${isLive ? " open" : ""}>
+    <summary class="g-head"><img src="${LOGO(a)}" alt=""><img src="${LOGO(h)}" alt=""><div class="g-copy"><b>${title}</b><span class="g-meta">${line} · ${stamp}${live}</span></div></summary>
+    <div class="g-more">
+      <p class="note">${when}</p>
       ${actions}
-      <div class=\"mini\"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>STAMP</b><span>${stamp}</span></div></div>
+      <div class="mini"><div><b>SPREAD</b><span>${spread}</span></div><div><b>TOTAL</b><span>${total}</span></div><div><b>MONEYLINE</b><span>${ml}</span></div><div><b>STAMP</b><span>${stamp}</span></div></div>
     </div>
   </details>`;
 }

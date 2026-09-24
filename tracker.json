@@ -1,7 +1,7 @@
 {
   "unit": 100,
-  "updated": "2026-09-14T22:38:00-04:00",
-  "today": "2026-09-14",
+  "updated": "2026-09-24T12:00:00-04:00",
+  "today": "2026-09-24",
   "tagline": "The card. The number. The miss.",
   "confidence_key": "BET = fire a unit. LEAN = half unit or skip if tight. FADE = posted because every game needs a number; would not fire real money.",
   "loops": {
@@ -11,7 +11,10 @@
       "A home favorite of a touchdown or more is live to leak.",
       "A travel-week or short-week favorite is live to fade.",
       "A total under 45 is a dog-and-points number, not a quarterback stack.",
-      "An ugly cover still covers."
+      "An ugly cover still covers.",
+      "Starting QB to the locker room in Q1 is an instant side and showdown kill.",
+      "Last showdown seats follow 10k involvement, not leftover salary. Cap is a ceiling.",
+      "One plus lean per weekend. Close the card the same night."
     ],
     "CFB": [
       "Fire 6-to-14 point ranked sides in real Power or conference games. Do not lump them with paycheck numbers.",
@@ -31,7 +34,10 @@
       "Do not copy one final onto the next slate.",
       "Do not lay brand juice home or road.",
       "Do not buy points against a featured home back.",
-      "Do not chain WR1 or TE TD onto a dog you already like."
+      "Do not chain WR1 or TE TD onto a dog you already like.",
+      "Do not default the quarterback as captain. If he is the captain it is because the 10k says so.",
+      "Do not spend leftover cap on the cheap twin when the involved name is cheaper or equal.",
+      "Do not lay a moneyline worse than -190 as a BET."
     ],
     "CFB": [
       "A 50-point FCS win is not a fire the next week.",

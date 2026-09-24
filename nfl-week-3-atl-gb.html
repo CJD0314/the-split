@@ -20,8 +20,9 @@ details.block>summary::after{content:"+";color:#d4a017;float:right}
 details.block[open]>summary::after{content:"\2013"}
 .body{padding:12px 14px 16px;border-top:1px solid #2a3644}
 h3{color:#d4a017;font-size:12px;letter-spacing:.08em;margin:16px 0 6px}ul{margin:4px 0 0;padding-left:18px}li{margin:5px 0}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid #2a3644}
-th{color:#93a3b5;font-size:10px}td.num{text-align:right}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 14px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid #2a3644;white-space:nowrap}
+th{color:#93a3b5;font-size:10px;letter-spacing:.06em}td.num{text-align:right;font-variant-numeric:tabular-nums}
 .note{color:#93a3b5;font-size:12px;margin:6px 0 8px}.callout{background:#18202a;border-left:3px solid #d4a017;padding:10px 12px;margin:10px 0}
 .lock{background:#1a2418;border:1px solid #d4a017;border-radius:12px;padding:14px;margin:14px 0}
 .lock b{color:#d4a017}.team-head{display:flex;align-items:center;gap:10px}.team-head img{width:44px;height:44px}
@@ -30,8 +31,14 @@ th{color:#93a3b5;font-size:10px}td.num{text-align:right}
 .topnav a{color:#d4a017;text-decoration:none;font-weight:800;font-size:12px}
 .sd-you{border-left:3px solid #d4a017;padding:10px 12px;background:#161c24;border-radius:8px;margin:10px 0}
 .sd-you b{display:block;color:#d4a017;font-size:11px;letter-spacing:.08em;margin-bottom:6px}
+details.inner{background:#161c24;border:1px solid #2a3644;border-radius:8px;margin:8px 0}
+details.inner>summary{list-style:none;cursor:pointer;padding:10px 12px;font-weight:700;font-size:13px}
+details.inner>summary::-webkit-details-marker{display:none}
+details.inner>summary::after{content:"+";color:#d4a017;float:right}
+details.inner[open]>summary::after{content:"\2013"}
+details.inner .pad{padding:4px 12px 12px}
 @media(min-width:860px){.market{grid-template-columns:repeat(4,1fr)}.grid2{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.tile span{font-size:16px}.tile{min-height:64px}.logos img{width:56px;height:56px}table{font-size:12px}}
+@media(max-width:520px){.tile span{font-size:16px}.tile{min-height:64px}.logos img{width:56px;height:56px}table{font-size:12px;min-width:480px}}
 </style></head>
 <body>
 <div class="topnav"><a href="today.html">TODAY</a><a href="nfl.html">NFL</a><a href="reviews.html">BET TRACKER</a></div>
@@ -83,7 +90,7 @@ th{color:#93a3b5;font-size:10px}td.num{text-align:right}
   </div></details>
 
   <details class="block"><summary>INACTIVES · T-90 LOCKED</summary><div class="body">
-    <table>
+    <div class="scroll"><table>
       <tr><th>Team</th><th>Player</th><th>Note</th></tr>
       <tr><td>GB</td><td>Jayden Reed</td><td>INACTIVE · neck</td></tr>
       <tr><td>GB</td><td>Aaron Banks</td><td>INACTIVE · knee / toe</td></tr>
@@ -99,7 +106,7 @@ th{color:#93a3b5;font-size:10px}td.num{text-align:right}
       <tr><td>ATL</td><td>Ethan Onianwa</td><td>INACTIVE</td></tr>
       <tr><td>ATL</td><td>Michael Penix Jr.</td><td>STARTS</td></tr>
       <tr><td>ATL</td><td>Tua Tagovailoa</td><td>ACTIVE · backup</td></tr>
-    </table>
+    </table></div>
   </div></details>
 
   <details class="block"><summary>SCRIPT</summary><div class="body">
@@ -108,56 +115,102 @@ th{color:#93a3b5;font-size:10px}td.num{text-align:right}
   </div></details>
 
   <details class="block"><summary>10K SIMULATOR · FINAL</summary><div class="body">
-    <p class="note">10,000 games after T-90. Skill pool unchanged. No shrink to the sheet. Penix early-exit rate 8%.</p>
-    <h3>PASS-CATCHER PRIORS (NOT FINDINGS)</h3>
-    <ul>
-      <li>GB pass: Watson 30 · Golden 26 · Kraft 18 · Jonnu 8 · Moore 7 · Melton 5 · Sturdivant 3 · Redman 3</li>
-      <li>ATL pass: London 38 · Pitts 20 · Dotson 16 · Zaccheaus 10 · Bijan 8 · Branch 4 · Woerner 2 · Hooper 1 · Muse 1</li>
-    </ul>
-    <h3>QB</h3>
-    <table>
-      <tr><th>Player</th><th>Sheet</th><th>10k</th><th>Pass</th><th>Rush</th><th>TD</th><th>≥5</th></tr>
-      <tr><td>Jordan Love</td><td class="num">17.66</td><td class="num">18.37</td><td class="num">229</td><td class="num">9</td><td class="num">2.05</td><td class="num">100%</td></tr>
-      <tr><td>Michael Penix Jr.</td><td class="num">14.91</td><td class="num">11.70</td><td class="num">176</td><td class="num">7</td><td class="num">1.06</td><td class="num">90%</td></tr>
-    </table>
-    <h3>RB</h3>
-    <table>
-      <tr><th>Player</th><th>Sheet</th><th>10k</th><th>Rush</th><th>Rec / yd</th><th>TD</th><th>≥5</th></tr>
-      <tr><td>Bijan Robinson</td><td class="num">21.49</td><td class="num">15.89</td><td class="num">81</td><td class="num">1.5 / 16</td><td class="num">0.80</td><td class="num">98%</td></tr>
-      <tr><td>MarShawn Lloyd</td><td class="num">8.14</td><td class="num">5.83</td><td class="num">37</td><td class="num">—</td><td class="num">0.35</td><td class="num">48%</td></tr>
-      <tr><td>Kaleb Johnson</td><td class="num">7.64</td><td class="num">5.48</td><td class="num">33</td><td class="num">—</td><td class="num">0.36</td><td class="num">42%</td></tr>
-      <tr><td>Brian Robinson Jr.</td><td class="num">5.58</td><td class="num">3.47</td><td class="num">25</td><td class="num">—</td><td class="num">0.16</td><td class="num">18%</td></tr>
-      <tr><td>Chris Brooks</td><td class="num">5.24</td><td class="num">3.02</td><td class="num">20</td><td class="num">—</td><td class="num">0.17</td><td class="num">17%</td></tr>
-    </table>
-    <h3>WR</h3>
-    <table>
-      <tr><th>Player</th><th>Sheet</th><th>10k</th><th>Rec</th><th>Yds</th><th>TD</th><th>≥5</th></tr>
-      <tr><td>Christian Watson</td><td class="num">16.96</td><td class="num">16.78</td><td class="num">6.0</td><td class="num">69</td><td class="num">0.65</td><td class="num">97%</td></tr>
-      <tr><td>Drake London</td><td class="num">15.37</td><td class="num">14.90</td><td class="num">5.8</td><td class="num">67</td><td class="num">0.41</td><td class="num">91%</td></tr>
-      <tr><td>Matthew Golden</td><td class="num">15.70</td><td class="num">14.26</td><td class="num">5.2</td><td class="num">59</td><td class="num">0.52</td><td class="num">95%</td></tr>
-      <tr><td>Jahan Dotson</td><td class="num">5.49</td><td class="num">6.61</td><td class="num">2.5</td><td class="num">29</td><td class="num">0.20</td><td class="num">61%</td></tr>
-      <tr><td>Olamide Zaccheaus</td><td class="num">3.20</td><td class="num">4.22</td><td class="num">1.7</td><td class="num">19</td><td class="num">0.10</td><td class="num">37%</td></tr>
-      <tr><td>Skyy Moore</td><td class="num">2.81</td><td class="num">3.90</td><td class="num">1.6</td><td class="num">17</td><td class="num">0.09</td><td class="num">33%</td></tr>
-      <tr><td>Bo Melton</td><td class="num">2.25</td><td class="num">2.99</td><td class="num">1.3</td><td class="num">13</td><td class="num">0.06</td><td class="num">22%</td></tr>
-      <tr><td>Zachariah Branch</td><td class="num">1.83</td><td class="num">2.44</td><td class="num">1.1</td><td class="num">10</td><td class="num">0.06</td><td class="num">16%</td></tr>
-      <tr><td>J. Michael Sturdivant</td><td class="num">1.12</td><td class="num">2.02</td><td class="num">1.1</td><td class="num">10</td><td class="num">0.00</td><td class="num">10%</td></tr>
-      <tr><td>Chris Blair</td><td class="num">0.46</td><td class="num">0.63</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">0%</td></tr>
-    </table>
-    <h3>TE / K / DST</h3>
-    <table>
-      <tr><th>Player</th><th>Sheet</th><th>10k</th><th>≥5</th></tr>
-      <tr><td>Tucker Kraft</td><td class="num">10.20</td><td class="num">10.13</td><td class="num">85%</td></tr>
-      <tr><td>Kyle Pitts Sr.</td><td class="num">7.80</td><td class="num">7.88</td><td class="num">71%</td></tr>
-      <tr><td>Packers</td><td class="num">7.58</td><td class="num">6.53</td><td class="num">73%</td></tr>
-      <tr><td>Trey Smack</td><td class="num">7.16</td><td class="num">5.23</td><td class="num">57%</td></tr>
-      <tr><td>Nick Folk</td><td class="num">7.23</td><td class="num">4.28</td><td class="num">43%</td></tr>
-    </table>
+    <p class="note">10,000 games after T-90. No shrink to the sheet. Drawers start closed.</p>
+    <div class="market">
+      <div class="tile"><b>GB MEAN</b><span>23.5</span><small>cover −4.5 in 56.4%</small></div>
+      <div class="tile"><b>ATL MEAN</b><span>17.6</span><small>cover +4.5 in 43.6%</small></div>
+      <div class="tile"><b>TOTAL</b><span>41.1</span><small>DK 42.5 · under 56.1%</small></div>
+      <div class="tile"><b>PENIX EXIT</b><span>8%</span><small>engine rate, not a finding</small></div>
+    </div>
+
+    <details class="inner"><summary>PASS-CATCHER PRIORS</summary><div class="pad">
+      <p class="note">Inputs. Not findings.</p>
+      <div class="scroll"><table>
+        <tr><th>GB</th><th class="num">Share</th><th>ATL</th><th class="num">Share</th></tr>
+        <tr><td>Watson</td><td class="num">30%</td><td>London</td><td class="num">38%</td></tr>
+        <tr><td>Golden</td><td class="num">26%</td><td>Pitts</td><td class="num">20%</td></tr>
+        <tr><td>Kraft</td><td class="num">18%</td><td>Dotson</td><td class="num">16%</td></tr>
+        <tr><td>Jonnu</td><td class="num">8%</td><td>Zaccheaus</td><td class="num">10%</td></tr>
+        <tr><td>Moore</td><td class="num">7%</td><td>Bijan</td><td class="num">8%</td></tr>
+        <tr><td>Melton</td><td class="num">5%</td><td>Branch</td><td class="num">4%</td></tr>
+        <tr><td>Sturdivant</td><td class="num">3%</td><td>Woerner</td><td class="num">2%</td></tr>
+        <tr><td>Redman</td><td class="num">3%</td><td>Hooper / Muse</td><td class="num">1 / 1</td></tr>
+      </table></div>
+    </div></details>
+
+    <details class="inner"><summary>QB</summary><div class="pad">
+      <div class="scroll"><table>
+        <tr><th>Player</th><th class="num">Sheet</th><th class="num">10k</th><th class="num">Pass</th><th class="num">Rush</th><th class="num">TD</th><th class="num">≥5</th></tr>
+        <tr><td>Jordan Love</td><td class="num">17.66</td><td class="num">18.37</td><td class="num">229</td><td class="num">9</td><td class="num">2.05</td><td class="num">100%</td></tr>
+        <tr><td>Michael Penix Jr.</td><td class="num">14.91</td><td class="num">11.70</td><td class="num">176</td><td class="num">7</td><td class="num">1.06</td><td class="num">90%</td></tr>
+      </table></div>
+    </div></details>
+
+    <details class="inner"><summary>RB</summary><div class="pad">
+      <div class="scroll"><table>
+        <tr><th>Player</th><th class="num">Sheet</th><th class="num">10k</th><th class="num">Rush</th><th class="num">Rec</th><th class="num">Yds</th><th class="num">TD</th><th class="num">≥5</th></tr>
+        <tr><td>Bijan Robinson</td><td class="num">21.49</td><td class="num">15.89</td><td class="num">81</td><td class="num">1.5</td><td class="num">16</td><td class="num">0.80</td><td class="num">98%</td></tr>
+        <tr><td>MarShawn Lloyd</td><td class="num">8.14</td><td class="num">5.83</td><td class="num">37</td><td class="num">0.0</td><td class="num">0</td><td class="num">0.35</td><td class="num">48%</td></tr>
+        <tr><td>Kaleb Johnson</td><td class="num">7.64</td><td class="num">5.48</td><td class="num">33</td><td class="num">0.0</td><td class="num">0</td><td class="num">0.36</td><td class="num">42%</td></tr>
+        <tr><td>Brian Robinson Jr.</td><td class="num">5.58</td><td class="num">3.47</td><td class="num">25</td><td class="num">0.0</td><td class="num">0</td><td class="num">0.16</td><td class="num">18%</td></tr>
+        <tr><td>Chris Brooks</td><td class="num">5.24</td><td class="num">3.02</td><td class="num">20</td><td class="num">0.0</td><td class="num">0</td><td class="num">0.17</td><td class="num">17%</td></tr>
+      </table></div>
+    </div></details>
+
+    <details class="inner"><summary>WR</summary><div class="pad">
+      <div class="scroll"><table>
+        <tr><th>Player</th><th class="num">Sheet</th><th class="num">10k</th><th class="num">Rec</th><th class="num">Yds</th><th class="num">TD</th><th class="num">≥5</th></tr>
+        <tr><td>Christian Watson</td><td class="num">16.96</td><td class="num">16.78</td><td class="num">6.0</td><td class="num">69</td><td class="num">0.65</td><td class="num">97%</td></tr>
+        <tr><td>Drake London</td><td class="num">15.37</td><td class="num">14.90</td><td class="num">5.8</td><td class="num">67</td><td class="num">0.41</td><td class="num">91%</td></tr>
+        <tr><td>Matthew Golden</td><td class="num">15.70</td><td class="num">14.26</td><td class="num">5.2</td><td class="num">59</td><td class="num">0.52</td><td class="num">95%</td></tr>
+        <tr><td>Jahan Dotson</td><td class="num">5.49</td><td class="num">6.61</td><td class="num">2.5</td><td class="num">29</td><td class="num">0.20</td><td class="num">61%</td></tr>
+        <tr><td>Olamide Zaccheaus</td><td class="num">3.20</td><td class="num">4.22</td><td class="num">1.7</td><td class="num">19</td><td class="num">0.10</td><td class="num">37%</td></tr>
+        <tr><td>Skyy Moore</td><td class="num">2.81</td><td class="num">3.90</td><td class="num">1.6</td><td class="num">17</td><td class="num">0.09</td><td class="num">33%</td></tr>
+        <tr><td>Bo Melton</td><td class="num">2.25</td><td class="num">2.99</td><td class="num">1.3</td><td class="num">13</td><td class="num">0.06</td><td class="num">22%</td></tr>
+        <tr><td>Zachariah Branch</td><td class="num">1.83</td><td class="num">2.44</td><td class="num">1.1</td><td class="num">10</td><td class="num">0.06</td><td class="num">16%</td></tr>
+        <tr><td>J. Michael Sturdivant</td><td class="num">1.12</td><td class="num">2.02</td><td class="num">1.1</td><td class="num">10</td><td class="num">0.00</td><td class="num">10%</td></tr>
+        <tr><td>Chris Blair</td><td class="num">0.46</td><td class="num">0.63</td><td class="num">0.3</td><td class="num">3</td><td class="num">0.00</td><td class="num">0%</td></tr>
+      </table></div>
+    </div></details>
+
+    <details class="inner"><summary>TE</summary><div class="pad">
+      <div class="scroll"><table>
+        <tr><th>Player</th><th class="num">Sheet</th><th class="num">10k</th><th class="num">Rec</th><th class="num">Yds</th><th class="num">TD</th><th class="num">≥5</th></tr>
+        <tr><td>Tucker Kraft</td><td class="num">10.20</td><td class="num">10.13</td><td class="num">3.6</td><td class="num">41</td><td class="num">0.41</td><td class="num">85%</td></tr>
+        <tr><td>Kyle Pitts Sr.</td><td class="num">7.80</td><td class="num">7.88</td><td class="num">3.1</td><td class="num">36</td><td class="num">0.20</td><td class="num">71%</td></tr>
+        <tr><td>Jonnu Smith</td><td class="num">3.37</td><td class="num">4.59</td><td class="num">1.8</td><td class="num">19</td><td class="num">0.15</td><td class="num">40%</td></tr>
+        <tr><td>Charlie Woerner</td><td class="num">1.37</td><td class="num">1.66</td><td class="num">0.9</td><td class="num">8</td><td class="num">0.00</td><td class="num">7%</td></tr>
+        <tr><td>Austin Hooper</td><td class="num">0.92</td><td class="num">1.52</td><td class="num">0.9</td><td class="num">7</td><td class="num">0.00</td><td class="num">6%</td></tr>
+        <tr><td>Mark Redman</td><td class="num">0.56</td><td class="num">2.04</td><td class="num">1.1</td><td class="num">10</td><td class="num">0.00</td><td class="num">10%</td></tr>
+        <tr><td>Nick Muse</td><td class="num">0.46</td><td class="num">1.49</td><td class="num">0.8</td><td class="num">7</td><td class="num">0.00</td><td class="num">5%</td></tr>
+      </table></div>
+    </div></details>
+
+    <details class="inner"><summary>K / DST</summary><div class="pad">
+      <div class="scroll"><table>
+        <tr><th>Player</th><th class="num">Sheet</th><th class="num">10k</th><th class="num">≥5</th></tr>
+        <tr><td>Packers DST</td><td class="num">7.58</td><td class="num">6.53</td><td class="num">73%</td></tr>
+        <tr><td>Trey Smack</td><td class="num">7.16</td><td class="num">5.23</td><td class="num">57%</td></tr>
+        <tr><td>Nick Folk</td><td class="num">7.23</td><td class="num">4.28</td><td class="num">43%</td></tr>
+        <tr><td>Falcons DST</td><td class="num">4.99</td><td class="num">4.26</td><td class="num">30%</td></tr>
+      </table></div>
+    </div></details>
+
+    <details class="inner"><summary>WHAT STICKS OUT</summary><div class="pad">
+      <ul>
+        <li>Love 229 pass, Watson 16.8, Golden 14.3, Kraft 10.1. That is the home passing game with Reed out.</li>
+        <li>Penix 11.7 / 176 after the rust haircut. Sheet had 14.9. Do not ticket 209.5 pass.</li>
+        <li>Bijan independent 15.9, not 23.8. Still the slate RB. Still in the $100 six.</li>
+        <li>Dotson 6.61 leads the cheap ATL pass-catchers. Melton 2.99 is the $1,200 chip, not a 10k finding.</li>
+        <li>Side 56/44 after the haircut. Still PASS.</li>
+      </ul>
+    </div></details>
   </div></details>
 
   <details class="block"><summary>SHOWDOWN · EIGHT LEGAL BUILDS</summary><div class="body">
     <p class="note">Win % is among these eight only. Love CPT wins the mean table. Not the 1,111 play.</p>
-    <table>
-      <tr><th>Build</th><th>Sal</th><th>Mean</th><th>Win*</th><th>Use</th></tr>
+    <div class="scroll"><table>
+      <tr><th>Build</th><th class="num">Sal</th><th class="num">Mean</th><th class="num">Win*</th><th>Use</th></tr>
       <tr><td>CPT Love · Bijan · Watson · Golden · Dotson · Melton</td><td class="num">48600</td><td class="num">84.1</td><td class="num">17.9</td><td>No</td></tr>
       <tr><td>CPT Bijan · Love · Watson · Golden · Dotson · Melton</td><td class="num">49500</td><td class="num">82.9</td><td class="num">9.0</td><td>GPP only</td></tr>
       <tr><td>CPT Watson · Love · Bijan · Golden · Johnson · Melton</td><td class="num">49500</td><td class="num">82.2</td><td class="num">18.3</td><td>HOLD</td></tr>
@@ -165,7 +218,7 @@ th{color:#93a3b5;font-size:10px}td.num{text-align:right}
       <tr><td>CPT Golden · Love · Penix · Bijan · Johnson · Dotson</td><td class="num">49500</td><td class="num">79.4</td><td class="num">8.4</td><td>alt</td></tr>
       <tr><td>CPT Watson · Love · Penix · Bijan · Moore · Zaccheaus</td><td class="num">49900</td><td class="num">79.3</td><td class="num">7.5</td><td>no Melton</td></tr>
       <tr><td>CPT London · Love · Penix · Bijan · Johnson · Zaccheaus</td><td class="num">50000</td><td class="num">78.0</td><td class="num">24.6</td><td>Not 1,111</td></tr>
-    </table>
+    </table></div>
   </div></details>
 
   <details class="block"><summary>$100 SE · 1,111</summary><div class="body">
@@ -180,9 +233,9 @@ th{color:#93a3b5;font-size:10px}td.num{text-align:right}
     </div>
     <ul>
       <li>1,111 is the DET@BUF product. You need one clean six, not a 222 dart.</li>
-      <li>Watson CPT at 12% sheet CPT. The field will live on Bijan CPT at 26%. That is the split.</li>
-      <li>Both QBs because Penix is active. That is the 1,111 correlation, not a GPP fade.</li>
-      <li>Bijan stays in FLEX. Sitting him in this field is the high-risk play.</li>
+      <li>Watson CPT at 12% sheet CPT. The field will live on Bijan CPT at 26%.</li>
+      <li>Both QBs because Penix is active.</li>
+      <li>Bijan stays in FLEX.</li>
       <li>Last $4,500 is salary geometry. Melton is the chip next to Dotson.</li>
     </ul>
   </div></details>
@@ -199,13 +252,13 @@ th{color:#93a3b5;font-size:10px}td.num{text-align:right}
   </div></details>
 
   <details class="block"><summary>BEST BET</summary><div class="body">
-    <table>
+    <div class="scroll"><table>
       <tr><th>Type</th><th>Ticket</th><th>Stamp</th></tr>
       <tr><td>SIDE</td><td>GB −4.5 / ATL +4.5</td><td><span class="stamp pass">PASS</span></td></tr>
       <tr><td>TOTAL</td><td>42.5</td><td><span class="stamp pass">PASS</span></td></tr>
       <tr><td>$100 SE</td><td>CPT Watson · Love · Penix · Bijan · Dotson · Melton</td><td><span class="stamp lean">LOCK</span></td></tr>
       <tr><td>HOLD</td><td>CPT Watson · Love · Bijan · Golden · Johnson · Melton</td><td><span class="stamp pass">IF PENIX DIES</span></td></tr>
       <tr><td>STAY AWAY</td><td>Love CPT default · London CPT in 1,111 · GB −245</td><td><span class="stamp fade">FADE</span></td></tr>
-    </table>
+    </table></div>
   </div></details>
 </div></body></html>

@@ -34,7 +34,7 @@ const GAMES = [
 [2,"SUN 4:25 FOX","wsh","dal","Commanders at Cowboys","FINAL DAL 37-20","WSH +4 / DAL -4","50.5","DAL -190 / WSH +170","LOSS · WSH +4","nfl-week-2-wsh-dal.html",""],
 [2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","FINAL KC 33-30 OT","IND +6 / KC -6","46.5","KC -285 / IND +230","WIN · IND +6","nfl-week-2-ind-kc.html","nfl-week-2-ind-kc-review.html"],
 [2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","FINAL LAR 28-6","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","LOSS · NYG +7","nfl-week-2-nyg-lar.html","nfl-week-2-nyg-lar-review.html"],
-[3,"THU 8:15 Prime","atl","gb","Falcons at Packers","8:15 p.m. ET · Lambeau","ATL +4.5 / GB -4.5","43.5","GB -210 / ATL +180","PASS · T-90 first","nfl-week-3-atl-gb.html",""],
+[3,"THU 8:15 Prime","atl","gb","Falcons at Packers","8:15 p.m. ET · Lambeau","ATL +4.5 / GB -4.5","42.5","GB -245 / ATL +200","PASS · T-90 first","nfl-week-3-atl-gb.html",""],
 [3,"SUN 1:00 FOX","lac","buf","Chargers at Bills","1:00 p.m. ET · Highmark","LAC +7 / BUF -7","50.5","BUF -320 / LAC +260","OPEN","",""],
 [3,"SUN 1:00 FOX","car","cle","Panthers at Browns","1:00 p.m. ET · Cleveland","CAR -2.5 / CLE +2.5","42.5","CAR -140 / CLE +120","OPEN","",""],
 [3,"SUN 1:00 FOX","nyj","det","Jets at Lions","1:00 p.m. ET · Ford Field","NYJ +6.5 / DET -6.5","47.5","DET -280 / NYJ +230","OPEN","",""],
@@ -59,7 +59,7 @@ function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
   const isLive = (w===CURRENT_WEEK && /THU/i.test(day) && !/^FINAL/i.test(String(when)));
   const live = isLive ? `<span class="live-tag">LIVE</span>` : "";
-  const dive = DIVE_READY[href] ? `<a class="g-btn g-btn-on" href="${href}">FULL BREAKDOWN</a>` : "";
+  const dive = DIVE_READY[href] ? `<a class="g-btn g-btn-on" href="${href}?v=2">FULL BREAKDOWN</a>` : "";
   const rev = review ? `<a class="g-btn" href="${review}">REVIEW</a>` : "";
   const actions = (dive || rev) ? `<div class="g-actions">${dive}${rev}</div>` : "";
   const line = String(spread).split(" / ")[0];

@@ -1,5 +1,29 @@
 const NFL_SHOWDOWN = [
   {
+    id: "atl-gb",
+    title: "FALCONS AT PACKERS",
+    when: "Week 3 · Thursday night",
+    final: "ATL 35-14",
+    field: "1,111",
+    youRank: "632",
+    youPts: "111.82",
+    cash: "did not cash",
+    winPts: "147.98",
+    youLine: "CPT Watson · Love · Penix · Bijan · Dotson · Melton",
+    winLine: "CPT London · Bijan · Love · Golden · Folk · Moore",
+    script: "Falcons smash run. Bijan 194-2. London 9-194. GB 17 rush yards.",
+    rows: [
+      ["Drake London", "47.10 CPT", "14.58% CPT", "Winner captain"],
+      ["Christian Watson", "33.90 CPT", "14.22% CPT", "Our captain"],
+      ["Bijan Robinson", "38.30 flex", "23.76% CPT", "On both sixes"],
+      ["Jahan Dotson", "2.10", "20.25%", "Dead seat"],
+      ["Bo Melton", "0.00", "9.27%", "Salary geometry"]
+    ],
+    paid: ["Bijan stayed. Love stayed. Side PASS."],
+    died: ["Watson CPT vs London CPT. Melton and Dotson vs Folk and Moore."],
+    miss: "632nd of 1,111. Last seats and the captain."
+  },
+  {
     id: "nyg-lar",
     title: "GIANTS AT RAMS",
     when: "Week 2 · Monday night",
@@ -122,13 +146,13 @@ function paintShowdown(){
       "</div></details>";
   }).join("");
   box.innerHTML =
-    "<p class='note'>Tonight is live. $100 SE · 1,111. Reviews below are closed slates.</p>"+
-    "<div class='sd-you'><b>TNF LOCKED · ATL @ GB</b>CPT Watson · Love · Penix · Bijan · Dotson · Melton · $49,700<br>HOLD if Penix walks: CPT Watson · Love · Bijan · Golden · Johnson · Melton</div>"+
+    "<p class='note'>TNF is closed. $100 SE · 632nd of 1,111 · 111.82. Reviews below are closed slates.</p>"+
+    "<div class='sd-you'><b>TNF SETTLED · ATL 35-14</b>Us: CPT Watson · Love · Penix · Bijan · Dotson · Melton · 111.82<br>Winner: CPT London · Bijan · Love · Golden · Folk · Moore · 147.98</div>"+
     "<ul class='notes'>"+
-      "<li>Do not default the QB captain.</li>"+
-      "<li>Q1 QB exit kills the card.</li>"+
-      "<li>Last seats from involvement. Melton is salary geometry.</li>"+
-      "<li>Both QBs if the other starter is active.</li>"+
+      "<li>Last seats from the 10k, not the cap.</li>"+
+      "<li>A total under 45 is not both QBs.</li>"+
+      "<li>Do not sit the other lead back for a $1,200 dart.</li>"+
+      "<li>Side PASS stays legal.</li>"+
     "</ul>"+
     "<p class='note-lab'>CLOSED SLATES</p>"+
     hist;

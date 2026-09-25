@@ -59,8 +59,8 @@ function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
   const isLive = (w===CURRENT_WEEK && /THU/i.test(day) && !/^FINAL/i.test(String(when)));
   const live = isLive ? `<span class="live-tag">LIVE</span>` : "";
-  const dive = DIVE_READY[href] ? `<a class="g-btn g-btn-on" href="${href}?v=9">FULL BREAKDOWN</a>` : "";
-  const rev = review ? `<a class="g-btn" href="${review}?v=9">REVIEW</a>` : "";
+  const dive = DIVE_READY[href] ? `<a class="g-btn g-btn-on" href="${href}?v=16">FULL BREAKDOWN</a>` : "";
+  const rev = review ? `<a class="g-btn" href="${review}?v=16">REVIEW</a>` : "";
   const actions = (dive || rev) ? `<div class="g-actions">${dive}${rev}</div>` : "";
   const line = String(spread).split(" / ")[0];
   return `<details class="g-card"${isLive ? " open" : ""}>

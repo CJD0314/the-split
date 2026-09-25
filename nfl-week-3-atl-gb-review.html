@@ -11,6 +11,8 @@
 .six li span{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
 .six li.hd{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800;border-bottom:1px solid var(--line)}
 .six li.tot{color:var(--gold);font-weight:800;border-bottom:0}
+.pos{color:var(--gold);font-size:11px;letter-spacing:.1em;font-weight:800;margin:14px 0 4px}
+.box article .actual{font-size:13px;line-height:1.35}
 @media(max-width:640px){
   .board{grid-template-areas:"us" "win" "tiles" "note"}
 }
@@ -38,23 +40,72 @@
 <article><div class="type lab">TD</div><div class="ticket">Watson anytime TD +135</div><div class="result">Caught a 4-yard TD</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-win">WIN</span></div></article>
 </div></div></details>
 
-<details class="block"><summary>WHAT THE GAME DID</summary><div class="body">
-<p class="note">Left is the box score. Right is what the sim expected.</p>
+<details class="block" open><summary>WHAT THE GAME DID</summary><div class="body">
+<p class="note">ATL 498 yards · 37:05. GB 328 yards · 22:55. Scoring: Watson 4-yd catch, Bijan 3-yd, Folk 44, Hooper 5-yd catch, BRob 7-yd, Folk 31, Golden 15-yd catch, Bijan 2-yd plus 2-pt.</p>
+
+<div class="pos">ATL · QB</div>
 <div class="box">
-<div class="head"><span class="name">PLAYER</span><span class="actual">GAME</span><span class="proj">SIM</span></div>
-<article><div class="name">Penix</div><div class="actual">256 yards · 1 TD · 1 INT</div><div class="proj">176 yards · 1.1 TD</div></article>
-<article><div class="name">Love</div><div class="actual">312 yards · 2 TD · 1 INT</div><div class="proj">229 yards · 2.1 TD</div></article>
-<article><div class="name">Bijan</div><div class="actual">29 carries · 194 yards · 2 TD</div><div class="proj">81 rush yards · 0.7 TD</div></article>
-<article><div class="name">London</div><div class="actual">9 catches · 194 yards</div><div class="proj">5 catches · 58 yards</div></article>
-<article><div class="name">Golden</div><div class="actual">5 catches · 100 yards · 1 TD</div><div class="proj">5 catches · 57 yards</div></article>
-<article><div class="name">Watson</div><div class="actual">7 catches · 96 yards · 1 TD</div><div class="proj">6 catches · 66 yards</div></article>
-<article><div class="name">BRob</div><div class="actual">10 carries · 50 yards · 1 TD</div><div class="proj">25 rush yards</div></article>
-<article><div class="name">Hooper</div><div class="actual">1 TD · 9.1 pts</div><div class="proj">Not in the sim lock</div></article>
-<article><div class="name">Folk</div><div class="actual">2 FG · 3 XP · 10.0 pts</div><div class="proj">4.3 pts</div></article>
-<article><div class="name">Dotson</div><div class="actual">2.1 pts</div><div class="proj">2 catches · 25 yards</div></article>
-<article><div class="name">Melton</div><div class="actual">0.0 pts</div><div class="proj">1 catch · 13 yards</div></article>
-<article><div class="name">Kraft</div><div class="actual">4 catches · 26 yards</div><div class="proj">4 catches · 39 yards</div></article>
-</div></div></details>
+<div class="head"><span class="name">PLAYER</span><span class="actual">GAME</span><span class="proj">DK</span></div>
+<article><div class="name">Penix</div><div class="actual">18/25 · 256 yds · 1 TD · 1 INT · 2 att −2 rush</div><div class="proj">15.04</div></article>
+</div>
+
+<div class="pos">ATL · RB</div>
+<div class="box">
+<article><div class="name">Bijan</div><div class="actual">29 att · 194 yds · 6.7 avg · 2 TD · 55 long · 2/2 rec · 19 yds</div><div class="proj">38.30</div></article>
+<article><div class="name">BRob</div><div class="actual">10 att · 50 yds · 5.0 avg · 1 TD · 16 long</div><div class="proj">11.00</div></article>
+</div>
+
+<div class="pos">ATL · WR</div>
+<div class="box">
+<article><div class="name">London</div><div class="actual">9/10 · 194 yds · 21.6 avg · 0 TD · 68 long</div><div class="proj">31.40</div></article>
+<article><div class="name">Dotson</div><div class="actual">1/3 · 11 yds · 0 TD</div><div class="proj">2.10</div></article>
+<article><div class="name">Zaccheaus</div><div class="actual">2/2 · 9 yds · 0 TD</div><div class="proj">2.90</div></article>
+<article><div class="name">Branch</div><div class="actual">1/2 · 7 yds · 0 TD</div><div class="proj">1.70</div></article>
+</div>
+
+<div class="pos">ATL · TE</div>
+<div class="box">
+<article><div class="name">Hooper</div><div class="actual">2/2 · 11 yds · 1 TD · 6 long</div><div class="proj">9.10</div></article>
+<article><div class="name">Pitts</div><div class="actual">1/2 · 5 yds · 0 TD</div><div class="proj">1.50</div></article>
+</div>
+
+<div class="pos">ATL · K</div>
+<div class="box">
+<article><div class="name">Folk</div><div class="actual">2/2 FG (44, 31) · 3/3 XP</div><div class="proj">10.00</div></article>
+</div>
+
+<div class="pos">GB · QB</div>
+<div class="box">
+<article><div class="name">Love</div><div class="actual">28/53 · 312 yds · 2 TD · 1 INT · 1 att · 0 rush</div><div class="proj">22.48</div></article>
+</div>
+
+<div class="pos">GB · RB</div>
+<div class="box">
+<article><div class="name">Lloyd</div><div class="actual">4 att · 11 yds · 0 TD · 2/3 rec · 7 yds</div><div class="proj">3.80</div></article>
+<article><div class="name">Johnson</div><div class="actual">4 att · 6 yds · 0 TD · 1/3 rec · 10 yds</div><div class="proj">2.60</div></article>
+<article><div class="name">Brooks</div><div class="actual">1/1 rec · 4 yds · 0 TD</div><div class="proj">1.40</div></article>
+</div>
+
+<div class="pos">GB · WR</div>
+<div class="box">
+<article><div class="name">Golden</div><div class="actual">5/12 · 100 yds · 20.0 avg · 1 TD · 45 long</div><div class="proj">24.00</div></article>
+<article><div class="name">Watson</div><div class="actual">7/10 · 96 yds · 13.7 avg · 1 TD · 34 long</div><div class="proj">22.60</div></article>
+<article><div class="name">Skyy Moore</div><div class="actual">3/7 · 31 yds · 0 TD · 12 long</div><div class="proj">6.10</div></article>
+<article><div class="name">Sturdivant</div><div class="actual">3/3 · 22 yds · 0 TD</div><div class="proj">5.20</div></article>
+<article><div class="name">Melton</div><div class="actual">0/1 · 0 yds</div><div class="proj">0.00</div></article>
+</div>
+
+<div class="pos">GB · TE</div>
+<div class="box">
+<article><div class="name">Kraft</div><div class="actual">4/8 · 26 yds · 0 TD · 9 long</div><div class="proj">6.60</div></article>
+<article><div class="name">Jonnu</div><div class="actual">2/3 · 16 yds · 0 TD</div><div class="proj">3.60</div></article>
+</div>
+
+<div class="pos">GB · K</div>
+<div class="box">
+<article><div class="name">Smack</div><div class="actual">0/1 FG · 2/2 XP</div><div class="proj">2.00</div></article>
+</div>
+</div></details>
 
 <details class="block" open><summary>THE LINEUP</summary><div class="body">
 <p class="note">Left is us. Right is the contest winner. PTS and OWN are from the 1,111 standings. OWN is field % in that seat.</p>
@@ -104,7 +155,7 @@
 
 <details class="block"><summary>WHAT WE GOT WRONG</summary><div class="body">
 <div class="kv">
-<article><div class="lab">CAPTAIN</div><div class="copy">Field CPT: London 14.6%, Watson 14.2%. London 9–194 took the 1.5x (47.10). We took Watson (33.90).</div></article>
+<article><div class="lab">CAPTAIN</div><div class="copy">Field CPT: London 14.6%, Watson 14.2%. London 9/10 · 194 took the 1.5x (47.10). We took Watson (33.90).</div></article>
 <article><div class="lab">BOTH QBs</div><div class="copy">Penix flex 27.2% and 15.04 pts. Golden flex 38.4% and 24.00. The leftover after two QBs plus Bijan could not buy Golden.</div></article>
 <article><div class="lab">LAST TWO</div><div class="copy">Dotson 2.10 at 20.3% and Melton 0.00 at 9.3%. Winner’s cheap seats were Folk 10.00 (16.0%) and Skyy Moore 6.10 (19.3%). BRob 11.00 was only 3.2% of the field.</div></article>
 </div></div></details>

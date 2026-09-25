@@ -16,9 +16,9 @@ Never ship a stub, wrapper, iframe, or `filename (1).html` as the live page.
 5. TEAM BREAKDOWN — both teams. HC, OC, DC. Write `(calls plays)` when true. Identity tonight. One defensive tell.
 6. INACTIVES — table only. Official list at T-90.
 7. SCRIPT — score band + why the number moved.
-8. 10,000-GAME SIMULATOR — recipe + side power + total power, four result tiles plus margin buckets, **one row per active DK skill player**, board props, three bullets max. Final rerun at T-90 inactives. Side stamp is written before the sim. Gap under 1 point vs DK = PASS.
+8. 10,000-GAME SIMULATOR — recipe + side power + total power, four result tiles plus margin buckets, **one row per active DK skill player**, board props, three bullets max. Final rerun at T-90 inactives. Side stamp is written before the sim. Gap under 1 point vs DK = PASS. **Identity check must pass before the table ships.**
 9. SHOWDOWN — CPT, two cores, one fade. Last seats from 10k involvement, not leftover salary.
-10. BEST BET last — one table, stamps only.
+10. FAVORITE PICKS last — one table, stamps only. Side + SE + props.
 
 ## 10K ROSTER GATE — T-90 · DO NOT LOCK WITHOUT THIS
 After official inactives:
@@ -31,12 +31,23 @@ After official inactives:
 
 MNF 9/21 bug: Ferguson was 33% owned and 6–54–1. He was not in the 10k table. Parkinson inherited a combined Higbee line. That cannot ship again.
 
+## 10K IDENTITY CHECK — LOCKED 9/24 · DO NOT SHIP WITHOUT THIS
+After the run, before the table is painted:
+1. Home QB pass yards = sum of that team's receiving yards (WR + TE + RB). Away QB the same. Gap over 8 yards = fail. Re-scale the catchers to the QB. Do not leave the QB haircut on the QB only.
+2. Home QB pass TDs = sum of that team's receiving TDs. Away the same. Gap over 0.10 = fail.
+3. Rush TDs are separate from receiving TDs. Never print one mixed TD number on a back who also catches.
+4. Pass-catcher priors on each side sum to 100%.
+5. Team points ≈ 6×(pass TD + rush TD) + FG points from the kicker row. If the score tile and the skill TDs disagree, the score tile wins and skill TDs get scaled.
+6. Print the two identities on the page: `Love 229 = GB rec 229` and `Penix 176 = ATL rec 176`.
+7. If a rust or Q1-exit tax hits a QB, the catchers take the same tax in the same run. TNF 9/24 bug: Penix 176 vs ATL catchers 202. That cannot ship again.
+
 ## Upload checklist (do this every commit)
 - [ ] Live filename is the canonical name, not `(1)`.
 - [ ] Page is one HTML file. No iframe wrapping another HTML file.
 - [ ] Only one header.
 - [ ] All ten sections above are present with real notes, not placeholders.
 - [ ] T-90 10k has one row per active DK skill name. No slashes. No missing slate players.
+- [ ] Identity check passed. QB pass yards = team rec yards. QB pass TDs = team rec TDs.
 - [ ] After push, open the live URL and confirm the page is the long version.
 
 ## Do not
@@ -45,3 +56,4 @@ MNF 9/21 bug: Ferguson was 33% owned and 6–54–1. He was not in the 10k table
 - Overwrite a 15kb+ dive with a 2kb stub.
 - Combine two players on one 10k row to save space.
 - Lock a showdown six while an active slate TE/WR/RB is missing from the sim table.
+- Ship a 10k table where the QB and his catchers do not add up.

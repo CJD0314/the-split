@@ -12,6 +12,10 @@
 .six li.hd{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800;border-bottom:1px solid var(--line)}
 .six li.tot{color:var(--gold);font-weight:800;border-bottom:0}
 .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.cmp{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
+table.cmp th,table.cmp td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+table.cmp th{color:var(--muted);font-size:10px;letter-spacing:.06em}
+table.cmp th:first-child,table.cmp td:first-child{text-align:left}
 .match{display:grid;grid-template-columns:88px minmax(140px,1.2fr) 48px 88px minmax(140px,1.2fr) 48px;min-width:640px;column-gap:8px;align-items:baseline}
 .match .hd{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800;padding:0 0 6px;border-bottom:1px solid var(--line)}
 .match .pos{grid-column:1 / -1;color:var(--gold);font-size:11px;letter-spacing:.1em;font-weight:800;padding:12px 0 4px}
@@ -25,7 +29,7 @@
 </style>
 </head>
 <body>
-<div class="topnav"><a href="today.html">TODAY</a><a href="nfl.html">NFL</a><a href="nfl-week-3-atl-gb.html?v=16">FULL BREAKDOWN</a></div>
+<div class="topnav"><a href="today.html">TODAY</a><a href="nfl.html">NFL</a><a href="nfl-week-3-atl-gb.html?v=18">FULL BREAKDOWN</a></div>
 <header>
 <h1>THE SPLIT</h1>
 <div class="sub">REVIEW · NFL WEEK 3 · TNF</div>
@@ -45,6 +49,50 @@
 <article><div class="type lab">PROP</div><div class="ticket">Love over 1.5 pass TDs</div><div class="result">Threw 2</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-win">WIN</span></div></article>
 <article><div class="type lab">TD</div><div class="ticket">Watson anytime TD +135</div><div class="result">Caught a 4-yard TD</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-win">WIN</span></div></article>
 </div></div></details>
+
+<details class="block" open><summary>SHEET vs 10K vs ACTUAL</summary><div class="body">
+<p class="note">Sheet = upload. 10k / Our own = what we posted before kick. Actual DK = contest fantasy points. Act FLEX / CPT = this 1,111 field only. Dash means that seat % was not in the standings file.</p>
+
+<p class="note" style="color:#e8b423;font-weight:800">PROJECTION</p>
+<div class="scroll"><table class="cmp">
+<tr><th>Player</th><th>Sheet</th><th>10k</th><th>Actual DK</th><th>Sheet miss</th><th>10k miss</th></tr>
+<tr><td>Bijan Robinson</td><td>21.49</td><td>15.89</td><td>38.30</td><td>+16.8</td><td>+22.4</td></tr>
+<tr><td>Drake London</td><td>15.37</td><td>13.50</td><td>31.40</td><td>+16.0</td><td>+17.9</td></tr>
+<tr><td>Matthew Golden</td><td>15.70</td><td>13.90</td><td>24.00</td><td>+8.3</td><td>+10.1</td></tr>
+<tr><td>Jordan Love</td><td>17.66</td><td>18.37</td><td>22.48</td><td>+4.8</td><td>+4.1</td></tr>
+<tr><td>Christian Watson</td><td>16.96</td><td>16.70</td><td>22.60</td><td>+5.6</td><td>+5.9</td></tr>
+<tr><td>Michael Penix Jr.</td><td>14.91</td><td>11.70</td><td>15.04</td><td>+0.1</td><td>+3.3</td></tr>
+<tr><td>Brian Robinson Jr.</td><td>5.58</td><td>3.47</td><td>11.00</td><td>+5.4</td><td>+7.5</td></tr>
+<tr><td>Nick Folk</td><td>7.23</td><td>4.28</td><td>10.00</td><td>+2.8</td><td>+5.7</td></tr>
+<tr><td>Austin Hooper</td><td>—</td><td>—</td><td>9.10</td><td>—</td><td>—</td></tr>
+<tr><td>Tucker Kraft</td><td>10.20</td><td>9.70</td><td>6.60</td><td>−3.6</td><td>−3.1</td></tr>
+<tr><td>Skyy Moore</td><td>—</td><td>—</td><td>6.10</td><td>—</td><td>—</td></tr>
+<tr><td>MarShawn Lloyd</td><td>8.14</td><td>5.83</td><td>3.80</td><td>−4.3</td><td>−2.0</td></tr>
+<tr><td>Kaleb Johnson</td><td>7.64</td><td>5.48</td><td>2.60</td><td>−5.0</td><td>−2.9</td></tr>
+<tr><td>Jahan Dotson</td><td>5.49</td><td>6.00</td><td>2.10</td><td>−3.4</td><td>−3.9</td></tr>
+<tr><td>Trey Smack</td><td>7.16</td><td>5.23</td><td>2.00</td><td>−5.2</td><td>−3.2</td></tr>
+<tr><td>Kyle Pitts Sr.</td><td>7.80</td><td>6.90</td><td>1.50</td><td>−6.3</td><td>−5.4</td></tr>
+<tr><td>Bo Melton</td><td>2.25</td><td>2.80</td><td>0.00</td><td>−2.3</td><td>−2.8</td></tr>
+</table></div>
+<p class="note">Sheet beat our 10k on Penix (14.91 vs 15.04 actual). We taxed rust. He threw 256. Sheet and 10k both missed Bijan and London by a mile. That was the game.</p>
+
+<p class="note" style="color:#e8b423;font-weight:800;margin-top:16px">OWNERSHIP · THIS 1,111</p>
+<div class="scroll"><table class="cmp">
+<tr><th>Player</th><th>Sheet FLEX</th><th>Our FLEX</th><th>Act FLEX</th><th>Sheet CPT</th><th>Our CPT</th><th>Act CPT</th></tr>
+<tr><td>Jordan Love</td><td>54.2%</td><td>74%</td><td>62.7%</td><td>12.6%</td><td>16%</td><td>—</td></tr>
+<tr><td>Bijan Robinson</td><td>54.0%</td><td>62%</td><td>57.4%</td><td>26.0%</td><td>28%</td><td>—</td></tr>
+<tr><td>Matthew Golden</td><td>39.0%</td><td>44%</td><td>38.4%</td><td>11.1%</td><td>11%</td><td>—</td></tr>
+<tr><td>Michael Penix Jr.</td><td>33.9%</td><td>36%</td><td>27.2%</td><td>5.6%</td><td>6%</td><td>—</td></tr>
+<tr><td>Jahan Dotson</td><td>14.9%</td><td>11%</td><td>20.3%</td><td>1.0%</td><td>1%</td><td>—</td></tr>
+<tr><td>Skyy Moore</td><td>—</td><td>—</td><td>19.3%</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Nick Folk</td><td>17.8%</td><td>11%</td><td>16.0%</td><td>1.5%</td><td>2%</td><td>—</td></tr>
+<tr><td>Drake London</td><td>37.3%</td><td>34%</td><td>—</td><td>9.5%</td><td>8%</td><td>14.6%</td></tr>
+<tr><td>Christian Watson</td><td>43.0%</td><td>46%</td><td>—</td><td>12.1%</td><td>15%</td><td>14.2%</td></tr>
+<tr><td>Bo Melton</td><td>5.4%</td><td>7%</td><td>9.3%</td><td>0.2%</td><td>0%</td><td>—</td></tr>
+<tr><td>Brian Robinson Jr.</td><td>—</td><td>—</td><td>3.2%</td><td>—</td><td>—</td><td>—</td></tr>
+</table></div>
+<p class="note">Our CPT on Watson was 15% vs actual 14.2%. That one was right. London CPT actual 14.6% vs our 8% — we lowballed the winner’s captain. Our Love FLEX 74% was too high (actual 62.7%). Sheet 54.2% was too low. Sheet Golden FLEX 39.0% vs actual 38.4% was the cleanest ownership hit on the board.</p>
+</div></details>
 
 <details class="block" open><summary>WHAT THE GAME DID</summary><div class="body">
 <p class="note">ATL 498 yards · 37:05. GB 328 yards · 22:55. DK is contest fantasy points.</p>
@@ -90,7 +138,7 @@
 </div>
 </div></details>
 
-<details class="block" open><summary>THE LINEUP</summary><div class="body">
+<details class="block"><summary>THE LINEUP</summary><div class="body">
 <p class="note">Left is us. Right is the contest winner. PTS and OWN are from the 1,111 standings. OWN is field % in that seat.</p>
 <div class="board">
 <div class="us sd-you">
@@ -134,13 +182,15 @@
 <article><div class="lab">BIJAN</div><div class="copy">We kept him. 38.30. Winner had him too. Field flex 57.4%.</div></article>
 <article><div class="lab">NO QB CPT</div><div class="copy">Love stayed in flex at 22.48. Field had him in flex 62.7%.</div></article>
 <article><div class="lab">LEAN PROPS</div><div class="copy">Watson scored. Love threw two TDs.</div></article>
+<article><div class="lab">WATSON CPT %</div><div class="copy">We said 15%. Field was 14.2%.</div></article>
 </div></div></details>
 
 <details class="block"><summary>WHAT WE GOT WRONG</summary><div class="body">
 <div class="kv">
-<article><div class="lab">CAPTAIN</div><div class="copy">Field CPT: London 14.6%, Watson 14.2%. London 9/10 · 194 took the 1.5x (47.10). We took Watson (33.90).</div></article>
+<article><div class="lab">CAPTAIN</div><div class="copy">Field CPT: London 14.6%, Watson 14.2%. London 9/10 · 194 took the 1.5x (47.10). We took Watson (33.90). Our London CPT was 8%.</div></article>
 <article><div class="lab">BOTH QBs</div><div class="copy">Penix flex 27.2% and 15.04 pts. Golden flex 38.4% and 24.00. The leftover after two QBs plus Bijan could not buy Golden.</div></article>
 <article><div class="lab">LAST TWO</div><div class="copy">Dotson 2.10 at 20.3% and Melton 0.00 at 9.3%. Winner’s cheap seats were Folk 10.00 (16.0%) and Skyy Moore 6.10 (19.3%). BRob 11.00 was only 3.2% of the field.</div></article>
+<article><div class="lab">10K vs SHEET</div><div class="copy">Rust tax on Penix was a miss vs the sheet. Bijan 15.89 vs 38.30 was a miss on both boards. Do not treat a 10k mean as a ceiling on the lead back.</div></article>
 </div></div></details>
 
 <details class="block"><summary>CARRY TO SUNDAY</summary><div class="body">
@@ -151,6 +201,6 @@
 <article><div class="lab">THIS GAME</div><div class="copy">Do not copy 35–14 onto Sunday. One game.</div></article>
 </div></div></details>
 
-<p><a class="full-link" href="nfl-week-3-atl-gb.html?v=16">FULL BREAKDOWN</a></p>
+<p><a class="full-link" href="nfl-week-3-atl-gb.html?v=18">FULL BREAKDOWN</a></p>
 </div>
 </body></html>

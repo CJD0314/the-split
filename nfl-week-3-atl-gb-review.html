@@ -27,6 +27,7 @@
 .pl b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pl span{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;font-size:12px;color:#d5deea}
 .pl span.a{color:#f3f7fb;font-weight:800}
+.pl span.m{color:#ff8a8a;font-size:10px;letter-spacing:.04em}
 .pl.hd{border-bottom:1px solid var(--gold);padding-bottom:6px}
 .pl.hd b{color:var(--gold);font-size:11px;letter-spacing:.1em}
 .pl.hd span{color:var(--muted);font-size:9px;letter-spacing:.06em;font-weight:800}
@@ -64,7 +65,7 @@
 <details class="block" open><summary>SHEET vs 10K vs ACTUAL</summary><div class="body">
 
 <div class="sec">PROJECTION</div>
-<p class="note">One line. Actual, sheet, 10k.</p>
+<p class="note">One line. Actual, sheet, 10k. MISS means the sheet had him and the 10k never gave him a row. That is the Ferguson gate. A dash means the sheet projection was zero.</p>
 <div class="prow">
 <div class="pl hd"><b>FALCONS</b><span>ACT</span><span>SHT</span><span>10K</span></div>
 <div class="pl hd"><b>PACKERS</b><span>ACT</span><span>SHT</span><span>10K</span></div>
@@ -97,12 +98,12 @@
 <div class="pl"><b>Watson</b><span class="a">22.60</span><span>16.96</span><span>16.70</span></div>
 </div>
 <div class="prow">
-<div class="pl"><b>Zaccheaus</b><span class="a">2.90</span><span>—</span><span>—</span></div>
-<div class="pl"><b>Moore</b><span class="a">6.10</span><span>—</span><span>—</span></div>
+<div class="pl"><b>Zaccheaus</b><span class="a">2.90</span><span>3.20</span><span class="m">MISS</span></div>
+<div class="pl"><b>Moore</b><span class="a">6.10</span><span>2.81</span><span class="m">MISS</span></div>
 </div>
 <div class="prow">
-<div class="pl empty"></div>
-<div class="pl"><b>Sturdivant</b><span class="a">5.20</span><span>—</span><span>—</span></div>
+<div class="pl"><b>Branch</b><span class="a">1.70</span><span>1.83</span><span class="m">MISS</span></div>
+<div class="pl"><b>Sturdivant</b><span class="a">5.20</span><span>1.12</span><span class="m">MISS</span></div>
 </div>
 <div class="prow">
 <div class="pl empty"></div>
@@ -110,21 +111,22 @@
 </div>
 <div class="poslab">TE</div>
 <div class="prow">
-<div class="pl"><b>Hooper</b><span class="a">9.10</span><span>—</span><span>—</span></div>
+<div class="pl"><b>Hooper</b><span class="a">9.10</span><span>0.92</span><span class="m">MISS</span></div>
 <div class="pl"><b>Kraft</b><span class="a">6.60</span><span>10.20</span><span>9.70</span></div>
 </div>
 <div class="prow">
 <div class="pl"><b>Pitts</b><span class="a">1.50</span><span>7.80</span><span>6.90</span></div>
-<div class="pl"><b>Jonnu</b><span class="a">3.60</span><span>—</span><span>—</span></div>
+<div class="pl"><b>Jonnu</b><span class="a">3.60</span><span>3.37</span><span class="m">MISS</span></div>
 </div>
 <div class="poslab">K</div>
 <div class="prow">
 <div class="pl"><b>Folk</b><span class="a">10.00</span><span>7.23</span><span>4.28</span></div>
 <div class="pl"><b>Smack</b><span class="a">2.00</span><span>7.16</span><span>5.23</span></div>
 </div>
+<p class="note">Sheet, not a guess: Zaccheaus 3.20, Branch 1.83, Hooper 0.92, Moore 2.81, Sturdivant 1.12, Jonnu 3.37. Also on the sheet and still no 10k row: Woerner 1.37, Blair 0.46, Muse 0.46, Redman 0.56. The 10k buried them in an others bucket. Same miss as Ferguson.</p>
 
 <div class="sec">OWNERSHIP</div>
-<p class="note">One line. Flex is actual, sheet, ours. Captain sits under it so the two are not mixed.</p>
+<p class="note">One line. Flex is actual, sheet, ours. Sheet percents are the upload. Ours is only filled when we wrote a 1,111 number before kick.</p>
 <div class="poslab">FLEX</div>
 <div class="prow">
 <div class="pl hd"><b>FALCONS</b><span>ACT</span><span>SHT</span><span>OURS</span></div>
@@ -141,8 +143,12 @@
 <div class="pl"><b>Lloyd</b><span class="a">—</span><span>15.9</span><span>12</span></div>
 </div>
 <div class="prow">
-<div class="pl"><b>BRob</b><span class="a">3.2</span><span>—</span><span>—</span></div>
+<div class="pl"><b>BRob</b><span class="a">3.2</span><span>11.4</span><span>—</span></div>
 <div class="pl"><b>Johnson</b><span class="a">—</span><span>21.7</span><span>14</span></div>
+</div>
+<div class="prow">
+<div class="pl empty"></div>
+<div class="pl"><b>Brooks</b><span class="a">—</span><span>10.7</span><span>—</span></div>
 </div>
 <div class="poslab">WR</div>
 <div class="prow">
@@ -154,12 +160,25 @@
 <div class="pl"><b>Watson</b><span class="a">—</span><span>43.0</span><span>46</span></div>
 </div>
 <div class="prow">
-<div class="pl empty"></div>
-<div class="pl"><b>Moore</b><span class="a">19.3</span><span>—</span><span>—</span></div>
+<div class="pl"><b>Zaccheaus</b><span class="a">—</span><span>7.7</span><span>—</span></div>
+<div class="pl"><b>Moore</b><span class="a">19.3</span><span>9.6</span><span>—</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>Branch</b><span class="a">—</span><span>3.2</span><span>—</span></div>
+<div class="pl"><b>Sturdivant</b><span class="a">—</span><span>2.4</span><span>—</span></div>
 </div>
 <div class="prow">
 <div class="pl empty"></div>
 <div class="pl"><b>Melton</b><span class="a">9.3</span><span>5.4</span><span>7</span></div>
+</div>
+<div class="poslab">TE</div>
+<div class="prow">
+<div class="pl"><b>Hooper</b><span class="a">—</span><span>2.4</span><span>—</span></div>
+<div class="pl"><b>Kraft</b><span class="a">—</span><span>28.3</span><span>—</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>Pitts</b><span class="a">—</span><span>20.5</span><span>—</span></div>
+<div class="pl"><b>Jonnu</b><span class="a">—</span><span>7.6</span><span>—</span></div>
 </div>
 <div class="poslab">K</div>
 <div class="prow">
@@ -175,7 +194,15 @@
 <div class="pl"><b>London</b><span class="a">14.6</span><span>9.5</span><span>8</span></div>
 <div class="pl"><b>Watson</b><span class="a">14.2</span><span>12.1</span><span>15</span></div>
 </div>
-<p class="note">London and Watson flex actuals are blank on purpose. Those actuals are captain. Dash means that board did not have the name.</p>
+<div class="prow">
+<div class="pl"><b>Zaccheaus</b><span class="a">—</span><span>0.4</span><span>—</span></div>
+<div class="pl"><b>Moore</b><span class="a">—</span><span>0.3</span><span>—</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>Hooper</b><span class="a">—</span><span>0.1</span><span>—</span></div>
+<div class="pl"><b>Jonnu</b><span class="a">—</span><span>0.4</span><span>—</span></div>
+</div>
+<p class="note">BRob sheet flex was 11.4. Brooks 10.7. Kraft 28.3. Pitts 20.5. We had those on the upload and did not print them. Actual flex is blank when the 1,111 file did not list that seat. London and Watson actuals are captain.</p>
 
 </div></details>
 
@@ -268,7 +295,8 @@
 <div class="kv">
 <article><div class="lab">CAPTAIN</div><div class="copy">London 14.6% CPT and 31.40 flex. We had him at 8% CPT.</div></article>
 <article><div class="lab">BOTH QBs</div><div class="copy">Penix 15.04. Golden 24.00. Two QBs plus Bijan could not buy Golden.</div></article>
-<article><div class="lab">LAST TWO</div><div class="copy">Dotson 2.10 and Melton 0.00. Winner used Folk and Moore.</div></article>
+<article><div class="lab">LAST TWO</div><div class="copy">Dotson 2.10 and Melton 0.00. Winner used Folk and Moore. Moore was on the sheet at 2.81 and had no 10k row.</div></article>
+<article><div class="lab">ROSTER GATE</div><div class="copy">Hooper, Jonnu, Zaccheaus, Moore, Sturdivant, and Branch all had sheet projections. The 10k folded them into others. Hooper scored 9.10. Moore scored 6.10. Same hole as Ferguson.</div></article>
 </div></div></details>
 
 <details class="block"><summary>CARRY TO SUNDAY</summary><div class="body">
@@ -276,6 +304,7 @@
 <article><div class="lab">LEFTOVER $</div><div class="copy">If the leftover cannot buy a name the sim uses, change the core.</div></article>
 <article><div class="lab">LOW TOTAL</div><div class="copy">Under 45 is one quarterback, not both.</div></article>
 <article><div class="lab">CHEAP SEATS</div><div class="copy">Take them from the team that is scoring.</div></article>
+<article><div class="lab">ROSTER GATE</div><div class="copy">Every sheet skill name with a projection gets a 10k row. No others bucket. A review dash is only for a zero on the sheet.</div></article>
 <article><div class="lab">THIS GAME</div><div class="copy">Do not copy 35–14 onto Sunday. One game.</div></article>
 </div></div></details>
 

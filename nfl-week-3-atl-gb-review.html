@@ -16,13 +16,19 @@
 .stamp-loss{background:#3a1212;color:#ff8a8a}
 .lab{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800}
 
+/* TICKET LIST — implicit rows, one card each */
+.tix{
+  display:grid;
+  grid-auto-rows:auto;
+}
 /* TICKET CARD
+   rows: [ticket] minmax(22px,auto) / [result] min-content
    type | ticket | mark
    type | result | stamp */
-.tix{display:grid}
 .tix article{
   display:grid;
   grid-template-columns:72px minmax(0,1fr) auto;
+  grid-template-rows:[ticket] minmax(22px,auto) [result] min-content;
   grid-template-areas:
     "type ticket mark"
     "type result stamp";
@@ -42,31 +48,38 @@
     "type result stamp";
 }
 
-/* BOX ROW
-   name | actual | proj */
-.box{display:grid}
+/* BOX LIST — first row fixed header, rest min 36px */
+.box{
+  display:grid;
+  grid-template-rows:[head] 28px;
+  grid-auto-rows:minmax(36px,auto);
+}
 .box .head,.box article{
   display:grid;
   grid-template-columns:88px minmax(0,1.2fr) minmax(0,1fr);
+  grid-template-rows:auto;
   grid-template-areas:"name actual proj";
   column-gap:12px;
+  align-items:baseline;
+  min-height:36px;
   padding:8px 0;
   border-bottom:1px solid var(--line);
-  align-items:baseline;
 }
+.box .head{min-height:28px;padding:2px 0 6px}
 .box .name{grid-area:name;font-weight:800;font-size:14px}
 .box .actual{grid-area:actual;font-size:14px;min-width:0}
 .box .proj{grid-area:proj;font-size:14px;min-width:0;color:#d5deea}
 .box .head .name,.box .head .actual,.box .head .proj{font-weight:800;color:var(--muted);font-size:10px;letter-spacing:.08em}
 
-/* RESULT BOARD
-   win | us
-   cmp | cmp
-   tiles | tiles
-   note | note */
+/* RESULT BOARD — four named rows */
 .board{
   display:grid;
   grid-template-columns:1fr 1fr;
+  grid-template-rows:
+    [pair] auto
+    [compare] auto
+    [tiles] minmax(72px,auto)
+    [note] min-content;
   grid-template-areas:
     "win us"
     "cmp cmp"
@@ -79,39 +92,47 @@
 .board .cmp-wrap{grid-area:cmp}
 .board .tiles{grid-area:tiles}
 .board .note{grid-area:note;margin:2px 0 0}
-.board .sd-you,.board .sd-win{margin:0}
+.board .sd-you,.board .sd-win{margin:0;height:100%}
 
-/* COMPARE ROW
-   seat | us | usdk | win | windk */
-.cmp{display:grid}
+/* COMPARE LIST — header 24px, seats 32px min */
+.cmp{
+  display:grid;
+  grid-template-rows:[head] 24px;
+  grid-auto-rows:minmax(32px,auto);
+}
 .cmp .head,.cmp article{
   display:grid;
   grid-template-columns:48px minmax(0,1fr) 56px minmax(0,1fr) 56px;
+  grid-template-rows:auto;
   grid-template-areas:"seat us usdk win windk";
   column-gap:8px;
+  align-items:center;
   padding:7px 0;
   border-bottom:1px solid var(--line);
-  align-items:center;
 }
 .cmp .seat{grid-area:seat;font-size:13px;color:#d5deea}
 .cmp .us{grid-area:us;font-size:14px;min-width:0}
 .cmp .usdk{grid-area:usdk;text-align:right;font-variant-numeric:tabular-nums;font-weight:800;font-size:14px}
 .cmp .win{grid-area:win;font-size:14px;min-width:0}
 .cmp .windk{grid-area:windk;text-align:right;font-variant-numeric:tabular-nums;font-weight:800;font-size:14px}
+.cmp .head{padding:0 0 6px}
 .cmp .head span{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800}
 .cmp article.total .us,.cmp article.total .usdk,.cmp article.total .windk{color:var(--gold)}
 
-/* NOTE ROW
-   lab | copy */
-.kv{display:grid}
+/* NOTE LIST */
+.kv{
+  display:grid;
+  grid-auto-rows:minmax(40px,auto);
+}
 .kv article{
   display:grid;
   grid-template-columns:96px minmax(0,1fr);
+  grid-template-rows:auto;
   grid-template-areas:"lab copy";
   column-gap:12px;
+  align-items:start;
   padding:8px 0;
   border-bottom:1px solid var(--line);
-  align-items:start;
 }
 .kv .lab{grid-area:lab;color:var(--gold);font-size:11px;letter-spacing:.08em;font-weight:800;padding-top:2px}
 .kv .copy{grid-area:copy;font-size:14px;line-height:1.4;min-width:0}
@@ -119,6 +140,7 @@
 @media(max-width:640px){
   .tix article,.tix article.pass{
     grid-template-columns:64px minmax(0,1fr) auto;
+    grid-template-rows:[ticket] minmax(22px,auto) [result] min-content;
     grid-template-areas:
       "type ticket mark"
       "type result stamp";
@@ -130,6 +152,12 @@
   .box .name,.box .actual,.box .proj{font-size:13px}
   .board{
     grid-template-columns:1fr;
+    grid-template-rows:
+      [win] auto
+      [us] auto
+      [compare] auto
+      [tiles] minmax(64px,auto)
+      [note] min-content;
     grid-template-areas:
       "win"
       "us"

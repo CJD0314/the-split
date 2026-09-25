@@ -15,77 +15,35 @@
 .stamp-win{background:#0d2a1c;color:#3dd68c}
 .stamp-loss{background:#3a1212;color:#ff8a8a}
 .lab{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800}
-
-/* TICKET LIST — implicit rows, one card each */
-.tix{
-  display:grid;
-  grid-auto-rows:auto;
-}
-/* TICKET CARD
-   rows: [ticket] minmax(22px,auto) / [result] min-content
-   type | ticket | mark
-   type | result | stamp */
+.tix,.box,.cmp,.kv{grid-auto-flow:row}
+.tix{display:grid;grid-auto-rows:auto}
 .tix article{
   display:grid;
   grid-template-columns:72px minmax(0,1fr) auto;
   grid-template-rows:[ticket] minmax(22px,auto) [result] min-content;
-  grid-template-areas:
-    "type ticket mark"
-    "type result stamp";
-  column-gap:10px;row-gap:2px;
-  padding:10px 0;
-  border-bottom:1px solid var(--line);
-  align-items:center;
+  grid-template-areas:"type ticket mark" "type result stamp";
+  column-gap:10px;row-gap:2px;padding:10px 0;border-bottom:1px solid var(--line);align-items:center;
 }
 .tix .type{grid-area:type}
 .tix .ticket{grid-area:ticket;font-weight:800;font-size:14px;line-height:1.3;min-width:0}
 .tix .result{grid-area:result;color:#d5deea;font-size:13px}
 .tix .mark{grid-area:mark;justify-self:end}
 .tix .stg{grid-area:stamp;justify-self:end}
-.tix article.pass{
-  grid-template-areas:
-    "type ticket stamp"
-    "type result stamp";
-}
-
-/* BOX LIST — first row fixed header, rest min 36px */
-.box{
-  display:grid;
-  grid-template-rows:[head] 28px;
-  grid-auto-rows:minmax(36px,auto);
-}
+.tix article.pass{grid-template-areas:"type ticket stamp" "type result stamp"}
+.box{display:grid;grid-template-rows:[head] 28px;grid-auto-rows:minmax(36px,auto)}
 .box .head,.box article{
-  display:grid;
-  grid-template-columns:88px minmax(0,1.2fr) minmax(0,1fr);
-  grid-template-rows:auto;
-  grid-template-areas:"name actual proj";
-  column-gap:12px;
-  align-items:baseline;
-  min-height:36px;
-  padding:8px 0;
-  border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:88px minmax(0,1.2fr) minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"name actual proj";
+  column-gap:12px;align-items:baseline;min-height:36px;padding:8px 0;border-bottom:1px solid var(--line);
 }
 .box .head{min-height:28px;padding:2px 0 6px}
 .box .name{grid-area:name;font-weight:800;font-size:14px}
 .box .actual{grid-area:actual;font-size:14px;min-width:0}
 .box .proj{grid-area:proj;font-size:14px;min-width:0;color:#d5deea}
 .box .head .name,.box .head .actual,.box .head .proj{font-weight:800;color:var(--muted);font-size:10px;letter-spacing:.08em}
-
-/* RESULT BOARD — four named rows */
 .board{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-rows:
-    [pair] auto
-    [compare] auto
-    [tiles] minmax(72px,auto)
-    [note] min-content;
-  grid-template-areas:
-    "win us"
-    "cmp cmp"
-    "tiles tiles"
-    "note note";
-  gap:8px;
+  display:grid;grid-auto-flow:row;grid-template-columns:1fr 1fr;
+  grid-template-rows:[pair] auto [compare] auto [tiles] minmax(72px,auto) [note] min-content;
+  grid-template-areas:"win us" "cmp cmp" "tiles tiles" "note note";gap:8px;
 }
 .board .win{grid-area:win}
 .board .us{grid-area:us}
@@ -93,22 +51,10 @@
 .board .tiles{grid-area:tiles}
 .board .note{grid-area:note;margin:2px 0 0}
 .board .sd-you,.board .sd-win{margin:0;height:100%}
-
-/* COMPARE LIST — header 24px, seats 32px min */
-.cmp{
-  display:grid;
-  grid-template-rows:[head] 24px;
-  grid-auto-rows:minmax(32px,auto);
-}
+.cmp{display:grid;grid-template-rows:[head] 24px;grid-auto-rows:minmax(32px,auto)}
 .cmp .head,.cmp article{
-  display:grid;
-  grid-template-columns:48px minmax(0,1fr) 56px minmax(0,1fr) 56px;
-  grid-template-rows:auto;
-  grid-template-areas:"seat us usdk win windk";
-  column-gap:8px;
-  align-items:center;
-  padding:7px 0;
-  border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:48px minmax(0,1fr) 56px minmax(0,1fr) 56px;grid-template-rows:auto;grid-template-areas:"seat us usdk win windk";
+  column-gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);
 }
 .cmp .seat{grid-area:seat;font-size:13px;color:#d5deea}
 .cmp .us{grid-area:us;font-size:14px;min-width:0}
@@ -118,57 +64,34 @@
 .cmp .head{padding:0 0 6px}
 .cmp .head span{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800}
 .cmp article.total .us,.cmp article.total .usdk,.cmp article.total .windk{color:var(--gold)}
-
-/* NOTE LIST */
-.kv{
-  display:grid;
-  grid-auto-rows:minmax(40px,auto);
-}
+.kv{display:grid;grid-auto-rows:minmax(40px,auto)}
 .kv article{
-  display:grid;
-  grid-template-columns:96px minmax(0,1fr);
-  grid-template-rows:auto;
-  grid-template-areas:"lab copy";
-  column-gap:12px;
-  align-items:start;
-  padding:8px 0;
-  border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:96px minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"lab copy";
+  column-gap:12px;align-items:start;padding:8px 0;border-bottom:1px solid var(--line);
 }
 .kv .lab{grid-area:lab;color:var(--gold);font-size:11px;letter-spacing:.08em;font-weight:800;padding-top:2px}
 .kv .copy{grid-area:copy;font-size:14px;line-height:1.4;min-width:0}
-
+.tiles.mini{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  grid-auto-rows:minmax(64px,auto);
+  grid-auto-flow:row dense;
+  gap:6px;
+}
 @media(max-width:640px){
   .tix article,.tix article.pass{
     grid-template-columns:64px minmax(0,1fr) auto;
     grid-template-rows:[ticket] minmax(22px,auto) [result] min-content;
-    grid-template-areas:
-      "type ticket mark"
-      "type result stamp";
+    grid-template-areas:"type ticket mark" "type result stamp";
   }
-  .box .head,.box article{
-    grid-template-columns:76px minmax(0,1fr) minmax(0,1fr);
-    column-gap:8px;
-  }
+  .box .head,.box article{grid-template-columns:76px minmax(0,1fr) minmax(0,1fr);column-gap:8px}
   .box .name,.box .actual,.box .proj{font-size:13px}
   .board{
     grid-template-columns:1fr;
-    grid-template-rows:
-      [win] auto
-      [us] auto
-      [compare] auto
-      [tiles] minmax(64px,auto)
-      [note] min-content;
-    grid-template-areas:
-      "win"
-      "us"
-      "cmp"
-      "tiles"
-      "note";
+    grid-template-rows:[win] auto [us] auto [compare] auto [tiles] minmax(64px,auto) [note] min-content;
+    grid-template-areas:"win" "us" "cmp" "tiles" "note";
   }
-  .cmp .head,.cmp article{
-    grid-template-columns:40px minmax(0,1fr) 48px minmax(0,1fr) 48px;
-    column-gap:6px;
-  }
+  .cmp .head,.cmp article{grid-template-columns:40px minmax(0,1fr) 48px minmax(0,1fr) 48px;column-gap:6px}
   .kv article{grid-template-columns:84px minmax(0,1fr);column-gap:8px}
 }
 </style>
@@ -180,121 +103,75 @@
 <div class="sub">REVIEW · NFL WEEK 3 · TNF</div>
 </header>
 <div class="wrap">
-
 <div class="callout">
 <b>FALCONS 35, PACKERS 14</b>
 <div class="note">632nd of 1,111 · 111.82 · Winner 147.98</div>
 </div>
-
 <details class="block"><summary>TICKETS</summary><div class="body">
 <div class="tix">
-<article class="pass">
-  <div class="type lab">SIDE</div>
-  <div class="ticket">GB −4.5 / ATL +4.5</div>
-  <div class="result">ATL 35–14</div>
-  <div class="stg"><span class="stamp stamp-pass">PASS</span></div>
-</article>
-<article>
-  <div class="type lab">SE</div>
-  <div class="ticket">CPT Watson · Love · Penix · Bijan · Dotson · Melton</div>
-  <div class="result">632nd · 111.82</div>
-  <div class="stg"><span class="stamp stamp-lock">LOCK</span></div>
-  <div class="mark"><span class="stamp stamp-loss">LOSS</span></div>
-</article>
-<article>
-  <div class="type lab">PROP</div>
-  <div class="ticket">Penix U205.5 pass</div>
-  <div class="result">256</div>
-  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
-  <div class="mark"><span class="stamp stamp-loss">LOSS</span></div>
-</article>
-<article>
-  <div class="type lab">PROP</div>
-  <div class="ticket">Love O1.5 pass TD</div>
-  <div class="result">2</div>
-  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
-  <div class="mark"><span class="stamp stamp-win">WIN</span></div>
-</article>
-<article>
-  <div class="type lab">TD</div>
-  <div class="ticket">Watson ATD +135</div>
-  <div class="result">4-yard catch</div>
-  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
-  <div class="mark"><span class="stamp stamp-win">WIN</span></div>
-</article>
-</div>
-</div></details>
-
+<article class="pass"><div class="type lab">SIDE</div><div class="ticket">GB −4.5 / ATL +4.5</div><div class="result">ATL 35–14</div><div class="stg"><span class="stamp stamp-pass">PASS</span></div></article>
+<article><div class="type lab">SE</div><div class="ticket">CPT Watson · Love · Penix · Bijan · Dotson · Melton</div><div class="result">632nd · 111.82</div><div class="stg"><span class="stamp stamp-lock">LOCK</span></div><div class="mark"><span class="stamp stamp-loss">LOSS</span></div></article>
+<article><div class="type lab">PROP</div><div class="ticket">Penix U205.5 pass</div><div class="result">256</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-loss">LOSS</span></div></article>
+<article><div class="type lab">PROP</div><div class="ticket">Love O1.5 pass TD</div><div class="result">2</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-win">WIN</span></div></article>
+<article><div class="type lab">TD</div><div class="ticket">Watson ATD +135</div><div class="result">4-yard catch</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-win">WIN</span></div></article>
+</div></div></details>
 <details class="block"><summary>BOX</summary><div class="body">
 <div class="box">
-  <div class="head"><span class="name">PLAYER</span><span class="actual">ACTUAL</span><span class="proj">10K</span></div>
-  <article><div class="name">Penix</div><div class="actual">18/25 · 256 · 1 TD · 1 INT</div><div class="proj">176 pass · 1.06 TD</div></article>
-  <article><div class="name">Love</div><div class="actual">28/53 · 312 · 2 TD · 1 INT</div><div class="proj">229 pass · 2.05 TD</div></article>
-  <article><div class="name">Bijan</div><div class="actual">29–194–2</div><div class="proj">81 rush · 0.70 TD</div></article>
-  <article><div class="name">London</div><div class="actual">9–194–0</div><div class="proj">5.1–58–0.44</div></article>
-  <article><div class="name">Golden</div><div class="actual">5–100–1</div><div class="proj">5.0–57–0.57</div></article>
-  <article><div class="name">Watson</div><div class="actual">7–96–1</div><div class="proj">5.8–66–0.71</div></article>
-  <article><div class="name">BRob</div><div class="actual">10–50–1</div><div class="proj">25 rush · 0.16 TD</div></article>
-  <article><div class="name">Hooper</div><div class="actual">TD · 9.1</div><div class="proj">off lock</div></article>
-  <article><div class="name">Folk</div><div class="actual">2 FG · 3 XP · 10.0</div><div class="proj">4.28</div></article>
-  <article><div class="name">Dotson</div><div class="actual">2.1</div><div class="proj">2.2–25</div></article>
-  <article><div class="name">Melton</div><div class="actual">0.0</div><div class="proj">1.2–13</div></article>
-  <article><div class="name">Kraft</div><div class="actual">4–26 · 6.6</div><div class="proj">3.5–39</div></article>
-</div>
-</div></details>
-
+<div class="head"><span class="name">PLAYER</span><span class="actual">ACTUAL</span><span class="proj">10K</span></div>
+<article><div class="name">Penix</div><div class="actual">18/25 · 256 · 1 TD · 1 INT</div><div class="proj">176 pass · 1.06 TD</div></article>
+<article><div class="name">Love</div><div class="actual">28/53 · 312 · 2 TD · 1 INT</div><div class="proj">229 pass · 2.05 TD</div></article>
+<article><div class="name">Bijan</div><div class="actual">29–194–2</div><div class="proj">81 rush · 0.70 TD</div></article>
+<article><div class="name">London</div><div class="actual">9–194–0</div><div class="proj">5.1–58–0.44</div></article>
+<article><div class="name">Golden</div><div class="actual">5–100–1</div><div class="proj">5.0–57–0.57</div></article>
+<article><div class="name">Watson</div><div class="actual">7–96–1</div><div class="proj">5.8–66–0.71</div></article>
+<article><div class="name">BRob</div><div class="actual">10–50–1</div><div class="proj">25 rush · 0.16 TD</div></article>
+<article><div class="name">Hooper</div><div class="actual">TD · 9.1</div><div class="proj">off lock</div></article>
+<article><div class="name">Folk</div><div class="actual">2 FG · 3 XP · 10.0</div><div class="proj">4.28</div></article>
+<article><div class="name">Dotson</div><div class="actual">2.1</div><div class="proj">2.2–25</div></article>
+<article><div class="name">Melton</div><div class="actual">0.0</div><div class="proj">1.2–13</div></article>
+<article><div class="name">Kraft</div><div class="actual">4–26 · 6.6</div><div class="proj">3.5–39</div></article>
+</div></div></details>
 <details class="block"><summary>1,111 RESULT</summary><div class="body">
 <div class="board">
-  <div class="win sd-win"><b>WINNER · 147.98 · 2 COPIES</b>CPT London · Bijan · Love · Golden · Folk · Moore</div>
-  <div class="us sd-you"><b>US · 111.82 · 1 COPY · 632nd</b>CPT Watson · Love · Penix · Bijan · Dotson · Melton</div>
-  <div class="cmp-wrap">
-    <div class="cmp">
-      <div class="head"><span class="seat">SEAT</span><span class="us">US</span><span class="usdk">DK</span><span class="win">WINNER</span><span class="windk">DK</span></div>
-      <article><span class="seat">CPT</span><span class="us">Watson</span><span class="usdk">33.90</span><span class="win">London</span><span class="windk">47.10</span></article>
-      <article><span class="seat">FLEX</span><span class="us">Bijan</span><span class="usdk">38.30</span><span class="win">Bijan</span><span class="windk">38.30</span></article>
-      <article><span class="seat">FLEX</span><span class="us">Love</span><span class="usdk">22.48</span><span class="win">Love</span><span class="windk">22.48</span></article>
-      <article><span class="seat">FLEX</span><span class="us">Penix</span><span class="usdk">15.04</span><span class="win">Golden</span><span class="windk">24.00</span></article>
-      <article><span class="seat">FLEX</span><span class="us">Dotson</span><span class="usdk">2.10</span><span class="win">Folk</span><span class="windk">10.00</span></article>
-      <article><span class="seat">FLEX</span><span class="us">Melton</span><span class="usdk">0.00</span><span class="win">Moore</span><span class="windk">6.10</span></article>
-      <article class="total"><span class="seat"></span><span class="us">TOTAL</span><span class="usdk">111.82</span><span class="win"></span><span class="windk">147.98</span></article>
-    </div>
-  </div>
-  <div class="tiles mini">
-    <div><b>BEST LEGAL</b><span>152.10</span></div>
-    <div><b>MEDIAN</b><span>114.68</span></div>
-    <div><b>TOP 20%</b><span>128.68</span></div>
-    <div><b>BOTH QBs</b><span>0 / 50</span></div>
-  </div>
-  <p class="note">Best legal: London CPT · Bijan · Golden · Watson · BRob · Hooper · $48,600</p>
+<div class="win sd-win"><b>WINNER · 147.98 · 2 COPIES</b>CPT London · Bijan · Love · Golden · Folk · Moore</div>
+<div class="us sd-you"><b>US · 111.82 · 1 COPY · 632nd</b>CPT Watson · Love · Penix · Bijan · Dotson · Melton</div>
+<div class="cmp-wrap"><div class="cmp">
+<div class="head"><span class="seat">SEAT</span><span class="us">US</span><span class="usdk">DK</span><span class="win">WINNER</span><span class="windk">DK</span></div>
+<article><span class="seat">CPT</span><span class="us">Watson</span><span class="usdk">33.90</span><span class="win">London</span><span class="windk">47.10</span></article>
+<article><span class="seat">FLEX</span><span class="us">Bijan</span><span class="usdk">38.30</span><span class="win">Bijan</span><span class="windk">38.30</span></article>
+<article><span class="seat">FLEX</span><span class="us">Love</span><span class="usdk">22.48</span><span class="win">Love</span><span class="windk">22.48</span></article>
+<article><span class="seat">FLEX</span><span class="us">Penix</span><span class="usdk">15.04</span><span class="win">Golden</span><span class="windk">24.00</span></article>
+<article><span class="seat">FLEX</span><span class="us">Dotson</span><span class="usdk">2.10</span><span class="win">Folk</span><span class="windk">10.00</span></article>
+<article><span class="seat">FLEX</span><span class="us">Melton</span><span class="usdk">0.00</span><span class="win">Moore</span><span class="windk">6.10</span></article>
+<article class="total"><span class="seat"></span><span class="us">TOTAL</span><span class="usdk">111.82</span><span class="win"></span><span class="windk">147.98</span></article>
+</div></div>
+<div class="tiles mini">
+<div><b>BEST LEGAL</b><span>152.10</span></div>
+<div><b>MEDIAN</b><span>114.68</span></div>
+<div><b>TOP 20%</b><span>128.68</span></div>
+<div><b>BOTH QBs</b><span>0 / 50</span></div>
 </div>
-</div></details>
-
+<p class="note">Best legal: London CPT · Bijan · Golden · Watson · BRob · Hooper · $48,600</p>
+</div></div></details>
 <details class="block"><summary>WHAT WE GOT RIGHT</summary><div class="body">
 <div class="kv">
-  <article><div class="lab">SIDE</div><div class="copy">PASS. 56 / 44 is not a unit. ATL covered.</div></article>
-  <article><div class="lab">BIJAN</div><div class="copy">38.30 flex. On the winner and the best six.</div></article>
-  <article><div class="lab">CAPTAIN</div><div class="copy">No QB CPT. Love 22.48 as flex. Rule held.</div></article>
-  <article><div class="lab">PROPS</div><div class="copy">Watson ATD and Love O1.5 cashed.</div></article>
-</div>
-</div></details>
-
+<article><div class="lab">SIDE</div><div class="copy">PASS. 56 / 44 is not a unit. ATL covered.</div></article>
+<article><div class="lab">BIJAN</div><div class="copy">38.30 flex. On the winner and the best six.</div></article>
+<article><div class="lab">CAPTAIN</div><div class="copy">No QB CPT. Love 22.48 as flex. Rule held.</div></article>
+<article><div class="lab">PROPS</div><div class="copy">Watson ATD and Love O1.5 cashed.</div></article>
+</div></div></details>
 <details class="block"><summary>WHAT WE GOT WRONG</summary><div class="body">
 <div class="kv">
-  <article><div class="lab">CAPTAIN</div><div class="copy">10k Watson 16.70 over London 13.50. London 9–194 took the 1.5x.</div></article>
-  <article><div class="lab">BOTH QBs</div><div class="copy">42.5 total. Core $45,500. Residual $4,500. Golden does not fit.</div></article>
-  <article><div class="lab">LAST SEATS</div><div class="copy">Melton 0.00 · Dotson 2.10. BRob 11.00 and Hooper 9.10 were the cheap ATL names.</div></article>
-</div>
-</div></details>
-
+<article><div class="lab">CAPTAIN</div><div class="copy">10k Watson 16.70 over London 13.50. London 9–194 took the 1.5x.</div></article>
+<article><div class="lab">BOTH QBs</div><div class="copy">42.5 total. Core $45,500. Residual $4,500. Golden does not fit.</div></article>
+<article><div class="lab">LAST SEATS</div><div class="copy">Melton 0.00 · Dotson 2.10. BRob 11.00 and Hooper 9.10 were the cheap ATL names.</div></article>
+</div></div></details>
 <details class="block"><summary>CARRY</summary><div class="body">
 <div class="kv">
-  <article><div class="lab">RESIDUAL</div><div class="copy">Print core / leftover / who still fits. If leftover cannot buy an involved name, change the core.</div></article>
-  <article><div class="lab">UNDER 45</div><div class="copy">Not both QBs. Captain A vs B among the top two non-QBs.</div></article>
-  <article><div class="lab">LAST SEATS</div><div class="copy">Scoring-side cheap tree. Cap is a ceiling. Best six left $1,400.</div></article>
-  <article><div class="lab">SUNDAY</div><div class="copy">Do not copy 35–14. n=1.</div></article>
-</div>
-</div></details>
-
+<article><div class="lab">RESIDUAL</div><div class="copy">Print core / leftover / who still fits. If leftover cannot buy an involved name, change the core.</div></article>
+<article><div class="lab">UNDER 45</div><div class="copy">Not both QBs. Captain A vs B among the top two non-QBs.</div></article>
+<article><div class="lab">LAST SEATS</div><div class="copy">Scoring-side cheap tree. Cap is a ceiling. Best six left $1,400.</div></article>
+<article><div class="lab">SUNDAY</div><div class="copy">Do not copy 35–14. n=1.</div></article>
+</div></div></details>
 <p><a class="full-link" href="nfl-week-3-atl-gb.html?v=10">FULL BREAKDOWN</a></p>
-</div>
-</body></html>
+</div></body></html>

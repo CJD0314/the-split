@@ -7,8 +7,10 @@
 <style>
 .board{grid-template-areas:"us win" "tiles tiles" "note note"}
 .six{margin:6px 0 0;padding:0;list-style:none}
-.six li{display:grid;grid-template-columns:minmax(0,1fr) 56px;gap:8px;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px}
+.six li{display:grid;grid-template-columns:minmax(0,1fr) 52px 48px;gap:6px;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:center}
 .six li span{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+.six li.hd{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800;border-bottom:1px solid var(--line)}
+.six li.hd span{font-weight:800}
 .six li.tot{color:var(--gold);font-weight:800;border-bottom:0}
 @media(max-width:640px){
   .board{grid-template-areas:"us" "win" "tiles" "note"}
@@ -56,30 +58,32 @@
 </div></div></details>
 
 <details class="block" open><summary>THE LINEUP</summary><div class="body">
-<p class="note">Left is us. Right is the contest winner.</p>
+<p class="note">Left is us. Right is the contest winner. Own is field % in that seat from the 1,111 sheet.</p>
 <div class="board">
 <div class="us sd-you">
 <b>US · 111.82 · 632nd</b>
 <ul class="six">
-<li>CPT Watson <span>33.90</span></li>
-<li>Bijan <span>38.30</span></li>
-<li>Love <span>22.48</span></li>
-<li>Penix <span>15.04</span></li>
-<li>Dotson <span>2.10</span></li>
-<li>Melton <span>0.00</span></li>
-<li class="tot">TOTAL <span>111.82</span></li>
+<li class="hd">PLAYER <span>PTS</span><span>OWN</span></li>
+<li>CPT Watson <span>33.90</span><span>12.1%</span></li>
+<li>Bijan <span>38.30</span><span>54.0%</span></li>
+<li>Love <span>22.48</span><span>54.2%</span></li>
+<li>Penix <span>15.04</span><span>33.9%</span></li>
+<li>Dotson <span>2.10</span><span>14.9%</span></li>
+<li>Melton <span>0.00</span><span>5.4%</span></li>
+<li class="tot">TOTAL <span>111.82</span><span></span></li>
 </ul>
 </div>
 <div class="win sd-win">
 <b>WINNER · 147.98 · 2 COPIES</b>
 <ul class="six">
-<li>CPT London <span>47.10</span></li>
-<li>Bijan <span>38.30</span></li>
-<li>Love <span>22.48</span></li>
-<li>Golden <span>24.00</span></li>
-<li>Folk <span>10.00</span></li>
-<li>Moore <span>6.10</span></li>
-<li class="tot">TOTAL <span>147.98</span></li>
+<li class="hd">PLAYER <span>PTS</span><span>OWN</span></li>
+<li>CPT London <span>47.10</span><span>9.5%</span></li>
+<li>Bijan <span>38.30</span><span>54.0%</span></li>
+<li>Love <span>22.48</span><span>54.2%</span></li>
+<li>Golden <span>24.00</span><span>39.0%</span></li>
+<li>Folk <span>10.00</span><span>17.8%</span></li>
+<li>Moore <span>6.10</span><span>—</span></li>
+<li class="tot">TOTAL <span>147.98</span><span></span></li>
 </ul>
 </div>
 <div class="tiles mini">

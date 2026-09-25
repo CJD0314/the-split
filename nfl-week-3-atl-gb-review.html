@@ -7,20 +7,71 @@
 <style>
 .callout{background:#161c24;border-left:3px solid var(--gold);padding:12px 14px;border-radius:8px;margin:10px 0 14px}
 .callout b{display:block;font-size:22px;font-weight:800;line-height:1.2}
-.block .body{overflow-x:auto}
-.block .body table{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 2px}
-.block .body th,.block .body td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:middle;line-height:1.3}
-.block .body th{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800;white-space:nowrap}
-.block .body td.num,.block .body th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.block .body td.nowrap{white-space:nowrap}
-.block .body ul{margin:4px 0 0;padding-left:1.15em}
-.block .body li{margin:7px 0;font-size:15px;line-height:1.4}
-.stamp{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:999px}
+.block .body{padding:8px 12px 14px}
+.stamp{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:999px;white-space:nowrap}
 .stamp-pass{background:#2a3644;color:#d5deea}
 .stamp-lock{background:#e8b423;color:#111}
 .stamp-lean{background:#3d2a00;color:#e8b423}
 .stamp-win{background:#0d2a1c;color:#3dd68c}
 .stamp-loss{background:#3a1212;color:#ff8a8a}
+
+/* tickets: one card per row */
+.tix{display:grid;gap:0}
+.tix article{
+  display:grid;
+  grid-template-columns:72px 1fr auto;
+  grid-template-areas:"type ticket mark" "type result stamp";
+  column-gap:10px;row-gap:2px;
+  padding:10px 0;
+  border-bottom:1px solid var(--line);
+  align-items:center;
+}
+.tix .type{grid-area:type;color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800}
+.tix .ticket{grid-area:ticket;font-weight:800;font-size:14px;line-height:1.3}
+.tix .result{grid-area:result;color:#d5deea;font-size:13px}
+.tix .mark{grid-area:mark;justify-self:end}
+.tix .stg{grid-area:stamp;justify-self:end}
+
+/* box: name | actual | 10k */
+.box{
+  display:grid;
+  grid-template-columns:88px minmax(0,1.2fr) minmax(0,1fr);
+  column-gap:12px;
+  align-items:baseline;
+}
+.box > *{padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;min-width:0}
+.box .h{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800;padding-top:2px}
+.box .n{font-weight:800}
+
+/* winner / us side by side */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 10px}
+.pair .sd-you,.pair .sd-win{margin:0}
+
+/* seat compare */
+.cmp{
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr) 56px minmax(0,1fr) 56px;
+  column-gap:8px;
+  align-items:center;
+}
+.cmp > *{padding:7px 0;border-bottom:1px solid var(--line);font-size:14px;min-width:0}
+.cmp .h{color:var(--muted);font-size:10px;letter-spacing:.08em;font-weight:800}
+.cmp .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+.cmp .tot{font-weight:800;color:var(--gold)}
+
+/* label | line */
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:12px;align-items:start}
+.kv > *{padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.4}
+.kv .k{color:var(--gold);font-size:11px;letter-spacing:.08em;font-weight:800;padding-top:10px}
+
+@media(max-width:640px){
+  .pair{grid-template-columns:1fr}
+  .tix article{grid-template-columns:64px 1fr auto;column-gap:8px}
+  .box{grid-template-columns:76px minmax(0,1fr) minmax(0,1fr);column-gap:8px;font-size:13px}
+  .box > *{font-size:13px}
+  .cmp{grid-template-columns:40px minmax(0,1fr) 48px minmax(0,1fr) 48px;column-gap:6px}
+  .kv{grid-template-columns:84px minmax(0,1fr);column-gap:8px}
+}
 </style>
 </head>
 <body>
@@ -37,83 +88,111 @@
 </div>
 
 <details class="block"><summary>TICKETS</summary><div class="body">
-<table>
-<tr><th>Type</th><th>Ticket</th><th>Stamp</th><th>Result</th><th class="num">Mark</th></tr>
-<tr><td class="nowrap">SIDE</td><td>GB −4.5 / ATL +4.5</td><td><span class="stamp stamp-pass">PASS</span></td><td>ATL 35–14</td><td class="num">—</td></tr>
-<tr><td class="nowrap">SE</td><td>CPT Watson + Love + Penix + Bijan + Dotson + Melton</td><td><span class="stamp stamp-lock">LOCK</span></td><td>632nd</td><td class="num"><span class="stamp stamp-loss">LOSS</span></td></tr>
-<tr><td class="nowrap">PROP</td><td>Penix U205.5 pass</td><td><span class="stamp stamp-lean">LEAN</span></td><td>256</td><td class="num"><span class="stamp stamp-loss">LOSS</span></td></tr>
-<tr><td class="nowrap">PROP</td><td>Love O1.5 pass TD</td><td><span class="stamp stamp-lean">LEAN</span></td><td>2</td><td class="num"><span class="stamp stamp-win">WIN</span></td></tr>
-<tr><td class="nowrap">TD</td><td>Watson ATD +135</td><td><span class="stamp stamp-lean">LEAN</span></td><td>4-yd catch</td><td class="num"><span class="stamp stamp-win">WIN</span></td></tr>
-</table>
+<div class="tix">
+<article>
+  <div class="type">SIDE</div>
+  <div class="ticket">GB −4.5 / ATL +4.5</div>
+  <div class="result">ATL 35–14</div>
+  <div class="stg"><span class="stamp stamp-pass">PASS</span></div>
+  <div class="mark"></div>
+</article>
+<article>
+  <div class="type">SE</div>
+  <div class="ticket">CPT Watson · Love · Penix · Bijan · Dotson · Melton</div>
+  <div class="result">632nd · 111.82</div>
+  <div class="stg"><span class="stamp stamp-lock">LOCK</span></div>
+  <div class="mark"><span class="stamp stamp-loss">LOSS</span></div>
+</article>
+<article>
+  <div class="type">PROP</div>
+  <div class="ticket">Penix U205.5 pass</div>
+  <div class="result">256</div>
+  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
+  <div class="mark"><span class="stamp stamp-loss">LOSS</span></div>
+</article>
+<article>
+  <div class="type">PROP</div>
+  <div class="ticket">Love O1.5 pass TD</div>
+  <div class="result">2</div>
+  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
+  <div class="mark"><span class="stamp stamp-win">WIN</span></div>
+</article>
+<article>
+  <div class="type">TD</div>
+  <div class="ticket">Watson ATD +135</div>
+  <div class="result">4-yard catch</div>
+  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
+  <div class="mark"><span class="stamp stamp-win">WIN</span></div>
+</article>
+</div>
 </div></details>
 
 <details class="block"><summary>BOX</summary><div class="body">
-<table>
-<tr><th>Player</th><th>Actual</th><th>10k</th></tr>
-<tr><td>Penix</td><td>18/25 · 256 · 1 TD · 1 INT</td><td>176 pass · 1.06 TD</td></tr>
-<tr><td>Love</td><td>28/53 · 312 · 2 TD · 1 INT</td><td>229 pass · 2.05 TD</td></tr>
-<tr><td>Bijan</td><td>29–194–2</td><td>81 rush · 0.70 TD</td></tr>
-<tr><td>London</td><td>9–194–0</td><td>5.1–58–0.44</td></tr>
-<tr><td>Golden</td><td>5–100–1</td><td>5.0–57–0.57</td></tr>
-<tr><td>Watson</td><td>7–96–1</td><td>5.8–66–0.71</td></tr>
-<tr><td>BRob</td><td>10–50–1</td><td>25 rush · 0.16 TD</td></tr>
-<tr><td>Hooper</td><td>TD · 9.1</td><td>off lock</td></tr>
-<tr><td>Folk</td><td>2 FG · 3 XP · 10.0</td><td>4.28</td></tr>
-<tr><td>Dotson</td><td>2.1</td><td>2.2–25</td></tr>
-<tr><td>Melton</td><td>0.0</td><td>1.2–13</td></tr>
-<tr><td>Kraft</td><td>4–26 · 6.6</td><td>3.5–39</td></tr>
-</table>
+<div class="box">
+  <div class="h">PLAYER</div><div class="h">ACTUAL</div><div class="h">10K</div>
+  <div class="n">Penix</div><div>18/25 · 256 · 1 TD · 1 INT</div><div>176 pass · 1.06 TD</div>
+  <div class="n">Love</div><div>28/53 · 312 · 2 TD · 1 INT</div><div>229 pass · 2.05 TD</div>
+  <div class="n">Bijan</div><div>29–194–2</div><div>81 rush · 0.70 TD</div>
+  <div class="n">London</div><div>9–194–0</div><div>5.1–58–0.44</div>
+  <div class="n">Golden</div><div>5–100–1</div><div>5.0–57–0.57</div>
+  <div class="n">Watson</div><div>7–96–1</div><div>5.8–66–0.71</div>
+  <div class="n">BRob</div><div>10–50–1</div><div>25 rush · 0.16 TD</div>
+  <div class="n">Hooper</div><div>TD · 9.1</div><div>off lock</div>
+  <div class="n">Folk</div><div>2 FG · 3 XP · 10.0</div><div>4.28</div>
+  <div class="n">Dotson</div><div>2.1</div><div>2.2–25</div>
+  <div class="n">Melton</div><div>0.0</div><div>1.2–13</div>
+  <div class="n">Kraft</div><div>4–26 · 6.6</div><div>3.5–39</div>
+</div>
 </div></details>
 
 <details class="block"><summary>1,111 RESULT</summary><div class="body">
-<div class="sd-win"><b>WINNER · 147.98 · 2 COPIES</b>CPT London · Bijan · Love · Golden · Folk · Moore</div>
-<div class="sd-you"><b>US · 111.82 · 1 COPY · 632nd</b>CPT Watson · Love · Penix · Bijan · Dotson · Melton</div>
-<table>
-<tr><th>Seat</th><th>Us</th><th class="num">DK</th><th>Winner</th><th class="num">DK</th></tr>
-<tr><td>CPT</td><td>Watson</td><td class="num">33.90</td><td>London</td><td class="num">47.10</td></tr>
-<tr><td>FLEX</td><td>Bijan</td><td class="num">38.30</td><td>Bijan</td><td class="num">38.30</td></tr>
-<tr><td>FLEX</td><td>Love</td><td class="num">22.48</td><td>Love</td><td class="num">22.48</td></tr>
-<tr><td>FLEX</td><td>Penix</td><td class="num">15.04</td><td>Golden</td><td class="num">24.00</td></tr>
-<tr><td>FLEX</td><td>Dotson</td><td class="num">2.10</td><td>Folk</td><td class="num">10.00</td></tr>
-<tr><td>FLEX</td><td>Melton</td><td class="num">0.00</td><td>Moore</td><td class="num">6.10</td></tr>
-<tr><td></td><td></td><td class="num">111.82</td><td></td><td class="num">147.98</td></tr>
-</table>
+<div class="pair">
+  <div class="sd-win"><b>WINNER · 147.98 · 2 COPIES</b>CPT London · Bijan · Love · Golden · Folk · Moore</div>
+  <div class="sd-you"><b>US · 111.82 · 1 COPY · 632nd</b>CPT Watson · Love · Penix · Bijan · Dotson · Melton</div>
+</div>
+<div class="cmp">
+  <div class="h">SEAT</div><div class="h">US</div><div class="h num">DK</div><div class="h">WINNER</div><div class="h num">DK</div>
+  <div>CPT</div><div>Watson</div><div class="num">33.90</div><div>London</div><div class="num">47.10</div>
+  <div>FLEX</div><div>Bijan</div><div class="num">38.30</div><div>Bijan</div><div class="num">38.30</div>
+  <div>FLEX</div><div>Love</div><div class="num">22.48</div><div>Love</div><div class="num">22.48</div>
+  <div>FLEX</div><div>Penix</div><div class="num">15.04</div><div>Golden</div><div class="num">24.00</div>
+  <div>FLEX</div><div>Dotson</div><div class="num">2.10</div><div>Folk</div><div class="num">10.00</div>
+  <div>FLEX</div><div>Melton</div><div class="num">0.00</div><div>Moore</div><div class="num">6.10</div>
+  <div></div><div class="tot">TOTAL</div><div class="num tot">111.82</div><div></div><div class="num tot">147.98</div>
+</div>
 <div class="mini">
-<div><b>BEST LEGAL</b><span>152.10</span></div>
-<div><b>MEDIAN</b><span>114.68</span></div>
-<div><b>TOP 20%</b><span>128.68</span></div>
-<div><b>BOTH QBs</b><span>0 / 50</span></div>
+  <div><b>BEST LEGAL</b><span>152.10</span></div>
+  <div><b>MEDIAN</b><span>114.68</span></div>
+  <div><b>TOP 20%</b><span>128.68</span></div>
+  <div><b>BOTH QBs</b><span>0 / 50</span></div>
 </div>
 <p class="note">Best legal: London CPT · Bijan · Golden · Watson · BRob · Hooper · $48,600</p>
 </div></details>
 
 <details class="block"><summary>WHAT WE GOT RIGHT</summary><div class="body">
-<table>
-<tr><th>Item</th><th>Why</th></tr>
-<tr><td class="nowrap">Side PASS</td><td>56 / 44 is not a unit. ATL covered.</td></tr>
-<tr><td class="nowrap">Bijan flex</td><td>38.30. On the winner and the best six.</td></tr>
-<tr><td class="nowrap">No QB CPT</td><td>Love 22.48 as flex. Rule held.</td></tr>
-<tr><td class="nowrap">Props</td><td>Watson ATD and Love O1.5 cashed.</td></tr>
-</table>
+<div class="kv">
+  <div class="k">SIDE</div><div>PASS. 56 / 44 is not a unit. ATL covered.</div>
+  <div class="k">BIJAN</div><div>38.30 flex. On the winner and the best six.</div>
+  <div class="k">CAPTAIN</div><div>No QB CPT. Love 22.48 as flex. Rule held.</div>
+  <div class="k">PROPS</div><div>Watson ATD and Love O1.5 cashed.</div>
+</div>
 </div></details>
 
 <details class="block"><summary>WHAT WE GOT WRONG</summary><div class="body">
-<table>
-<tr><th>Item</th><th>Why</th></tr>
-<tr><td class="nowrap">Captain</td><td>10k Watson 16.70 over London 13.50. London 9–194 took the 1.5x.</td></tr>
-<tr><td class="nowrap">Both QBs</td><td>42.5 total. Core $45,500. Residual $4,500. Golden does not fit.</td></tr>
-<tr><td class="nowrap">Last seats</td><td>Melton 0.00 · Dotson 2.10. BRob 11.00 and Hooper 9.10 were the cheap ATL names.</td></tr>
-</table>
+<div class="kv">
+  <div class="k">CAPTAIN</div><div>10k Watson 16.70 over London 13.50. London 9–194 took the 1.5x.</div>
+  <div class="k">BOTH QBs</div><div>42.5 total. Core $45,500. Residual $4,500. Golden does not fit.</div>
+  <div class="k">LAST SEATS</div><div>Melton 0.00 · Dotson 2.10. BRob 11.00 and Hooper 9.10 were the cheap ATL names.</div>
+</div>
 </div></details>
 
 <details class="block"><summary>CARRY</summary><div class="body">
-<table>
-<tr><th>Rule</th><th>Line</th></tr>
-<tr><td class="nowrap">Residual</td><td>Print core / leftover / who still fits. If leftover cannot buy an involved name, change the core.</td></tr>
-<tr><td class="nowrap">Under 45</td><td>Not both QBs. Captain A vs B among the top two non-QBs.</td></tr>
-<tr><td class="nowrap">Last seats</td><td>Scoring-side cheap tree. Cap is a ceiling. Best six left $1,400.</td></tr>
-<tr><td class="nowrap">Sunday</td><td>Do not copy 35–14. n=1.</td></tr>
-</table>
+<div class="kv">
+  <div class="k">RESIDUAL</div><div>Print core / leftover / who still fits. If leftover cannot buy an involved name, change the core.</div>
+  <div class="k">UNDER 45</div><div>Not both QBs. Captain A vs B among the top two non-QBs.</div>
+  <div class="k">LAST SEATS</div><div>Scoring-side cheap tree. Cap is a ceiling. Best six left $1,400.</div>
+  <div class="k">SUNDAY</div><div>Do not copy 35–14. n=1.</div>
+</div>
 </div></details>
 
 <p><a class="full-link" href="nfl-week-3-atl-gb.html?v=10">FULL BREAKDOWN</a></p>

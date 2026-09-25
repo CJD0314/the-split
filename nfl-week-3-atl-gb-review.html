@@ -19,6 +19,8 @@
 .match .nm{font-weight:800}
 .match .ln{color:#d5deea;min-width:0}
 .match .dk{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+.sec{margin:18px 0 8px;padding-top:14px;border-top:1px solid var(--line);color:#f3f7fb;font-size:13px;letter-spacing:.12em;font-weight:800}
+.sec:first-of-type{margin-top:0;padding-top:0;border-top:0}
 .prow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .poslab{color:var(--gold);font-size:11px;letter-spacing:.14em;font-weight:800;padding:12px 0 2px}
 .pl{display:grid;grid-template-columns:minmax(48px,1.2fr) repeat(3,minmax(26px,.55fr));gap:2px;align-items:baseline;min-height:26px;padding:4px 0;border-bottom:1px solid var(--line)}
@@ -61,8 +63,8 @@
 
 <details class="block" open><summary>SHEET vs 10K vs ACTUAL</summary><div class="body">
 
-<details class="block" open><summary>PROJECTION · DK POINTS</summary><div class="body">
-<p class="note">One line. Order is actual, sheet, 10k.</p>
+<div class="sec">PROJECTION</div>
+<p class="note">One line. Actual, sheet, 10k.</p>
 <div class="prow">
 <div class="pl hd"><b>FALCONS</b><span>ACT</span><span>SHT</span><span>10K</span></div>
 <div class="pl hd"><b>PACKERS</b><span>ACT</span><span>SHT</span><span>10K</span></div>
@@ -120,11 +122,9 @@
 <div class="pl"><b>Folk</b><span class="a">10.00</span><span>7.23</span><span>4.28</span></div>
 <div class="pl"><b>Smack</b><span class="a">2.00</span><span>7.16</span><span>5.23</span></div>
 </div>
-<p class="note">Dash means that name was not on the sheet or the 10k. Sheet won Penix. Both missed Bijan and London.</p>
-</div></details>
 
-<details class="block"><summary>OWNERSHIP · 1,111</summary><div class="body">
-<p class="note">One line. Flex order is actual, sheet, ours. CPT is its own block so it is not mixed with flex.</p>
+<div class="sec">OWNERSHIP</div>
+<p class="note">One line. Flex is actual, sheet, ours. Captain sits under it so the two are not mixed.</p>
 <div class="poslab">FLEX</div>
 <div class="prow">
 <div class="pl hd"><b>FALCONS</b><span>ACT</span><span>SHT</span><span>OURS</span></div>
@@ -175,8 +175,7 @@
 <div class="pl"><b>London</b><span class="a">14.6</span><span>9.5</span><span>8</span></div>
 <div class="pl"><b>Watson</b><span class="a">14.2</span><span>12.1</span><span>15</span></div>
 </div>
-<p class="note">Flex actual is only filled when the 1,111 file had that seat. London and Watson actuals are CPT, not flex. Sheet Golden 39.0 vs 38.4 was the clean flex hit. Watson CPT we had. London CPT we did not.</p>
-</div></details>
+<p class="note">London and Watson flex actuals are blank on purpose. Those actuals are captain. Dash means that board did not have the name.</p>
 
 </div></details>
 

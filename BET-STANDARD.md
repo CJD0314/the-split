@@ -55,12 +55,15 @@ TNF / SNF / MNF. One single-entry card. Script + 10k first. Sheet is overlay.
 
 ### Roster gate — T-90 — do not lock without this
 1. Live DK showdown list vs 10k table.
-2. One row per active skill name. No slash lines. No dump buckets.
-3. Active slate name missing from the table = sim not done. Do not lock.
+2. One row per active skill name. No slash lines. No dump buckets. No others.
+3. Count sheet skill names with a projection above zero. Count 10k rows. If the counts do not match, the sim is not done. Do not lock. Do not print IDENTITY PASS.
 4. OUT names deleted. Their share re-splits onto remaining actives at that position. Do not park Higbee on Parkinson.
-5. Skill yards add back to team totals.
+5. Skill yards add back to team totals on named rows. An others bucket that makes the math look closed is a fail.
+6. A review dash is only for a sheet projection of zero. Sheet number with no 10k row prints MISS.
 
 MNF 9/21 bug: Ferguson absent from 10k, 33% owned, 6–54–1. Cannot ship again.
+
+TNF 9/24 bug: Zaccheaus, Moore, Jonnu, Hooper, Sturdivant, Branch, Woerner, Blair, Muse, and Redman were on the sheet with a projection. The 10k had no row. Moore was on the winning lineup. Hooper was on the highest legal six. Cannot ship again.
 
 ### 10k identity check — locked 9/24 — do not ship without this
 1. QB pass yards = that team's WR + TE + RB receiving yards. Gap over 8 yards = fail. Re-scale the catchers to the QB.
@@ -68,6 +71,7 @@ MNF 9/21 bug: Ferguson absent from 10k, 33% owned, 6–54–1. Cannot ship again
 3. Rush TDs and receiving TDs are separate columns on a back.
 4. If a rust or Q1-exit tax hits the QB, the catchers take the same tax in the same run.
 5. Print both identities on the dive (`Love 229 = GB rec 229`).
+6. The sum is every named catcher on the sheet, including the cheap ones.
 
 TNF 9/24 bug: Penix 176 vs ATL catchers 202. Catchers kept a healthy night after the QB was taxed. Cannot ship again.
 
@@ -101,6 +105,7 @@ Write these before the sim. The engine may only veto.
 - One LEAN per game unless the second ticket has a different reason.
 - DK CSV is overlay. Never rebuild the six off sheet ranking.
 - Combined 10k rows are a bias. They hide players.
+- An others bucket is a bias. It hides players and fakes the identity check.
 - Filling the cap is a bias. Involvement first.
 - Default QB CPT is a bias.
 - Slow kills are a bias. QB exit is immediate.

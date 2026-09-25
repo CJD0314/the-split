@@ -56,7 +56,7 @@ TNF / SNF / MNF. One single-entry card. Script + 10k first. Sheet is overlay.
 ### Roster gate — T-90 — do not lock without this
 1. Live DK showdown list vs 10k table.
 2. One row per active skill name. No slash lines. No dump buckets. No others.
-3. Count sheet skill names with a projection above zero. Count 10k rows. If the counts do not match, the sim is not done. Do not lock. Do not print IDENTITY PASS.
+3. Print the count on the dive, in the 10k summary: `Sheet N · Rows N · Missing N`. If missing is not zero, the summary says FAIL. The sim is not done. Do not lock. Do not print IDENTITY PASS.
 4. OUT names deleted. Their share re-splits onto remaining actives at that position. Do not park Higbee on Parkinson.
 5. Skill yards add back to team totals on named rows. An others bucket that makes the math look closed is a fail.
 6. A review dash is only for a sheet projection of zero. Sheet number with no 10k row prints MISS.
@@ -93,8 +93,15 @@ TNF 9/24 bug: Penix 176 vs ATL catchers 202. Catchers kept a healthy night after
 3. Our dog down 17 after three = side dead.
 First one that hits, stop.
 
+### Ownership — locked 9/25
+Three columns on the dive and on the review: total, flex, captain.
+- Total = flex + captain. Never one number called ownership.
+- Pre-lock: sheet and ours each get all three.
+- After the contest: count every lineup in the standings file. Do not lift one `%Drafted` cell.
+- Do not grade a flex estimate against a total. TNF 9/24: Bijan total 81.19, flex 57.43, captain 23.76. The page showed 57.4 and called it the actual.
+
 ### After the contest
-Grade the six against the winner, not against the story. Carry only what repeats.
+Grade the six against the winner, not against the story. Carry only what repeats. Ownership grade uses the three counted columns.
 
 ## BIAS LOCK
 Write these before the sim. The engine may only veto.
@@ -106,6 +113,7 @@ Write these before the sim. The engine may only veto.
 - DK CSV is overlay. Never rebuild the six off sheet ranking.
 - Combined 10k rows are a bias. They hide players.
 - An others bucket is a bias. It hides players and fakes the identity check.
+- One ownership number is a bias. Total, flex, and captain are different.
 - Filling the cap is a bias. Involvement first.
 - Default QB CPT is a bias.
 - Slow kills are a bias. QB exit is immediate.

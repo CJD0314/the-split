@@ -23,13 +23,16 @@ Never ship a stub, wrapper, iframe, or `filename (1).html` as the live page.
 ## 10K ROSTER GATE — T-90 · DO NOT LOCK WITHOUT THIS
 After official inactives:
 1. Take the live DK showdown list. Every QB, RB, WR, TE, K, DST with a salary who is ACTIVE.
-2. The 10k average-stat table must have **exactly one row per name**. No `Higbee / Parkinson`. No `Atwell / Mumpfield`. No dump buckets.
-3. If a name is on the slate and active and missing from the table, the sim is not done. Do not lock a six.
+2. The 10k average-stat table must have **exactly one row per name**. No `Higbee / Parkinson`. No `Atwell / Mumpfield`. No dump buckets. No `others`.
+3. If a name is on the sheet with a projection above zero and missing from the table, the sim is not done. Do not lock a six.
 4. If someone on the pre-T-90 table is now OUT, delete his row and **re-split his share onto the actives at that position**. Do not park a Higbee share on Parkinson by default.
-5. Rec / rush / pass yards on the skill rows must still add back to the team totals.
+5. Rec / rush / pass yards on the skill rows must still add back to the team totals. The add-back is named rows, not a leftover bucket.
 6. Showdown last seats are the highest-involvement remaining names on that table. Salary is a filter after. Cap is a ceiling.
+7. A review dash is only for a sheet projection of zero. If the sheet had a number and the 10k has no row, print MISS. Never a dash that looks like he was not uploaded.
 
 MNF 9/21 bug: Ferguson was 33% owned and 6–54–1. He was not in the 10k table. Parkinson inherited a combined Higbee line. That cannot ship again.
+
+TNF 9/24 bug: Zaccheaus 3.20, Moore 2.81, Jonnu 3.37, Hooper 0.92, Sturdivant 1.12, Branch 1.83 were on the sheet. The 10k folded them into others. Hooper scored 9.10. Moore scored 6.10 and was on the winning lineup. Same hole.
 
 ## 10K IDENTITY CHECK — LOCKED 9/24 · DO NOT SHIP WITHOUT THIS
 After the run, before the table is painted:
@@ -40,13 +43,14 @@ After the run, before the table is painted:
 5. Team points ≈ 6×(pass TD + rush TD) + FG points from the kicker row. If the score tile and the skill TDs disagree, the score tile wins and skill TDs get scaled.
 6. Print the two identities on the page: `Love 229 = GB rec 229` and `Penix 176 = ATL rec 176`.
 7. If a rust or Q1-exit tax hits a QB, the catchers take the same tax in the same run. TNF 9/24 bug: Penix 176 vs ATL catchers 202. That cannot ship again.
+8. The identity sum is every named catcher on the sheet, including the cheap ones. An others bucket that makes the math look closed is still a fail.
 
 ## Upload checklist (do this every commit)
 - [ ] Live filename is the canonical name, not `(1)`.
 - [ ] Page is one HTML file. No iframe wrapping another HTML file.
 - [ ] Only one header.
 - [ ] All ten sections above are present with real notes, not placeholders.
-- [ ] T-90 10k has one row per active DK skill name. No slashes. No missing slate players.
+- [ ] T-90 10k has one row per active DK skill name. No slashes. No missing slate players. No others bucket.
 - [ ] Identity check passed. QB pass yards = team rec yards. QB pass TDs = team rec TDs.
 - [ ] After push, open the live URL and confirm the page is the long version.
 
@@ -57,3 +61,4 @@ After the run, before the table is painted:
 - Combine two players on one 10k row to save space.
 - Lock a showdown six while an active slate TE/WR/RB is missing from the sim table.
 - Ship a 10k table where the QB and his catchers do not add up.
+- Dash a review cell for a player who had a sheet projection.

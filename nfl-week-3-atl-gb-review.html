@@ -19,17 +19,21 @@
 .match .nm{font-weight:800}
 .match .ln{color:#d5deea;min-width:0}
 .match .dk{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
-.hit{padding:14px 0;border-bottom:1px solid var(--line)}
-.hit-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
-.hit-top b{font-size:18px;line-height:1.1}
-.hit-top .n{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;text-align:right}
-.hit-top .n small{display:block;margin-top:4px;color:var(--muted);font-size:10px;letter-spacing:.12em;font-weight:800}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.pair div{background:#121820;border:1px solid var(--line);border-radius:12px;padding:8px 10px}
-.pair b{display:block;color:var(--gold);font-size:10px;letter-spacing:.12em;font-weight:800}
-.pair span{display:block;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:2px}
+.prow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.poslab{color:var(--gold);font-size:11px;letter-spacing:.14em;font-weight:800;padding:12px 0 2px}
+.pl{display:grid;grid-template-columns:minmax(48px,1.2fr) repeat(3,minmax(26px,.55fr));gap:2px;align-items:baseline;min-height:26px;padding:4px 0;border-bottom:1px solid var(--line)}
+.pl b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl span{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;font-size:12px;color:#d5deea}
+.pl span.a{color:#f3f7fb;font-weight:800}
+.pl.hd{border-bottom:1px solid var(--gold);padding-bottom:6px}
+.pl.hd b{color:var(--gold);font-size:11px;letter-spacing:.1em}
+.pl.hd span{color:var(--muted);font-size:9px;letter-spacing:.06em;font-weight:800}
+.pl.empty{border-bottom-color:transparent}
 @media(max-width:640px){
   .board{grid-template-areas:"us" "win" "tiles" "note"}
+  .pl b{font-size:12px}
+  .pl span{font-size:11px}
+  .prow{gap:6px}
 }
 </style>
 </head>
@@ -56,45 +60,124 @@
 </div></div></details>
 
 <details class="block" open><summary>SHEET vs 10K vs ACTUAL</summary><div class="body">
-<p class="note">Big number is what happened. The two boxes are what we had before kick.</p>
 
 <details class="block" open><summary>PROJECTION · DK POINTS</summary><div class="body">
-<article class="hit"><div class="hit-top"><b>Bijan</b><div class="n">38.30<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>21.49</span></div><div><b>10K</b><span>15.89</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>London</b><div class="n">31.40<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>15.37</span></div><div><b>10K</b><span>13.50</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Golden</b><div class="n">24.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>15.70</span></div><div><b>10K</b><span>13.90</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Watson</b><div class="n">22.60<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>16.96</span></div><div><b>10K</b><span>16.70</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Love</b><div class="n">22.48<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>17.66</span></div><div><b>10K</b><span>18.37</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Penix</b><div class="n">15.04<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>14.91</span></div><div><b>10K</b><span>11.70</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>B. Robinson</b><div class="n">11.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>5.58</span></div><div><b>10K</b><span>3.47</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Folk</b><div class="n">10.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>7.23</span></div><div><b>10K</b><span>4.28</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Kraft</b><div class="n">6.60<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>10.20</span></div><div><b>10K</b><span>9.70</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Lloyd</b><div class="n">3.80<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>8.14</span></div><div><b>10K</b><span>5.83</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Johnson</b><div class="n">2.60<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>7.64</span></div><div><b>10K</b><span>5.48</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Dotson</b><div class="n">2.10<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>5.49</span></div><div><b>10K</b><span>6.00</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Smack</b><div class="n">2.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>7.16</span></div><div><b>10K</b><span>5.23</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Pitts</b><div class="n">1.50<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>7.80</span></div><div><b>10K</b><span>6.90</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Melton</b><div class="n">0.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>2.25</span></div><div><b>10K</b><span>2.80</span></div></div></article>
-<p class="note">Sheet won Penix. Both boards missed Bijan and London.</p>
+<p class="note">One line. Order is actual, sheet, 10k.</p>
+<div class="prow">
+<div class="pl hd"><b>FALCONS</b><span>ACT</span><span>SHT</span><span>10K</span></div>
+<div class="pl hd"><b>PACKERS</b><span>ACT</span><span>SHT</span><span>10K</span></div>
+</div>
+<div class="poslab">QB</div>
+<div class="prow">
+<div class="pl"><b>Penix</b><span class="a">15.04</span><span>14.91</span><span>11.70</span></div>
+<div class="pl"><b>Love</b><span class="a">22.48</span><span>17.66</span><span>18.37</span></div>
+</div>
+<div class="poslab">RB</div>
+<div class="prow">
+<div class="pl"><b>Bijan</b><span class="a">38.30</span><span>21.49</span><span>15.89</span></div>
+<div class="pl"><b>Lloyd</b><span class="a">3.80</span><span>8.14</span><span>5.83</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>BRob</b><span class="a">11.00</span><span>5.58</span><span>3.47</span></div>
+<div class="pl"><b>Johnson</b><span class="a">2.60</span><span>7.64</span><span>5.48</span></div>
+</div>
+<div class="prow">
+<div class="pl empty"></div>
+<div class="pl"><b>Brooks</b><span class="a">1.40</span><span>5.24</span><span>3.02</span></div>
+</div>
+<div class="poslab">WR</div>
+<div class="prow">
+<div class="pl"><b>London</b><span class="a">31.40</span><span>15.37</span><span>13.50</span></div>
+<div class="pl"><b>Golden</b><span class="a">24.00</span><span>15.70</span><span>13.90</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>Dotson</b><span class="a">2.10</span><span>5.49</span><span>6.00</span></div>
+<div class="pl"><b>Watson</b><span class="a">22.60</span><span>16.96</span><span>16.70</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>Zaccheaus</b><span class="a">2.90</span><span>—</span><span>—</span></div>
+<div class="pl"><b>Moore</b><span class="a">6.10</span><span>—</span><span>—</span></div>
+</div>
+<div class="prow">
+<div class="pl empty"></div>
+<div class="pl"><b>Sturdivant</b><span class="a">5.20</span><span>—</span><span>—</span></div>
+</div>
+<div class="prow">
+<div class="pl empty"></div>
+<div class="pl"><b>Melton</b><span class="a">0.00</span><span>2.25</span><span>2.80</span></div>
+</div>
+<div class="poslab">TE</div>
+<div class="prow">
+<div class="pl"><b>Hooper</b><span class="a">9.10</span><span>—</span><span>—</span></div>
+<div class="pl"><b>Kraft</b><span class="a">6.60</span><span>10.20</span><span>9.70</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>Pitts</b><span class="a">1.50</span><span>7.80</span><span>6.90</span></div>
+<div class="pl"><b>Jonnu</b><span class="a">3.60</span><span>—</span><span>—</span></div>
+</div>
+<div class="poslab">K</div>
+<div class="prow">
+<div class="pl"><b>Folk</b><span class="a">10.00</span><span>7.23</span><span>4.28</span></div>
+<div class="pl"><b>Smack</b><span class="a">2.00</span><span>7.16</span><span>5.23</span></div>
+</div>
+<p class="note">Dash means that name was not on the sheet or the 10k. Sheet won Penix. Both missed Bijan and London.</p>
 </div></details>
 
-<details class="block"><summary>FLEX OWNERSHIP · 1,111</summary><div class="body">
-<article class="hit"><div class="hit-top"><b>Love</b><div class="n">62.7%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>54.2%</span></div><div><b>OURS</b><span>74%</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Bijan</b><div class="n">57.4%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>54.0%</span></div><div><b>OURS</b><span>62%</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Golden</b><div class="n">38.4%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>39.0%</span></div><div><b>OURS</b><span>44%</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Penix</b><div class="n">27.2%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>33.9%</span></div><div><b>OURS</b><span>36%</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Dotson</b><div class="n">20.3%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>14.9%</span></div><div><b>OURS</b><span>11%</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Moore</b><div class="n">19.3%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>—</span></div><div><b>OURS</b><span>—</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Folk</b><div class="n">16.0%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>17.8%</span></div><div><b>OURS</b><span>11%</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Melton</b><div class="n">9.3%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>5.4%</span></div><div><b>OURS</b><span>7%</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>B. Robinson</b><div class="n">3.2%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>—</span></div><div><b>OURS</b><span>—</span></div></div></article>
-<p class="note">Sheet Golden 39.0 vs 38.4 was the clean hit. We were high on Love and low on Dotson.</p>
+<details class="block"><summary>OWNERSHIP · 1,111</summary><div class="body">
+<p class="note">One line. Flex order is actual, sheet, ours. CPT is its own block so it is not mixed with flex.</p>
+<div class="poslab">FLEX</div>
+<div class="prow">
+<div class="pl hd"><b>FALCONS</b><span>ACT</span><span>SHT</span><span>OURS</span></div>
+<div class="pl hd"><b>PACKERS</b><span>ACT</span><span>SHT</span><span>OURS</span></div>
+</div>
+<div class="poslab">QB</div>
+<div class="prow">
+<div class="pl"><b>Penix</b><span class="a">27.2</span><span>33.9</span><span>36</span></div>
+<div class="pl"><b>Love</b><span class="a">62.7</span><span>54.2</span><span>74</span></div>
+</div>
+<div class="poslab">RB</div>
+<div class="prow">
+<div class="pl"><b>Bijan</b><span class="a">57.4</span><span>54.0</span><span>62</span></div>
+<div class="pl"><b>Lloyd</b><span class="a">—</span><span>15.9</span><span>12</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>BRob</b><span class="a">3.2</span><span>—</span><span>—</span></div>
+<div class="pl"><b>Johnson</b><span class="a">—</span><span>21.7</span><span>14</span></div>
+</div>
+<div class="poslab">WR</div>
+<div class="prow">
+<div class="pl"><b>London</b><span class="a">—</span><span>37.3</span><span>34</span></div>
+<div class="pl"><b>Golden</b><span class="a">38.4</span><span>39.0</span><span>44</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>Dotson</b><span class="a">20.3</span><span>14.9</span><span>11</span></div>
+<div class="pl"><b>Watson</b><span class="a">—</span><span>43.0</span><span>46</span></div>
+</div>
+<div class="prow">
+<div class="pl empty"></div>
+<div class="pl"><b>Moore</b><span class="a">19.3</span><span>—</span><span>—</span></div>
+</div>
+<div class="prow">
+<div class="pl empty"></div>
+<div class="pl"><b>Melton</b><span class="a">9.3</span><span>5.4</span><span>7</span></div>
+</div>
+<div class="poslab">K</div>
+<div class="prow">
+<div class="pl"><b>Folk</b><span class="a">16.0</span><span>17.8</span><span>11</span></div>
+<div class="pl"><b>Smack</b><span class="a">—</span><span>21.4</span><span>14</span></div>
+</div>
+<div class="poslab">CPT</div>
+<div class="prow">
+<div class="pl hd"><b>FALCONS</b><span>ACT</span><span>SHT</span><span>OURS</span></div>
+<div class="pl hd"><b>PACKERS</b><span>ACT</span><span>SHT</span><span>OURS</span></div>
+</div>
+<div class="prow">
+<div class="pl"><b>London</b><span class="a">14.6</span><span>9.5</span><span>8</span></div>
+<div class="pl"><b>Watson</b><span class="a">14.2</span><span>12.1</span><span>15</span></div>
+</div>
+<p class="note">Flex actual is only filled when the 1,111 file had that seat. London and Watson actuals are CPT, not flex. Sheet Golden 39.0 vs 38.4 was the clean flex hit. Watson CPT we had. London CPT we did not.</p>
 </div></details>
 
-<details class="block"><summary>CPT OWNERSHIP · 1,111</summary><div class="body">
-<article class="hit"><div class="hit-top"><b>London</b><div class="n">14.6%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>9.5%</span></div><div><b>OURS</b><span>8%</span></div></div></article>
-<article class="hit"><div class="hit-top"><b>Watson</b><div class="n">14.2%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>12.1%</span></div><div><b>OURS</b><span>15%</span></div></div></article>
-<p class="note">Watson we had. London we lowballed. That was the winner’s captain.</p>
-</div></details>
 </div></details>
 
 <details class="block"><summary>WHAT THE GAME DID</summary><div class="body">

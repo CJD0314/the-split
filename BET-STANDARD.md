@@ -62,6 +62,15 @@ TNF / SNF / MNF. One single-entry card. Script + 10k first. Sheet is overlay.
 
 MNF 9/21 bug: Ferguson absent from 10k, 33% owned, 6–54–1. Cannot ship again.
 
+### 10k identity check — locked 9/24 — do not ship without this
+1. QB pass yards = that team's WR + TE + RB receiving yards. Gap over 8 yards = fail. Re-scale the catchers to the QB.
+2. QB pass TDs = that team's receiving TDs. Gap over 0.10 = fail.
+3. Rush TDs and receiving TDs are separate columns on a back.
+4. If a rust or Q1-exit tax hits the QB, the catchers take the same tax in the same run.
+5. Print both identities on the dive (`Love 229 = GB rec 229`).
+
+TNF 9/24 bug: Penix 176 vs ATL catchers 202. Catchers kept a healthy night after the QB was taxed. Cannot ship again.
+
 ### How the six is built
 1. Rank remaining players by 10k involvement (targets, touches, routes, mean yards). Not salary. Not TD-odds twins alone.
 2. Cap is a ceiling. Leaving $800–$2,000 unused is legal.
@@ -95,6 +104,7 @@ Write these before the sim. The engine may only veto.
 - Filling the cap is a bias. Involvement first.
 - Default QB CPT is a bias.
 - Slow kills are a bias. QB exit is immediate.
+- Unmatched QB / catcher totals are a bias. Identity check before paint.
 
 ## MLB player prop
 Open the full DK player market. Post the single best value. Live juice.

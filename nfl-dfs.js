@@ -10,20 +10,20 @@ function paintClassicDfs(){
   const rules = document.getElementById("dfs-rules-box");
   if (se){
     se.innerHTML =
-      "<p class='note'>$100 single entry · 1,111 entries. Same product as DET@BUF. Not Monday's 222.</p>"+
-      "<p class='note-lab'>TNF LOCKED</p>"+
-      "<p>CPT Christian Watson $14,700</p>"+
-      "<p>Jordan Love $10,000</p>"+
-      "<p>Michael Penix Jr. $9,000</p>"+
-      "<p>Bijan Robinson $11,800</p>"+
-      "<p>Jahan Dotson $3,000</p>"+
-      "<p>Bo Melton $1,200</p>"+
-      "<p class='note'>$49,700. Side PASS. HOLD if Penix walks: CPT Watson, Love, Bijan, Golden, Johnson, Melton.</p>"+
-      "<p class='note'><a href='nfl-week-3-atl-gb.html?v=7'>FULL BREAKDOWN</a></p>";
+      "<p class='note'>$100 single entry · 1,111. SETTLED. 632nd · 111.82. Winner 147.98.</p>"+
+      "<p class='note-lab'>TNF SETTLED · ATL 35-14</p>"+
+      "<p>CPT Christian Watson $14,700 · 33.90</p>"+
+      "<p>Jordan Love $10,000 · 22.48</p>"+
+      "<p>Michael Penix Jr. $9,000 · 15.04</p>"+
+      "<p>Bijan Robinson $11,800 · 38.30</p>"+
+      "<p>Jahan Dotson $3,000 · 2.10</p>"+
+      "<p>Bo Melton $1,200 · 0.00</p>"+
+      "<p class='note'>111.82. Winner was CPT London · Bijan · Love · Golden · Folk · Moore.</p>"+
+      "<p class='note'><a href='nfl-week-3-atl-gb-review.html'>REVIEW</a> · <a href='nfl-week-3-atl-gb.html?v=8'>FULL BREAKDOWN</a></p>";
   }
   if (gpp){
     gpp.innerHTML =
-      "<p class='note'>Tonight's GPP six is not the 1,111 card. CPT Bijan, Love, Watson, Golden, Dotson, Melton. $49,500.</p>"+
+      "<p class='note'>GPP six was not the 1,111 card and is closed with it.</p>"+
       "<p class='note'>Week 2 main-slate 150-max is closed. Pool below is the archive.</p>";
   }
   if (pool){

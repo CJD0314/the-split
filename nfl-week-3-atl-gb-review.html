@@ -19,6 +19,15 @@
 .match .nm{font-weight:800}
 .match .ln{color:#d5deea;min-width:0}
 .match .dk{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+.hit{padding:14px 0;border-bottom:1px solid var(--line)}
+.hit-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.hit-top b{font-size:18px;line-height:1.1}
+.hit-top .n{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;text-align:right}
+.hit-top .n small{display:block;margin-top:4px;color:var(--muted);font-size:10px;letter-spacing:.12em;font-weight:800}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.pair div{background:#121820;border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.pair b{display:block;color:var(--gold);font-size:10px;letter-spacing:.12em;font-weight:800}
+.pair span{display:block;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:2px}
 @media(max-width:640px){
   .board{grid-template-areas:"us" "win" "tiles" "note"}
 }
@@ -47,53 +56,44 @@
 </div></div></details>
 
 <details class="block" open><summary>SHEET vs 10K vs ACTUAL</summary><div class="body">
-<p class="note">One row per name. Actual is the contest number. Sheet is the upload. 10k / Ours is what we posted before kick.</p>
+<p class="note">Big number is what happened. The two boxes are what we had before kick.</p>
 
 <details class="block" open><summary>PROJECTION · DK POINTS</summary><div class="body">
-<div class="box">
-<div class="head"><span class="name">PLAYER</span><span class="actual">ACTUAL</span><span class="proj">SHEET · 10K</span></div>
-<article><span class="name">Bijan</span><span class="actual">38.30</span><span class="proj">21.49 · 15.89</span></article>
-<article><span class="name">London</span><span class="actual">31.40</span><span class="proj">15.37 · 13.50</span></article>
-<article><span class="name">Golden</span><span class="actual">24.00</span><span class="proj">15.70 · 13.90</span></article>
-<article><span class="name">Watson</span><span class="actual">22.60</span><span class="proj">16.96 · 16.70</span></article>
-<article><span class="name">Love</span><span class="actual">22.48</span><span class="proj">17.66 · 18.37</span></article>
-<article><span class="name">Penix</span><span class="actual">15.04</span><span class="proj">14.91 · 11.70</span></article>
-<article><span class="name">B. Robinson</span><span class="actual">11.00</span><span class="proj">5.58 · 3.47</span></article>
-<article><span class="name">Folk</span><span class="actual">10.00</span><span class="proj">7.23 · 4.28</span></article>
-<article><span class="name">Kraft</span><span class="actual">6.60</span><span class="proj">10.20 · 9.70</span></article>
-<article><span class="name">Lloyd</span><span class="actual">3.80</span><span class="proj">8.14 · 5.83</span></article>
-<article><span class="name">Johnson</span><span class="actual">2.60</span><span class="proj">7.64 · 5.48</span></article>
-<article><span class="name">Dotson</span><span class="actual">2.10</span><span class="proj">5.49 · 6.00</span></article>
-<article><span class="name">Smack</span><span class="actual">2.00</span><span class="proj">7.16 · 5.23</span></article>
-<article><span class="name">Pitts</span><span class="actual">1.50</span><span class="proj">7.80 · 6.90</span></article>
-<article><span class="name">Melton</span><span class="actual">0.00</span><span class="proj">2.25 · 2.80</span></article>
-</div>
-<p class="note">Sheet won Penix. Both boards missed Bijan and London. Those two were the game.</p>
+<article class="hit"><div class="hit-top"><b>Bijan</b><div class="n">38.30<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>21.49</span></div><div><b>10K</b><span>15.89</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>London</b><div class="n">31.40<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>15.37</span></div><div><b>10K</b><span>13.50</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Golden</b><div class="n">24.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>15.70</span></div><div><b>10K</b><span>13.90</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Watson</b><div class="n">22.60<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>16.96</span></div><div><b>10K</b><span>16.70</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Love</b><div class="n">22.48<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>17.66</span></div><div><b>10K</b><span>18.37</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Penix</b><div class="n">15.04<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>14.91</span></div><div><b>10K</b><span>11.70</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>B. Robinson</b><div class="n">11.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>5.58</span></div><div><b>10K</b><span>3.47</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Folk</b><div class="n">10.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>7.23</span></div><div><b>10K</b><span>4.28</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Kraft</b><div class="n">6.60<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>10.20</span></div><div><b>10K</b><span>9.70</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Lloyd</b><div class="n">3.80<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>8.14</span></div><div><b>10K</b><span>5.83</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Johnson</b><div class="n">2.60<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>7.64</span></div><div><b>10K</b><span>5.48</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Dotson</b><div class="n">2.10<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>5.49</span></div><div><b>10K</b><span>6.00</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Smack</b><div class="n">2.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>7.16</span></div><div><b>10K</b><span>5.23</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Pitts</b><div class="n">1.50<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>7.80</span></div><div><b>10K</b><span>6.90</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Melton</b><div class="n">0.00<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>2.25</span></div><div><b>10K</b><span>2.80</span></div></div></article>
+<p class="note">Sheet won Penix. Both boards missed Bijan and London.</p>
 </div></details>
 
-<details class="block"><summary>OWNERSHIP · FLEX · 1,111</summary><div class="body">
-<div class="box">
-<div class="head"><span class="name">PLAYER</span><span class="actual">ACTUAL</span><span class="proj">SHEET · OURS</span></div>
-<article><span class="name">Love</span><span class="actual">62.7%</span><span class="proj">54.2 · 74</span></article>
-<article><span class="name">Bijan</span><span class="actual">57.4%</span><span class="proj">54.0 · 62</span></article>
-<article><span class="name">Golden</span><span class="actual">38.4%</span><span class="proj">39.0 · 44</span></article>
-<article><span class="name">Penix</span><span class="actual">27.2%</span><span class="proj">33.9 · 36</span></article>
-<article><span class="name">Dotson</span><span class="actual">20.3%</span><span class="proj">14.9 · 11</span></article>
-<article><span class="name">Moore</span><span class="actual">19.3%</span><span class="proj">— · —</span></article>
-<article><span class="name">Folk</span><span class="actual">16.0%</span><span class="proj">17.8 · 11</span></article>
-<article><span class="name">Melton</span><span class="actual">9.3%</span><span class="proj">5.4 · 7</span></article>
-<article><span class="name">B. Robinson</span><span class="actual">3.2%</span><span class="proj">— · —</span></article>
-</div>
-<p class="note">Sheet Golden 39.0 vs 38.4 was the clean hit. We were high on Love FLEX and low on Dotson.</p>
+<details class="block"><summary>FLEX OWNERSHIP · 1,111</summary><div class="body">
+<article class="hit"><div class="hit-top"><b>Love</b><div class="n">62.7%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>54.2%</span></div><div><b>OURS</b><span>74%</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Bijan</b><div class="n">57.4%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>54.0%</span></div><div><b>OURS</b><span>62%</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Golden</b><div class="n">38.4%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>39.0%</span></div><div><b>OURS</b><span>44%</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Penix</b><div class="n">27.2%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>33.9%</span></div><div><b>OURS</b><span>36%</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Dotson</b><div class="n">20.3%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>14.9%</span></div><div><b>OURS</b><span>11%</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Moore</b><div class="n">19.3%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>—</span></div><div><b>OURS</b><span>—</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Folk</b><div class="n">16.0%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>17.8%</span></div><div><b>OURS</b><span>11%</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Melton</b><div class="n">9.3%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>5.4%</span></div><div><b>OURS</b><span>7%</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>B. Robinson</b><div class="n">3.2%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>—</span></div><div><b>OURS</b><span>—</span></div></div></article>
+<p class="note">Sheet Golden 39.0 vs 38.4 was the clean hit. We were high on Love and low on Dotson.</p>
 </div></details>
 
-<details class="block"><summary>OWNERSHIP · CPT · 1,111</summary><div class="body">
-<div class="box">
-<div class="head"><span class="name">PLAYER</span><span class="actual">ACTUAL</span><span class="proj">SHEET · OURS</span></div>
-<article><span class="name">London</span><span class="actual">14.6%</span><span class="proj">9.5 · 8</span></article>
-<article><span class="name">Watson</span><span class="actual">14.2%</span><span class="proj">12.1 · 15</span></article>
-</div>
-<p class="note">Only two CPT rates came off the standings file. Watson we had. London we lowballed. That was the winner’s captain.</p>
+<details class="block"><summary>CPT OWNERSHIP · 1,111</summary><div class="body">
+<article class="hit"><div class="hit-top"><b>London</b><div class="n">14.6%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>9.5%</span></div><div><b>OURS</b><span>8%</span></div></div></article>
+<article class="hit"><div class="hit-top"><b>Watson</b><div class="n">14.2%<small>ACTUAL</small></div></div><div class="pair"><div><b>SHEET</b><span>12.1%</span></div><div><b>OURS</b><span>15%</span></div></div></article>
+<p class="note">Watson we had. London we lowballed. That was the winner’s captain.</p>
 </div></details>
 </div></details>
 

@@ -33,6 +33,91 @@
       "final": "BUF 41-31",
       "confidence": "LEAN",
       "href": "nfl-week-2-det-buf-review.html"
+    },
+    {
+      "id": "nfl-w3-atl-gb-side",
+      "sport": "NFL",
+      "date": "2026-09-24",
+      "game": "ATL at GB",
+      "type": "spread",
+      "pick": "GB -4.5 / ATL +4.5",
+      "close": "GB -4.5 / ATL +4.5 (-105)",
+      "stake": 0,
+      "to_win": 0,
+      "status": "SETTLED",
+      "result": "LEAVE",
+      "pl": 0,
+      "final": "ATL 35-14",
+      "confidence": "PASS",
+      "href": "nfl-week-3-atl-gb-review.html"
+    },
+    {
+      "id": "nfl-w3-atl-gb-se",
+      "sport": "NFL",
+      "date": "2026-09-24",
+      "game": "ATL at GB",
+      "type": "prop",
+      "pick": "$100 SE CPT Watson · Love · Penix · Bijan · Dotson · Melton",
+      "close": "$100 SE · 1,111",
+      "stake": 100,
+      "to_win": 0,
+      "status": "SETTLED",
+      "result": "LOSS",
+      "pl": -100,
+      "final": "ATL 35-14 · 632nd · 111.82",
+      "confidence": "BET",
+      "href": "nfl-week-3-atl-gb-review.html"
+    },
+    {
+      "id": "nfl-w3-atl-gb-penix-u",
+      "sport": "NFL",
+      "date": "2026-09-24",
+      "game": "ATL at GB",
+      "type": "prop",
+      "pick": "Penix under 205.5 pass yds",
+      "close": "Penix U205.5 pass yds",
+      "stake": 100,
+      "to_win": 100,
+      "status": "SETTLED",
+      "result": "LOSS",
+      "pl": -100,
+      "final": "ATL 35-14 · Penix 256",
+      "confidence": "LEAN",
+      "href": "nfl-week-3-atl-gb-review.html"
+    },
+    {
+      "id": "nfl-w3-atl-gb-love-td",
+      "sport": "NFL",
+      "date": "2026-09-24",
+      "game": "ATL at GB",
+      "type": "prop",
+      "pick": "Love over 1.5 pass TD",
+      "close": "Love O1.5 pass TD",
+      "stake": 100,
+      "to_win": 100,
+      "status": "SETTLED",
+      "result": "WIN",
+      "pl": 100,
+      "final": "ATL 35-14 · Love 2 pass TD",
+      "confidence": "LEAN",
+      "href": "nfl-week-3-atl-gb-review.html"
+    },
+    {
+      "id": "nfl-w3-atl-gb-watson-atd",
+      "sport": "NFL",
+      "date": "2026-09-24",
+      "game": "ATL at GB",
+      "type": "td",
+      "pick": "Watson anytime TD +135",
+      "close": "Watson ATD +135",
+      "stake": 100,
+      "to_win": 135,
+      "status": "SETTLED",
+      "result": "WIN",
+      "pl": 135,
+      "final": "ATL 35-14 · Watson 4-yard catch",
+      "confidence": "LEAN",
+      "href": "nfl-week-3-atl-gb-review.html"
     }
   ],
   "loops": {
@@ -43,7 +128,11 @@
       "TNF DET@BUF: Gibbs fade was not the miss. He was in 0 of the top 20. Cook and LaPorta were.",
       "Sunday lock: no OPEN at kick. PASS is legal. DET +5.5 PASS, BUF 41-31 covered.",
       "Primetime uses the same fire bar as 1 p.m. DAL -2.5 and DEN +2.5 were stories. Do not copy that tonight onto KC -5.5.",
-      "One Week 1 box is n=1. Chicago 59 does not make CHI -4.5 a unit."
+      "One Week 1 box is n=1. Chicago 59 does not make CHI -4.5 a unit.",
+      "TNF ATL@GB: side PASS on a 56/44 sim stands. Do not turn that into GB -4.5.",
+      "TNF ATL@GB: Bijan stayed. Lead back stays on the six even when the captain is wrong.",
+      "TNF ATL@GB: last seats from 10k involvement. Melton 0.00 is Parkinson and Davis again.",
+      "TNF ATL@GB: a 42.5 is not both QBs. Captain the volume WR or the featured back. One QB unless the script is already 50-plus."
     ]
   },
   "fades": {
@@ -52,7 +141,9 @@
       "TNF DET@BUF: Kicker-as-punter dies in a six-TD game with zero field goals. Bass 5 DK.",
       "TNF DET@BUF: Juice worse than -190 is still a fade even when the favorite covers.",
       "Showdown fade of a 30-percent FLEX needs a written why. We do not like him is not that line.",
-      "If one DST is in four of five optimal teams in a 50-point script, the build is wrong before the lineup is wrong."
+      "If one DST is in four of five optimal teams in a 50-point script, the build is wrong before the lineup is wrong.",
+      "TNF ATL@GB: do not spend the last seat on a $1,200 dart when the other lead back is on the slate.",
+      "TNF ATL@GB: do not copy 35-14 onto Sunday. Penix return is n=1."
     ]
   }
 }

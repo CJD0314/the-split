@@ -3,7 +3,17 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Review — Falcons at Packers</title>
-<link rel="stylesheet" href="sport.css?v=23"/>
+<link rel="stylesheet" href="sport.css?v=24"/>
+<style>
+.board{grid-template-areas:"us win" "tiles tiles" "note note"}
+.six{margin:6px 0 0;padding:0;list-style:none}
+.six li{display:grid;grid-template-columns:minmax(0,1fr) 56px;gap:8px;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px}
+.six li span{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+.six li.tot{color:var(--gold);font-weight:800;border-bottom:0}
+@media(max-width:640px){
+  .board{grid-template-areas:"us" "win" "tiles" "note"}
+}
+</style>
 </head>
 <body>
 <div class="topnav"><a href="today.html">TODAY</a><a href="nfl.html">NFL</a><a href="nfl-week-3-atl-gb.html?v=16">FULL BREAKDOWN</a></div>
@@ -20,45 +30,15 @@
 
 <details class="block"><summary>TICKETS</summary><div class="body">
 <div class="tix">
-<article class="pass">
-  <div class="type lab">SIDE</div>
-  <div class="ticket">GB −4.5 / ATL +4.5</div>
-  <div class="result">No bet. ATL won by 21.</div>
-  <div class="stg"><span class="stamp stamp-pass">PASS</span></div>
-</article>
-<article>
-  <div class="type lab">DFS</div>
-  <div class="ticket">CPT Watson · Love · Penix · Bijan · Dotson · Melton</div>
-  <div class="result">632nd · 111.82 pts</div>
-  <div class="stg"><span class="stamp stamp-lock">LOCK</span></div>
-  <div class="mark"><span class="stamp stamp-loss">LOSS</span></div>
-</article>
-<article>
-  <div class="type lab">PROP</div>
-  <div class="ticket">Penix under 205.5 pass yards</div>
-  <div class="result">Threw 256</div>
-  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
-  <div class="mark"><span class="stamp stamp-loss">LOSS</span></div>
-</article>
-<article>
-  <div class="type lab">PROP</div>
-  <div class="ticket">Love over 1.5 pass TDs</div>
-  <div class="result">Threw 2</div>
-  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
-  <div class="mark"><span class="stamp stamp-win">WIN</span></div>
-</article>
-<article>
-  <div class="type lab">TD</div>
-  <div class="ticket">Watson anytime TD +135</div>
-  <div class="result">Caught a 4-yard TD</div>
-  <div class="stg"><span class="stamp stamp-lean">LEAN</span></div>
-  <div class="mark"><span class="stamp stamp-win">WIN</span></div>
-</article>
-</div>
-</div></details>
+<article class="pass"><div class="type lab">SIDE</div><div class="ticket">GB −4.5 / ATL +4.5</div><div class="result">No bet. ATL won by 21.</div><div class="stg"><span class="stamp stamp-pass">PASS</span></div></article>
+<article><div class="type lab">DFS</div><div class="ticket">CPT Watson · Love · Penix · Bijan · Dotson · Melton</div><div class="result">632nd · 111.82 pts</div><div class="stg"><span class="stamp stamp-lock">LOCK</span></div><div class="mark"><span class="stamp stamp-loss">LOSS</span></div></article>
+<article><div class="type lab">PROP</div><div class="ticket">Penix under 205.5 pass yards</div><div class="result">Threw 256</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-loss">LOSS</span></div></article>
+<article><div class="type lab">PROP</div><div class="ticket">Love over 1.5 pass TDs</div><div class="result">Threw 2</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-win">WIN</span></div></article>
+<article><div class="type lab">TD</div><div class="ticket">Watson anytime TD +135</div><div class="result">Caught a 4-yard TD</div><div class="stg"><span class="stamp stamp-lean">LEAN</span></div><div class="mark"><span class="stamp stamp-win">WIN</span></div></article>
+</div></div></details>
 
 <details class="block"><summary>WHAT THE GAME DID</summary><div class="body">
-<p class="note">Left column is the box score. Right column is what our 10,000-game sim expected.</p>
+<p class="note">Left is the box score. Right is what the sim expected.</p>
 <div class="box">
 <div class="head"><span class="name">PLAYER</span><span class="actual">GAME</span><span class="proj">SIM</span></div>
 <article><div class="name">Penix</div><div class="actual">256 yards · 1 TD · 1 INT</div><div class="proj">176 yards · 1.1 TD</div></article>
@@ -73,30 +53,42 @@
 <article><div class="name">Dotson</div><div class="actual">2.1 pts</div><div class="proj">2 catches · 25 yards</div></article>
 <article><div class="name">Melton</div><div class="actual">0.0 pts</div><div class="proj">1 catch · 13 yards</div></article>
 <article><div class="name">Kraft</div><div class="actual">4 catches · 26 yards</div><div class="proj">4 catches · 39 yards</div></article>
-</div>
-</div></details>
+</div></div></details>
 
-<details class="block"><summary>THE LINEUP</summary><div class="body">
+<details class="block" open><summary>THE LINEUP</summary><div class="body">
+<p class="note">Left is us. Right is the contest winner.</p>
 <div class="board">
-<div class="win sd-win"><b>CONTEST WINNER · 147.98 PTS · 2 COPIES</b>CPT London · Bijan · Love · Golden · Folk · Moore</div>
-<div class="us sd-you"><b>OUR $100 LINEUP · 111.82 PTS · 632nd</b>CPT Watson · Love · Penix · Bijan · Dotson · Melton</div>
-<div class="cmp-wrap"><div class="cmp">
-<div class="head"><span class="seat">SEAT</span><span class="us">WE PLAYED</span><span class="usdk">PTS</span><span class="win">WINNER PLAYED</span><span class="windk">PTS</span></div>
-<article><span class="seat">CPT</span><span class="us">Watson</span><span class="usdk">33.90</span><span class="win">London</span><span class="windk">47.10</span></article>
-<article><span class="seat"></span><span class="us">Bijan</span><span class="usdk">38.30</span><span class="win">Bijan</span><span class="windk">38.30</span></article>
-<article><span class="seat"></span><span class="us">Love</span><span class="usdk">22.48</span><span class="win">Love</span><span class="windk">22.48</span></article>
-<article><span class="seat"></span><span class="us">Penix</span><span class="usdk">15.04</span><span class="win">Golden</span><span class="windk">24.00</span></article>
-<article><span class="seat"></span><span class="us">Dotson</span><span class="usdk">2.10</span><span class="win">Folk</span><span class="windk">10.00</span></article>
-<article><span class="seat"></span><span class="us">Melton</span><span class="usdk">0.00</span><span class="win">Moore</span><span class="windk">6.10</span></article>
-<article class="total"><span class="seat"></span><span class="us">TOTAL</span><span class="usdk">111.82</span><span class="win"></span><span class="windk">147.98</span></article>
-</div></div>
+<div class="us sd-you">
+<b>US · 111.82 · 632nd</b>
+<ul class="six">
+<li>CPT Watson <span>33.90</span></li>
+<li>Bijan <span>38.30</span></li>
+<li>Love <span>22.48</span></li>
+<li>Penix <span>15.04</span></li>
+<li>Dotson <span>2.10</span></li>
+<li>Melton <span>0.00</span></li>
+<li class="tot">TOTAL <span>111.82</span></li>
+</ul>
+</div>
+<div class="win sd-win">
+<b>WINNER · 147.98 · 2 COPIES</b>
+<ul class="six">
+<li>CPT London <span>47.10</span></li>
+<li>Bijan <span>38.30</span></li>
+<li>Love <span>22.48</span></li>
+<li>Golden <span>24.00</span></li>
+<li>Folk <span>10.00</span></li>
+<li>Moore <span>6.10</span></li>
+<li class="tot">TOTAL <span>147.98</span></li>
+</ul>
+</div>
 <div class="tiles mini">
 <div><b>WE FINISHED</b><span>under the median</span></div>
 <div><b>MEDIAN</b><span>114.68</span></div>
 <div><b>TOP 20%</b><span>128.68</span></div>
 <div><b>WINNER</b><span>147.98</span></div>
 </div>
-<p class="note">Highest legal $50k six from the box: London CPT · Bijan · Golden · Watson · BRob · Hooper · 152.10 pts · $48,600. We were not close to that shape. Both quarterbacks appeared in 0 of the top 50 legal sixes.</p>
+<p class="note">Highest legal $50k six from the box: London CPT · Bijan · Golden · Watson · BRob · Hooper · 152.10 pts · $48,600. Both quarterbacks appeared in 0 of the top 50 legal sixes.</p>
 </div></div></details>
 
 <details class="block"><summary>WHAT WE GOT RIGHT</summary><div class="body">
@@ -105,16 +97,14 @@
 <article><div class="lab">BIJAN</div><div class="copy">We kept him. 38.30. Winner had him too.</div></article>
 <article><div class="lab">NO QB CPT</div><div class="copy">Love stayed in flex at 22.48. That rule held.</div></article>
 <article><div class="lab">LEAN PROPS</div><div class="copy">Watson scored. Love threw two TDs.</div></article>
-</div>
-</div></details>
+</div></div></details>
 
 <details class="block"><summary>WHAT WE GOT WRONG</summary><div class="body">
 <div class="kv">
 <article><div class="lab">CAPTAIN</div><div class="copy">Sim liked Watson (16.70) over London (13.50). London went 9–194. The volume receiver got the 1.5x.</div></article>
 <article><div class="lab">BOTH QBs</div><div class="copy">Total was 42.5. We still rostered Love and Penix with Bijan. That spent $45,500 and left $4,500. Golden no longer fit.</div></article>
 <article><div class="lab">LAST TWO</div><div class="copy">Dotson 2.10 and Melton 0.00 filled leftover salary. The cheap Falcons names that scored were BRob (11.00) and Hooper (9.10).</div></article>
-</div>
-</div></details>
+</div></div></details>
 
 <details class="block"><summary>CARRY TO SUNDAY</summary><div class="body">
 <div class="kv">
@@ -122,8 +112,7 @@
 <article><div class="lab">LOW TOTAL</div><div class="copy">A total under 45 is one quarterback, not both. Captain is the better of the top two non-QBs.</div></article>
 <article><div class="lab">CHEAP SEATS</div><div class="copy">Take them from the team that is scoring (goal line, tight end, kicker). Do not spend the last $3,000 just to print $49,700.</div></article>
 <article><div class="lab">THIS GAME</div><div class="copy">Do not copy 35–14 onto Sunday. One game.</div></article>
-</div>
-</div></details>
+</div></div></details>
 
 <p><a class="full-link" href="nfl-week-3-atl-gb.html?v=16">FULL BREAKDOWN</a></p>
 </div>

@@ -24,7 +24,7 @@ Never ship a stub, wrapper, iframe, or `filename (1).html` as the live page.
 After official inactives:
 1. Take the live DK showdown list. Every QB, RB, WR, TE, K, DST with a salary who is ACTIVE.
 2. The 10k average-stat table must have **exactly one row per name**. No `Higbee / Parkinson`. No `Atwell / Mumpfield`. No dump buckets. No `others`.
-3. If a name is on the sheet with a projection above zero and missing from the table, the sim is not done. Do not lock a six.
+3. Print the count on the dive, in the 10k summary, before any six is locked: `Sheet 28 · Rows 18 · Missing 10`. Sheet = names with a projection above zero. Rows = 10k rows. If missing is not zero, the summary says FAIL. Do not lock. Do not print IDENTITY PASS.
 4. If someone on the pre-T-90 table is now OUT, delete his row and **re-split his share onto the actives at that position**. Do not park a Higbee share on Parkinson by default.
 5. Rec / rush / pass yards on the skill rows must still add back to the team totals. The add-back is named rows, not a leftover bucket.
 6. Showdown last seats are the highest-involvement remaining names on that table. Salary is a filter after. Cap is a ceiling.
@@ -45,12 +45,20 @@ After the run, before the table is painted:
 7. If a rust or Q1-exit tax hits a QB, the catchers take the same tax in the same run. TNF 9/24 bug: Penix 176 vs ATL catchers 202. That cannot ship again.
 8. The identity sum is every named catcher on the sheet, including the cheap ones. An others bucket that makes the math look closed is still a fail.
 
+## OWNERSHIP — LOCKED 9/25
+Three columns. Always. Total, flex, captain.
+- Total = flex + captain. Bijan 81.19 was the total. Flex was 57.43. Captain was 23.76. Those are not the same number.
+- Pre-lock, the sheet and ours each get all three. One percent labeled ownership is a fail.
+- After the contest, count the standings file. Total, flex, and captain. Do not read one `%Drafted` cell and call it the field.
+- Do not grade a flex estimate against a total.
+
 ## Upload checklist (do this every commit)
 - [ ] Live filename is the canonical name, not `(1)`.
 - [ ] Page is one HTML file. No iframe wrapping another HTML file.
 - [ ] Only one header.
 - [ ] All ten sections above are present with real notes, not placeholders.
-- [ ] T-90 10k has one row per active DK skill name. No slashes. No missing slate players. No others bucket.
+- [ ] T-90 10k summary prints `Sheet N · Rows N · Missing 0`. Missing above zero = FAIL. No lock.
+- [ ] Ownership is total, flex, and captain. Sheet and ours. Never one number.
 - [ ] Identity check passed. QB pass yards = team rec yards. QB pass TDs = team rec TDs.
 - [ ] After push, open the live URL and confirm the page is the long version.
 
@@ -62,3 +70,5 @@ After the run, before the table is painted:
 - Lock a showdown six while an active slate TE/WR/RB is missing from the sim table.
 - Ship a 10k table where the QB and his catchers do not add up.
 - Dash a review cell for a player who had a sheet projection.
+- Print IDENTITY PASS when the roster count does not match.
+- Call a flex percent the ownership.

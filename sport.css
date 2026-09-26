@@ -164,3 +164,8 @@ ul.notes{margin:0;padding-left:1.15em}ul.notes li{margin:8px 0;font-size:16px;li
 @media(min-width:720px){
   .mini{grid-template-columns:repeat(4,1fr)}
 }
+
+.sd-table.pool{font-size:15px}
+.sd-table.pool th.num,.sd-table.pool td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sd-table.pool td.tm{color:var(--muted);white-space:nowrap}
+.sd-table.pool td:first-child{font-weight:650}

@@ -1,156 +1,19 @@
-function capLabel(n){
-  return n + " (" + Math.round(n / 150 * 100) + "%)";
-}
-function poolTable(title, rows, sumNote){
-  var h = "<p class='note-lab'>" + title + "</p>";
-  if (sumNote) h += "<p class='note'>" + sumNote + "</p>";
-  h += "<table class='sd-table'><tr><th>Player</th><th>Team</th><th>Sal</th><th>Cap</th><th>Note</th></tr>";
-  rows.forEach(function(r){
-    h += "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>$" + r[2].toLocaleString() + "</td><td>" + capLabel(r[3]) + "</td><td>" + (r[4] || "") + "</td></tr>";
-  });
-  return h + "</table>";
-}
 function paintClassicDfs(){
-  var se = document.getElementById("dfs-se-box");
-  var gpp = document.getElementById("dfs-gpp-box");
-  var pool = document.getElementById("dfs-pool-box");
-  var rules = document.getElementById("dfs-rules-box");
-  var qb = [
-    ["Josh Allen","BUF",8000,14,"Shakir, Kincaid, Cook"],
-    ["Lamar Jackson","BAL",7500,14,"Henry, Andrews, Bateman"],
-    ["Dak Prescott","DAL",6700,12,"Lamb, Pickens, Ferguson. 4:25"],
-    ["Brock Purdy","SF",6500,14,"CMC, Kittle, Deebo. 4:05"],
-    ["Jared Goff","DET",6300,14,"Gibbs, St. Brown, LaPorta"],
-    ["Patrick Mahomes","KC",6200,14,"Walker, Rice, Kelce"],
-    ["Joe Burrow","CIN",6600,10,"Chase, Higgins"],
-    ["Bryce Young","CAR",5600,12,"Hubbard, McMillan"],
-    ["Tyler Shough","NO",5400,10,"Olave, Johnson, Vele. 4:25"],
-    ["Drew Lock","SEA",5200,10,"JSN. Darnold is not in"],
-    ["Kirk Cousins","LV",4800,10,"Jeanty, Tucker. 4:25"],
-    ["Deshaun Watson","CLE",4700,8,"Judkins, Boston"],
-    ["Marcus Mariota","WAS",4500,8,"Diggs, McLaurin. Daniels is out"]
-  ];
-  var rb = [
-    ["Jahmyr Gibbs","DET",8800,35,""],
-    ["Christian McCaffrey","SF",8300,28,"4:05"],
-    ["Derrick Henry","BAL",7700,30,""],
-    ["Jonathan Taylor","IND",7600,30,""],
-    ["Kenneth Walker III","KC",7400,28,"Sheet has him on KC"],
-    ["Ashton Jeanty","LV",7100,25,"4:25"],
-    ["James Cook III","BUF",6900,22,""],
-    ["Omarion Hampton","LAC",6800,18,""],
-    ["Javonte Williams","DAL",6700,22,"4:25"],
-    ["Chase Brown","CIN",6600,18,""],
-    ["De'Von Achane","MIA",6500,15,""],
-    ["Breece Hall","NYJ",6400,22,""],
-    ["Bucky Irving","TB",6300,20,"4:05"],
-    ["Cam Skattebo","NYG",6200,12,"No Giants quarterback"],
-    ["Chuba Hubbard","CAR",6100,20,""],
-    ["David Montgomery","HOU",6000,16,"Sheet has him on HOU"],
-    ["Aaron Jones Sr.","MIN",5900,14,"4:05"],
-    ["Travis Etienne Jr.","NO",5800,14,"4:25"],
-    ["Bhayshul Tuten","JAX",5600,12,""],
-    ["Jeremiyah Love","ARI",5500,12,"4:05"],
-    ["Quinshon Judkins","CLE",5500,12,""],
-    ["TreVeyon Henderson","NE",5200,14,""]
-  ];
-  var wr = [
-    ["Jaxon Smith-Njigba","SEA",8600,32,""],
-    ["Ja'Marr Chase","CIN",8100,28,""],
-    ["Amon-Ra St. Brown","DET",7900,32,""],
-    ["CeeDee Lamb","DAL",7800,30,"4:25"],
-    ["Justin Jefferson","MIN",7500,26,"4:05"],
-    ["Chris Olave","NO",7200,28,"4:25"],
-    ["George Pickens","DAL",6600,14,"4:25"],
-    ["Rashee Rice","KC",6400,18,""],
-    ["Garrett Wilson","NYJ",6300,20,""],
-    ["Emeka Egbuka","TB",6200,18,"4:05"],
-    ["Tee Higgins","CIN",6100,18,""],
-    ["Parker Washington","JAX",6000,20,""],
-    ["Tetairoa McMillan","CAR",6000,20,""],
-    ["Ladd McConkey","LAC",5900,16,""],
-    ["Josh Downs","IND",5700,16,"Collins is out"],
-    ["Stefon Diggs","WAS",5500,18,""],
-    ["Jameson Williams","DET",5400,12,""],
-    ["DK Metcalf","PIT",5400,12,""],
-    ["Chris Godwin Jr.","TB",5300,12,"4:05"],
-    ["Deebo Samuel Sr.","SF",5300,16,"4:05"],
-    ["Terry McLaurin","WAS",5100,8,""],
-    ["Tre Tucker","LV",5000,16,"4:25"],
-    ["Khalil Shakir","BUF",4800,12,""],
-    ["Jakobi Meyers","JAX",4800,10,""],
-    ["Rashod Bateman","BAL",4700,14,""],
-    ["Denzel Boston","CLE",4500,16,""],
-    ["Xavier Worthy","KC",4400,12,""],
-    ["Devaughn Vele","NO",4400,14,"4:25"],
-    ["Joshua Palmer","BUF",3500,10,""]
-  ];
-  var te = [
-    ["Trey McBride","ARI",6700,18,"4:05"],
-    ["Dalton Kincaid","BUF",5500,20,""],
-    ["Tyler Warren","IND",5300,16,""],
-    ["George Kittle","SF",4800,16,"4:05"],
-    ["Isaiah Likely","NYG",4700,8,"Sheet has him on NYG"],
-    ["Travis Kelce","KC",4500,18,""],
-    ["Mark Andrews","BAL",4400,12,""],
-    ["Sam LaPorta","DET",4300,16,""],
-    ["Dalton Schultz","HOU",4200,14,"Collins is out"],
-    ["Jake Ferguson","DAL",4100,12,"4:25"]
-  ];
-  var dst = [
-    ["Vikings","MIN",3100,22,"4:05"],
-    ["Panthers","CAR",3000,20,""],
-    ["Bengals","CIN",2900,20,""],
-    ["Patriots","NE",2700,18,""],
-    ["Steelers","PIT",2700,16,""],
-    ["Raiders","LV",2600,18,"4:25"],
-    ["Seahawks","SEA",3800,16,""],
-    ["Jaguars","JAX",2900,12,""],
-    ["49ers","SF",3600,8,"4:05"]
-  ];
-  if (se){
-    se.innerHTML = "<p class='note'>Not locked. The 150-max pool is up. The single entry is a different card and it is not built yet.</p><p>It will have one correlated lineup and at least one player from a 4:00 game. It will not be the GPP with the chalk removed.</p>";
+  var se=document.getElementById("dfs-se-box");
+  var gpp=document.getElementById("dfs-gpp-box");
+  var pool=document.getElementById("dfs-pool-box");
+  var rules=document.getElementById("dfs-rules-box");
+  if(se){
+    se.innerHTML="<p class='note'>Not locked. This pool is the 150-max. The single entry is a different card and it is not built from this list.</p>";
   }
-  if (gpp){
-    gpp.innerHTML = "<p class='note'>150-max. 13-game Sunday sheet. No Thursday. No Monday. No Rams-Broncos.</p><p>Caps are maximums. Quarterback, tight end, and defense each add to 150. Every name below is in the flex. Nobody else.</p>";
+  if(gpp){
+    gpp.innerHTML="<p class='note'>150-max. 13 Sunday games. No Thursday, no Monday, no Rams-Broncos. The objective is the Week 3 projection. The two-game average is not the objective.</p><p>Every name maxes at 45 of 150. That is 30%. It is a maximum, not a quota. Quarterback, tight end, and defense do not have to add to 150. If a name hits 45 before 150 unique lineups exist, stop. Add a player. Do not raise the number.</p>";
   }
-  if (pool){
-    pool.innerHTML =
-      "<p class='note'>Prices are the DraftKings file, checked name by name. Tuten is $5,600. McLaurin is $5,100. Walker is listed on Kansas City. Likely is listed on the Giants. Montgomery is listed on Houston.</p>"+
-      "<p class='note'>Questionable and out are not in the flex. Flowers, Evans, Bowers, Moore, Warren, Coker, Pittman, Coleman, Spears, Legette, Mitchell, Miller.</p>"+
-      poolTable("QUARTERBACK · 150 / 150", qb, "")+
-      poolTable("RUNNING BACK", rb, "Caps are maximums. They do not add to 150. You start two.")+
-      poolTable("WIDE RECEIVER", wr, "Caps are maximums. You start three, plus the flex.")+
-      poolTable("TIGHT END · 150 / 150", te, "")+
-      poolTable("DEFENSE · 150 / 150", dst, "Nine defenses. No one minimum-price punt.")+
-      "<p class='note-lab'>LEFT OUT ON PURPOSE</p><ul>"+
-      "<li>Nico Collins, Jayden Daniels, Jaxson Dart, Alec Pierce, Rico Dowdle. Out or IR on the sheet.</li>"+
-      "<li>Sam Darnold. Drew Lock is the quarterback in the pool. If Darnold starts, Lock comes out and this page changes.</li>"+
-      "<li>Kyler Murray and Carson Wentz. Murray has not played. Wentz is the swap only if he is the starter Sunday. Jefferson can be used without either.</li>"+
-      "<li>Jameis Winston is $4,000 and averaging 3.5. Malik Nabers is $6,500 and averaging 7. That passing game is not in the pool. Skattebo is the only Giant.</li>"+
-      "<li>Drake Maye is not in. Romeo Doubs is not in. That is the Week 2 trap.</li>"+
-      "<li>Herbert, Lawrence, Stroud, Rodgers, Mayfield, Jones. No stack that was better than the ones above.</li>"+
-      "</ul>";
+  if(pool){
+    pool.innerHTML="<p class='note'>A player is in because the projection cleared the line. He is out if the salary file says out, IR, or doubtful. Questionable is held even when the projection likes him. Darnold is the quarterback, not Lock. Murray is in. Winston is in. Doubs is in, and he is one of four Patriots.</p><p class='note'>The salary file has Walker on Kansas City, Likely on the Giants, Montgomery on Houston, Doubs on New England, and Metcalf on Pittsburgh. The stacks follow that file.</p><p class='note'>The only chalk already near the max: Gibbs 28%, Walker 26%. Bateman, Washington, and Wilson are next, all near 19%.</p><p class='note-lab'>QUARTERBACK \u00b7 26</p><table class='sd-table'><tr><th>Player</th><th>Team</th><th>Sal</th><th>Proj</th><th>Own</th></tr><tr><td>Josh Allen</td><td>BUF</td><td>$8,000</td><td>23.8</td><td>6.3%</td></tr><tr><td>Brock Purdy</td><td>SF</td><td>$6,500</td><td>22.6</td><td>6.6%</td></tr><tr><td>Lamar Jackson</td><td>BAL</td><td>$7,500</td><td>21.8</td><td>6.7%</td></tr><tr><td>Patrick Mahomes</td><td>KC</td><td>$6,200</td><td>21.4</td><td>7.8%</td></tr><tr><td>Dak Prescott</td><td>DAL</td><td>$6,700</td><td>20.6</td><td>5.9%</td></tr><tr><td>Jared Goff</td><td>DET</td><td>$6,300</td><td>19.4</td><td>5.3%</td></tr><tr><td>Kyler Murray</td><td>MIN</td><td>$5,100</td><td>19.0</td><td>7.6%</td></tr><tr><td>Tyler Shough</td><td>NO</td><td>$5,400</td><td>18.9</td><td>10.2%</td></tr><tr><td>Joe Burrow</td><td>CIN</td><td>$6,600</td><td>18.6</td><td>1.8%</td></tr><tr><td>Trevor Lawrence</td><td>JAX</td><td>$5,700</td><td>18.4</td><td>6.4%</td></tr><tr><td>Justin Herbert</td><td>LAC</td><td>$5,800</td><td>18.2</td><td>3.1%</td></tr><tr><td>Drake Maye</td><td>NE</td><td>$6,100</td><td>18.1</td><td>3.7%</td></tr><tr><td>Bryce Young</td><td>CAR</td><td>$5,600</td><td>17.3</td><td>3.0%</td></tr><tr><td>C.J. Stroud</td><td>HOU</td><td>$5,500</td><td>16.6</td><td>2.9%</td></tr><tr><td>Baker Mayfield</td><td>TB</td><td>$5,300</td><td>16.1</td><td>2.0%</td></tr><tr><td>Kirk Cousins</td><td>LV</td><td>$4,800</td><td>16.0</td><td>1.4%</td></tr><tr><td>Sam Darnold</td><td>SEA</td><td>$5,400</td><td>16.0</td><td>1.5%</td></tr><tr><td>Malik Willis</td><td>MIA</td><td>$4,900</td><td>15.8</td><td>2.5%</td></tr><tr><td>Jacoby Brissett</td><td>ARI</td><td>$4,800</td><td>15.5</td><td>2.4%</td></tr><tr><td>Daniel Jones</td><td>IND</td><td>$5,000</td><td>14.9</td><td>1.5%</td></tr><tr><td>Geno Smith</td><td>NYJ</td><td>$4,900</td><td>14.9</td><td>4.4%</td></tr><tr><td>Deshaun Watson</td><td>CLE</td><td>$4,700</td><td>14.4</td><td>2.6%</td></tr><tr><td>Jameis Winston</td><td>NYG</td><td>$4,000</td><td>13.9</td><td>1.9%</td></tr><tr><td>Marcus Mariota</td><td>WAS</td><td>$4,500</td><td>13.6</td><td>0.8%</td></tr><tr><td>Cam Ward</td><td>TEN</td><td>$5,100</td><td>13.5</td><td>0.4%</td></tr><tr><td>Aaron Rodgers</td><td>PIT</td><td>$5,000</td><td>13.3</td><td>1.3%</td></tr></table><p class='note-lab'>RUNNING BACK \u00b7 32</p><table class='sd-table'><tr><th>Player</th><th>Team</th><th>Sal</th><th>Proj</th><th>Own</th></tr><tr><td>Christian McCaffrey</td><td>SF</td><td>$8,300</td><td>23.9</td><td>13.8%</td></tr><tr><td>Jahmyr Gibbs</td><td>DET</td><td>$8,800</td><td>22.6</td><td>28.1%</td></tr><tr><td>Kenneth Walker III</td><td>KC</td><td>$7,400</td><td>21.9</td><td>25.8%</td></tr><tr><td>Derrick Henry</td><td>BAL</td><td>$7,700</td><td>21.3</td><td>13.0%</td></tr><tr><td>Jonathan Taylor</td><td>IND</td><td>$7,600</td><td>20.2</td><td>11.4%</td></tr><tr><td>James Cook III</td><td>BUF</td><td>$6,900</td><td>19.2</td><td>13.7%</td></tr><tr><td>Breece Hall</td><td>NYJ</td><td>$6,400</td><td>19.1</td><td>10.2%</td></tr><tr><td>Javonte Williams</td><td>DAL</td><td>$6,700</td><td>18.4</td><td>7.2%</td></tr><tr><td>Ashton Jeanty</td><td>LV</td><td>$7,100</td><td>17.9</td><td>12.9%</td></tr><tr><td>De'Von Achane</td><td>MIA</td><td>$6,500</td><td>16.9</td><td>8.7%</td></tr><tr><td>Chase Brown</td><td>CIN</td><td>$6,600</td><td>16.1</td><td>10.6%</td></tr><tr><td>Chuba Hubbard</td><td>CAR</td><td>$6,100</td><td>16.1</td><td>14.2%</td></tr><tr><td>Bucky Irving</td><td>TB</td><td>$6,300</td><td>15.7</td><td>5.1%</td></tr><tr><td>Omarion Hampton</td><td>LAC</td><td>$6,800</td><td>15.6</td><td>3.0%</td></tr><tr><td>Aaron Jones Sr.</td><td>MIN</td><td>$5,900</td><td>15.3</td><td>6.3%</td></tr><tr><td>Cam Skattebo</td><td>NYG</td><td>$6,200</td><td>14.4</td><td>3.5%</td></tr><tr><td>David Montgomery</td><td>HOU</td><td>$6,000</td><td>13.6</td><td>2.2%</td></tr><tr><td>Bhayshul Tuten</td><td>JAX</td><td>$5,600</td><td>12.8</td><td>2.5%</td></tr><tr><td>Quinshon Judkins</td><td>CLE</td><td>$5,500</td><td>12.4</td><td>7.0%</td></tr><tr><td>Jadarian Price</td><td>SEA</td><td>$5,300</td><td>12.2</td><td>6.5%</td></tr><tr><td>Tony Pollard</td><td>TEN</td><td>$5,400</td><td>12.0</td><td>2.0%</td></tr><tr><td>Rhamondre Stevenson</td><td>NE</td><td>$5,400</td><td>11.8</td><td>1.9%</td></tr><tr><td>TreVeyon Henderson</td><td>NE</td><td>$5,200</td><td>11.3</td><td>1.8%</td></tr><tr><td>Travis Etienne Jr.</td><td>NO</td><td>$5,800</td><td>11.2</td><td>1.5%</td></tr><tr><td>Jacory Croskey-Merritt</td><td>WAS</td><td>$5,300</td><td>9.4</td><td>0.9%</td></tr><tr><td>Jeremiyah Love</td><td>ARI</td><td>$5,500</td><td>9.4</td><td>1.5%</td></tr><tr><td>Woody Marks</td><td>HOU</td><td>$5,000</td><td>9.3</td><td>0.9%</td></tr><tr><td>Alvin Kamara</td><td>NO</td><td>$4,800</td><td>8.7</td><td>1.0%</td></tr><tr><td>Tyler Allgeier</td><td>ARI</td><td>$5,000</td><td>8.1</td><td>0.7%</td></tr><tr><td>Emanuel Wilson</td><td>SEA</td><td>$4,900</td><td>7.7</td><td>0.5%</td></tr><tr><td>Kenny Gainwell</td><td>TB</td><td>$4,800</td><td>7.0</td><td>0.6%</td></tr><tr><td>Braelon Allen</td><td>NYJ</td><td>$4,400</td><td>7.0</td><td>0.5%</td></tr></table><p class='note-lab'>WIDE RECEIVER \u00b7 52</p><table class='sd-table'><tr><th>Player</th><th>Team</th><th>Sal</th><th>Proj</th><th>Own</th></tr><tr><td>Jaxon Smith-Njigba</td><td>SEA</td><td>$8,600</td><td>21.8</td><td>11.4%</td></tr><tr><td>Justin Jefferson</td><td>MIN</td><td>$7,500</td><td>20.5</td><td>11.7%</td></tr><tr><td>CeeDee Lamb</td><td>DAL</td><td>$7,800</td><td>19.6</td><td>12.9%</td></tr><tr><td>Chris Olave</td><td>NO</td><td>$7,200</td><td>19.6</td><td>14.7%</td></tr><tr><td>Amon-Ra St. Brown</td><td>DET</td><td>$7,900</td><td>19.3</td><td>16.8%</td></tr><tr><td>Parker Washington</td><td>JAX</td><td>$6,000</td><td>18.4</td><td>19.0%</td></tr><tr><td>Ja'Marr Chase</td><td>CIN</td><td>$8,100</td><td>18.1</td><td>8.6%</td></tr><tr><td>Garrett Wilson</td><td>NYJ</td><td>$6,300</td><td>15.7</td><td>18.8%</td></tr><tr><td>Ladd McConkey</td><td>LAC</td><td>$5,900</td><td>15.2</td><td>8.0%</td></tr><tr><td>Tetairoa McMillan</td><td>CAR</td><td>$6,000</td><td>15.1</td><td>10.4%</td></tr><tr><td>Rashod Bateman</td><td>BAL</td><td>$4,700</td><td>14.3</td><td>19.5%</td></tr><tr><td>Malik Nabers</td><td>NYG</td><td>$6,500</td><td>14.2</td><td>3.7%</td></tr><tr><td>George Pickens</td><td>DAL</td><td>$6,600</td><td>14.1</td><td>9.3%</td></tr><tr><td>Tee Higgins</td><td>CIN</td><td>$6,100</td><td>13.6</td><td>6.7%</td></tr><tr><td>Jameson Williams</td><td>DET</td><td>$5,400</td><td>13.3</td><td>9.4%</td></tr><tr><td>Emeka Egbuka</td><td>TB</td><td>$6,200</td><td>13.2</td><td>3.2%</td></tr><tr><td>Michael Wilson</td><td>ARI</td><td>$5,200</td><td>12.8</td><td>4.8%</td></tr><tr><td>Josh Downs</td><td>IND</td><td>$5,700</td><td>12.6</td><td>4.8%</td></tr><tr><td>Rashee Rice</td><td>KC</td><td>$6,400</td><td>12.4</td><td>2.9%</td></tr><tr><td>Deebo Samuel Sr.</td><td>SF</td><td>$5,300</td><td>12.1</td><td>6.3%</td></tr><tr><td>Tre Tucker</td><td>LV</td><td>$5,000</td><td>11.7</td><td>3.1%</td></tr><tr><td>Devaughn Vele</td><td>NO</td><td>$4,400</td><td>11.6</td><td>11.2%</td></tr><tr><td>Malik Washington</td><td>MIA</td><td>$4,200</td><td>11.5</td><td>9.6%</td></tr><tr><td>Jordan Addison</td><td>MIN</td><td>$4,900</td><td>11.3</td><td>3.1%</td></tr><tr><td>Carnell Tate</td><td>TEN</td><td>$5,000</td><td>11.3</td><td>2.6%</td></tr><tr><td>DK Metcalf</td><td>PIT</td><td>$5,400</td><td>11.2</td><td>8.3%</td></tr><tr><td>Chris Godwin Jr.</td><td>TB</td><td>$5,300</td><td>10.7</td><td>1.7%</td></tr><tr><td>Denzel Boston</td><td>CLE</td><td>$4,500</td><td>10.7</td><td>5.3%</td></tr><tr><td>Stefon Diggs</td><td>WAS</td><td>$5,500</td><td>10.6</td><td>1.1%</td></tr><tr><td>Romeo Doubs</td><td>NE</td><td>$5,100</td><td>10.6</td><td>2.8%</td></tr><tr><td>KC Concepcion Jr.</td><td>CLE</td><td>$4,300</td><td>10.4</td><td>5.0%</td></tr><tr><td>Xavier Worthy</td><td>KC</td><td>$4,400</td><td>10.4</td><td>7.1%</td></tr><tr><td>Wan'Dale Robinson</td><td>TEN</td><td>$4,500</td><td>10.2</td><td>1.6%</td></tr><tr><td>Jakobi Meyers</td><td>JAX</td><td>$4,800</td><td>10.2</td><td>2.6%</td></tr><tr><td>Terry McLaurin</td><td>WAS</td><td>$5,100</td><td>9.8</td><td>1.6%</td></tr><tr><td>Brian Thomas Jr.</td><td>JAX</td><td>$4,600</td><td>9.6</td><td>3.6%</td></tr><tr><td>Khalil Shakir</td><td>BUF</td><td>$4,800</td><td>9.3</td><td>4.2%</td></tr><tr><td>Xavier Hutchinson</td><td>HOU</td><td>$4,000</td><td>9.2</td><td>4.3%</td></tr><tr><td>Quentin Johnston</td><td>LAC</td><td>$4,900</td><td>8.9</td><td>1.8%</td></tr><tr><td>Keenan Allen</td><td>IND</td><td>$4,600</td><td>8.6</td><td>1.3%</td></tr><tr><td>Kayshon Boutte</td><td>HOU</td><td>$4,500</td><td>8.6</td><td>1.2%</td></tr><tr><td>Mack Hollins</td><td>NE</td><td>$4,200</td><td>8.5</td><td>3.4%</td></tr><tr><td>Isaiah Williams</td><td>NYJ</td><td>$3,300</td><td>8.3</td><td>4.2%</td></tr><tr><td>Rashid Shaheed</td><td>SEA</td><td>$4,200</td><td>8.2</td><td>1.9%</td></tr><tr><td>Marvin Harrison Jr.</td><td>ARI</td><td>$4,700</td><td>8.0</td><td>0.7%</td></tr><tr><td>Tyquan Thornton</td><td>KC</td><td>$3,300</td><td>7.7</td><td>1.2%</td></tr><tr><td>Tre' Harris</td><td>LAC</td><td>$3,900</td><td>7.7</td><td>2.0%</td></tr><tr><td>DeMario Douglas</td><td>NE</td><td>$3,700</td><td>7.4</td><td>3.2%</td></tr><tr><td>Malachi Fields</td><td>NYG</td><td>$4,400</td><td>7.4</td><td>0.5%</td></tr><tr><td>Jalen Nailor</td><td>LV</td><td>$3,700</td><td>7.4</td><td>1.1%</td></tr><tr><td>Ryan Flournoy</td><td>DAL</td><td>$3,800</td><td>7.4</td><td>4.6%</td></tr><tr><td>Jaylin Noel</td><td>HOU</td><td>$3,600</td><td>7.2</td><td>1.1%</td></tr></table><p class='note-lab'>TIGHT END \u00b7 22</p><table class='sd-table'><tr><th>Player</th><th>Team</th><th>Sal</th><th>Proj</th><th>Own</th></tr><tr><td>Trey McBride</td><td>ARI</td><td>$6,700</td><td>19.1</td><td>8.2%</td></tr><tr><td>George Kittle</td><td>SF</td><td>$4,800</td><td>14.5</td><td>8.8%</td></tr><tr><td>Travis Kelce</td><td>KC</td><td>$4,500</td><td>13.8</td><td>10.9%</td></tr><tr><td>Dalton Kincaid</td><td>BUF</td><td>$5,500</td><td>13.3</td><td>4.6%</td></tr><tr><td>Sam LaPorta</td><td>DET</td><td>$4,300</td><td>13.3</td><td>9.2%</td></tr><tr><td>Mark Andrews</td><td>BAL</td><td>$4,400</td><td>13.2</td><td>15.1%</td></tr><tr><td>Harold Fannin Jr.</td><td>CLE</td><td>$4,000</td><td>11.2</td><td>3.3%</td></tr><tr><td>Juwan Johnson</td><td>NO</td><td>$3,700</td><td>11.0</td><td>4.7%</td></tr><tr><td>Dalton Schultz</td><td>HOU</td><td>$4,200</td><td>10.9</td><td>13.1%</td></tr><tr><td>Tyler Warren</td><td>IND</td><td>$5,300</td><td>10.9</td><td>2.2%</td></tr><tr><td>T.J. Hockenson</td><td>MIN</td><td>$3,200</td><td>10.6</td><td>7.5%</td></tr><tr><td>Isaiah Likely</td><td>NYG</td><td>$4,700</td><td>10.5</td><td>1.5%</td></tr><tr><td>Oronde Gadsden II</td><td>LAC</td><td>$3,500</td><td>9.9</td><td>5.0%</td></tr><tr><td>Hunter Henry</td><td>NE</td><td>$3,900</td><td>9.0</td><td>6.2%</td></tr><tr><td>Pat Freiermuth</td><td>PIT</td><td>$3,800</td><td>8.8</td><td>2.7%</td></tr><tr><td>Brenton Strange</td><td>JAX</td><td>$3,400</td><td>8.5</td><td>3.5%</td></tr><tr><td>Darren Waller</td><td>CAR</td><td>$3,400</td><td>8.4</td><td>1.0%</td></tr><tr><td>Jake Ferguson</td><td>DAL</td><td>$4,100</td><td>8.4</td><td>1.4%</td></tr><tr><td>Greg Dulcich</td><td>MIA</td><td>$3,000</td><td>8.3</td><td>1.5%</td></tr><tr><td>Kenyon Sadiq</td><td>NYJ</td><td>$3,500</td><td>7.9</td><td>3.2%</td></tr><tr><td>AJ Barner</td><td>SEA</td><td>$3,100</td><td>7.9</td><td>1.3%</td></tr><tr><td>Gunnar Helm</td><td>TEN</td><td>$2,900</td><td>7.7</td><td>1.5%</td></tr></table><p class='note-lab'>DEFENSE \u00b7 17</p><table class='sd-table'><tr><th>Player</th><th>Team</th><th>Sal</th><th>Proj</th><th>Own</th></tr><tr><td>Seahawks</td><td>SEA</td><td>$3,800</td><td>8.2</td><td>4.7%</td></tr><tr><td>Chiefs</td><td>KC</td><td>$3,700</td><td>8.0</td><td>4.2%</td></tr><tr><td>Lions</td><td>DET</td><td>$3,500</td><td>7.5</td><td>3.0%</td></tr><tr><td>Giants</td><td>NYG</td><td>$3,400</td><td>7.0</td><td>3.9%</td></tr><tr><td>49ers</td><td>SF</td><td>$3,600</td><td>6.9</td><td>2.1%</td></tr><tr><td>Panthers</td><td>CAR</td><td>$3,000</td><td>6.6</td><td>7.2%</td></tr><tr><td>Vikings</td><td>MIN</td><td>$3,100</td><td>6.5</td><td>4.6%</td></tr><tr><td>Saints</td><td>NO</td><td>$3,300</td><td>6.3</td><td>2.6%</td></tr><tr><td>Bengals</td><td>CIN</td><td>$2,900</td><td>6.2</td><td>4.6%</td></tr><tr><td>Texans</td><td>HOU</td><td>$3,200</td><td>6.1</td><td>3.0%</td></tr><tr><td>Titans</td><td>TEN</td><td>$2,400</td><td>6.1</td><td>13.4%</td></tr><tr><td>Bills</td><td>BUF</td><td>$2,800</td><td>6.0</td><td>6.2%</td></tr><tr><td>Jaguars</td><td>JAX</td><td>$2,900</td><td>6.0</td><td>5.1%</td></tr><tr><td>Steelers</td><td>PIT</td><td>$2,700</td><td>5.8</td><td>3.8%</td></tr><tr><td>Raiders</td><td>LV</td><td>$2,600</td><td>5.8</td><td>6.1%</td></tr><tr><td>Buccaneers</td><td>TB</td><td>$2,600</td><td>5.7</td><td>4.9%</td></tr><tr><td>Patriots</td><td>NE</td><td>$2,700</td><td>5.6</td><td>2.3%</td></tr></table><p class='note-lab'>HELD</p><ul><li>Jaylen Warren, PIT, $5,700. Proj 15.2. Own 13.8%. Not in until he is active.</li><li>Mike Evans, SF, $6,800. Proj 15.2. Own 2.7%. Not in until he is active.</li><li>Brock Bowers, LV, $6,600. Proj 13.7. Own 1.6%. Not in until he is active.</li><li>Jalen Coker, CAR, $5,500. Proj 13.4. Own 8.5%. Not in until he is active.</li><li>DJ Moore, BUF, $5,800. Proj 11.6. Own 3.5%. Not in until he is active.</li><li>Michael Pittman Jr., PIT, $4,700. Proj 7.4. Own 0.6%. Not in until he is active.</li><li>Tyjae Spears, TEN, $4,900. Proj 7.4. Own 0.6%. Not in until he is active.</li><li>Xavier Legette, CAR, $3,500. Proj 5.8. Own 0.4%. Not in until he is active.</li></ul><p class='note'>A receiver under 8 points is out unless he costs $4,500 or less and still projects at least 7. A running back under 9 is out unless he costs $5,000 or less and projects at least 6.5. A tight end under 7.5 is out. A zero is out.</p>";
   }
-  if (rules){
-    rules.innerHTML =
-      "<p class='note'>Enter these. Nothing else. A rule is if the quarterback is in, bring one of his pieces. It does not force the piece to bring the quarterback.</p>"+
-      "<ul>"+
-      "<li>If Allen, at least 1 of Shakir, Kincaid, Cook.</li>"+
-      "<li>If Lamar, at least 1 of Henry, Andrews, Bateman.</li>"+
-      "<li>If Dak, at least 1 of Lamb, Pickens, Ferguson.</li>"+
-      "<li>If Purdy, at least 1 of McCaffrey, Kittle, Deebo.</li>"+
-      "<li>If Goff, at least 1 of Gibbs, St. Brown, LaPorta.</li>"+
-      "<li>If Mahomes, at least 1 of Walker, Rice, Kelce.</li>"+
-      "<li>If Burrow, at least 1 of Chase, Higgins.</li>"+
-      "<li>If Young, at least 1 of Hubbard, McMillan.</li>"+
-      "<li>If Shough, at least 1 of Olave, Juwan Johnson, Vele.</li>"+
-      "<li>If Lock, at least 1 of Smith-Njigba.</li>"+
-      "<li>If Cousins, at least 1 of Jeanty, Tucker.</li>"+
-      "<li>If Watson, at least 1 of Judkins, Boston.</li>"+
-      "<li>If Mariota, at least 1 of Diggs, McLaurin.</li>"+
-      "</ul>"+
-      "<p class='note'>Max exposure is the cap on the pool. Do not type it again as a rule. If the optimizer pushes one name to his cap and cannot find 150 unique lineups, stop and tell me. Do not raise the cap to finish.</p>";
+  if(rules){
+    rules.innerHTML="<p class='note'>If the quarterback is in the lineup, at least one of his pass catchers is in it. No minimums. No bring-back rule. Do not type the 30% into the optimizer again.</p><ul><li>If Josh Allen, at least 1 of Dalton Kincaid, Khalil Shakir.</li><li>If Brock Purdy, at least 1 of George Kittle, Deebo Samuel Sr..</li><li>If Lamar Jackson, at least 1 of Rashod Bateman, Mark Andrews.</li><li>If Patrick Mahomes, at least 1 of Travis Kelce, Rashee Rice, Xavier Worthy, Tyquan Thornton.</li><li>If Dak Prescott, at least 1 of CeeDee Lamb, George Pickens, Jake Ferguson, Ryan Flournoy.</li><li>If Jared Goff, at least 1 of Amon-Ra St. Brown, Jameson Williams, Sam LaPorta.</li><li>If Kyler Murray, at least 1 of Justin Jefferson, Jordan Addison, T.J. Hockenson.</li><li>If Tyler Shough, at least 1 of Chris Olave, Devaughn Vele, Juwan Johnson.</li><li>If Joe Burrow, at least 1 of Ja'Marr Chase, Tee Higgins.</li><li>If Trevor Lawrence, at least 1 of Parker Washington, Jakobi Meyers, Brian Thomas Jr., Brenton Strange.</li><li>If Justin Herbert, at least 1 of Ladd McConkey, Oronde Gadsden II, Quentin Johnston, Tre' Harris.</li><li>If Drake Maye, at least 1 of Romeo Doubs, Hunter Henry, Mack Hollins, DeMario Douglas.</li><li>If Bryce Young, at least 1 of Tetairoa McMillan, Darren Waller.</li><li>If C.J. Stroud, at least 1 of Dalton Schultz, Xavier Hutchinson, Kayshon Boutte, Jaylin Noel.</li><li>If Baker Mayfield, at least 1 of Emeka Egbuka, Chris Godwin Jr..</li><li>If Kirk Cousins, at least 1 of Tre Tucker, Jalen Nailor.</li><li>If Sam Darnold, at least 1 of Jaxon Smith-Njigba, Rashid Shaheed, AJ Barner.</li><li>If Malik Willis, at least 1 of Malik Washington, Greg Dulcich.</li><li>If Jacoby Brissett, at least 1 of Trey McBride, Michael Wilson, Marvin Harrison Jr..</li><li>If Daniel Jones, at least 1 of Josh Downs, Tyler Warren, Keenan Allen.</li><li>If Geno Smith, at least 1 of Garrett Wilson, Isaiah Williams, Kenyon Sadiq.</li><li>If Deshaun Watson, at least 1 of Harold Fannin Jr., Denzel Boston, KC Concepcion Jr..</li><li>If Jameis Winston, at least 1 of Malik Nabers, Isaiah Likely, Malachi Fields.</li><li>If Marcus Mariota, at least 1 of Stefon Diggs, Terry McLaurin.</li><li>If Cam Ward, at least 1 of Carnell Tate, Wan'Dale Robinson, Gunnar Helm.</li><li>If Aaron Rodgers, at least 1 of DK Metcalf, Pat Freiermuth.</li></ul>";
   }
 }
 paintClassicDfs();

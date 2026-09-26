@@ -46,7 +46,7 @@ const GAMES = [
 [3,"SUN 1:00 CBS","ne","jax","Patriots at Jaguars","1:00 p.m. ET · EverBank","NE +3 / JAX -3","45.5","JAX -154 / NE +130","OPEN","",""],
 [3,"SUN 4:05 FOX","ari","sf","Cardinals at 49ers","4:05 p.m. ET · Levi's","ARI +8.5 / SF -8.5","47.5","SF -433 / ARI +339","OPEN","",""],
 [3,"SUN 4:05 FOX","min","tb","Vikings at Buccaneers","4:05 p.m. ET · Raymond James","MIN -1.5 / TB +1.5","42.5","MIN -123 / TB +104","OPEN","",""],
-[3,"SUN 4:25 CBS","bal","dal","Ravens vs Cowboys","4:25 p.m. ET · Rio","BAL -3.5 / DAL +3.5","52.5","BAL -180 / DAL +155","OPEN","",""],
+[3,"SUN 4:25 CBS","bal","dal","Ravens at Cowboys","4:25 p.m. ET · AT&T","BAL -3.5 / DAL +3.5","53.5","BAL -176 / DAL +148","OPEN","",""],
 [3,"SUN 4:25 CBS","lv","no","Raiders at Saints","4:25 p.m. ET · Dome","LV +3 / NO -3","43.5","NO -178 / LV +150","OPEN","",""],
 [3,"SNF 8:20 NBC","lar","den","Rams at Broncos","8:20 p.m. ET · Mile High","LAR -2.5 / DEN +2.5","44","LAR -131 / DEN +110","OPEN","",""],
 [3,"MNF 8:15","phi","chi","Eagles at Bears","8:15 p.m. ET · Soldier Field","PHI -4.5 / CHI +4.5","41.5","PHI -234 / CHI +192","OPEN","",""]

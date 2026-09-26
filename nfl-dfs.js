@@ -40,16 +40,18 @@ function paintClassicDfs(){
   }
   if (rules){
     rules.innerHTML =
-      "<p class='note'>These are the rules. They are not entered until the pool has prices.</p>"+
+      "<p class='note'>Order is the rule. The optimizer is last.</p>"+
       "<ul>"+
-      "<li>QB caps, tight end caps, and defense caps each add to 150. That is 100%.</li>"+
-      "<li>Every name in the pool is available in the flex. Nobody else.</li>"+
-      "<li>A rule is a stack or a bring-back. If the quarterback is out, his receiver is already gone. That is not a rule.</li>"+
-      "<li>150 unique lineups have to exist before the pool is locked.</li>"+
-      "<li>The single entry and the 150-max do not share one set of caps.</li>"+
+      "<li>Sheet first. Freeze the salary. If a price looks wrong, stop. No rule gets written on a bad price.</li>"+
+      "<li>Sunday main only. Thursday and Monday are already gone. Outs are gone. Questionable stays off the flex until Sunday morning.</li>"+
+      "<li>Caps live on the pool only. Quarterback, tight end, and defense each add to 150. If the list cannot hit the cap, the list is wrong. Do not hope.</li>"+
+      "<li>A rule names a team and a stack. If Love, then Doubs was a bad rule because Doubs was a Patriot. If the quarterback is out, his receiver is already gone. That is not a rule.</li>"+
+      "<li>Build 150 unique lineups before anyone is locked. If one player is forced near 85%, the pool is too thin. Add a real piece. Do not raise his cap to hide it.</li>"+
+      "<li>Single entry is a different card. One lineup, correlation, and at least one player from a 4:00 game. It is not the 150-max with the chalk removed.</li>"+
       "<li>One cheap defense is not a plan.</li>"+
+      "<li>Stop Saturday night. Sunday morning is inactives and a written swap, not a new pool.</li>"+
       "</ul>"+
-      "<p class='note'>Send the main-slate sheet. Salary, projection, ownership. Then the pool and the optimizer lines get written.</p>";
+      "<p class='note'>Send the main-slate sheet. Salary, projection, ownership. Prices get checked before a name is added.</p>";
   }
 }
 paintClassicDfs();

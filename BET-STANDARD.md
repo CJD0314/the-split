@@ -30,12 +30,15 @@ LEAN is not the default fill. BET is scarce. FADE is a stay-away. PASS is a lega
 3. If there is one clean reason, stamp LEAN.
 4. If you cannot say the reason in one sentence, stamp PASS. Do not invent a ticket.
 
-### CFB PROCESS · after Sunday 9/20
-- Stamp before the 10k. Sim may only veto. Cover % is never a second reason.
+### CFB PROCESS · after Saturday 9/26
 - Side only. No props. No DFS.
 - 20-plus road = FADE. 16-plus road juice = FADE.
-- 28-plus home: cupcake no lookahead = fade until Q1 kill. Power or lookahead = fade through unless Q1 trips.
-- 6-to-14 stays 6-to-14. One plus lean per weekend. Closeout same night.
+- 28-plus home: cupcake, no lookahead = fade until the first quarter. A power opponent or a lookahead game stays a fade through unless that quarter trips.
+- First quarter: if the favorite leads by 21, the fade is dead. Write the score. A blank line means the fade was never a rule.
+- A number within 2.5 of a fade is answered before noon. The answer is the one lean, or one sentence why it is not. It is not a silent pass.
+- 6-to-14 stays 6-to-14. One plus lean per weekend, written before kickoff. Closeout same night.
+- No sim unless our number is at least a point off the board. A sim that copies the spread cannot make a bet and cannot veto one.
+- File the number before kickoff. A result with no filed number is not a stamp we keep.
 
 ### NFL PROCESS · after Monday 9/21
 - Stamp before the 10k. Sim may only veto.

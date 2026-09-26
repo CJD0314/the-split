@@ -170,4 +170,15 @@ ul.notes{margin:0;padding-left:1.15em}ul.notes li{margin:8px 0;font-size:16px;li
 .sd-table.pool td.tm{color:var(--muted);white-space:nowrap}
 .sd-table.pool td:first-child{font-weight:650}
 
-.sd-table.pool tr.grp td{color:var(--gold);font-size:11px;letter-spacing:.12em;font-weight:800;padding-top:16px;border-bottom:1px solid var(--line)}
+.sd-table.pool tr.pos td{font-size:18px;font-weight:800;letter-spacing:.14em;padding:16px 8px 8px;background:#121820;color:#f3f7fb;border-bottom:none}
+.sd-table.pool tr.pos-pq td{box-shadow:inset 4px 0 var(--gold)}
+.sd-table.pool tr.pos-pr td{box-shadow:inset 4px 0 var(--ok)}
+.sd-table.pool tr.pos-pw td{box-shadow:inset 4px 0 #7eb6ff}
+.sd-table.pool tr.pos-pt td{box-shadow:inset 4px 0 #d2a6ff}
+.sd-table.pool tr.pos-pd td{box-shadow:inset 4px 0 #f0a36b}
+.sd-table.pool tr.grp td{color:var(--muted);font-size:12px;letter-spacing:.1em;font-weight:800;padding:8px 8px 4px;border-bottom:none}
+.sd-table.pool tr.pq td:first-child{box-shadow:inset 3px 0 var(--gold)}
+.sd-table.pool tr.pr td:first-child{box-shadow:inset 3px 0 var(--ok)}
+.sd-table.pool tr.pw td:first-child{box-shadow:inset 3px 0 #7eb6ff}
+.sd-table.pool tr.pt td:first-child{box-shadow:inset 3px 0 #d2a6ff}
+.sd-table.pool tr.pd td:first-child{box-shadow:inset 3px 0 #f0a36b}

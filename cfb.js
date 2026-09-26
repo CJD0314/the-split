@@ -56,7 +56,7 @@ const CFB = {
   ["SAT SEPT 19",2636,251,"Texas 30, UTSA 6","FINAL · 8:00 ET","UTSA +30.5 / TEX -30.5","58.5","TEX -5000 / UTSA +2200","cfb-week-3-utsa-tex.html","cfb-week-3-utsa-tex-review.html","FADE WIN"]
 ],
 4: [
-  ["FRI SEPT 25",77,84,"Indiana 29, Northwestern 23","FINAL","spread not on file","--","not on file","cfb-week-4-nw-iu-review.html","cfb-week-4-nw-iu-review.html","FINAL · no cover stamp"],
+  ["FRI SEPT 25",77,84,"Indiana 29, Northwestern 23","FINAL","NU +20.5 / IU -20.5","open 47.5","IU -1900 area","cfb-week-4-nw-iu-review.html","cfb-week-4-nw-iu-review.html","FILED LATE · dog covered"],
   ["SAT NOON",251,2633,"No. 1 Texas at No. 14 Tennessee","Noon ET · ABC","TEX -5.5 / TENN +5.5","54.5","not posted","cfb-week-4-tex-tenn.html","","PASS"],
   ["SAT NOON",356,194,"Illinois at No. 7 Ohio State","Noon ET · FOX","ILL +25.5 / OSU -25.5","53.5","not posted","cfb-week-4-ill-osu.html","","PASS"],
   ["SAT NOON",2534,2641,"Sam Houston at No. 11 Texas Tech","Noon ET · TNT","SHSU +34.5 / TTU -34.5","56.5","not posted","cfb-week-4-shsu-ttu.html","","FADE"],
@@ -66,7 +66,7 @@ const CFB = {
   ["SAT 3:30",145,57,"No. 4 Ole Miss at No. 21 Florida","3:30 ET · ABC","MISS +3.5 / FLA -3.5","58.5","not posted","cfb-week-4-miss-fla.html","","PASS"],
   ["SAT 3:30",254,66,"No. 15 Utah at Iowa State","3:30 ET · FOX","UTAH -7.5 / ISU +7.5","47.5","not posted","cfb-week-4-utah-isu.html","","PASS"],
   ["SAT 3:30",229,130,"No. 17 Iowa at No. 18 Michigan","3:30 ET · CBS","IOWA +5.5 / MICH -5.5","38.5","not posted","cfb-week-4-iowa-mich.html","","PASS"],
-  ["SAT 4:00",248,290,"No. 25 Houston at Georgia Southern","4:00 ET · ESPNU","HOU -17.5 / GASO +17.5","56.5","not posted","cfb-week-4-hou-gaso.html","","PASS"],
+  ["SAT 4:00",248,290,"No. 25 Houston at Georgia Southern","4:00 ET · ESPNU","HOU -17.5 / GASO +17.5","56.5","not posted","cfb-week-4-hou-gaso.html","","LEAN"],
   ["SAT 5:00",275,213,"Wisconsin at No. 13 Penn State","5:00 ET · Peacock","WIS +10 / PSU -10","43.5","not posted","cfb-week-4-wis-psu.html","","PASS"],
   ["SAT 6:30",2117,2390,"Central Michigan at No. 6 Miami","6:30 ET · CW","CMU +41.5 / MIA -41.5","53.5","not posted","cfb-week-4-cmu-mia.html","","FADE"],
   ["SAT 7:00",2579,333,"South Carolina at No. 8 Alabama","7:00 ET · ESPN","SC +12.5 / ALA -12.5","54.5","not posted","cfb-week-4-sc-ala.html","","PASS"],

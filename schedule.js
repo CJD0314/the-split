@@ -35,26 +35,26 @@ const GAMES = [
 [2,"SNF 8:20 NBC","ind","kc","Colts at Chiefs","FINAL KC 33-30 OT","IND +6 / KC -6","46.5","KC -285 / IND +230","WIN · IND +6","nfl-week-2-ind-kc.html","nfl-week-2-ind-kc-review.html"],
 [2,"MNF 8:15 ESPN","nyg","lar","Giants at Rams","FINAL LAR 28-6","NYG +7 / LAR -7","48.5","LAR -340 / NYG +270","LOSS · NYG +7","nfl-week-2-nyg-lar.html","nfl-week-2-nyg-lar-review.html"],
 [3,"THU 8:15 Prime","atl","gb","Falcons at Packers","FINAL ATL 35-14","ATL +4.5 / GB -4.5","42.5","GB -245 / ATL +200","PASS · SE 632nd","nfl-week-3-atl-gb.html","nfl-week-3-atl-gb-review.html"],
-[3,"SUN 1:00 FOX","lac","buf","Chargers at Bills","1:00 p.m. ET · Highmark","LAC +7 / BUF -7","50","BUF -348 / LAC +278","OPEN","",""],
-[3,"SUN 1:00 FOX","car","cle","Panthers at Browns","1:00 p.m. ET · Cleveland","CAR -2.5 / CLE +2.5","42.5","CAR -140 / CLE +118","OPEN","",""],
-[3,"SUN 1:00 FOX","nyj","det","Jets at Lions","1:00 p.m. ET · Ford Field","NYJ +6.5 / DET -6.5","48.5","DET -307 / NYJ +246","OPEN","",""],
-[3,"SUN 1:00 CBS","hou","ind","Texans at Colts","1:00 p.m. ET · Lucas Oil","HOU -1.5 / IND +1.5","42.5","HOU -127 / IND +108","OPEN","",""],
-[3,"SUN 1:00 CBS","kc","mia","Chiefs at Dolphins","1:00 p.m. ET · Hard Rock","KC -10.5 / MIA +10.5","45.5","KC -671 / MIA +486","OPEN","",""],
-[3,"SUN 1:00 CBS","ten","nyg","Titans at Giants","1:00 p.m. ET · MetLife","TEN +2.5 / NYG -2.5","37.5","NYG -139 / TEN +117","OPEN","",""],
-[3,"SUN 1:00 CBS","cin","pit","Bengals at Steelers","1:00 p.m. ET · Acrisure","CIN -3.5 / PIT +3.5","42.5","CIN -183 / PIT +152","OPEN","",""],
-[3,"SUN 1:00 FOX","sea","wsh","Seahawks at Commanders","1:00 p.m. ET · Landover","SEA -7.5 / WSH +7.5","40","SEA -383 / WSH +301","OPEN","",""],
-[3,"SUN 1:00 CBS","ne","jax","Patriots at Jaguars","1:00 p.m. ET · EverBank","NE +3 / JAX -3","45.5","JAX -154 / NE +130","OPEN","",""],
-[3,"SUN 4:05 FOX","ari","sf","Cardinals at 49ers","4:05 p.m. ET · Levi's","ARI +8.5 / SF -8.5","47.5","SF -433 / ARI +339","OPEN","",""],
-[3,"SUN 4:05 FOX","min","tb","Vikings at Buccaneers","4:05 p.m. ET · Raymond James","MIN -1.5 / TB +1.5","42.5","MIN -123 / TB +104","OPEN","",""],
-[3,"SUN 4:25 CBS","bal","dal","Ravens at Cowboys","4:25 p.m. ET · AT&T","BAL -3.5 / DAL +3.5","53.5","BAL -176 / DAL +148","OPEN","",""],
-[3,"SUN 4:25 CBS","lv","no","Raiders at Saints","4:25 p.m. ET · Dome","LV +3 / NO -3","43.5","NO -178 / LV +150","OPEN","",""],
-[3,"SNF 8:20 NBC","lar","den","Rams at Broncos","8:20 p.m. ET · Mile High","LAR -2.5 / DEN +2.5","44","LAR -131 / DEN +110","OPEN","",""],
+[3,"SUN 1:00 FOX","lac","buf","Chargers at Bills","1:00 p.m. ET · Highmark","LAC +7 / BUF -7","50","BUF -348 / LAC +278","PASS · fade −348","nfl-week-3-lac-buf.html",""],
+[3,"SUN 1:00 FOX","car","cle","Panthers at Browns","1:00 p.m. ET · Cleveland","CAR -2.5 / CLE +2.5","42.5","CAR -140 / CLE +118","PASS","nfl-week-3-car-cle.html",""],
+[3,"SUN 1:00 FOX","nyj","det","Jets at Lions","1:00 p.m. ET · Ford Field","NYJ +6.5 / DET -6.5","48.5","DET -307 / NYJ +246","PASS · fade −307","nfl-week-3-nyj-det.html",""],
+[3,"SUN 1:00 CBS","hou","ind","Texans at Colts","1:00 p.m. ET · Lucas Oil","HOU -1.5 / IND +1.5","42.5","HOU -127 / IND +108","PASS","nfl-week-3-hou-ind.html",""],
+[3,"SUN 1:00 CBS","kc","mia","Chiefs at Dolphins","1:00 p.m. ET · Hard Rock","KC -10.5 / MIA +10.5","45.5","KC -671 / MIA +486","PASS · fade −671","nfl-week-3-kc-mia.html",""],
+[3,"SUN 1:00 CBS","ten","nyg","Titans at Giants","1:00 p.m. ET · MetLife","TEN +2.5 / NYG -2.5","37.5","NYG -139 / TEN +117","PASS","nfl-week-3-ten-nyg.html",""],
+[3,"SUN 1:00 CBS","cin","pit","Bengals at Steelers","1:00 p.m. ET · Acrisure","CIN -3.5 / PIT +3.5","42.5","CIN -183 / PIT +152","PASS","nfl-week-3-cin-pit.html",""],
+[3,"SUN 1:00 FOX","sea","wsh","Seahawks at Commanders","1:00 p.m. ET · Landover","SEA -7.5 / WSH +7.5","40","SEA -383 / WSH +301","PASS · fade −383","nfl-week-3-sea-wsh.html",""],
+[3,"SUN 1:00 CBS","ne","jax","Patriots at Jaguars","1:00 p.m. ET · EverBank","NE +3 / JAX -3","45.5","JAX -154 / NE +130","PASS","nfl-week-3-ne-jax.html",""],
+[3,"SUN 4:05 FOX","ari","sf","Cardinals at 49ers","4:05 p.m. ET · Levi's","ARI +8.5 / SF -8.5","47.5","SF -433 / ARI +339","PASS · fade −433","nfl-week-3-ari-sf.html",""],
+[3,"SUN 4:05 FOX","min","tb","Vikings at Buccaneers","4:05 p.m. ET · Raymond James","MIN -1.5 / TB +1.5","42.5","MIN -123 / TB +104","PASS","nfl-week-3-min-tb.html",""],
+[3,"SUN 4:25 CBS","bal","dal","Ravens at Cowboys","4:25 p.m. ET · Rio","BAL -3.5 / DAL +3.5","53.5","BAL -176 / DAL +148","PASS","nfl-week-3-bal-dal.html",""],
+[3,"SUN 4:25 CBS","lv","no","Raiders at Saints","4:25 p.m. ET · Dome","LV +3 / NO -3","43.5","NO -178 / LV +150","PASS","nfl-week-3-lv-no.html",""],
+[3,"SNF 8:20 NBC","lar","den","Rams at Broncos","8:20 p.m. ET · Mile High","LAR -2.5 / DEN +2.5","44","LAR -131 / DEN +110","PASS · no six","nfl-week-3-lar-den.html",""],
 [3,"MNF 8:15","phi","chi","Eagles at Bears","8:15 p.m. ET · Soldier Field","PHI -4.5 / CHI +4.5","41.5","PHI -234 / CHI +192","OPEN","",""]
 ];
 function shortWhen(day){
   return String(day||"").replace(" Prime","").replace(" FOX","").replace(" CBS","").replace(" NBC","").replace(" ESPN","");
 }
-const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1,"nfl-week-2-min-chi.html":1,"nfl-week-2-phi-ten.html":1,"nfl-week-2-pit-ne.html":1,"nfl-week-2-gb-nyj.html":1,"nfl-week-2-cle-tb.html":1,"nfl-week-2-no-bal.html":1,"nfl-week-2-cin-hou.html":1,"nfl-week-2-jax-den.html":1,"nfl-week-2-lv-lac.html":1,"nfl-week-2-sea-ari.html":1,"nfl-week-2-mia-sf.html":1,"nfl-week-2-wsh-dal.html":1,"nfl-week-2-ind-kc.html":1,"nfl-week-2-nyg-lar.html":1,"nfl-week-3-atl-gb.html":1};
+const DIVE_READY = {"nfl-week-1-ne-sea.html":1,"nfl-week-1-sf-lar.html":1,"nfl-week-2-det-buf.html":1,"nfl-week-2-car-atl.html":1,"nfl-week-2-min-chi.html":1,"nfl-week-2-phi-ten.html":1,"nfl-week-2-pit-ne.html":1,"nfl-week-2-gb-nyj.html":1,"nfl-week-2-cle-tb.html":1,"nfl-week-2-no-bal.html":1,"nfl-week-2-cin-hou.html":1,"nfl-week-2-jax-den.html":1,"nfl-week-2-lv-lac.html":1,"nfl-week-2-sea-ari.html":1,"nfl-week-2-mia-sf.html":1,"nfl-week-2-wsh-dal.html":1,"nfl-week-2-ind-kc.html":1,"nfl-week-2-nyg-lar.html":1,"nfl-week-3-atl-gb.html":1,"nfl-week-3-lac-buf.html":1,"nfl-week-3-car-cle.html":1,"nfl-week-3-nyj-det.html":1,"nfl-week-3-hou-ind.html":1,"nfl-week-3-kc-mia.html":1,"nfl-week-3-ten-nyg.html":1,"nfl-week-3-cin-pit.html":1,"nfl-week-3-sea-wsh.html":1,"nfl-week-3-ne-jax.html":1,"nfl-week-3-ari-sf.html":1,"nfl-week-3-min-tb.html":1,"nfl-week-3-bal-dal.html":1,"nfl-week-3-lv-no.html":1,"nfl-week-3-lar-den.html":1};
 function nflCard(g){
   const [w,day,a,h,title,when,spread,total,ml,stamp,href,review] = g;
   const isLive = (w===CURRENT_WEEK && /THU/i.test(day) && !/^FINAL/i.test(String(when)));

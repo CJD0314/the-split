@@ -183,3 +183,4 @@ ul.notes{margin:0;padding-left:1.15em}ul.notes li{margin:8px 0;font-size:16px;li
 .sd-table.pool tr.pw td:first-child{box-shadow:inset 3px 0 #7eb6ff}
 .sd-table.pool tr.pt td:first-child{box-shadow:inset 3px 0 #d2a6ff}
 .sd-table.pool tr.pd td:first-child{box-shadow:inset 3px 0 #f0a36b}
+.sd-table.pool td.num span{display:block;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:0}

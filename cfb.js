@@ -1,5 +1,5 @@
 const CFB_LOGO = id => "https://a.espncdn.com/i/teamlogos/ncaa/500/" + id + ".png";
-const CFB_WEEK = 3;
+const CFB_WEEK = 4;
 const CFB_OPEN = {
   "cfb-week-3-syr-pitt.html": {sp:"PITT -6.5", tot:"54.5", ml:"not confirmed", move:"LEAN WIN · 27-13"},
   "cfb-week-3-mia-wake.html": {sp:"MIA -19.5", tot:"50.5", ml:"MIA heavy", move:"FADE WIN · 33-20"},
@@ -54,6 +54,26 @@ const CFB = {
   ["SAT SEPT 19",277,258,"West Virginia 38, Virginia 27","FINAL · 7:30 ET","WVU +10.5 / UVA -10.5","53.5","UVA -420 / WVU +320","cfb-week-3-wvu-uva.html","cfb-week-3-wvu-uva-review.html","LEAN WIN"],
   ["SAT SEPT 19",338,2633,"Tennessee 42, Kennesaw State 9","FINAL · 7:45 ET","KENN +35.5 / TENN -35.5","60.5","TENN heavy","cfb-week-3-kenn-tenn.html","cfb-week-3-kenn-tenn-review.html","FADE WIN"],
   ["SAT SEPT 19",2636,251,"Texas 30, UTSA 6","FINAL · 8:00 ET","UTSA +30.5 / TEX -30.5","58.5","TEX -5000 / UTSA +2200","cfb-week-3-utsa-tex.html","cfb-week-3-utsa-tex-review.html","FADE WIN"]
+],
+4: [
+  ["FRI SEPT 25",77,84,"Indiana 29, Northwestern 23","FINAL","spread not on file","--","not on file","cfb-week-4-nw-iu-review.html","cfb-week-4-nw-iu-review.html","FINAL · no cover stamp"],
+  ["SAT NOON",251,2633,"No. 1 Texas at No. 14 Tennessee","Noon ET · ABC","TEX -5.5 / TENN +5.5","54.5","not posted","cfb-week-4-tex-tenn.html","","PASS"],
+  ["SAT NOON",356,194,"Illinois at No. 7 Ohio State","Noon ET · FOX","ILL +25.5 / OSU -25.5","53.5","not posted","cfb-week-4-ill-osu.html","","PASS"],
+  ["SAT NOON",2534,2641,"Sam Houston at No. 11 Texas Tech","Noon ET · TNT","SHSU +34.5 / TTU -34.5","56.5","not posted","cfb-week-4-shsu-ttu.html","","FADE"],
+  ["SAT NOON",154,97,"Wake Forest at No. 16 Louisville","Noon ET · ESPN","WAKE +11.5 / LOU -11.5","57.5","not posted","cfb-week-4-wake-lou.html","","PASS"],
+  ["SAT 2:00",87,2509,"No. 3 Notre Dame at Purdue","2:00 ET · Peacock","ND -27.5 / PUR +27.5","57.5","not posted","cfb-week-4-nd-pur.html","","FADE"],
+  ["SAT 3:30",201,61,"Oklahoma at No. 2 Georgia","3:30 ET · ESPN","OU +13.5 / UGA -13.5","43.5","not posted","cfb-week-4-ou-uga.html","","PASS"],
+  ["SAT 3:30",145,57,"No. 4 Ole Miss at No. 21 Florida","3:30 ET · ABC","MISS +3.5 / FLA -3.5","58.5","not posted","cfb-week-4-miss-fla.html","","PASS"],
+  ["SAT 3:30",254,66,"No. 15 Utah at Iowa State","3:30 ET · FOX","UTAH -7.5 / ISU +7.5","47.5","not posted","cfb-week-4-utah-isu.html","","PASS"],
+  ["SAT 3:30",229,130,"No. 17 Iowa at No. 18 Michigan","3:30 ET · CBS","IOWA +5.5 / MICH -5.5","38.5","not posted","cfb-week-4-iowa-mich.html","","PASS"],
+  ["SAT 4:00",248,290,"No. 25 Houston at Georgia Southern","4:00 ET · ESPNU","HOU -17.5 / GASO +17.5","56.5","not posted","cfb-week-4-hou-gaso.html","","PASS"],
+  ["SAT 5:00",275,213,"Wisconsin at No. 13 Penn State","5:00 ET · Peacock","WIS +10 / PSU -10","43.5","not posted","cfb-week-4-wis-psu.html","","PASS"],
+  ["SAT 6:30",2117,2390,"Central Michigan at No. 6 Miami","6:30 ET · CW","CMU +41.5 / MIA -41.5","53.5","not posted","cfb-week-4-cmu-mia.html","","FADE"],
+  ["SAT 7:00",2579,333,"South Carolina at No. 8 Alabama","7:00 ET · ESPN","SC +12.5 / ALA -12.5","54.5","not posted","cfb-week-4-sc-ala.html","","PASS"],
+  ["SAT 7:30",245,99,"No. 23 Texas A&M at No. 10 LSU","7:30 ET · ABC","TAMU +8.5 / LSU -8.5","52.5","not posted","cfb-week-4-tamu-lsu.html","","PASS"],
+  ["SAT 7:30",248,30,"No. 20 Oregon at No. 12 USC","7:30 ET · NBC","ORE -3.5 / USC +3.5","61.5","not posted","cfb-week-4-ore-usc.html","","PASS"],
+  ["SAT 7:45",142,344,"No. 19 Missouri at No. 24 Mississippi State","7:45 ET · SEC Network","MIZ +5.5 / MSST -5.5","58.5","not posted","cfb-week-4-miz-msst.html","","PASS"],
+  ["SAT 9:00",2623,2567,"Missouri State at No. 22 SMU","9:00 ET · ACC Network","MOST +32.5 / SMU -32.5","60.5","not posted","cfb-week-4-most-smu.html","","FADE"]
 ]
 };
 function reviewLink(href, review){
@@ -69,7 +89,13 @@ const DIVE_READY = {
   "cfb-week-3-buff-psu.html":1,"cfb-week-3-usc-rutg.html":1,"cfb-week-3-usu-utah.html":1,
   "cfb-week-3-utep-mich.html":1,"cfb-week-3-wku-iu.html":1,"cfb-week-3-uni-iowa.html":1,
   "cfb-week-3-troy-miz.html":1,"cfb-week-3-msu-nd.html":1,"cfb-week-3-unm-ou.html":1,
-  "cfb-week-3-kenn-tenn.html":1,"cfb-week-3-utsa-tex.html":1
+  "cfb-week-3-kenn-tenn.html":1,"cfb-week-3-utsa-tex.html":1,
+  "cfb-week-4-tex-tenn.html":1,"cfb-week-4-ill-osu.html":1,"cfb-week-4-shsu-ttu.html":1,
+  "cfb-week-4-wake-lou.html":1,"cfb-week-4-nd-pur.html":1,"cfb-week-4-ou-uga.html":1,
+  "cfb-week-4-miss-fla.html":1,"cfb-week-4-utah-isu.html":1,"cfb-week-4-iowa-mich.html":1,
+  "cfb-week-4-hou-gaso.html":1,"cfb-week-4-wis-psu.html":1,"cfb-week-4-cmu-mia.html":1,
+  "cfb-week-4-sc-ala.html":1,"cfb-week-4-tamu-lsu.html":1,"cfb-week-4-ore-usc.html":1,
+  "cfb-week-4-miz-msst.html":1,"cfb-week-4-most-smu.html":1,"cfb-week-4-nw-iu-review.html":1
 };
 function kickSort(when, day){
   const d = String(day||"").toUpperCase();
@@ -135,7 +161,7 @@ function paintCfbWeek(week){
 }
 const cfbBtns = document.getElementById("cfb-week-btns");
 if (cfbBtns) {
-  [1,2,3].forEach(function(i){
+  [1,2,3,4].forEach(function(i){
     const b=document.createElement("button");
     b.textContent="Week "+i;
     b.dataset.w = i;

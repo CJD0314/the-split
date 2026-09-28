@@ -269,3 +269,19 @@ Sunday 1 p.m. / 4 p.m. dives: no showdown block.
 
 - NFL dive: `nfl-week-X-away-home.html`
 - Review: `nfl-week-X-away-home-review.html`
+
+---
+
+## ENGINE · VOLUME FIRST
+
+Showdown 10k is `showdown_10k.py`. Checklist is `SHOWDOWN-PROCESS.md`. Live page paint is `nfl-showdown.js`.
+
+Do not run the old score-first Poisson-then-split model for a six.
+
+1. Layer 0 written on the dive (tree, ATT lift, committee cap).
+2. Layer 1 draws NegativeBinomial pass attempts + one script factor. Rush attempts are residual.
+3. Layer 2 allocates targets and carries with a multinomial on the tree. Separate RZ tree.
+4. Layer 3 draws Gamma YPT/YPC. Identity is automatic.
+5. Shared shocks only: script, pass_eff, run_eff.
+
+The 10k must print QB pass-att mean and p90. If p90 attempts stay under 45 with a WR1 out, Layer 0 failed.

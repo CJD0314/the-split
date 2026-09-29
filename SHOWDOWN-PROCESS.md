@@ -30,14 +30,13 @@ If Layer 0 is blank, do not run the 10k.
 
 ## ENGINE
 `showdown_10k.py` on this repo.
-- Layer 1: NegativeBinomial pass attempts + one script factor. Rush attempts residual. ST TD p≈0.04.
-- Layer 2: Multinomial targets and carries from the trees. Separate RZ tree.
-- Layer 3: Gamma YPT / YPC. Beta-Binomial catch. Regressed TD rates.
-- Shared shocks: script, pass_eff, run_eff. No 40×40 independent normals.
-- Identity is automatic. If pass yards ≠ rec yards the code is wrong.
-
-Emit per player: mean, p20, p50, p80, p90 DK, mean targets/carries, p(DK≥20), p(DK≥25).
-Emit for the game: QB pass-att mean and p90, total 20/50/80, mean six, p90 six.
+- Layer 1: NegativeBinomial pass attempts + trail script (~+22% on the trailing side). Rush residual. QB exit p≈0.03 taxes attempts and catchers.
+- Layer 2: Multinomial targets and carries. Committee clamp 0.55 if flagged. RZ TDs assigned on `rz_share`.
+- Layer 3: Gamma YPT / YPC. QB rush from Layer 0 (`qb_rush_att`, `qb_ypc`, `qb_rush_td`). No 12-yard stub.
+- DST uses opponent points from the same draw (DK bands). Kicker FG from stalled drives.
+- Identity automatic.
+- Prints mean six and p90 six (legal 1 CPT + 5 FLEX, both teams, ≤ $50k).
+- `python3 showdown_10k.py layer0.json --score actual.json` runs the four-test card.
 
 ## GATES — FAIL = NO LOCK
 - A Roster: `Sheet N · Rows N · Missing 0`. One row per active DK skill. No slashes. No others.

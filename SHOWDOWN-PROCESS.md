@@ -1,5 +1,5 @@
 # SHOWDOWN PROCESS
-Locked 28 Sep 2026. This is how a primetime six gets built. Skip a line and the six does not lock.
+Locked 28 Sep 2026. Door rule added 1 Oct 2026. Skip a line and the six does not lock.
 
 TNF / SNF / MNF only. Classic 150 is a different product.
 
@@ -12,10 +12,31 @@ TNF / SNF / MNF only. Classic 150 is a different product.
 3. Layer 0 sheet written on the dive (tree + ATT lift + committee cap).
 4. Run `showdown_10k.py` (volume-first). Print gates A–G.
 5. Mean six and p90 six both on the page.
-6. Build from the four-core. Captain last.
+6. Build from the door table. Captain last.
 7. Ownership overlay: total / flex / CPT. Sheet is overlay.
 8. Field size picks which six we enter.
 9. Lock. Live kills on the page.
+
+## DOOR RULE
+Two doors at the same position both stay captain-eligible until a number rejects one. A label does not.
+
+Print both before anyone is called core:
+- target share
+- catch rate
+- yards per target
+- snaps
+- captain ownership
+
+A one-game spike does not promote and does not demote. Last week is a flag. It is not a reorder unless the player is out or the snap share collapsed.
+
+Reject only if one of these is true:
+- catch rate under 50% on a 20%+ share
+- snap share under 40% in two straight games
+- the salary does not fit with the other door and both quarterbacks
+
+If neither reject fires, both stay in the captain pool. Fit decides who is in the six. The name that lost the fit is a miss, not a fade.
+
+Four-core is not a label. It is the two quarterbacks plus the two doors that survived the table.
 
 ## LAYER 0 — WRITE BEFORE THE DRAW
 For each team:
@@ -46,35 +67,33 @@ If Layer 0 is blank, do not run the 10k.
 - E Committee cap held.
 - F Scoring tail on (pick-6 / 4-FG / 2-pt). Or do not fade K/DST off a 5-point mean.
 - G Mean ≥ 12 is a must only if tree share ≥ 25% or p(DK≥20) ≥ 18%.
+- H Door table printed. No alternate label without a reject number.
 
 Identity check still runs. It is necessary. It is not sufficient.
 
-## FOUR-CORE
-If both QBs are viable and both featured skill players are viable, the row starts with those four.
+## CAPTAIN
+Captain is the last click.
+- Inside the doors that survived the table.
+- Not a salary-fit punt.
+- Not a default quarterback.
+- For 800–1,200: the under-copied name inside that pool.
+- For 200–400: the mean name is allowed.
 
-Captain is the last click and stays inside the four-core:
-- cheapest 1.5× among the four, or
-- the one the field is under-captaining.
-
-A 10-point committee back is not a captain.
-
-Last two seats: this week’s tree, not leftover salary. The OUT-replacement beats Engram / Trautman / a $200 TE. Write A vs B in one involvement sentence.
-
-Always print the legal four-core + two tree seats even if we submit a different six.
+Last two seats: this week’s tree, not leftover salary. Write A vs B in one involvement sentence.
 
 ## FIELD SIZE
 | Field | Enter |
 |---|---|
-| 200–400 | Mean six. Chalk CPT allowed if that name is in the four-core. |
-| 800–1,200 $100 | Four-core + one tree seat. CPT = under-copied name inside the four-core. |
-| 10k–15k $5 | P90 six. Still four-core first. Unique is the last seat. |
+| 200–400 | Mean six. Chalk CPT allowed if that name survived the door table. |
+| 800–1,200 $100 | Door table + one tree seat. CPT = under-copied name inside the pool. |
+| 10k–15k $5 | P90 six. Still doors first. Unique is the last seat. |
 
 Do not cut a 25-point QB to pay for a unique CPT.
 
 ## OWNERSHIP
 Three columns: total, flex, captain. Sheet and ours. Classic-slate % is not showdown %.
 
-Fade of ≥35% FLEX or ≥10% CPT gets one written why. Fading a four-core name must survive Gibbs / Adams.
+Fade of ≥35% FLEX or ≥10% CPT gets one written why. Fading a door-table name must survive Gibbs / Adams.
 
 ## LIVE KILLS
 1. Starting QB to locker room in Q1 → side dead, bring-back dead.
@@ -88,7 +107,7 @@ Score the 10k:
 3. Total inside the 20–80 band.
 4. Actual pass attempts inside the 10k p20–p80.
 
-Grade the six against the winner.
+Grade the six against the winner. If the door we called alternate outscores the door we captained, the label was the miss.
 
 ## BANNED
-7-man rows. Default QB CPT. Unique CPT outside the four-core. Last week’s TE as law. Mean-as-lock. Others bucket. Slash rows. Filling the cap for its own sake. Classic own as showdown own. Calling the $2,000 WR who exists because of an OUT a seat.
+7-man rows. Default QB CPT. Unique CPT outside the door table. Last week’s TE as law. Mean-as-lock. Others bucket. Slash rows. Filling the cap for its own sake. Classic own as showdown own. Calling the $2,000 WR who exists because of an OUT a seat. Naming one door core and the other alternate on a three-game sample.

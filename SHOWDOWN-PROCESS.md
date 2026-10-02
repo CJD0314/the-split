@@ -1,90 +1,67 @@
 # SHOWDOWN PROCESS
-Locked 28 Sep 2026. Before-lock check added 2 Oct 2026. Skip a line and the six does not lock.
+Locked 28 Sep 2026. Confirmation gate added 2 Oct 2026. Skip a line and the six does not lock.
 
 TNF / SNF / MNF only. Classic 150 is a different product.
+
+Eight winners in the library. A rule cuts a seat only if it is on the winner in 6 of 8. Five of 8 is a branch. Below that is a note. A one-night rule is not a cut.
 
 ## FORMAT
 1 CPT + 5 FLEX = 6. Cap $50,000. Both teams required. Never 7. Print the salary total before the six is called legal.
 
 ## CLOCK
-1. Stamp the side. One sentence. Sim may only veto.
-2. T-90 inactives posted.
-3. Layer 0 sheet written on the dive (tree + ATT lift + committee cap).
-4. Run `showdown_10k.py`. Print gates A-H.
-5. Mean six and p90 six both on the page. Neither is the ticket by itself.
-6. Build two sixes. Rule six and library six.
-7. Before-lock check. A new rule that fails an old winner does not cut a seat.
-8. Ownership overlay. Sheet is overlay.
-9. Lock. Live kills on the page.
+1. Stamp the side.
+2. T-90 inactives.
+3. Tree on the page.
+4. Run the 10k. Mean six and p90 six on the page. Neither is the ticket.
+5. Build the confirmed six. Branches named, not swapped in silently.
+6. Confirmation check against the eight winners.
+7. Lock.
 
-## BEFORE LOCK
-Two sixes on the page.
+## CONFIRMED — THESE CUT A SEAT
+Scored against NE-SEA, DET-BUF, IND-KC, NYG-LAR, ATL-GB, LAR-DEN, PHI-CHI, PIT-CLE.
 
-Rule six: both QBs, first share in, one back each side, one TE, cheap receiver, captain last.
-Library six: the shape the old winners used. WR1 or the QB who throws as captain. Kicker or DST named. Cheap receiver in the flex.
+- A quarterback is paired with a catcher from his team. 8 of 8. A catcher without his quarterback does not lock.
+- A top target is in the six. The WR1 is not cut on catch rate. 7 of 8. Metcalf stays.
+- The cheap receiver from the tree is in the flex. 7 of 8. A blocker is not that seat.
+- Captain is the WR1 or the quarterback who throws, unless a branch below is the decision. 6 of 8.
 
-If they differ, the difference is the decision. It is written in one line. It is not a note that gets dropped.
+## BRANCH — NAMED, NOT A CUT
+- Both quarterbacks. 5 of 8. In if they fit without cutting the WR1 or the cheap receiver.
+- Kicker or defense. 5 of 8. The swap is written. The name who comes off is the second tight end or the lower back. Not a must-have.
+- One back from each side. Failed Buffalo and Philly, both had zero backs. In unless the salary cuts the WR1.
+- One tight end. Buffalo had two. Not a cut.
 
-A new rule does not cut a seat until it is checked against the old winners. The catch-rate cut failed that check. Metcalf was the first share. Buffalo had no back and two tight ends. That shape stays in the library. It does not delete the back rule. It stops a one-night rule from becoming law.
+## LIBRARY EXCEPTIONS
+- DET-BUF: no back, two tight ends, quarterback captain, no kicker.
+- PHI-CHI: no back, kicker, cheap receiver, the only quarterback on that side as captain.
+- PIT-CLE: back captain, kicker, no tight end.
+- IND-KC: tight end captain, kicker.
 
-Salary is added on the page. A six over $50,000 is not a lineup.
-
-## SLATE LIBRARY
-A six does not lock until prior showdown winners are in the check. Columns: CPT position, CPT own, both QBs, kicker or DST, cheap piece.
-
-Through 2 Oct 2026, rank-1 shapes:
-- WR1 captain three times (London, Adams, JSN). Cheap receiver was flex, not captain.
-- QB captain three times (Allen, Stafford, Keenum). Keenum was the only QB on the field, 1.6%, not a punt.
-- TE captain once (Kelce).
-- RB captain once (Judkins, PIT-CLE). No other back has won.
-- Both QBs on 4 of 7 winners, plus the PIT-CLE winner.
-- Kicker or DST on 4 of 7, plus Szmyt on the PIT-CLE winner.
-- One winner had no back and two tight ends (DET-BUF). Known shape. Not a surprise.
-
-If the six has no kicker, name the player he replaces.
+These stay listed so a new rule cannot pretend they did not happen.
 
 ## 1,111 SIX
-Field is 800-1,200, $100, top ~245 paid. The goal is the win, not the cash.
+Confirmed seats first. Branches only if the salary still fits.
 
-Order:
-1. Both quarterbacks if they fit. A catcher does not lock without his quarterback.
-2. First share on each side stays. A catch rate under 50% flags a one-game collapse. It does not cut the WR1.
-3. One back from each side. Committee back stays off.
-4. One tight end. The second tight end is the kicker seat. Write the swap.
-5. Cheap receiver from the tree. A blocker is not that seat.
-6. Captain last. Back with the carries, or the first share, whichever is under 10% captain.
-
-If the kicker does not fit, the name that comes off is the second tight end or the lower back. Not the cheap receiver. Not a quarterback.
+1. Quarterback with a catcher.
+2. WR1 in.
+3. Cheap receiver in.
+4. Captain is the WR1 or the quarterback, unless the branch is written.
+5. Second quarterback, one back each side, kicker. In that order. Stop when the cap breaks.
+6. Salary total printed.
 
 ## DOOR RULE
-Two doors at the same position both stay captain-eligible until a number rejects one.
-
-Print both before anyone is called core: target share, catch rate, yards per target, snaps, captain ownership.
-
-A one-game spike does not promote and does not demote.
-
-Reject only on a one-game collapse, snaps under 40% in two straight games, or the salary. The door that loses the fit is a miss, not a fade.
-
-## LAYER 0
-OUT names. Target tree sums to 1.00. Carry tree. Committee cap 0.55 if snaps under 65%. Attempt lift if WR1 or TE1 is out. One rush pool. Quarterback carries come out before the backs split the rest.
+Both doors at a position stay eligible until a number rejects one. Print share, catch rate, yards per target, snaps, captain ownership. A one-game spike does not promote or demote. A one-game collapse can reject. A season catch rate on the WR1 cannot.
 
 ## GATES
-- A Roster: one row per active DK skill. Missing name fails the lock.
-- B Target tree printed.
-- C Attempt lift printed if WR1 or TE1 is out.
-- D Mean six and p90 six on the page.
-- E Committee cap held.
-- F Kicker swap written, with the name who comes off.
-- G First share still in the pool.
-- H Two sixes printed. Salary total printed. New rule checked against the library.
-
-## LIVE KILLS
-1. Starting QB to locker room in Q1. Side dead, bring-back dead.
-2. Home or favorite +14 at half. Blowout kill.
-3. Our dog down 17 after three. Side dead.
+- Roster: one row per active skill. Missing name fails.
+- Tree printed.
+- Confirmed seats filled before a branch.
+- Kicker swap written.
+- Salary added on the page.
+- New rule at 6 of 8 or it does not cut.
 
 ## AFTER
-Score the six against the winner and against the best legal six. A new rule waits until that score. If the rule would have missed an old winner, it does not become a cut.
+Score the six against the winner. A new rule waits for that score. If it would have missed an old winner, it does not become a cut.
 
 ## BANNED
-7-man rows. Default QB captain. Salary-fit punt captain. Second tight end plus no kicker swap. Cutting the WR1 on catch rate. A one-night rule used as law. Mean as the ticket. A six whose salaries were not added.
+7-man rows. Catcher without his quarterback. Cutting the WR1 on catch rate. A 5-of-8 branch used as a cut. A one-night rule used as law. A six whose salaries were not added.

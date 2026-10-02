@@ -1,21 +1,49 @@
 # SHOWDOWN PROCESS
-Locked 28 Sep 2026. Door rule added 1 Oct 2026. Skip a line and the six does not lock.
+Locked 28 Sep 2026. 1,111 rules added 2 Oct 2026 after PIT-CLE. Skip a line and the six does not lock.
 
 TNF / SNF / MNF only. Classic 150 is a different product.
 
 ## FORMAT
-1 CPT + 5 FLEX = 6. Cap $50,000. Both teams required. Never 7.
+1 CPT + 5 FLEX = 6. Cap $50,000. Both teams required. Never 7. Print the salary total before the six is called legal.
 
 ## CLOCK
 1. Stamp the side. One sentence. Sim may only veto.
 2. T-90 inactives posted.
 3. Layer 0 sheet written on the dive (tree + ATT lift + committee cap).
-4. Run `showdown_10k.py` (volume-first). Print gates A–G.
-5. Mean six and p90 six both on the page.
-6. Build from the door table. Captain last.
-7. Ownership overlay: total / flex / CPT. Sheet is overlay.
-8. Field size picks which six we enter.
+4. Run `showdown_10k.py`. Print gates A-H.
+5. Mean six and p90 six both on the page. Neither is the ticket by itself.
+6. Slate library. Prior winners checked before captain.
+7. Build the 1,111 six from the rules below. Captain last.
+8. Ownership overlay: total / flex / CPT. Sheet is overlay.
 9. Lock. Live kills on the page.
+
+## SLATE LIBRARY
+A six does not lock until prior showdown winners are in the check. Columns: CPT position, CPT own, both QBs, kicker or DST, cheap piece.
+
+Through 2 Oct 2026, rank-1 shapes:
+- WR1 captain three times (London, Adams, JSN). Cheap receiver was flex, not captain.
+- QB captain three times (Allen, Stafford, Keenum). Keenum was the only QB on the field, 1.6%, not a punt.
+- TE captain once (Kelce).
+- RB captain once (Judkins, PIT-CLE). No other back has won.
+- Both QBs on 4 of 7 winners, plus the PIT-CLE winner.
+- Kicker or DST on 4 of 7, plus Szmyt on the PIT-CLE winner.
+
+Construction rules do not override this table. If the six has no kicker, name the swap.
+
+## 1,111 SIX
+Field is 800-1,200, $100, top ~245 paid. The goal is the win, not the cash. PIT-CLE cashed at 185 and finished 20 points short.
+
+Order:
+1. Both quarterbacks if they fit. A catcher does not lock without his quarterback.
+2. First share on each side stays. A catch rate under 50% is a flag. It cuts a one-game collapse. It does not cut the WR1. Metcalf was 46% and scored 19.5.
+3. One back from each side. Committee back stays off. Sanders was 3.6.
+4. One tight end. The second tight end is the kicker seat. Write the swap. Freiermuth 10.7, Szmyt 12.
+5. Cheap receiver from the tree. Wilson was on the winner. A blocker is not that seat.
+6. Captain last. Back with the carries, or the first share, whichever is under 10% captain. Tight end captain is the one-slate shape. Fannin 11.7 was 21 points short of Judkins.
+
+If the kicker does not fit, the name that comes off is the second tight end or the lower back. Not the cheap receiver. Not a quarterback.
+
+Print the salary. A six over $50,000 is not a lineup.
 
 ## DOOR RULE
 Two doors at the same position both stay captain-eligible until a number rejects one. A label does not.
@@ -27,87 +55,44 @@ Print both before anyone is called core:
 - snaps
 - captain ownership
 
-A one-game spike does not promote and does not demote. Last week is a flag. It is not a reorder unless the player is out or the snap share collapsed.
+A one-game spike does not promote and does not demote. Last week is a flag. It reorders the table only if the player is out or the snap share collapsed.
 
 Reject only if one of these is true:
-- catch rate under 50% on a 20%+ share
+- one-game collapse on a 20%+ share (Concepcion 2-for-9). Not a season catch rate on the WR1.
 - snap share under 40% in two straight games
-- the salary does not fit with the other door and both quarterbacks
+- the salary does not fit
 
-If neither reject fires, both stay in the captain pool. Fit decides who is in the six. The name that lost the fit is a miss, not a fade.
+The door that loses the fit is a miss, not a fade.
 
-Four-core is not a label. It is the two quarterbacks plus the two doors that survived the table.
-
-## LAYER 0 — WRITE BEFORE THE DRAW
+## LAYER 0
 For each team:
-- OUT names and last two games (targets / yards / TD).
-- Target tree on remaining actives. Sums to 1.00. Named rows only.
-- Carry tree. Committee cap: if last-week snap share < 65%, rush share prior ≤ 0.55.
-- Base pass attempts (last 4 + opponent + implied total).
-- If WR1 or TE1 is OUT: ATT × 1.08–1.15. Print `ATT old → ATT new`.
-- Weather / altitude hits FG make % and deep-shot rate only.
+- OUT names and last two games.
+- Target tree on remaining actives. Sums to 1.00.
+- Carry tree. Committee cap 0.55 if last-week snaps under 65%.
+- Base pass attempts. WR1 or TE1 out: ATT x 1.08-1.15. Print the lift.
+- Weather hits FG make and deep rate only.
 
-If Layer 0 is blank, do not run the 10k.
+One rush pool. Quarterback carries come out before the backs split the rest.
 
-## ENGINE
-`showdown_10k.py` on this repo.
-- Layer 1: NegativeBinomial pass attempts + trail script (~+22% on the trailing side). Rush residual. QB exit p≈0.03 taxes attempts and catchers.
-- Layer 2: Multinomial targets and carries. Committee clamp 0.55 if flagged. RZ TDs assigned on `rz_share`.
-- Layer 3: Gamma YPT / YPC. QB rush from Layer 0 (`qb_rush_att`, `qb_ypc`, `qb_rush_td`). No 12-yard stub.
-- DST uses opponent points from the same draw (DK bands). Kicker FG from stalled drives.
-- Identity automatic.
-- Prints mean six and p90 six (legal 1 CPT + 5 FLEX, both teams, ≤ $50k).
-- `python3 showdown_10k.py layer0.json --score actual.json` runs the four-test card.
-
-## GATES — FAIL = NO LOCK
-- A Roster: `Sheet N · Rows N · Missing 0`. One row per active DK skill. No slashes. No others.
-- B Target tree printed above the 10k.
-- C Attempt lift printed if WR1/TE1 out.
-- D Mean six AND p90 six on the page.
+## GATES
+- A Roster: one row per active DK skill. Missing name fails the lock.
+- B Target tree printed.
+- C Attempt lift printed if WR1 or TE1 is out.
+- D Mean six and p90 six on the page.
 - E Committee cap held.
-- F Scoring tail on (pick-6 / 4-FG / 2-pt). Or do not fade K/DST off a 5-point mean.
-- G Mean ≥ 12 is a must only if tree share ≥ 25% or p(DK≥20) ≥ 18%.
-- H Door table printed. No alternate label without a reject number.
+- F Kicker swap written, even if he does not fit.
+- G First share still in the pool.
+- H Door table printed. Salary total printed.
 
-Identity check still runs. It is necessary. It is not sufficient.
-
-## CAPTAIN
-Captain is the last click.
-- Inside the doors that survived the table.
-- Not a salary-fit punt.
-- Not a default quarterback.
-- For 800–1,200: the under-copied name inside that pool.
-- For 200–400: the mean name is allowed.
-
-Last two seats: this week’s tree, not leftover salary. Write A vs B in one involvement sentence.
-
-## FIELD SIZE
-| Field | Enter |
-|---|---|
-| 200–400 | Mean six. Chalk CPT allowed if that name survived the door table. |
-| 800–1,200 $100 | Door table + one tree seat. CPT = under-copied name inside the pool. |
-| 10k–15k $5 | P90 six. Still doors first. Unique is the last seat. |
-
-Do not cut a 25-point QB to pay for a unique CPT.
-
-## OWNERSHIP
-Three columns: total, flex, captain. Sheet and ours. Classic-slate % is not showdown %.
-
-Fade of ≥35% FLEX or ≥10% CPT gets one written why. Fading a door-table name must survive Gibbs / Adams.
+Identity must be able to fail. A tied yard line with no salary list is not a pass.
 
 ## LIVE KILLS
-1. Starting QB to locker room in Q1 → side dead, bring-back dead.
-2. Home / favorite +14 at half → blowout kill.
-3. Our dog down 17 after three → side dead.
+1. Starting QB to locker room in Q1. Side dead, bring-back dead.
+2. Home or favorite +14 at half. Blowout kill.
+3. Our dog down 17 after three. Side dead.
 
 ## AFTER
-Score the 10k:
-1. QB attempts within 8.
-2. Top-4 target names match the tree.
-3. Total inside the 20–80 band.
-4. Actual pass attempts inside the 10k p20–p80.
-
-Grade the six against the winner. If the door we called alternate outscores the door we captained, the label was the miss.
+Score the six against the winner and against the best legal six. If the first share we cut outscores the captain, the cut was the miss.
 
 ## BANNED
-7-man rows. Default QB CPT. Unique CPT outside the door table. Last week’s TE as law. Mean-as-lock. Others bucket. Slash rows. Filling the cap for its own sake. Classic own as showdown own. Calling the $2,000 WR who exists because of an OUT a seat. Naming one door core and the other alternate on a three-game sample.
+7-man rows. Default QB captain. Salary-fit punt captain. Second tight end plus no kicker swap. Cutting the WR1 on catch rate. Mean as the ticket. Slash rows. Filling the cap for its own sake. A six whose salaries were not added.
